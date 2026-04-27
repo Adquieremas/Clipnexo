@@ -1,27 +1,34 @@
+import { localizedRoutes } from "@/lib/routes";
+
 export default function sitemap() {
   const baseUrl = "https://clipnexo.com";
 
   const routes = [
-    "/es/acerca-de",
-    "/es/descargar-tiktok",
-    "/es/descargar-tiktok-mp3",
-    "/es/como-descargar-videos-de-tiktok",
-    "/es/descargar-tiktok-sin-marca",
+    localizedRoutes.home.es,
+    localizedRoutes.video.es,
+    localizedRoutes.mp3.es,
+    localizedRoutes.guide.es,
+    localizedRoutes.withoutWatermark.es,
+    localizedRoutes.about.es,
 
-    "/en/acerca-de",
-    "/en/descargar-tiktok",
-    "/en/descargar-tiktok-mp3",
-    "/en/como-descargar-videos-de-tiktok",
-    "/en/descargar-tiktok-sin-marca",
+    localizedRoutes.home.en,
+    localizedRoutes.video.en,
+    localizedRoutes.mp3.en,
+    localizedRoutes.guide.en,
+    localizedRoutes.withoutWatermark.en,
+    localizedRoutes.about.en,
 
-    "/pt/acerca-de",
-    "/pt/descargar-tiktok",
-    "/pt/descargar-tiktok-mp3",
-    "/pt/como-descargar-videos-de-tiktok",
-    "/pt/descargar-tiktok-sin-marca",
+    localizedRoutes.home.pt,
+    localizedRoutes.video.pt,
+    localizedRoutes.mp3.pt,
+    localizedRoutes.guide.pt,
+    localizedRoutes.withoutWatermark.pt,
+    localizedRoutes.about.pt,
   ];
 
-  return routes.map((route) => ({
+  const uniqueRoutes = Array.from(new Set(routes));
+
+  return uniqueRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
   }));

@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import DownloaderBox from "@/components/DownloaderBox";
 import { getDictionary } from "@/lib/dictionary";
+import { getAlternateRoutes, getLocalizedRoute, normalizeLang } from "@/lib/routes";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
 };
 
-function normalizeLang(lang: string) {
-  if (lang === "en" || lang === "pt") return lang;
-  return "es";
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
+  const mp3Routes = getAlternateRoutes("mp3");
+  const canonicalPath = getLocalizedRoute("mp3", currentLang);
 
   const titles = {
     es: "Descargar audio TikTok MP3 gratis | Clipnexo",
@@ -31,12 +29,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: titles[currentLang as keyof typeof titles],
     description: descriptions[currentLang as keyof typeof descriptions],
     alternates: {
-      canonical: `https://clipnexo.com/${currentLang}/descargar-tiktok-mp3`,
+      canonical: `https://clipnexo.com${canonicalPath}`,
       languages: {
-        es: "https://clipnexo.com/es/descargar-tiktok-mp3",
-        en: "https://clipnexo.com/en/descargar-tiktok-mp3",
-        pt: "https://clipnexo.com/pt/descargar-tiktok-mp3",
-        "x-default": "https://clipnexo.com/es/descargar-tiktok-mp3",
+        es: `https://clipnexo.com${mp3Routes.es}`,
+        en: `https://clipnexo.com${mp3Routes.en}`,
+        pt: `https://clipnexo.com${mp3Routes.pt}`,
+        "x-default": `https://clipnexo.com${mp3Routes.es}`,
       },
     },
   };
@@ -45,6 +43,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
+  const videoToolHref = getLocalizedRoute("video", currentLang);
+  const withoutWatermarkHref = getLocalizedRoute("withoutWatermark", currentLang);
 
   const dict = getDictionary(currentLang);
   const t = (dict as any).descargarTikTokMp3;
@@ -56,6 +56,8 @@ export default async function Page({ params }: PageProps) {
       sectionIntroTitle: "¿Qué es Clipnexo y para qué sirve?",
       sectionIntroText:
         "Clipnexo es una herramienta online creada para convertir videos de TikTok a MP3 de forma rápida, simple y sin instalar programas. Está pensada para usuarios que buscan extraer audio de TikTok con una experiencia ágil y compatible con distintos dispositivos.",
+      videoToolLabel: "Descargar videos de TikTok",
+      withoutWatermarkLabel: "Descargar TikTok sin marca de agua",
       whyTitle: "¿Por qué usar Clipnexo para convertir TikTok a MP3?",
       whyText:
         "A diferencia de otras herramientas, Clipnexo ofrece una experiencia más limpia, rápida y práctica para descargar audio desde TikTok. Puedes usarlo desde Android, iPhone, tablet o computadora, sin registros complicados ni aplicaciones externas.",
@@ -96,6 +98,8 @@ export default async function Page({ params }: PageProps) {
       sectionIntroTitle: "What is Clipnexo and what is it for?",
       sectionIntroText:
         "Clipnexo is an online tool built to convert TikTok videos to MP3 quickly and without installing software. It is made for users who want to extract TikTok audio with a simple and device-friendly experience.",
+      videoToolLabel: "Download TikTok videos",
+      withoutWatermarkLabel: "Download TikTok without watermark",
       whyTitle: "Why use Clipnexo to convert TikTok to MP3?",
       whyText:
         "Compared with other tools, Clipnexo offers a cleaner, faster, and more practical experience for downloading audio from TikTok. You can use it on Android, iPhone, tablet, or desktop without complicated sign-ups or external apps.",
@@ -136,6 +140,8 @@ export default async function Page({ params }: PageProps) {
       sectionIntroTitle: "O que é o Clipnexo e para que serve?",
       sectionIntroText:
         "Clipnexo é uma ferramenta online criada para converter vídeos do TikTok em MP3 de forma rápida e sem instalar programas. Foi pensada para quem deseja extrair áudio do TikTok com praticidade e compatibilidade com vários dispositivos.",
+      videoToolLabel: "Baixar vídeos do TikTok",
+      withoutWatermarkLabel: "Baixar TikTok sem marca d’água",
       whyTitle: "Por que usar o Clipnexo para converter TikTok em MP3?",
       whyText:
         "Em comparação com outras opções, o Clipnexo oferece uma experiência mais limpa, rápida e prática para baixar áudio do TikTok. Você pode usar no Android, iPhone, tablet ou computador, sem cadastros complicados e sem apps externos.",
@@ -451,14 +457,10 @@ export default async function Page({ params }: PageProps) {
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
             <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-              <a href={`/${currentLang}/descargar-tiktok`}>
-                Descargar videos de TikTok
-              </a>
+              <a href={videoToolHref}>{content.videoToolLabel}</a>
             </li>
             <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-              <a href={`/${currentLang}/descargar-tiktok-sin-marca`}>
-                Descargar TikTok sin marca de agua
-              </a>
+              <a href={withoutWatermarkHref}>{content.withoutWatermarkLabel}</a>
             </li>
           </ul>
         </section>

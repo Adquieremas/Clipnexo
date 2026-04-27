@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-type Lang = "es" | "en" | "pt";
+import {
+  getAlternateRoutes,
+  getLocalizedRoute,
+  normalizeLang,
+} from "@/lib/routes";
 
 type PageProps = {
   params: Promise<{
     lang: string;
   }>;
-};
-
-function normalizeLang(lang: string): Lang {
-  const normalized = lang.toLowerCase();
-  return ["es", "en", "pt"].includes(normalized) ? (normalized as Lang) : "es";
-}
-
-const pathByLang: Record<Lang, string> = {
-  es: "/es/como-descargar-videos-de-tiktok",
-  en: "/en/como-descargar-videos-de-tiktok",
-  pt: "/pt/como-descargar-videos-de-tiktok",
 };
 
 const pageContent = {
@@ -31,10 +23,7 @@ const pageContent = {
     intro2:
       "Esta guía paso a paso está pensada para usuarios principiantes e intermedios de Perú, Lima y Latinoamérica que quieren guardar videos públicos de TikTok con una herramienta práctica. Si prefieres ir directo al descargador, puedes usar nuestro servicio aquí: ",
     directTool: "Descargar TikTok",
-    directToolHref: "https://www.clipnexo.com/es/descargar-tiktok",
     mp3Tool: "Descargar TikTok MP3",
-    mp3ToolHref: "https://www.clipnexo.com/es/descargar-tiktok-mp3",
-    aboutHref: "https://www.clipnexo.com/es/acerca-de",
     aboutText: "Acerca de Clipnexo",
     step1Title: "Paso 1: Copiar el enlace del video de TikTok",
     step1Text:
@@ -103,10 +92,7 @@ const pageContent = {
     intro2:
       "This step-by-step guide is designed for beginner and intermediate users who want to save public TikTok videos using a practical tool. If you prefer to go straight to the downloader, you can use it here: ",
     directTool: "Download TikTok videos",
-    directToolHref: "https://www.clipnexo.com/en/descargar-tiktok",
     mp3Tool: "Download TikTok MP3",
-    mp3ToolHref: "https://www.clipnexo.com/en/descargar-tiktok-mp3",
-    aboutHref: "https://www.clipnexo.com/en/acerca-de",
     aboutText: "About Clipnexo",
     step1Title: "Step 1: Copy the TikTok video link",
     step1Text:
@@ -175,10 +161,7 @@ const pageContent = {
     intro2:
       "Este guia passo a passo foi criado para usuários iniciantes e intermediários que querem salvar vídeos públicos do TikTok com uma ferramenta prática. Se preferir ir direto ao downloader, você pode usar aqui: ",
     directTool: "Baixar TikTok",
-    directToolHref: "https://www.clipnexo.com/pt/descargar-tiktok",
     mp3Tool: "Baixar TikTok MP3",
-    mp3ToolHref: "https://www.clipnexo.com/pt/descargar-tiktok-mp3",
-    aboutHref: "https://www.clipnexo.com/pt/acerca-de",
     aboutText: "Sobre o Clipnexo",
     step1Title: "Passo 1: Copiar o link do vídeo do TikTok",
     step1Text:
@@ -270,23 +253,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
   const t = pageContent[currentLang];
+  const guideRoutes = getAlternateRoutes("guide");
+  const canonicalPath = getLocalizedRoute("guide", currentLang);
 
   return {
     title: t.metaTitle,
     description: t.metaDescription,
     alternates: {
-      canonical: `https://www.clipnexo.com${pathByLang[currentLang]}`,
+      canonical: `https://www.clipnexo.com${canonicalPath}`,
       languages: {
-        es: `https://www.clipnexo.com${pathByLang.es}`,
-        en: `https://www.clipnexo.com${pathByLang.en}`,
-        pt: `https://www.clipnexo.com${pathByLang.pt}`,
-        "x-default": `https://www.clipnexo.com${pathByLang.es}`,
+        es: `https://www.clipnexo.com${guideRoutes.es}`,
+        en: `https://www.clipnexo.com${guideRoutes.en}`,
+        pt: `https://www.clipnexo.com${guideRoutes.pt}`,
+        "x-default": `https://www.clipnexo.com${guideRoutes.es}`,
       },
     },
     openGraph: {
       title: t.metaTitle,
       description: t.metaDescription,
-      url: `https://www.clipnexo.com${pathByLang[currentLang]}`,
+      url: `https://www.clipnexo.com${canonicalPath}`,
       siteName: "Clipnexo",
       locale: currentLang === "es" ? "es_PE" : currentLang === "en" ? "en_US" : "pt_PT",
       type: "article",
@@ -312,6 +297,10 @@ export default async function Page({ params }: PageProps) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
   const t = pageContent[currentLang];
+
+  const toolVideoHref = getLocalizedRoute("video", currentLang);
+  const toolMp3Href = getLocalizedRoute("mp3", currentLang);
+  const aboutHref = getLocalizedRoute("about", currentLang);
 
   const howToSchema = {
     "@context": "https://schema.org",
@@ -381,7 +370,7 @@ export default async function Page({ params }: PageProps) {
         <p style={{ margin: 0, fontSize: "18px", lineHeight: 1.8, color: "#444" }}>{t.intro}</p>
         <p style={{ margin: "18px 0 0 0", fontSize: "18px", lineHeight: 1.8, color: "#444" }}>
           {t.intro2}
-          <a href={t.directToolHref} style={{ color: "#2563eb", fontWeight: 700, textDecoration: "none" }}>
+          <a href={toolVideoHref} style={{ color: "#2563eb", fontWeight: 700, textDecoration: "none" }}>
             {t.directTool}
           </a>
           .
@@ -414,7 +403,7 @@ export default async function Page({ params }: PageProps) {
           <p style={{ margin: 0, fontSize: "17px", lineHeight: 1.8, color: "#444" }}>{t.step3Text}</p>
           <div style={{ marginTop: "18px", display: "flex", flexWrap: "wrap", gap: "12px" }}>
             <Link
-              href={`/${currentLang}/descargar-tiktok`}
+              href={toolVideoHref}
               style={{
                 background: "#2563eb",
                 color: "#fff",
@@ -427,7 +416,7 @@ export default async function Page({ params }: PageProps) {
               {t.directTool}
             </Link>
             <Link
-              href={`/${currentLang}/descargar-tiktok-mp3`}
+              href={toolMp3Href}
               style={{
                 background: "#16a34a",
                 color: "#fff",
@@ -456,7 +445,7 @@ export default async function Page({ params }: PageProps) {
           ))}
         </ul>
         <p style={{ margin: "18px 0 0 0", fontSize: "17px", lineHeight: 1.8, color: "#444" }}>
-          <a href={t.aboutHref} style={{ color: "#2563eb", fontWeight: 700, textDecoration: "none" }}>
+          <a href={aboutHref} style={{ color: "#2563eb", fontWeight: 700, textDecoration: "none" }}>
             {t.aboutText}
           </a>
         </p>

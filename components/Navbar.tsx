@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
 
 type NavbarProps = {
   lang: string;
@@ -9,6 +10,14 @@ type NavbarProps = {
 
 export default function Navbar({ lang }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const currentLang = normalizeLang(lang);
+
+  const navRoutes = {
+    home: getLocalizedRoute("home", currentLang),
+    video: getLocalizedRoute("video", currentLang),
+    mp3: getLocalizedRoute("mp3", currentLang),
+  };
 
   const labels = {
     es: {
@@ -28,30 +37,31 @@ export default function Navbar({ lang }: NavbarProps) {
     },
   } as const;
 
-  const t = labels[lang as keyof typeof labels] ?? labels.es;
+  const t = labels[currentLang as keyof typeof labels] ?? labels.es;
 
   const handleLangChange = (value: string) => {
-    window.location.href = `/${value}`;
+    const nextLang = normalizeLang(value);
+    window.location.href = getLocalizedRoute("home", nextLang);
   };
 
   return (
     <header className="navbar">
       <div className="nav-inner">
-        <Link href={`/${lang}`} className="logo">
+        <Link href={navRoutes.home} className="logo">
           Clipnexo
         </Link>
 
         <nav className="nav-right-desktop" aria-label="Desktop menu">
-          <Link href={`/${lang}/descargar-tiktok`} className="nav-link">
+          <Link href={navRoutes.video} className="nav-link">
             {t.download}
           </Link>
-          <Link href={`/${lang}/descargar-tiktok-mp3`} className="nav-link">
+          <Link href={navRoutes.mp3} className="nav-link">
             {t.mp3}
           </Link>
 
           <select
             className="lang-select"
-            value={lang}
+            value={currentLang}
             onChange={(e) => handleLangChange(e.target.value)}
             aria-label={t.language}
           >
@@ -75,7 +85,7 @@ export default function Navbar({ lang }: NavbarProps) {
       {mobileOpen && (
         <div className="mobile-panel">
           <Link
-            href={`/${lang}/descargar-tiktok`}
+            href={navRoutes.video}
             className="mobile-link"
             onClick={() => setMobileOpen(false)}
           >
@@ -83,7 +93,7 @@ export default function Navbar({ lang }: NavbarProps) {
           </Link>
 
           <Link
-            href={`/${lang}/descargar-tiktok-mp3`}
+            href={navRoutes.mp3}
             className="mobile-link"
             onClick={() => setMobileOpen(false)}
           >
@@ -95,7 +105,7 @@ export default function Navbar({ lang }: NavbarProps) {
 
             <select
               className="lang-select mobile-lang-select"
-              value={lang}
+              value={currentLang}
               onChange={(e) => handleLangChange(e.target.value)}
               aria-label={t.language}
             >

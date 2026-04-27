@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import DownloaderBox from "@/components/DownloaderBox";
 import { getDictionary } from "@/lib/dictionary";
+import { getAlternateRoutes, getLocalizedRoute, normalizeLang } from "@/lib/routes";
 
 export const dynamic = "force-dynamic";
 
@@ -8,14 +9,11 @@ type PageProps = {
   params: Promise<{ lang: string }>;
 };
 
-function normalizeLang(lang: string) {
-  if (lang === "en" || lang === "pt") return lang;
-  return "es";
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
+  const videoRoutes = getAlternateRoutes("video");
+  const canonicalPath = getLocalizedRoute("video", currentLang);
 
   const titles = {
     es: "Descargar videos TikTok sin marca de agua | Clipnexo",
@@ -33,12 +31,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: titles[currentLang as keyof typeof titles],
     description: descriptions[currentLang as keyof typeof descriptions],
     alternates: {
-      canonical: `https://clipnexo.com/${currentLang}/descargar-tiktok`,
+      canonical: `https://clipnexo.com${canonicalPath}`,
       languages: {
-        es: "https://clipnexo.com/es/descargar-tiktok",
-        en: "https://clipnexo.com/en/descargar-tiktok",
-        pt: "https://clipnexo.com/pt/descargar-tiktok",
-        "x-default": "https://clipnexo.com/es/descargar-tiktok",
+        es: `https://clipnexo.com${videoRoutes.es}`,
+        en: `https://clipnexo.com${videoRoutes.en}`,
+        pt: `https://clipnexo.com${videoRoutes.pt}`,
+        "x-default": `https://clipnexo.com${videoRoutes.es}`,
       },
     },
   };
@@ -47,6 +45,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
+  const mp3ToolHref = getLocalizedRoute("mp3", currentLang);
+  const withoutWatermarkHref = getLocalizedRoute("withoutWatermark", currentLang);
 
   const dict = getDictionary(currentLang);
   const t = (dict as any).descargarTikTok;
@@ -58,6 +58,8 @@ export default async function Page({ params }: PageProps) {
       sectionIntroTitle: "¿Qué es Clipnexo y para qué sirve?",
       sectionIntroText:
         "Clipnexo es una herramienta online pensada para descargar videos de TikTok sin marca de agua de forma rápida, simple y sin instalar programas. Funciona directamente desde el navegador y está diseñada para usuarios que buscan una solución práctica para guardar contenido en alta calidad.",
+      mp3ToolLabel: "Convertir TikTok a MP3",
+      withoutWatermarkLabel: "Descargar TikTok sin marca de agua",
       whyTitle: "¿Por qué usar Clipnexo para descargar TikTok?",
       whyText:
         "A diferencia de otras herramientas, Clipnexo ofrece una experiencia más limpia, rápida y compatible con distintos dispositivos. Puedes usarlo desde Android, iPhone, tablet o computadora, sin registros complicados y sin depender de aplicaciones externas.",
@@ -98,6 +100,8 @@ export default async function Page({ params }: PageProps) {
       sectionIntroTitle: "What is Clipnexo and what is it for?",
       sectionIntroText:
         "Clipnexo is an online tool designed to download TikTok videos without watermark quickly and without installing software. It works directly in your browser and is built for users who want a practical way to save videos in good quality.",
+      mp3ToolLabel: "Convert TikTok to MP3",
+      withoutWatermarkLabel: "Download TikTok without watermark",
       whyTitle: "Why use Clipnexo to download TikTok videos?",
       whyText:
         "Compared with other tools, Clipnexo offers a cleaner and faster experience across multiple devices. You can use it on Android, iPhone, tablet, or desktop without complicated sign-ups or external apps.",
@@ -138,6 +142,8 @@ export default async function Page({ params }: PageProps) {
       sectionIntroTitle: "O que é o Clipnexo e para que serve?",
       sectionIntroText:
         "Clipnexo é uma ferramenta online criada para baixar vídeos do TikTok sem marca d’água de forma rápida e sem instalar programas. Funciona diretamente no navegador e foi feita para quem busca praticidade ao salvar vídeos com boa qualidade.",
+      mp3ToolLabel: "Converter TikTok para MP3",
+      withoutWatermarkLabel: "Baixar TikTok sem marca d’água",
       whyTitle: "Por que usar o Clipnexo para baixar vídeos do TikTok?",
       whyText:
         "Em comparação com outras opções, o Clipnexo oferece uma experiência mais limpa e rápida em diferentes dispositivos. Você pode usar no Android, iPhone, tablet ou computador, sem cadastros complicados e sem apps externos.",
@@ -453,14 +459,10 @@ export default async function Page({ params }: PageProps) {
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
             <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-              <a href={`/${currentLang}/descargar-tiktok-mp3`}>
-                Convertir TikTok a MP3
-              </a>
+              <a href={mp3ToolHref}>{content.mp3ToolLabel}</a>
             </li>
             <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-              <a href={`/${currentLang}/descargar-tiktok-sin-marca`}>
-                Descargar TikTok sin marca de agua
-              </a>
+              <a href={withoutWatermarkHref}>{content.withoutWatermarkLabel}</a>
             </li>
           </ul>
         </section>

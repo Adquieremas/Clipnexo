@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
 
 type Props = {
   lang: string;
@@ -46,31 +47,15 @@ export default function Footer({ lang }: Props) {
 
   const t = text[lang as keyof typeof text] || text.es;
 
-  const routes = {
-    es: {
-      dmca: "/es/dmca",
-      privacy: "/es/politica-de-privacidad",
-      terms: "/es/terminos-de-servicio",
-      contact: "/es/contacto",
-      about: "/es/acerca-de",
-    },
-    en: {
-      dmca: "/en/dmca",
-      privacy: "/en/politica-de-privacidad",
-      terms: "/en/terminos-de-servicio",
-      contact: "/en/contacto",
-      about: "/en/acerca-de",
-    },
-    pt: {
-      dmca: "/pt/dmca",
-      privacy: "/pt/politica-de-privacidad",
-      terms: "/pt/terminos-de-servicio",
-      contact: "/pt/contacto",
-      about: "/pt/acerca-de",
-    },
-  } as const;
+  const currentLang = normalizeLang(lang);
 
-  const r = routes[lang as keyof typeof routes] || routes.es;
+  const r = {
+    dmca: getLocalizedRoute("dmca", currentLang),
+    privacy: getLocalizedRoute("privacy", currentLang),
+    terms: getLocalizedRoute("terms", currentLang),
+    contact: getLocalizedRoute("contact", currentLang),
+    about: getLocalizedRoute("about", currentLang),
+  };
 
   return (
     <footer

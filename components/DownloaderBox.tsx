@@ -19,6 +19,7 @@ import {
   hasResultContent as hasResultContentUtil,
   isTikTokUrl,
 } from "@/lib/downloader-utils";
+import { getLocalizedRoute } from "@/lib/routes";
 
 type Props = {
   lang: string;
@@ -186,6 +187,7 @@ export default function DownloaderBox({
   };
 
   const t = translations[lang] || translations.es;
+  const guideUrl = getLocalizedRoute("guide", lang);
 
   const previewVideo = getPreviewVideo(result);
   const previewImage = getPreviewImage(result);
@@ -574,7 +576,7 @@ export default function DownloaderBox({
               }}
             >
               <a
-                href={`/${lang}/como-descargar-videos-de-tiktok`}
+                href={guideUrl}
                 style={{
                   color: "#2563eb",
                   fontWeight: 600,
