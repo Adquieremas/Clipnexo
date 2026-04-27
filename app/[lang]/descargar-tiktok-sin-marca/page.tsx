@@ -6,6 +6,7 @@ import {
   getLocalizedRoute,
   normalizeLang,
 } from "@/lib/routes";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -245,18 +246,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t.metaTitle,
     description: t.metaDescription,
     alternates: {
-      canonical: `https://clipnexo.com${canonicalPath}`,
+      canonical: `${SITE_URL}${canonicalPath}`,
       languages: {
-        es: `https://clipnexo.com${routes.es}`,
-        en: `https://clipnexo.com${routes.en}`,
-        pt: `https://clipnexo.com${routes.pt}`,
-        "x-default": `https://clipnexo.com${routes.es}`,
+        es: `${SITE_URL}${routes.es}`,
+        en: `${SITE_URL}${routes.en}`,
+        pt: `${SITE_URL}${routes.pt}`,
+        "x-default": `${SITE_URL}${routes.es}`,
       },
     },
     openGraph: {
       title: t.metaTitle,
       description: t.metaDescription,
-      url: `https://clipnexo.com${canonicalPath}`,
+      url: `${SITE_URL}${canonicalPath}`,
       siteName: "Clipnexo",
       type: "article",
       locale: currentLang === "es" ? "es_PE" : currentLang === "en" ? "en_US" : "pt_PT",

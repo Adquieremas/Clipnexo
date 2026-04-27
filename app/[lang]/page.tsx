@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import DownloaderBox from "@/components/DownloaderBox";
+import { SITE_URL } from "@/lib/site";
 
-const SITE_URL = "https://clipnexo.com";
 
 const HOME_LANG_URLS = {
   es: `${SITE_URL}/es`,

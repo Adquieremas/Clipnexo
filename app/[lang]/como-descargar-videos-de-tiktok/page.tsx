@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/site";
 import {
   getAlternateRoutes,
   getLocalizedRoute,
@@ -260,18 +261,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: t.metaTitle,
     description: t.metaDescription,
     alternates: {
-      canonical: `https://www.clipnexo.com${canonicalPath}`,
+      canonical: `${SITE_URL}${canonicalPath}`,
       languages: {
-        es: `https://www.clipnexo.com${guideRoutes.es}`,
-        en: `https://www.clipnexo.com${guideRoutes.en}`,
-        pt: `https://www.clipnexo.com${guideRoutes.pt}`,
-        "x-default": `https://www.clipnexo.com${guideRoutes.es}`,
+        es: `${SITE_URL}${guideRoutes.es}`,
+        en: `${SITE_URL}${guideRoutes.en}`,
+        pt: `${SITE_URL}${guideRoutes.pt}`,
+        "x-default": `${SITE_URL}${guideRoutes.es}`,
       },
     },
     openGraph: {
       title: t.metaTitle,
       description: t.metaDescription,
-      url: `https://www.clipnexo.com${canonicalPath}`,
+      url: `${SITE_URL}${canonicalPath}`,
       siteName: "Clipnexo",
       locale: currentLang === "es" ? "es_PE" : currentLang === "en" ? "en_US" : "pt_PT",
       type: "article",

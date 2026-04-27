@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import DownloaderBox from "@/components/DownloaderBox";
 import { getDictionary } from "@/lib/dictionary";
+import { SITE_URL } from "@/lib/site";
 import { getAlternateRoutes, getLocalizedRoute, normalizeLang } from "@/lib/routes";
 
 type PageProps = {
@@ -29,12 +30,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: titles[currentLang as keyof typeof titles],
     description: descriptions[currentLang as keyof typeof descriptions],
     alternates: {
-      canonical: `https://clipnexo.com${canonicalPath}`,
+      canonical: `${SITE_URL}${canonicalPath}`,
       languages: {
-        es: `https://clipnexo.com${mp3Routes.es}`,
-        en: `https://clipnexo.com${mp3Routes.en}`,
-        pt: `https://clipnexo.com${mp3Routes.pt}`,
-        "x-default": `https://clipnexo.com${mp3Routes.es}`,
+        es: `${SITE_URL}${mp3Routes.es}`,
+        en: `${SITE_URL}${mp3Routes.en}`,
+        pt: `${SITE_URL}${mp3Routes.pt}`,
+        "x-default": `${SITE_URL}${mp3Routes.es}`,
       },
     },
   };
