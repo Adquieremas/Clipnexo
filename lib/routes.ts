@@ -12,7 +12,9 @@ export type RouteKey =
   | "terms"
   | "dmca";
 
-export const localizedRoutes: Record<RouteKey, Record<SupportedLang, string>> = {
+const TRAILING_SLASH_REGEX = /\/$/;
+
+export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<SupportedLang, string>>>> = {
   home: {
     es: "/es",
     en: "/en",
@@ -65,6 +67,11 @@ export const localizedRoutes: Record<RouteKey, Record<SupportedLang, string>> = 
   },
 };
 
+function normalizePath(pathname: string): string {
+  const normalized = pathname.trim().toLowerCase().replace(TRAILING_SLASH_REGEX, "");
+  return normalized || "/";
+}
+
 export function normalizeLang(lang: string): SupportedLang {
   const normalized = lang.trim().toLowerCase();
 
@@ -85,13 +92,13 @@ export function getAlternateRoutes(routeKey: RouteKey): Record<SupportedLang, st
 }
 
 export function getRouteKeyFromPath(pathname: string): RouteKey | null {
-  const normalizedPath = pathname.trim().toLowerCase().replace(/\/$/, "") || "/";
+  const normalizedPath = normalizePath(pathname);
 
   for (const routeKey of Object.keys(localizedRoutes) as RouteKey[]) {
     const routesByLang = localizedRoutes[routeKey];
 
     for (const lang of Object.keys(routesByLang) as SupportedLang[]) {
-      const candidate = routesByLang[lang].replace(/\/$/, "") || "/";
+      const candidate = normalizePath(routesByLang[lang]);
 
       if (candidate === normalizedPath) {
         return routeKey;

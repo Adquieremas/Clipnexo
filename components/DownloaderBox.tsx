@@ -27,6 +27,7 @@ type Props = {
   initialUrl?: string;
   shared?: boolean;
   shareError?: boolean;
+  invalidPath?: boolean;
 };
 
 export default function DownloaderBox({
@@ -35,6 +36,7 @@ export default function DownloaderBox({
   initialUrl = "",
   shared = false,
   shareError = false,
+  invalidPath = false,
 }: Props) {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -93,6 +95,7 @@ export default function DownloaderBox({
       mobilePasteHint: "Toca el campo o el botón Pegar para usar el enlace copiado.",
       sharedSuccess: "Enlace compartido de TikTok recibido correctamente.",
       sharedError: "No se recibió un enlace válido de TikTok.",
+      invalidPathMessage: "Datos no encontrados. ¡Inténtalo de nuevo!",
     },
     en: {
       title: type === "mp3" ? "TikTok to MP3" : "TikTok Video Downloader",
@@ -138,6 +141,7 @@ export default function DownloaderBox({
       mobilePasteHint: "Tap the field or the Paste button to use your copied link.",
       sharedSuccess: "Shared TikTok link received successfully.",
       sharedError: "No valid TikTok link was received.",
+      invalidPathMessage: "Data not found. Please try again!",
     },
     pt: {
       title: type === "mp3" ? "TikTok para MP3" : "Baixar vídeos do TikTok",
@@ -183,6 +187,7 @@ export default function DownloaderBox({
       mobilePasteHint: "Toque no campo ou no botão Colar para usar o link copiado.",
       sharedSuccess: "Link compartilhado do TikTok recebido com sucesso.",
       sharedError: "Nenhum link válido do TikTok foi recebido.",
+      invalidPathMessage: "Dados não encontrados. Tente novamente!",
     },
   };
 
@@ -225,8 +230,22 @@ export default function DownloaderBox({
     if (shared && shareError) {
       setStatusType("error");
       setStatusMessage(t.sharedError);
+      return;
     }
-  }, [initialUrl, shared, shareError, t.sharedError, t.sharedSuccess]);
+
+    if (invalidPath) {
+      setStatusType("error");
+      setStatusMessage(t.invalidPathMessage);
+    }
+  }, [
+    initialUrl,
+    shared,
+    shareError,
+    invalidPath,
+    t.sharedError,
+    t.sharedSuccess,
+    t.invalidPathMessage,
+  ]);
 
   const readClipboardText = async () => {
     if (typeof navigator === "undefined" || !navigator.clipboard?.readText) {

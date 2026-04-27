@@ -1,35 +1,27 @@
-import { localizedRoutes } from "@/lib/routes";
+import type { MetadataRoute } from "next";
+import { localizedRoutes, type RouteKey, type SupportedLang } from "@/lib/routes";
 
-export default function sitemap() {
-  const baseUrl = "https://clipnexo.com";
+const baseUrl = "https://clipnexo.com";
+const sitemapRouteKeys: RouteKey[] = [
+  "home",
+  "video",
+  "mp3",
+  "guide",
+  "withoutWatermark",
+  "about",
+];
+const sitemapLangs: SupportedLang[] = ["es", "en", "pt"];
+const lastModified = new Date("2026-04-27T00:00:00.000Z");
 
-  const routes = [
-    localizedRoutes.home.es,
-    localizedRoutes.video.es,
-    localizedRoutes.mp3.es,
-    localizedRoutes.guide.es,
-    localizedRoutes.withoutWatermark.es,
-    localizedRoutes.about.es,
-
-    localizedRoutes.home.en,
-    localizedRoutes.video.en,
-    localizedRoutes.mp3.en,
-    localizedRoutes.guide.en,
-    localizedRoutes.withoutWatermark.en,
-    localizedRoutes.about.en,
-
-    localizedRoutes.home.pt,
-    localizedRoutes.video.pt,
-    localizedRoutes.mp3.pt,
-    localizedRoutes.guide.pt,
-    localizedRoutes.withoutWatermark.pt,
-    localizedRoutes.about.pt,
-  ];
+export default function sitemap(): MetadataRoute.Sitemap {
+  const routes = sitemapLangs.flatMap((lang) =>
+    sitemapRouteKeys.map((routeKey) => localizedRoutes[routeKey][lang])
+  );
 
   const uniqueRoutes = Array.from(new Set(routes));
 
   return uniqueRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified,
   }));
 }

@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import DownloaderBox from "@/components/DownloaderBox";
 
+const SITE_URL = "https://clipnexo.com";
+
+const HOME_LANG_URLS = {
+  es: `${SITE_URL}/es`,
+  en: `${SITE_URL}/en`,
+  pt: `${SITE_URL}/pt`,
+} as const;
+
 type PageProps = {
   params: Promise<{ lang: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -31,12 +39,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: titles[currentLang as keyof typeof titles],
     description: descriptions[currentLang as keyof typeof descriptions],
     alternates: {
-      canonical: `https://clipnexo.com/${currentLang}`,
+      canonical: HOME_LANG_URLS[currentLang as keyof typeof HOME_LANG_URLS],
       languages: {
-        es: "https://clipnexo.com/es",
-        en: "https://clipnexo.com/en",
-        pt: "https://clipnexo.com/pt",
-        "x-default": "https://clipnexo.com/es",
+        es: HOME_LANG_URLS.es,
+        en: HOME_LANG_URLS.en,
+        pt: HOME_LANG_URLS.pt,
+        "x-default": HOME_LANG_URLS.es,
       },
     },
   };
@@ -58,6 +66,11 @@ export default async function Home({ params, searchParams }: PageProps) {
   const shareError =
     typeof resolvedSearchParams.share_error === "string"
       ? resolvedSearchParams.share_error === "1"
+      : false;
+
+  const invalidPath =
+    typeof resolvedSearchParams.invalid === "string"
+      ? resolvedSearchParams.invalid === "1"
       : false;
 
   const copy = {
@@ -233,6 +246,7 @@ export default async function Home({ params, searchParams }: PageProps) {
               initialUrl={initialUrl}
               shared={shared}
               shareError={shareError}
+              invalidPath={invalidPath}
             />
           </div>
         </div>

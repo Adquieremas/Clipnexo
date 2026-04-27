@@ -22,6 +22,17 @@ function buildInternalPath(routeKey: RouteKey, lang: string) {
   return `/${normalizeLang(lang)}${segment}`;
 }
 
+function removeTrailingSlash(pathname: string) {
+  if (pathname === "/") return pathname;
+  return pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+}
+
+function buildRedirectResponse(request: NextRequest, pathname: string) {
+  const redirectUrl = request.nextUrl.clone();
+  redirectUrl.pathname = pathname;
+  return NextResponse.redirect(redirectUrl, 308);
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -33,34 +44,56 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (pathname === "/") {
-    return NextResponse.redirect(new URL("/es", request.url));
+  const normalizedPathname = removeTrailingSlash(pathname);
+
+  if (normalizedPathname !== pathname) {
+    return buildRedirectResponse(request, normalizedPathname);
   }
 
-  const lang = normalizeLang(pathname.split("/")[1] || "es");
-  const legacyWithoutWatermarkPath = `/${lang}/descargar-tiktok-sin-marca`;
-  const translatedWithoutWatermarkPath = getLocalizedRoute("withoutWatermark", lang);
-
-  if (
-    pathname === legacyWithoutWatermarkPath &&
-    pathname !== translatedWithoutWatermarkPath
-  ) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = translatedWithoutWatermarkPath;
-    return NextResponse.redirect(redirectUrl, 308);
+  if (normalizedPathname === "/") {
+    return buildRedirectResponse(request, "/es");
   }
 
-  const routeKey = getRouteKeyFromPath(pathname);
+  const segments = normalizedPathname.split("/").filter(Boolean);
+  const rawLang = segments[0] || "es";
+  const lang = normalizeLang(rawLang);
 
-  const rewriteTarget = routeKey ? buildInternalPath(routeKey, lang) : null;
+  if (rawLang !== lang) {
+    const correctedPath = `/${lang}${segments.length > 1 ? `/${segments.slice(1).join("/")}` : ""}`;
+    return buildRedirectResponse(request, correctedPath);
+  }
 
-  if (rewriteTarget && rewriteTarget !== pathname) {
-    const rewriteUrl = request.nextUrl.clone();
-    rewriteUrl.pathname = rewriteTarget;
+  if (segments.length === 1) {
+    const response = NextResponse.next({
+      request: {
+        headers: new Headers(request.headers),
+      },
+    });
 
-    const response = NextResponse.rewrite(rewriteUrl);
     response.headers.set("x-lang", lang);
     return response;
+  }
+
+  const routeKey = getRouteKeyFromPath(normalizedPathname);
+
+  if (routeKey) {
+    const canonicalVisiblePath = getLocalizedRoute(routeKey, lang);
+    const internalPath = buildInternalPath(routeKey, lang);
+
+    if (canonicalVisiblePath && normalizedPathname !== canonicalVisiblePath) {
+      if (normalizedPathname === internalPath || normalizedPathname !== canonicalVisiblePath) {
+        return buildRedirectResponse(request, canonicalVisiblePath);
+      }
+    }
+
+    if (internalPath && normalizedPathname === canonicalVisiblePath && internalPath !== canonicalVisiblePath) {
+      const rewriteUrl = request.nextUrl.clone();
+      rewriteUrl.pathname = internalPath;
+
+      const response = NextResponse.rewrite(rewriteUrl);
+      response.headers.set("x-lang", lang);
+      return response;
+    }
   }
 
   const response = NextResponse.next({
@@ -70,7 +103,6 @@ export function middleware(request: NextRequest) {
   });
 
   response.headers.set("x-lang", lang);
-
   return response;
 }
 
