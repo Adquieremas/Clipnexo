@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { legalContent } from "@/lib/legal-content";
+import { SITE_URL } from "@/lib/site";
 
 type Lang = "es" | "en" | "pt";
 
@@ -222,12 +223,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: t.metaTitle,
     description: t.metaDescription,
     alternates: {
-      canonical: `https://clipnexo.com/${currentLang}/acerca-de`,
+      canonical: `${SITE_URL}/${currentLang}/acerca-de`,
       languages: {
-        es: "https://clipnexo.com/es/acerca-de",
-        en: "https://clipnexo.com/en/acerca-de",
-        pt: "https://clipnexo.com/pt/acerca-de",
-        "x-default": "https://clipnexo.com/es/acerca-de",
+        es: `${SITE_URL}/es/acerca-de`,
+        en: `${SITE_URL}/en/acerca-de`,
+        pt: `${SITE_URL}/pt/acerca-de`,
+        "x-default": `${SITE_URL}/es/acerca-de`,
       },
     },
   };
