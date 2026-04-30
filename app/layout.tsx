@@ -1,10 +1,9 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-
-const SITE_URL = "https://clipnexo.com";
+import { metadataBase } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase,
   title: {
     default: "Clipnexo",
     template: "%s | Clipnexo",

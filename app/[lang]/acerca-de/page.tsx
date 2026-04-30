@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { legalContent } from "@/lib/legal-content";
-import { SITE_URL } from "@/lib/site";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type Lang = "es" | "en" | "pt";
 
@@ -219,19 +219,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
   const t = (legalContent as LegalContentWithAbout).about?.[currentLang] ?? fallbackAbout[currentLang];
 
-  return {
+  return buildSeoMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
-    alternates: {
-      canonical: `${SITE_URL}/${currentLang}/acerca-de`,
-      languages: {
-        es: `${SITE_URL}/es/acerca-de`,
-        en: `${SITE_URL}/en/acerca-de`,
-        pt: `${SITE_URL}/pt/acerca-de`,
-        "x-default": `${SITE_URL}/es/acerca-de`,
-      },
-    },
-  };
+    routeKey: "about",
+    lang: currentLang,
+  });
 }
 
 export default async function Page({ params }: PageProps) {

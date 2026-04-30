@@ -1,3 +1,3 @@
 
 
-export const SITE_URL = "https://www.clipnexo.com";
+export const SITE_URL = "https://clipnexo.com";

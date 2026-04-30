@@ -6,13 +6,22 @@ export type RouteKey =
   | "mp3"
   | "guide"
   | "withoutWatermark"
+  | "tiktokBio"
+  | "tiktokIdeas"
+  | "tiktokHooks"
+  | "tiktokCaptions"
+  | "tiktokHashtags"
+  | "shortVideoTitleHashtag"
   | "about"
+  | "blog"
   | "contact"
   | "privacy"
   | "terms"
   | "dmca";
 
 const TRAILING_SLASH_REGEX = /\/$/;
+
+export const supportedLangs: readonly SupportedLang[] = ["es", "en", "pt"];
 
 export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<SupportedLang, string>>>> = {
   home: {
@@ -40,10 +49,45 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     en: "/en/download-tiktok-without-watermark",
     pt: "/pt/baixar-tiktok-sem-marca-dagua",
   },
+  tiktokBio: {
+    es: "/es/generador-bio-tiktok",
+    en: "/en/tiktok-bio-generator",
+    pt: "/pt/gerador-bio-tiktok",
+  },
+  tiktokIdeas: {
+    es: "/es/ideas-para-tiktok",
+    en: "/en/tiktok-video-ideas",
+    pt: "/pt/ideias-para-tiktok",
+  },
+  tiktokHooks: {
+    es: "/es/ganchos-virales-tiktok",
+    en: "/en/tiktok-hook-generator",
+    pt: "/pt/ganchos-virais-tiktok",
+  },
+  tiktokCaptions: {
+    es: "/es/generador-captions-tiktok",
+    en: "/en/tiktok-caption-generator",
+    pt: "/pt/gerador-legendas-tiktok",
+  },
+  tiktokHashtags: {
+    es: "/es/generador-hashtags-tiktok",
+    en: "/en/tiktok-hashtag-generator",
+    pt: "/pt/gerador-hashtags-tiktok",
+  },
+  shortVideoTitleHashtag: {
+    es: "/es/generador-titulos-hashtags-videos-cortos",
+    en: "/en/short-video-title-hashtag-generator",
+    pt: "/pt/gerador-titulos-hashtags-videos-curtos",
+  },
   about: {
     es: "/es/acerca-de",
     en: "/en/acerca-de",
     pt: "/pt/acerca-de",
+  },
+  blog: {
+    es: "/es/blog",
+    en: "/en/blog",
+    pt: "/pt/blog",
   },
   contact: {
     es: "/es/contacto",
@@ -66,6 +110,23 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     pt: "/pt/dmca",
   },
 };
+
+export const seoRoutes = localizedRoutes;
+
+export const indexableRouteKeys: readonly RouteKey[] = [
+  "home",
+  "video",
+  "mp3",
+  "guide",
+  "withoutWatermark",
+  "tiktokBio",
+  "tiktokIdeas",
+  "tiktokHooks",
+  "tiktokCaptions",
+  "tiktokHashtags",
+  "shortVideoTitleHashtag",
+  "about",
+];
 
 function normalizePath(pathname: string): string {
   const normalized = pathname.trim().toLowerCase().replace(TRAILING_SLASH_REGEX, "");

@@ -1,63 +1,35 @@
 import type { Metadata } from "next";
 
 import { legalContent } from "@/lib/legal-content";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type Lang = "es" | "en" | "pt";
 
 type PageProps = {
-
   params: Promise<{
-
     lang: string;
-
   }>;
-
 };
 
 function normalizeLang(lang: string): Lang {
-
   return ["es", "en", "pt"].includes(lang) ? (lang as Lang) : "es";
-
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-
   const { lang } = await params;
-
   const currentLang = normalizeLang(lang);
-
   const t = legalContent.terms[currentLang];
 
-  return {
-
+  return buildSeoMetadata({
     title: t.metaTitle,
-
     description: t.metaDescription,
-
     robots: {
-
       index: false,
-
       follow: true,
-
     },
-
-    alternates: {
-
-      languages: {
-
-        es: "https://clipnexo.com/es/terminos-de-servicio",
-
-        en: "https://clipnexo.com/en/terminos-de-servicio",
-
-        pt: "https://clipnexo.com/pt/terminos-de-servicio",
-
-      },
-
-    },
-
-  };
-
+    routeKey: "terms",
+    lang: currentLang,
+  });
 }
 
 export default async function Page({ params }: PageProps) {

@@ -13,6 +13,12 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   mp3: "/descargar-tiktok-mp3",
   guide: "/como-descargar-videos-de-tiktok",
   withoutWatermark: "/descargar-tiktok-sin-marca",
+  tiktokBio: "/generador-bio-tiktok",
+  tiktokIdeas: "/ideas-para-tiktok",
+  tiktokHooks: "/ganchos-virales-tiktok",
+  tiktokCaptions: "/generador-captions-tiktok",
+  tiktokHashtags: "/generador-hashtags-tiktok",
+  shortVideoTitleHashtag: "/generador-titulos-hashtags-videos-cortos",
 };
 
 function buildInternalPath(routeKey: RouteKey, lang: string) {
@@ -20,6 +26,16 @@ function buildInternalPath(routeKey: RouteKey, lang: string) {
   if (!segment) return null;
 
   return `/${normalizeLang(lang)}${segment}`;
+}
+
+function getRouteKeyFromInternalPath(pathname: string, lang: string): RouteKey | null {
+  for (const routeKey of Object.keys(INTERNAL_ROUTE_SEGMENTS) as RouteKey[]) {
+    if (buildInternalPath(routeKey, lang) === pathname) {
+      return routeKey;
+    }
+  }
+
+  return null;
 }
 
 function removeTrailingSlash(pathname: string) {
@@ -50,6 +66,10 @@ export function middleware(request: NextRequest) {
     return buildRedirectResponse(request, normalizedPathname);
   }
 
+  if (normalizedPathname === "/share-target") {
+    return NextResponse.next();
+  }
+
   if (normalizedPathname === "/") {
     return buildRedirectResponse(request, "/es");
   }
@@ -74,7 +94,9 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  const routeKey = getRouteKeyFromPath(normalizedPathname);
+  const routeKey =
+    getRouteKeyFromPath(normalizedPathname) ??
+    getRouteKeyFromInternalPath(normalizedPathname, lang);
 
   if (routeKey) {
     const canonicalVisiblePath = getLocalizedRoute(routeKey, lang);

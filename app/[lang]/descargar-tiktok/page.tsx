@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import DownloaderBox from "@/components/DownloaderBox";
 import { getDictionary } from "@/lib/dictionary";
-import { SITE_URL } from "@/lib/site";
-import { getAlternateRoutes, getLocalizedRoute, normalizeLang } from "@/lib/routes";
+import { getMoreToolsLinks } from "@/lib/tools-content";
+import { normalizeLang } from "@/lib/routes";
+import { buildSeoMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -10,11 +12,26 @@ type PageProps = {
   params: Promise<{ lang: string }>;
 };
 
+type DownloadDictionarySection = {
+  title: string;
+  intro: string;
+  stepsTitle: string;
+  steps: readonly string[];
+  benefitsTitle: string;
+  benefits: readonly string[];
+  faqTitle: string;
+  faq: ReadonlyArray<{
+    q: string;
+    a: string;
+  }>;
+  introTitle?: string;
+  extraTitle?: string;
+  extraContent?: string;
+};
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
-  const videoRoutes = getAlternateRoutes("video");
-  const canonicalPath = getLocalizedRoute("video", currentLang);
 
   const titles = {
     es: "Descargar videos TikTok sin marca de agua | Clipnexo",
@@ -28,29 +45,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     pt: "Baixe vídeos do TikTok sem marca d’água grátis. Rápido, online e compatível com celular e PC.",
   };
 
-  return {
+  return buildSeoMetadata({
     title: titles[currentLang as keyof typeof titles],
     description: descriptions[currentLang as keyof typeof descriptions],
-    alternates: {
-      canonical: `${SITE_URL}${canonicalPath}`,
-      languages: {
-        es: `${SITE_URL}${videoRoutes.es}`,
-        en: `${SITE_URL}${videoRoutes.en}`,
-        pt: `${SITE_URL}${videoRoutes.pt}`,
-        "x-default": `${SITE_URL}${videoRoutes.es}`,
-      },
-    },
-  };
+    routeKey: "video",
+    lang: currentLang,
+  });
 }
 
 export default async function Page({ params }: PageProps) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
-  const mp3ToolHref = getLocalizedRoute("mp3", currentLang);
-  const withoutWatermarkHref = getLocalizedRoute("withoutWatermark", currentLang);
+  const relatedLinks = getMoreToolsLinks(currentLang, "video");
 
   const dict = getDictionary(currentLang);
-  const t = (dict as any).descargarTikTok;
+  const t: DownloadDictionarySection = dict.descargarTikTok;
 
   const seoCopy = {
     es: {
@@ -459,12 +468,11 @@ export default async function Page({ params }: PageProps) {
             {content.toolsIntro}
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
-            <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-              <a href={mp3ToolHref}>{content.mp3ToolLabel}</a>
-            </li>
-            <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-              <a href={withoutWatermarkHref}>{content.withoutWatermarkLabel}</a>
-            </li>
+            {relatedLinks.map((link) => (
+              <li key={link.routeKey} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
           </ul>
         </section>
       </section>

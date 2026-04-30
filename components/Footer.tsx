@@ -16,6 +16,7 @@ export default function Footer({ lang }: Props) {
         terms: "Términos de servicio",
         contact: "Contacto",
         about: "Acerca de",
+        tools: "Herramientas",
       },
       rights: "Todos los derechos reservados.",
     },
@@ -28,6 +29,7 @@ export default function Footer({ lang }: Props) {
         terms: "Terms of Service",
         contact: "Contact",
         about: "About",
+        tools: "Tools",
       },
       rights: "All rights reserved.",
     },
@@ -40,6 +42,7 @@ export default function Footer({ lang }: Props) {
         terms: "Termos de Serviço",
         contact: "Contato",
         about: "Sobre",
+        tools: "Ferramentas",
       },
       rights: "Todos os direitos reservados.",
     },
@@ -55,6 +58,7 @@ export default function Footer({ lang }: Props) {
     terms: getLocalizedRoute("terms", currentLang),
     contact: getLocalizedRoute("contact", currentLang),
     about: getLocalizedRoute("about", currentLang),
+    tools: getLocalizedRoute("tiktokHashtags", currentLang),
   };
 
   return (
@@ -105,6 +109,9 @@ export default function Footer({ lang }: Props) {
           </Link>
           <Link href={r.about} style={{ color: "#444", textDecoration: "none", fontSize: "14px" }}>
             {t.links.about}
+          </Link>
+          <Link href={r.tools} style={{ color: "#444", textDecoration: "none", fontSize: "14px" }}>
+            {t.links.tools}
           </Link>
         </nav>
       </div>

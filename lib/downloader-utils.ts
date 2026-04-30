@@ -1,21 +1,38 @@
+export type DownloaderResult = {
+  play?: string;
+  video?: string;
+  videoUrl?: string;
+  cover?: string;
+  thumbnail?: string;
+  image?: string;
+  description?: string;
+  desc?: string;
+  title?: string;
+  text?: string;
+  hashtags?: string[] | string;
+  audio?: string;
+  error?: string | boolean;
+  [key: string]: unknown;
+} | null;
+
 export function isTikTokUrl(value: string) {
   const normalized = value.trim().toLowerCase();
   return normalized.includes("tiktok.com") || normalized.includes("vm.tiktok.com");
 }
 
-export function getPreviewVideo(result: any) {
+export function getPreviewVideo(result: DownloaderResult) {
   return result?.play || result?.video || result?.videoUrl || null;
 }
 
-export function getPreviewImage(result: any) {
+export function getPreviewImage(result: DownloaderResult) {
   return result?.cover || result?.thumbnail || result?.image || null;
 }
 
-export function getDescriptionText(result: any) {
+export function getDescriptionText(result: DownloaderResult) {
   return result?.description || result?.desc || result?.title || result?.text || "";
 }
 
-export function getHashtagList(result: any): string[] {
+export function getHashtagList(result: DownloaderResult): string[] {
   if (Array.isArray(result?.hashtags)) {
     return result.hashtags;
   }
@@ -35,7 +52,7 @@ export function getHashtagList(result: any): string[] {
   return [];
 }
 
-export function hasResultContent(result: any) {
+export function hasResultContent(result: DownloaderResult) {
   const previewVideo = getPreviewVideo(result);
   const previewImage = getPreviewImage(result);
   const descriptionText = getDescriptionText(result);

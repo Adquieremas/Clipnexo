@@ -1,4 +1,7 @@
-export default function robots() {
+import type { MetadataRoute } from "next";
+import { getAbsoluteUrl } from "@/lib/seo";
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
@@ -6,6 +9,6 @@ export default function robots() {
         allow: "/",
       },
     ],
-    sitemap: "https://clipnexo.com/sitemap.xml",
+    sitemap: getAbsoluteUrl("/sitemap.xml"),
   };
 }

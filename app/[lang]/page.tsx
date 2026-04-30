@@ -1,23 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import DownloaderBox from "@/components/DownloaderBox";
-import { SITE_URL } from "@/lib/site";
-
-
-const HOME_LANG_URLS = {
-  es: `${SITE_URL}/es`,
-  en: `${SITE_URL}/en`,
-  pt: `${SITE_URL}/pt`,
-} as const;
+import { getMoreToolsLinks } from "@/lib/tools-content";
+import { normalizeLang } from "@/lib/routes";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
-
-function normalizeLang(lang: string) {
-  if (lang === "en" || lang === "pt") return lang;
-  return "es";
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
@@ -35,19 +26,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     pt: "Baixe vídeos do TikTok sem marca d’água e áudio MP3 grátis. Rápido, online e compatível com celular e PC.",
   };
 
-  return {
+  return buildSeoMetadata({
     title: titles[currentLang as keyof typeof titles],
     description: descriptions[currentLang as keyof typeof descriptions],
-    alternates: {
-      canonical: HOME_LANG_URLS[currentLang as keyof typeof HOME_LANG_URLS],
-      languages: {
-        es: HOME_LANG_URLS.es,
-        en: HOME_LANG_URLS.en,
-        pt: HOME_LANG_URLS.pt,
-        "x-default": HOME_LANG_URLS.es,
-      },
-    },
-  };
+    routeKey: "home",
+    lang: currentLang,
+  });
 }
 
 export default async function Home({ params, searchParams }: PageProps) {
@@ -94,6 +78,9 @@ export default async function Home({ params, searchParams }: PageProps) {
         "No necesitas instalar nada",
         "Rápido y gratis",
       ],
+      toolsTitle: "Herramientas para creadores",
+      toolsIntro:
+        "Además de descargar videos, puedes crear bios, ideas, ganchos, captions, hashtags y títulos para tus videos cortos.",
       faqTitle: "Preguntas frecuentes",
       faqs: [
         {
@@ -134,6 +121,9 @@ export default async function Home({ params, searchParams }: PageProps) {
         "No installation required",
         "Fast and free",
       ],
+      toolsTitle: "Tools for creators",
+      toolsIntro:
+        "Besides downloading videos, you can create bios, ideas, hooks, captions, hashtags and titles for short videos.",
       faqTitle: "Frequently asked questions",
       faqs: [
         {
@@ -174,6 +164,9 @@ export default async function Home({ params, searchParams }: PageProps) {
         "Não precisa instalar nada",
         "Rápido e grátis",
       ],
+      toolsTitle: "Ferramentas para criadores",
+      toolsIntro:
+        "Além de baixar vídeos, você pode criar bios, ideias, ganchos, legendas, hashtags e títulos para vídeos curtos.",
       faqTitle: "Perguntas frequentes",
       faqs: [
         {
@@ -197,6 +190,7 @@ export default async function Home({ params, searchParams }: PageProps) {
   } as const;
 
   const t = copy[currentLang as keyof typeof copy] ?? copy.es;
+  const toolLinks = getMoreToolsLinks(currentLang);
 
   return (
     <main>
@@ -338,6 +332,37 @@ export default async function Home({ params, searchParams }: PageProps) {
               <li key={item}>{item}</li>
             ))}
           </ul>
+
+          <h2
+            style={{
+              marginTop: "34px",
+              fontSize: "clamp(23px, 3vw, 34px)",
+              fontWeight: 800,
+              lineHeight: 1.2,
+              color: "#111111",
+            }}
+          >
+            {t.toolsTitle}
+          </h2>
+
+          <p
+            style={{
+              marginTop: "18px",
+              fontSize: "17px",
+              lineHeight: 1.8,
+              color: "#222222",
+            }}
+          >
+            {t.toolsIntro}
+          </p>
+
+          <div className="tool-link-grid">
+            {toolLinks.map((link) => (
+              <Link key={link.routeKey} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

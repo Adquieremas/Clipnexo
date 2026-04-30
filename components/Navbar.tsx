@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
+import { getLocalizedRoute, getRouteKeyFromPath, normalizeLang } from "@/lib/routes";
 
 type NavbarProps = {
   lang: string;
@@ -10,29 +11,35 @@ type NavbarProps = {
 
 export default function Navbar({ lang }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   const currentLang = normalizeLang(lang);
+  const currentRouteKey = getRouteKeyFromPath(pathname || "") || "home";
 
   const navRoutes = {
     home: getLocalizedRoute("home", currentLang),
     video: getLocalizedRoute("video", currentLang),
     mp3: getLocalizedRoute("mp3", currentLang),
+    tools: getLocalizedRoute("tiktokHashtags", currentLang),
   };
 
   const labels = {
     es: {
       download: "Descargar video",
       mp3: "TikTok a MP3",
+      tools: "Herramientas",
       language: "Idioma",
     },
     en: {
       download: "Download video",
       mp3: "TikTok to MP3",
+      tools: "Tools",
       language: "Language",
     },
     pt: {
       download: "Baixar vídeo",
       mp3: "TikTok a MP3",
+      tools: "Ferramentas",
       language: "Idioma",
     },
   } as const;
@@ -41,7 +48,7 @@ export default function Navbar({ lang }: NavbarProps) {
 
   const handleLangChange = (value: string) => {
     const nextLang = normalizeLang(value);
-    window.location.href = getLocalizedRoute("home", nextLang);
+    window.location.href = getLocalizedRoute(currentRouteKey, nextLang);
   };
 
   return (
@@ -57,6 +64,9 @@ export default function Navbar({ lang }: NavbarProps) {
           </Link>
           <Link href={navRoutes.mp3} className="nav-link">
             {t.mp3}
+          </Link>
+          <Link href={navRoutes.tools} className="nav-link">
+            {t.tools}
           </Link>
 
           <select
@@ -98,6 +108,14 @@ export default function Navbar({ lang }: NavbarProps) {
             onClick={() => setMobileOpen(false)}
           >
             {t.mp3}
+          </Link>
+
+          <Link
+            href={navRoutes.tools}
+            className="mobile-link"
+            onClick={() => setMobileOpen(false)}
+          >
+            {t.tools}
           </Link>
 
           <div className="mobile-language-block">

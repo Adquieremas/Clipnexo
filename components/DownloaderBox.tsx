@@ -18,6 +18,7 @@ import {
   getPreviewVideo,
   hasResultContent as hasResultContentUtil,
   isTikTokUrl,
+  type DownloaderResult,
 } from "@/lib/downloader-utils";
 import { getLocalizedRoute } from "@/lib/routes";
 
@@ -40,7 +41,7 @@ export default function DownloaderBox({
 }: Props) {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DownloaderResult>(null);
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState<StatusType>("info");
   const [isMobile, setIsMobile] = useState(false);
@@ -50,7 +51,7 @@ export default function DownloaderBox({
 
   const autoPasteTriedRef = useRef(false);
 
-  const translations: Record<string, any> = {
+  const translations: Record<string, Record<string, string>> = {
     es: {
       title: type === "mp3" ? "TikTok a MP3" : "Descargador de Videos TikTok",
       subtitle:
@@ -328,12 +329,12 @@ export default function DownloaderBox({
         body: JSON.stringify({ url, type }),
       });
 
-      const data = await res.json();
+      const data = (await res.json()) as NonNullable<DownloaderResult>;
       setResult(data);
 
       if (!res.ok || data?.error) {
         setStatusType("error");
-        setStatusMessage(data?.error || t.errorVideo);
+        setStatusMessage(typeof data?.error === "string" ? data.error : t.errorVideo);
       } else {
         setStatusType("success");
         setStatusMessage(t.success);
@@ -663,7 +664,7 @@ export default function DownloaderBox({
                         </video>
                       ) : (
                         <img
-                          src={previewImage}
+                          src={previewImage || ""}
                           alt={t.previewTitle}
                           style={{
                             width: "100%",
@@ -755,7 +756,7 @@ export default function DownloaderBox({
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                     {type !== "mp3" && result?.video && (
                       <button
-                        onClick={() => forceDownload(result.video, "video.mp4", "video")}
+                        onClick={() => forceDownload(result.video || "", "video.mp4", "video")}
                         disabled={isBusy}
                         style={{
                           padding: "12px",
@@ -774,7 +775,7 @@ export default function DownloaderBox({
 
                     {result?.audio && (
                       <button
-                        onClick={() => forceDownload(result.audio, "audio.mp3", "audio")}
+                        onClick={() => forceDownload(result.audio || "", "audio.mp3", "audio")}
                         disabled={isBusy}
                         style={{
                           padding: "12px",

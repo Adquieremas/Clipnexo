@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { legalContent } from "@/lib/legal-content";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type Lang = "es" | "en" | "pt";
 
@@ -18,21 +19,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
   const t = legalContent.privacy[currentLang];
 
-  return {
+  return buildSeoMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
     robots: {
-  index: false,
-  follow: true,
-},
-    alternates: {
-      languages: {
-        es: "https://clipnexo.com/es/politica-de-privacidad",
-        en: "https://clipnexo.com/en/privacy-policy",
-        pt: "https://clipnexo.com/pt/politica-de-privacidade",
-      },
+      index: false,
+      follow: true,
     },
-  };
+    routeKey: "privacy",
+    lang: currentLang,
+  });
 }
 
 export default async function Page({ params }: PageProps) {

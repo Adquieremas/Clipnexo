@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import DownloaderBox from "@/components/DownloaderBox";
-import {
-  getAlternateRoutes,
-  getLocalizedRoute,
-  normalizeLang,
-} from "@/lib/routes";
-import { SITE_URL } from "@/lib/site";
+import { getMoreToolsLinks } from "@/lib/tools-content";
+import { normalizeLang } from "@/lib/routes";
+import { buildSeoMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -239,26 +236,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
   const t = pageContent[currentLang];
-  const routes = getAlternateRoutes("withoutWatermark");
-  const canonicalPath = getLocalizedRoute("withoutWatermark", currentLang);
 
-  return {
+  return buildSeoMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
-    alternates: {
-      canonical: `${SITE_URL}${canonicalPath}`,
-      languages: {
-        es: `${SITE_URL}${routes.es}`,
-        en: `${SITE_URL}${routes.en}`,
-        pt: `${SITE_URL}${routes.pt}`,
-        "x-default": `${SITE_URL}${routes.es}`,
-      },
-    },
+    routeKey: "withoutWatermark",
+    lang: currentLang,
     openGraph: {
-      title: t.metaTitle,
-      description: t.metaDescription,
-      url: `${SITE_URL}${canonicalPath}`,
-      siteName: "Clipnexo",
       type: "article",
       locale: currentLang === "es" ? "es_PE" : currentLang === "en" ? "en_US" : "pt_PT",
     },
@@ -267,18 +251,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t.metaTitle,
       description: t.metaDescription,
     },
-  };
+  });
 }
 
 export default async function Page({ params }: Props) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
   const t = pageContent[currentLang];
-
-  const videoHref = getLocalizedRoute("video", currentLang);
-  const mp3Href = getLocalizedRoute("mp3", currentLang);
-  const guideHref = getLocalizedRoute("guide", currentLang);
-  const aboutHref = getLocalizedRoute("about", currentLang);
+  const relatedLinks = getMoreToolsLinks(currentLang, "withoutWatermark");
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -387,18 +367,11 @@ export default async function Page({ params }: Props) {
         </h2>
         <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: "0 0 14px" }}>{t.toolsIntro}</p>
         <ul style={{ paddingLeft: "24px", margin: 0 }}>
-          <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-            <Link href={videoHref}>{t.ctaVideo}</Link>
-          </li>
-          <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-            <Link href={mp3Href}>{t.ctaMp3}</Link>
-          </li>
-          <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-            <Link href={guideHref}>{t.ctaGuide}</Link>
-          </li>
-          <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
-            <Link href={aboutHref}>{t.ctaAbout}</Link>
-          </li>
+          {relatedLinks.map((link) => (
+            <li key={link.routeKey} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
         </ul>
       </section>
 

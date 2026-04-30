@@ -2,9 +2,19 @@
 
 import { useState, useEffect } from "react";
 
+type DownloadResult = {
+  embed?: string;
+  video?: string;
+  audio?: string;
+  error?: string;
+  raw?: {
+    title?: string;
+  };
+};
+
 export default function Home() {
   const [url, setUrl] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DownloadResult | null>(null);
   const [loading, setLoading] = useState(false);
   const type = "video";
 
@@ -178,7 +188,7 @@ export default function Home() {
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {result?.video && (
                 <button
-                  onClick={() => forceDownload(result.video, "video.mp4")}
+                  onClick={() => forceDownload(result.video || "", "video.mp4")}
                   style={{
                     padding: 12,
                     background: "#2563eb",
@@ -196,7 +206,7 @@ export default function Home() {
 
               {result?.audio && (
                 <button
-                  onClick={() => forceDownload(result.audio, "audio.mp3")}
+                  onClick={() => forceDownload(result.audio || "", "audio.mp3")}
                   style={{
                     padding: 12,
                     background: "#16a34a",

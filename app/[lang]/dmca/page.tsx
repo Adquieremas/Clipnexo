@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { legalContent } from "@/lib/legal-content";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type DMCAContent = {
   title: string;
@@ -34,21 +35,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
   const t = legalContent.dmca[currentLang] as DMCAContent;
 
-  return {
+  return buildSeoMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
     robots: {
-  index: false,
-  follow: true,
-},
-    alternates: {
-      languages: {
-        es: "https://clipnexo.com/es/dmca",
-        en: "https://clipnexo.com/en/dmca",
-        pt: "https://clipnexo.com/pt/dmca",
-      },
+      index: false,
+      follow: true,
     },
-  };
+    routeKey: "dmca",
+    lang: currentLang,
+  });
 }
 
 export default async function Page({ params }: PageProps) {

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL } from "@/lib/site";
-import {
-  getAlternateRoutes,
-  getLocalizedRoute,
-  normalizeLang,
-} from "@/lib/routes";
+import { getMoreToolsLinks } from "@/lib/tools-content";
+import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{
@@ -55,6 +52,9 @@ const pageContent = {
     noteTitle: "Nota importante",
     noteText:
       "Si recibes un error o no puedes encontrar el video, es posible que el contenido sea privado, haya sido eliminado o esté restringido en ciertos países. Si durante el uso encuentras un problema, puedes escribirnos para recibir ayuda en hola@clipnexo.com.",
+    toolsTitle: "Más herramientas de Clipnexo",
+    toolsIntro:
+      "También puedes usar herramientas para crear ideas, captions, hashtags, ganchos y bios para TikTok.",
     faqTitle: "Preguntas frecuentes",
     faqs: [
       {
@@ -124,6 +124,9 @@ const pageContent = {
     noteTitle: "Important note",
     noteText:
       "If you get an error or cannot find the video, the content may be private, deleted, or restricted in some countries. If you find an issue while using the tool, contact us at hola@clipnexo.com.",
+    toolsTitle: "More Clipnexo tools",
+    toolsIntro:
+      "You can also use tools to create TikTok ideas, captions, hashtags, hooks and bios.",
     faqTitle: "Frequently asked questions",
     faqs: [
       {
@@ -193,6 +196,9 @@ const pageContent = {
     noteTitle: "Nota importante",
     noteText:
       "Se você receber um erro ou não conseguir encontrar o vídeo, o conteúdo pode ser privado, ter sido removido ou estar restrito em alguns países. Se encontrar algum problema durante o uso, fale conosco em hola@clipnexo.com.",
+    toolsTitle: "Mais ferramentas do Clipnexo",
+    toolsIntro:
+      "Você também pode usar ferramentas para criar ideias, legendas, hashtags, ganchos e bios para TikTok.",
     faqTitle: "Perguntas frequentes",
     faqs: [
       {
@@ -254,26 +260,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
   const t = pageContent[currentLang];
-  const guideRoutes = getAlternateRoutes("guide");
-  const canonicalPath = getLocalizedRoute("guide", currentLang);
 
-  return {
+  return buildSeoMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
-    alternates: {
-      canonical: `${SITE_URL}${canonicalPath}`,
-      languages: {
-        es: `${SITE_URL}${guideRoutes.es}`,
-        en: `${SITE_URL}${guideRoutes.en}`,
-        pt: `${SITE_URL}${guideRoutes.pt}`,
-        "x-default": `${SITE_URL}${guideRoutes.es}`,
-      },
-    },
+    routeKey: "guide",
+    lang: currentLang,
     openGraph: {
-      title: t.metaTitle,
-      description: t.metaDescription,
-      url: `${SITE_URL}${canonicalPath}`,
-      siteName: "Clipnexo",
       locale: currentLang === "es" ? "es_PE" : currentLang === "en" ? "en_US" : "pt_PT",
       type: "article",
       images: [
@@ -291,7 +284,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t.metaDescription,
       images: [imageSteps[0].src],
     },
-  };
+  });
 }
 
 export default async function Page({ params }: PageProps) {
@@ -302,6 +295,7 @@ export default async function Page({ params }: PageProps) {
   const toolVideoHref = getLocalizedRoute("video", currentLang);
   const toolMp3Href = getLocalizedRoute("mp3", currentLang);
   const aboutHref = getLocalizedRoute("about", currentLang);
+  const relatedLinks = getMoreToolsLinks(currentLang, "guide");
 
   const howToSchema = {
     "@context": "https://schema.org",
@@ -464,6 +458,18 @@ export default async function Page({ params }: PageProps) {
       <section style={{ marginTop: "48px", background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: "20px", padding: "24px" }}>
         <h2 style={{ fontSize: "28px", lineHeight: 1.2, fontWeight: 800, margin: "0 0 12px 0" }}>{t.noteTitle}</h2>
         <p style={{ margin: 0, fontSize: "17px", lineHeight: 1.8, color: "#444" }}>{t.noteText}</p>
+      </section>
+
+      <section style={{ marginTop: "48px" }}>
+        <h2 style={{ fontSize: "30px", lineHeight: 1.2, fontWeight: 800, margin: "0 0 14px 0" }}>{t.toolsTitle}</h2>
+        <p style={{ margin: "0 0 18px", fontSize: "17px", lineHeight: 1.8, color: "#444" }}>{t.toolsIntro}</p>
+        <div className="tool-link-grid">
+          {relatedLinks.map((link) => (
+            <Link key={link.routeKey} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section style={{ marginTop: "56px" }}>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { legalContent } from "@/lib/legal-content";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type ContactContent = {
   metaTitle: string;
@@ -28,21 +29,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
   const t = legalContent.contact[currentLang] as ContactContent;
 
-  return {
+  return buildSeoMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
     robots: {
-  index: false,
-  follow: true,
-},
-    alternates: {
-      languages: {
-        es: "https://clipnexo.com/es/contacto",
-        en: "https://clipnexo.com/en/contact",
-        pt: "https://clipnexo.com/pt/contato",
-      },
+      index: false,
+      follow: true,
     },
-  };
+    routeKey: "contact",
+    lang: currentLang,
+  });
 }
 
 export default async function Page({ params }: PageProps) {
