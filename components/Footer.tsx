@@ -58,7 +58,7 @@ export default function Footer({ lang }: Props) {
     terms: getLocalizedRoute("terms", currentLang),
     contact: getLocalizedRoute("contact", currentLang),
     about: getLocalizedRoute("about", currentLang),
-    tools: getLocalizedRoute("tiktokHashtags", currentLang),
+    tools: getLocalizedRoute("tools", currentLang),
   };
 
   return (

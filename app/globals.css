@@ -198,7 +198,7 @@ body {
 
 .tool-card {
   width: 100%;
-  max-width: 920px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 26px;
   border: 1px solid #ebeaf3;
@@ -230,21 +230,22 @@ body {
 .tool-field input,
 .tool-field select {
   width: 100%;
-  min-height: 46px;
+  min-height: 52px;
   border: 1px solid #d9dce7;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #ffffff;
   color: #111827;
   font: inherit;
   font-weight: 500;
   outline: none;
-  padding: 11px 12px;
+  padding: 14px 16px;
+  transition: all 0.2s ease;
 }
 
 .tool-field input:focus,
 .tool-field select:focus {
   border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.14);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
 .tool-actions {

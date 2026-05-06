@@ -19,6 +19,34 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   tiktokCaptions: "/generador-captions-tiktok",
   tiktokHashtags: "/generador-hashtags-tiktok",
   shortVideoTitleHashtag: "/generador-titulos-hashtags-videos-cortos",
+  tools: "/herramientas",
+  socialMediaTextGenerator: "/crear-textos-redes-sociales",
+  youtubeTagGenerator: "/generador-etiquetas-youtube",
+  youtubeTagExtractor: "/extractor-etiquetas-youtube",
+  youtubeHashtagGenerator: "/generador-hashtags-youtube",
+  youtubeHashtagExtractor: "/extractor-hashtags-youtube",
+  youtubeTitleGenerator: "/generador-titulos-youtube",
+  youtubeTitleExtractor: "/extractor-titulos-youtube",
+  youtubeTitleLengthChecker: "/comprobar-longitud-titulo-youtube",
+  youtubeDescriptionGenerator: "/generador-descripciones-youtube",
+  youtubeDescriptionExtractor: "/extractor-descripcion-youtube",
+  youtubeTitleCapitalization: "/mayusculas-titulos-youtube",
+  youtubeEmbedCodeGenerator: "/generador-codigo-insercion-youtube",
+  youtubeTimestampLinkGenerator: "/generador-enlaces-tiempo-youtube",
+  youtubeSubscribeLinkGenerator: "/generador-enlaces-suscripcion-youtube",
+  youtubeThumbnailDownloader: "/descargar-miniaturas-youtube",
+  youtubeMoneyCalculator: "/calculadora-dinero-youtube",
+  youtubeViewRatioCalculator: "/calculadora-proporcion-vistas-youtube",
+  instagramCaptionGenerator: "/generador-captions-instagram",
+  instagramHashtagGenerator: "/generador-hashtags-instagram",
+  instagramBioGenerator: "/generador-bio-instagram",
+  instagramReelsIdeas: "/ideas-para-reels",
+  instagramReelsHooks: "/ganchos-para-reels",
+  facebookPostGenerator: "/generador-posts-facebook",
+  facebookAdGenerator: "/generador-anuncios-facebook",
+  marketplaceTextGenerator: "/generador-textos-marketplace",
+  shortVideoScriptGenerator: "/generador-guiones-videos-cortos",
+  socialMediaCharacterCounter: "/contador-caracteres-redes-sociales",
 };
 
 function buildInternalPath(routeKey: RouteKey, lang: string) {
@@ -51,6 +79,11 @@ function buildRedirectResponse(request: NextRequest, pathname: string) {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Skip middleware if this is an internal rewrite to avoid infinite loops
+  if (request.headers.get("x-is-rewrite") === "true") {
+    return NextResponse.next();
+  }
 
   if (
     pathname.startsWith("/_next") ||
@@ -112,7 +145,14 @@ export function middleware(request: NextRequest) {
       const rewriteUrl = request.nextUrl.clone();
       rewriteUrl.pathname = internalPath;
 
-      const response = NextResponse.rewrite(rewriteUrl);
+      const requestHeaders = new Headers(request.headers);
+      requestHeaders.set("x-is-rewrite", "true");
+
+      const response = NextResponse.rewrite(rewriteUrl, {
+        request: {
+          headers: requestHeaders,
+        },
+      });
       response.headers.set("x-lang", lang);
       return response;
     }

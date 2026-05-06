@@ -11,10 +11,6 @@ export const metadata: Metadata = {
   description: "Descarga videos de TikTok sin marca de agua",
   applicationName: "Clipnexo",
   manifest: "/manifest.webmanifest",
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/icons/icon-192.png",
-  },
 };
 
 export const viewport: Viewport = {

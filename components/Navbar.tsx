@@ -20,7 +20,7 @@ export default function Navbar({ lang }: NavbarProps) {
     home: getLocalizedRoute("home", currentLang),
     video: getLocalizedRoute("video", currentLang),
     mp3: getLocalizedRoute("mp3", currentLang),
-    tools: getLocalizedRoute("tiktokHashtags", currentLang),
+    tools: getLocalizedRoute("tools", currentLang),
   };
 
   const labels = {

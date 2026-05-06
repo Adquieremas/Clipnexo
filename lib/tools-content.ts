@@ -13,7 +13,34 @@ export type ToolKey =
   | "tiktokHooks"
   | "tiktokCaptions"
   | "tiktokHashtags"
-  | "shortVideoTitleHashtag";
+  | "shortVideoTitleHashtag"
+  | "socialMediaTextGenerator"
+  | "youtubeTagGenerator"
+  | "youtubeTagExtractor"
+  | "youtubeHashtagGenerator"
+  | "youtubeHashtagExtractor"
+  | "youtubeTitleGenerator"
+  | "youtubeTitleExtractor"
+  | "youtubeTitleLengthChecker"
+  | "youtubeDescriptionGenerator"
+  | "youtubeDescriptionExtractor"
+  | "youtubeTitleCapitalization"
+  | "youtubeEmbedCodeGenerator"
+  | "youtubeTimestampLinkGenerator"
+  | "youtubeSubscribeLinkGenerator"
+  | "youtubeThumbnailDownloader"
+  | "youtubeMoneyCalculator"
+  | "youtubeViewRatioCalculator"
+  | "instagramCaptionGenerator"
+  | "instagramHashtagGenerator"
+  | "instagramBioGenerator"
+  | "instagramReelsIdeas"
+  | "instagramReelsHooks"
+  | "facebookPostGenerator"
+  | "facebookAdGenerator"
+  | "marketplaceTextGenerator"
+  | "shortVideoScriptGenerator"
+  | "socialMediaCharacterCounter";
 
 export type ToolPageContent = {
   metaTitle: string;
@@ -35,7 +62,7 @@ export type ToolPageContent = {
   }>;
 };
 
-type ToolConfig = {
+export type ToolConfig = {
   routeKey: ToolKey;
   content: Record<SupportedLang, ToolPageContent>;
 };
@@ -47,6 +74,33 @@ export const toolKeys = [
   "tiktokCaptions",
   "tiktokHashtags",
   "shortVideoTitleHashtag",
+  "socialMediaTextGenerator",
+  "youtubeTagGenerator",
+  "youtubeTagExtractor",
+  "youtubeHashtagGenerator",
+  "youtubeHashtagExtractor",
+  "youtubeTitleGenerator",
+  "youtubeTitleExtractor",
+  "youtubeTitleLengthChecker",
+  "youtubeDescriptionGenerator",
+  "youtubeDescriptionExtractor",
+  "youtubeTitleCapitalization",
+  "youtubeEmbedCodeGenerator",
+  "youtubeTimestampLinkGenerator",
+  "youtubeSubscribeLinkGenerator",
+  "youtubeThumbnailDownloader",
+  "youtubeMoneyCalculator",
+  "youtubeViewRatioCalculator",
+  "instagramCaptionGenerator",
+  "instagramHashtagGenerator",
+  "instagramBioGenerator",
+  "instagramReelsIdeas",
+  "instagramReelsHooks",
+  "facebookPostGenerator",
+  "facebookAdGenerator",
+  "marketplaceTextGenerator",
+  "shortVideoScriptGenerator",
+  "socialMediaCharacterCounter",
 ] as const satisfies readonly ToolKey[];
 
 const ogLocales: Record<SupportedLang, string> = {
@@ -55,7 +109,7 @@ const ogLocales: Record<SupportedLang, string> = {
   pt: "pt_PT",
 };
 
-export const toolsContent: Record<ToolKey, ToolConfig> = {
+const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
   tiktokBio: {
     routeKey: "tiktokBio",
     content: {
@@ -843,6 +897,13 @@ export const toolsContent: Record<ToolKey, ToolConfig> = {
     },
   },
 };
+
+import { extraToolsContent } from "./tools-extra-content";
+
+export const toolsContent: Record<ToolKey, ToolConfig> = {
+  ...baseToolsContent,
+  ...extraToolsContent,
+} as Record<ToolKey, ToolConfig>;
 
 const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: string }>> = {
   es: [

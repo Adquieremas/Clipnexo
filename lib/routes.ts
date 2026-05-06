@@ -17,7 +17,35 @@ export type RouteKey =
   | "contact"
   | "privacy"
   | "terms"
-  | "dmca";
+  | "dmca"
+  | "tools"
+  | "socialMediaTextGenerator"
+  | "youtubeTagGenerator"
+  | "youtubeTagExtractor"
+  | "youtubeHashtagGenerator"
+  | "youtubeHashtagExtractor"
+  | "youtubeTitleGenerator"
+  | "youtubeTitleExtractor"
+  | "youtubeTitleLengthChecker"
+  | "youtubeDescriptionGenerator"
+  | "youtubeDescriptionExtractor"
+  | "youtubeTitleCapitalization"
+  | "youtubeEmbedCodeGenerator"
+  | "youtubeTimestampLinkGenerator"
+  | "youtubeSubscribeLinkGenerator"
+  | "youtubeThumbnailDownloader"
+  | "youtubeMoneyCalculator"
+  | "youtubeViewRatioCalculator"
+  | "instagramCaptionGenerator"
+  | "instagramHashtagGenerator"
+  | "instagramBioGenerator"
+  | "instagramReelsIdeas"
+  | "instagramReelsHooks"
+  | "facebookPostGenerator"
+  | "facebookAdGenerator"
+  | "marketplaceTextGenerator"
+  | "shortVideoScriptGenerator"
+  | "socialMediaCharacterCounter";
 
 const TRAILING_SLASH_REGEX = /\/$/;
 
@@ -109,6 +137,146 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     en: "/en/dmca",
     pt: "/pt/dmca",
   },
+  tools: {
+    es: "/es/herramientas",
+    en: "/en/tools",
+    pt: "/pt/ferramentas",
+  },
+  socialMediaTextGenerator: {
+    es: "/es/crear-textos-redes-sociales",
+    en: "/en/social-media-text-generator",
+    pt: "/pt/gerador-textos-redes-sociais",
+  },
+  youtubeTagGenerator: {
+    es: "/es/generador-etiquetas-youtube",
+    en: "/en/youtube-tag-generator",
+    pt: "/pt/gerador-tags-youtube",
+  },
+  youtubeTagExtractor: {
+    es: "/es/extractor-etiquetas-youtube",
+    en: "/en/youtube-tag-extractor",
+    pt: "/pt/extrator-tags-youtube",
+  },
+  youtubeHashtagGenerator: {
+    es: "/es/generador-hashtags-youtube",
+    en: "/en/youtube-hashtag-generator",
+    pt: "/pt/gerador-hashtags-youtube",
+  },
+  youtubeHashtagExtractor: {
+    es: "/es/extractor-hashtags-youtube",
+    en: "/en/youtube-hashtag-extractor",
+    pt: "/pt/extrator-hashtags-youtube",
+  },
+  youtubeTitleGenerator: {
+    es: "/es/generador-titulos-youtube",
+    en: "/en/youtube-title-generator",
+    pt: "/pt/gerador-titulos-youtube",
+  },
+  youtubeTitleExtractor: {
+    es: "/es/extractor-titulos-youtube",
+    en: "/en/youtube-title-extractor",
+    pt: "/pt/extrator-titulos-youtube",
+  },
+  youtubeTitleLengthChecker: {
+    es: "/es/comprobar-longitud-titulo-youtube",
+    en: "/en/youtube-title-length-checker",
+    pt: "/pt/verificar-tamanho-titulo-youtube",
+  },
+  youtubeDescriptionGenerator: {
+    es: "/es/generador-descripciones-youtube",
+    en: "/en/youtube-description-generator",
+    pt: "/pt/gerador-descricoes-youtube",
+  },
+  youtubeDescriptionExtractor: {
+    es: "/es/extractor-descripcion-youtube",
+    en: "/en/youtube-description-extractor",
+    pt: "/pt/extrator-descricao-youtube",
+  },
+  youtubeTitleCapitalization: {
+    es: "/es/mayusculas-titulos-youtube",
+    en: "/en/youtube-title-capitalization",
+    pt: "/pt/maiusculas-titulos-youtube",
+  },
+  youtubeEmbedCodeGenerator: {
+    es: "/es/generador-codigo-insercion-youtube",
+    en: "/en/youtube-embed-code-generator",
+    pt: "/pt/gerador-codigo-incorporacao-youtube",
+  },
+  youtubeTimestampLinkGenerator: {
+    es: "/es/generador-enlaces-tiempo-youtube",
+    en: "/en/youtube-timestamp-link-generator",
+    pt: "/pt/gerador-links-tempo-youtube",
+  },
+  youtubeSubscribeLinkGenerator: {
+    es: "/es/generador-enlaces-suscripcion-youtube",
+    en: "/en/youtube-subscribe-link-generator",
+    pt: "/pt/gerador-links-inscricao-youtube",
+  },
+  youtubeThumbnailDownloader: {
+    es: "/es/descargar-miniaturas-youtube",
+    en: "/en/youtube-thumbnail-downloader",
+    pt: "/pt/baixar-miniaturas-youtube",
+  },
+  youtubeMoneyCalculator: {
+    es: "/es/calculadora-dinero-youtube",
+    en: "/en/youtube-money-calculator",
+    pt: "/pt/calculadora-dinheiro-youtube",
+  },
+  youtubeViewRatioCalculator: {
+    es: "/es/calculadora-proporcion-vistas-youtube",
+    en: "/en/youtube-view-ratio-calculator",
+    pt: "/pt/calculadora-proporcao-views-youtube",
+  },
+  instagramCaptionGenerator: {
+    es: "/es/generador-captions-instagram",
+    en: "/en/instagram-caption-generator",
+    pt: "/pt/gerador-legendas-instagram",
+  },
+  instagramHashtagGenerator: {
+    es: "/es/generador-hashtags-instagram",
+    en: "/en/instagram-hashtag-generator",
+    pt: "/pt/gerador-hashtags-instagram",
+  },
+  instagramBioGenerator: {
+    es: "/es/generador-bio-instagram",
+    en: "/en/instagram-bio-generator",
+    pt: "/pt/gerador-bio-instagram",
+  },
+  instagramReelsIdeas: {
+    es: "/es/ideas-para-reels",
+    en: "/en/instagram-reels-ideas",
+    pt: "/pt/ideias-para-reels",
+  },
+  instagramReelsHooks: {
+    es: "/es/ganchos-para-reels",
+    en: "/en/instagram-reels-hook-generator",
+    pt: "/pt/ganchos-para-reels",
+  },
+  facebookPostGenerator: {
+    es: "/es/generador-posts-facebook",
+    en: "/en/facebook-post-generator",
+    pt: "/pt/gerador-posts-facebook",
+  },
+  facebookAdGenerator: {
+    es: "/es/generador-anuncios-facebook",
+    en: "/en/facebook-ad-generator",
+    pt: "/pt/gerador-anuncios-facebook",
+  },
+  marketplaceTextGenerator: {
+    es: "/es/generador-textos-marketplace",
+    en: "/en/marketplace-text-generator",
+    pt: "/pt/gerador-textos-marketplace",
+  },
+  shortVideoScriptGenerator: {
+    es: "/es/generador-guiones-videos-cortos",
+    en: "/en/short-video-script-generator",
+    pt: "/pt/gerador-roteiros-videos-curtos",
+  },
+  socialMediaCharacterCounter: {
+    es: "/es/contador-caracteres-redes-sociales",
+    en: "/en/social-media-character-counter",
+    pt: "/pt/contador-caracteres-redes-sociais",
+  },
 };
 
 export const seoRoutes = localizedRoutes;
@@ -125,6 +293,34 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "tiktokCaptions",
   "tiktokHashtags",
   "shortVideoTitleHashtag",
+  "tools",
+  "socialMediaTextGenerator",
+  "youtubeTagGenerator",
+  "youtubeTagExtractor",
+  "youtubeHashtagGenerator",
+  "youtubeHashtagExtractor",
+  "youtubeTitleGenerator",
+  "youtubeTitleExtractor",
+  "youtubeTitleLengthChecker",
+  "youtubeDescriptionGenerator",
+  "youtubeDescriptionExtractor",
+  "youtubeTitleCapitalization",
+  "youtubeEmbedCodeGenerator",
+  "youtubeTimestampLinkGenerator",
+  "youtubeSubscribeLinkGenerator",
+  "youtubeThumbnailDownloader",
+  "youtubeMoneyCalculator",
+  "youtubeViewRatioCalculator",
+  "instagramCaptionGenerator",
+  "instagramHashtagGenerator",
+  "instagramBioGenerator",
+  "instagramReelsIdeas",
+  "instagramReelsHooks",
+  "facebookPostGenerator",
+  "facebookAdGenerator",
+  "marketplaceTextGenerator",
+  "shortVideoScriptGenerator",
+  "socialMediaCharacterCounter",
   "about",
 ];
 
