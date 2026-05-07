@@ -6,9 +6,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "socialMediaTextGenerator",
     content: {
       es: {
-        metaTitle: "Crear textos para redes sociales gratis online",
+        metaTitle: "Crear textos para redes sociales",
         metaDescription:
-          "Crea textos para Facebook, Instagram, Twitter/X y redes sociales. Genera publicaciones atractivas, rápidas y listas para copiar.",
+          "Crea textos para Facebook, Instagram, Twitter/X y redes sociales en Clipnexo. Genera publicaciones atractivas, rápidas y listas para copiar en segundos",
         h1: "Crear textos para redes sociales",
         lead:
           "Escribe un tema, elige la red social y el tono. Genera textos listos para copiar en segundos sin exigir API externa.",
@@ -55,7 +55,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       en: {
         metaTitle: "Free Social Media Text Generator Online",
         metaDescription:
-          "Create posts for Facebook, Instagram, Twitter/X and social media. Generate catchy texts that are ready to copy and share.",
+          "Create posts for Facebook, Instagram, Twitter/X and social media on Clipnexo. Generate catchy texts that are ready to copy and share with your audience online.",
         h1: "Social Media Text Generator",
         lead:
           "Write a topic, choose the network and tone. Generate ready-to-copy texts in seconds without any external API.",
@@ -100,9 +100,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Gerador de textos para redes sociais grátis",
+        metaTitle: "Gerador de textos para redes sociais",
         metaDescription:
-          "Crie textos para Facebook, Instagram, Twitter/X e redes sociais. Gere publicações atrativas, rápidas e prontas para copiar.",
+          "Crie textos para Facebook, Instagram, Twitter/X e redes sociais no Clipnexo. Gere publicações atrativas, rápidas e prontas para copiar em suas redes favoritas.",
         h1: "Gerador de textos para redes sociais",
         lead:
           "Digite um tema, escolha a rede social e o tom. Gere textos prontos para copiar em segundos sem API externa.",
@@ -152,9 +152,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTagGenerator",
     content: {
       es: {
-        metaTitle: "Generador de etiquetas de YouTube gratis online",
+        metaTitle: "Generador de etiquetas de YouTube",
         metaDescription:
-          "Genera etiquetas de YouTube según tu tema o palabra clave. Crea tags útiles para organizar y optimizar mejor tus videos.",
+          "Genera etiquetas de YouTube según tu tema o palabra clave en Clipnexo. Crea tags útiles para organizar y optimizar mejor tus videos de YouTube en",
         h1: "Generador de etiquetas de YouTube",
         lead:
           "Escribe el tema o palabra clave de tu video y genera etiquetas útiles para YouTube sin depender de API externa.",
@@ -195,9 +195,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Tag Generator Online Tool",
+        metaTitle: "Free YouTube Tag Generator Online",
         metaDescription:
-          "Generate YouTube tags from a topic or keyword. Create useful tags to organize and optimize your videos quickly.",
+          "Generate YouTube tags from a topic or keyword on Clipnexo. Create useful tags to organize and optimize your videos quickly for better reach on social",
         h1: "YouTube Tag Generator",
         lead:
           "Enter a topic or keyword and generate useful YouTube tags without relying on an external API.",
@@ -240,7 +240,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       pt: {
         metaTitle: "Gerador de tags para YouTube grátis online",
         metaDescription:
-          "Gere tags para YouTube com base no tema ou palavra-chave. Crie etiquetas úteis para organizar e otimizar seus vídeos.",
+          "Gere tags para YouTube com base no tema ou palavra-chave no Clipnexo. Crie etiquetas úteis para organizar e otimizar seus vídeos no YouTube de",
         h1: "Gerador de tags para YouTube",
         lead:
           "Digite um tema ou palavra-chave e gere tags úteis para YouTube sem depender de API externa.",
@@ -286,9 +286,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTagExtractor",
     content: {
       es: {
-        metaTitle: "Extractor de etiquetas de YouTube gratis",
+        metaTitle: "Extractor de etiquetas de YouTube",
         metaDescription:
-          "Extrae etiquetas desde textos, títulos o descripciones de YouTube. Obtén palabras clave limpias para organizar tus videos.",
+          "Extrae etiquetas desde textos, títulos o descripciones de YouTube en Clipnexo. Obtén palabras clave limpias para organizar tus videos de forma rápida y fácil.",
         h1: "Extractor de etiquetas de YouTube",
         lead:
           "Pega el texto, título o descripción y extrae etiquetas relevantes sin duplicados ni símbolos innecesarios.",
@@ -328,9 +328,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Tag Extractor Online",
+        metaTitle: "Free YouTube Tag Extractor Online Tool",
         metaDescription:
-          "Extract tags from YouTube texts, titles or descriptions. Get clean keyword ideas to organize your videos more easily.",
+          "Extract tags from YouTube texts, titles or descriptions on Clipnexo. Get clean keyword ideas to organize your videos more easily for better SEO and",
         h1: "YouTube Tag Extractor",
         lead:
           "Paste a title, description or text and extract relevant tags without duplicates or extra symbols.",
@@ -370,9 +370,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Extrator de tags para YouTube grátis",
+        metaTitle: "Extrator de tags para YouTube grátis online",
         metaDescription:
-          "Extraia tags de textos, títulos ou descrições do YouTube. Obtenha palavras-chave limpas para organizar seus vídeos.",
+          "Extraia tags de textos, títulos ou descrições do YouTube no Clipnexo. Obtenha palavras-chave limpas para organizar seus vídeos de forma rápida e",
         h1: "Extrator de tags para YouTube",
         lead:
           "Cole o texto, título ou descrição e extraia tags relevantes sem duplicatas ou símbolos extras.",
@@ -417,9 +417,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeHashtagGenerator",
     content: {
       es: {
-        metaTitle: "Generador de hashtags de YouTube gratis",
+        metaTitle: "Generador de hashtags de YouTube",
         metaDescription:
-          "Genera hashtags para YouTube según tu tema o nicho. Crea etiquetas limpias para títulos, Shorts y descripciones.",
+          "Genera hashtags para YouTube según tu tema o nicho en Clipnexo. Crea etiquetas limpias para títulos, Shorts y descripciones de tus videos para ser viral hoy.",
         h1: "Generador de hashtags de YouTube",
         lead:
           "Escribe el tema de tu video y elige el nicho. Genera hashtags limpios sin espacios ni duplicados.",
@@ -459,9 +459,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Hashtag Generator Tool",
+        metaTitle: "YouTube Hashtag Generator Free Online Tool",
         metaDescription:
-          "Generate YouTube hashtags by topic or niche. Create clean tags for titles, Shorts and video descriptions quickly.",
+          "Generate YouTube hashtags by topic or niche on Clipnexo. Create clean tags for titles, Shorts and video descriptions quickly for maximum online engagement now.",
         h1: "YouTube Hashtag Generator",
         lead:
           "Enter your video's topic and niche. Generate clean hashtags without spaces and duplicates.",
@@ -501,9 +501,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Gerador de hashtags para YouTube grátis",
+        metaTitle: "Gerador de hashtags para YouTube",
         metaDescription:
-          "Gere hashtags para YouTube por tema ou nicho. Crie etiquetas limpas para títulos, Shorts e descrições de vídeos.",
+          "Gere hashtags para YouTube por tema ou nicho no Clipnexo. Crie etiquetas limpas para títulos, Shorts e descrições de vídeos para aumentar seu alcance online.",
         h1: "Gerador de hashtags para YouTube",
         lead:
           "Digite o tema do vídeo e o nicho. Gere hashtags limpas sem espaços e sem duplicatas.",
@@ -548,9 +548,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeHashtagExtractor",
     content: {
       es: {
-        metaTitle: "Extractor de hashtags de YouTube gratis",
+        metaTitle: "Extractor de hashtags de YouTube",
         metaDescription:
-          "Extrae hashtags desde títulos, Shorts o descripciones de YouTube. Copia etiquetas limpias y listas para usar.",
+          "Extrae hashtags desde títulos, Shorts o descripciones de YouTube en Clipnexo. Copia etiquetas limpias y listas para usar en tus videos de forma rápida hoy.",
         h1: "Extractor de hashtags de YouTube",
         lead:
           "Pega el texto y encuentra los hashtags presentes. Copia solo los que están limpios y listos para usar.",
@@ -590,9 +590,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Hashtag Extractor Tool",
+        metaTitle: "YouTube Hashtag Extractor Online",
         metaDescription:
-          "Extract hashtags from YouTube titles, Shorts or descriptions. Copy clean tags that are ready to use in seconds.",
+          "Extract hashtags from YouTube titles, Shorts or descriptions on Clipnexo. Copy clean tags that are ready to use in seconds for your next viral video content.",
         h1: "YouTube Hashtag Extractor",
         lead:
           "Paste text and find hashtags. Copy a clean list without duplicates and ready to use.",
@@ -632,9 +632,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Extrator de hashtags do YouTube grátis",
+        metaTitle: "Extrator de hashtags do YouTube",
         metaDescription:
-          "Extraia hashtags de títulos, Shorts ou descrições do YouTube. Copie etiquetas limpas e prontas para usar.",
+          "Extraia hashtags de títulos, Shorts ou descrições do YouTube no Clipnexo. Copie etiquetas limpas e prontas para usar em seus vídeos de forma rápida e fácil.",
         h1: "Extrator de hashtags do YouTube",
         lead:
           "Cole o texto e encontre os hashtags presentes. Copie apenas os que estão limpos e prontos para usar.",
@@ -679,9 +679,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTitleGenerator",
     content: {
       es: {
-        metaTitle: "Generador de títulos de YouTube gratis",
+        metaTitle: "Generador de títulos de YouTube",
         metaDescription:
-          "Crea títulos para YouTube según el tema de tu video. Genera ideas claras, atractivas y listas para copiar.",
+          "Crea títulos para YouTube según el tema de tu video en Clipnexo. Genera ideas claras, atractivas y listas para copiar en segundos para mejorar tu",
         h1: "Generador de títulos de YouTube",
         lead:
           "Escribe el tema de tu video y elige un estilo. Genera títulos claros y llamativos para usar en YouTube.",
@@ -723,7 +723,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       en: {
         metaTitle: "Free YouTube Title Generator Online",
         metaDescription:
-          "Create YouTube titles based on your video topic. Generate clear, catchy and ready-to-copy title ideas quickly.",
+          "Create YouTube titles based on your video topic on Clipnexo. Generate clear, catchy and ready-to-copy title ideas quickly for your next social media project.",
         h1: "YouTube Title Generator",
         lead:
           "Enter your video topic and choose a style. Generate clear and catchy titles for YouTube.",
@@ -763,9 +763,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Gerador de títulos para YouTube grátis",
+        metaTitle: "Gerador de títulos para YouTube",
         metaDescription:
-          "Crie títulos para YouTube com base no tema do vídeo. Gere ideias claras, atrativas e prontas para copiar.",
+          "Crie títulos para YouTube com base no tema do vídeo no Clipnexo. Gere ideias claras, atrativas e prontas para copiar em seus vídeos e aumente sua audiência.",
         h1: "Gerador de títulos para YouTube",
         lead:
           "Digite o tema do vídeo e escolha um estilo. Gere títulos claros e chamativos para o YouTube.",
@@ -810,9 +810,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTitleExtractor",
     content: {
       es: {
-        metaTitle: "Extractor de títulos de YouTube gratis",
+        metaTitle: "Extractor de títulos de YouTube",
         metaDescription:
-          "Extrae y ordena títulos desde textos o listas de videos de YouTube. Limpia resultados y copia ideas rápidamente.",
+          "Extrae y ordena títulos desde textos o listas de videos de YouTube en Clipnexo. Limpia resultados y copia ideas rápidamente para mejorar tu contenido",
         h1: "Extractor de títulos de YouTube",
         lead:
           "Pega textos o listas y separa los posibles títulos de video en líneas limpias y fáciles de copiar.",
@@ -854,7 +854,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       en: {
         metaTitle: "Free YouTube Title Extractor Online",
         metaDescription:
-          "Extract and organize YouTube titles from texts or video lists. Clean results and copy title ideas quickly.",
+          "Extract and organize YouTube titles from texts or video lists on Clipnexo. Clean results and copy title ideas quickly for your next social media video project.",
         h1: "YouTube Title Extractor",
         lead:
           "Paste text or lists and separate potential video titles into clean, copy-ready lines.",
@@ -894,9 +894,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Extrator de títulos do YouTube grátis",
+        metaTitle: "Extrator de títulos do YouTube",
         metaDescription:
-          "Extraia e organize títulos a partir de textos ou listas de vídeos do YouTube. Limpe resultados e copie ideias rapidamente.",
+          "Extraia e organize títulos a partir de textos ou listas de vídeos do YouTube no Clipnexo. Limpe resultados e copie ideias rapidamente para seus vídeos online.",
         h1: "Extrator de títulos do YouTube",
         lead:
           "Cole textos ou listas e separe possíveis títulos de vídeo em linhas limpas e fáceis de copiar.",
@@ -941,9 +941,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTitleLengthChecker",
     content: {
       es: {
-        metaTitle: "Comprobador de longitud de título YouTube",
+        metaTitle: "Longitud de título YouTube gratis",
         metaDescription:
-          "Revisa la longitud de tu título de YouTube. Cuenta caracteres, mejora el texto y evita títulos demasiado largos.",
+          "Revisa la longitud de tu título de YouTube en Clipnexo. Cuenta caracteres, mejora el texto y evita títulos demasiado largos para optimizar tu SEO en segundos.",
         h1: "Longitud de título de YouTube",
         lead:
           "Pega tu título y revisa la cantidad de caracteres para evitar que quede cortado en las búsquedas de YouTube.",
@@ -983,9 +983,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "YouTube Title Length Checker Free Tool",
+        metaTitle: "YouTube Title Length Checker Online",
         metaDescription:
-          "Check your YouTube title length. Count characters, improve your text and avoid titles that are too long.",
+          "Check your YouTube title length on Clipnexo. Count characters, improve your text and avoid titles that are too long for better visibility on social media now.",
         h1: "YouTube Title Length Checker",
         lead:
           "Paste your title and see the live character count. Adjust the text before publishing to avoid cut-off titles.",
@@ -1025,9 +1025,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Verificador de tamanho de título YouTube",
+        metaTitle: "Verificador de tamanho de título YouTube grátis",
         metaDescription:
-          "Verifique o tamanho do título do YouTube. Conte caracteres, melhore o texto e evite títulos muito longos.",
+          "Verifique o tamanho do título do YouTube no Clipnexo. Conte caracteres, melhore o texto e evite títulos muito longos para otimizar o seu SEO online agora.",
         h1: "Tamanho do título do YouTube",
         lead:
           "Cole seu título e veja a contagem de caracteres em tempo real. Ajuste o texto antes de publicar.",
@@ -1072,9 +1072,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeDescriptionGenerator",
     content: {
       es: {
-        metaTitle: "Generador de descripciones YouTube gratis",
+        metaTitle: "Generador de descripciones YouTube",
         metaDescription:
-          "Crea descripciones para YouTube según el tema de tu video. Genera textos claros, ordenados y listos para copiar.",
+          "Crea descripciones para YouTube según el tema de tu video en Clipnexo. Genera textos claros, ordenados y listos para copiar en segundos para ser viral hoy.",
         h1: "Generador de descripciones YouTube",
         lead:
           "Escribe el tema de tu video y agrega enlaces o llamadas a la acción para generar una descripción estructurada.",
@@ -1114,9 +1114,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Description Generator Tool",
+        metaTitle: "YouTube Description Generator Online",
         metaDescription:
-          "Create YouTube descriptions based on your video topic. Generate clear, organized and ready-to-copy text quickly.",
+          "Create YouTube descriptions based on your video topic on Clipnexo. Generate clear, organized and ready-to-copy text quickly for your next social media post.",
         h1: "YouTube Description Generator",
         lead:
           "Enter your video topic and add links or calls to action to generate a structured description.",
@@ -1156,9 +1156,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Gerador de descrições YouTube grátis",
+        metaTitle: "Gerador de descrições YouTube grátis online",
         metaDescription:
-          "Crie descrições para YouTube com base no tema do vídeo. Gere textos claros, organizados e prontos para copiar.",
+          "Crie descrições para YouTube com base no tema do vídeo no Clipnexo. Gere textos claros, organizados e prontos para copiar em seus vídeos favoritos online.",
         h1: "Gerador de descrições YouTube",
         lead:
           "Digite o tema do vídeo e adicione links ou chamadas para ação para gerar uma descrição estruturada.",
@@ -1203,9 +1203,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeDescriptionExtractor",
     content: {
       es: {
-        metaTitle: "Extractor de descripción de YouTube gratis",
+        metaTitle: "Extractor de descripción de YouTube",
         metaDescription:
-          "Extrae y limpia descripciones de YouTube desde textos pegados. Ordena enlaces, hashtags y contenido rápidamente.",
+          "Extrae y limpia descripciones de YouTube desde textos pegados en Clipnexo. Ordena enlaces, hashtags y contenido rápidamente para mejorar tu flujo de trabajo.",
         h1: "Extractor de descripción YouTube",
         lead:
           "Pega la descripción o el texto y separa el contenido principal, enlaces y hashtags en bloques claros.",
@@ -1245,9 +1245,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Description Extractor Tool",
+        metaTitle: "YouTube Description Extractor Online",
         metaDescription:
-          "Extract and clean YouTube descriptions from pasted text. Organize links, hashtags and content quickly.",
+          "Extract and clean YouTube descriptions from pasted text on Clipnexo. Organize links, hashtags and content quickly for your next social media video project.",
         h1: "YouTube Description Extractor",
         lead:
           "Paste the description text and separate the main content, links and hashtags in clear blocks.",
@@ -1287,9 +1287,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Extrator de descrição do YouTube grátis",
+        metaTitle: "Extrator de descrição do YouTube",
         metaDescription:
-          "Extraia e limpe descrições do YouTube a partir de textos colados. Organize links, hashtags e conteúdo rapidamente.",
+          "Extraia e limpe descrições do YouTube a partir de textos colados no Clipnexo. Organize links, hashtags e conteúdo rapidamente para seus vídeos favoritos.",
         h1: "Extrator de descrição YouTube",
         lead:
           "Cole a descrição ou texto e separe o conteúdo principal, links e hashtags em blocos claros.",
@@ -1334,9 +1334,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTitleCapitalization",
     content: {
       es: {
-        metaTitle: "Mayúsculas para títulos de YouTube gratis",
+        metaTitle: "Mayúsculas para títulos de YouTube",
         metaDescription:
-          "Convierte títulos de YouTube a mayúsculas, minúsculas o estilo título. Ajusta tus textos rápido antes de publicar.",
+          "Convierte títulos de YouTube a mayúsculas, minúsculas o estilo título en Clipnexo. Ajusta tus textos rápido antes de publicar para mejorar tu SEO en segundos.",
         h1: "Mayúsculas para títulos YouTube",
         lead:
           "Pega el título de tu video y convierte el texto a mayúsculas, minúsculas, tipo título o capitalizar oración.",
@@ -1376,9 +1376,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free YouTube Title Capitalization Tool",
+        metaTitle: "YouTube Title Capitalization Tool Online",
         metaDescription:
-          "Convert YouTube titles to uppercase, lowercase or title case. Adjust your text quickly before publishing.",
+          "Convert YouTube titles to uppercase, lowercase or title case on Clipnexo. Adjust your text quickly before publishing for better visibility on social media.",
         h1: "YouTube Title Capitalization",
         lead:
           "Paste your video title and convert the text to uppercase, lowercase, title case or sentence case.",
@@ -1418,9 +1418,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Maiúsculas para títulos YouTube grátis",
+        metaTitle: "Maiúsculas para títulos YouTube",
         metaDescription:
-          "Converta títulos do YouTube para maiúsculas, minúsculas ou estilo título. Ajuste seus textos rápido antes de publicar.",
+          "Converta títulos do YouTube para maiúsculas, minúsculas ou estilo título no Clipnexo. Ajuste seus textos rápido antes de publicar para melhor SEO online.",
         h1: "Maiúsculas para títulos YouTube",
         lead:
           "Cole o título do vídeo e converta o texto para maiúsculas, minúsculas, tipo título ou capitalizar sentença.",
@@ -1465,9 +1465,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeEmbedCodeGenerator",
     content: {
       es: {
-        metaTitle: "Generador de código de inserción YouTube",
+        metaTitle: "Generador de código de inserción YouTube gratis",
         metaDescription:
-          "Crea código embed de YouTube desde una URL de video. Personaliza tamaño, inicio, controles y copia el iframe.",
+          "Crea código embed de YouTube desde una URL de video en Clipnexo. Personaliza tamaño, inicio, controles y copia el iframe para tu sitio web en segundos hoy.",
         h1: "Código de inserción de YouTube",
         lead:
           "Pega la URL de un video y personaliza el iframe con ancho, alto, tiempo de inicio y controles visibles.",
@@ -1507,9 +1507,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "YouTube Embed Code Generator Free Tool",
+        metaTitle: "YouTube Embed Code Generator Online",
         metaDescription:
-          "Create YouTube embed code from a video URL. Customize size, start time, controls and copy the iframe quickly.",
+          "Create YouTube embed code from a video URL on Clipnexo. Customize size, start time, controls and copy the iframe quickly for your social media project.",
         h1: "YouTube Embed Code Generator",
         lead:
           "Paste a YouTube video URL and customize the iframe width, height, start time and control visibility.",
@@ -1549,9 +1549,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Gerador de código de incorporação YouTube",
+        metaTitle: "Gerador de código de incorporação YouTube grátis",
         metaDescription:
-          "Crie código embed do YouTube a partir de uma URL. Personalize tamanho, início, controles e copie o iframe.",
+          "Crie código embed do YouTube a partir de uma URL no Clipnexo. Personalize tamanho, início, controles e copie o iframe para seu site de forma rápida agora.",
         h1: "Código de incorporação YouTube",
         lead:
           "Cole a URL de um vídeo e personalize o iframe com largura, altura, tempo de início e controles visíveis.",
@@ -1573,7 +1573,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
         moreToolsTitle: "Mais ferramentas do Clipnexo",
         moreToolsIntro:
-          "Você também pode gerar links de tempo, links de inscrição e miniaturas para seus vídeos.",
+          "Você também pode gerar links de tempo, links de inscrição e baixar miniaturas.",
         faqTitle: "Perguntas frequentes",
         faqs: [
           {
@@ -1596,8 +1596,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeTimestampLinkGenerator",
     content: {
       es: {
-        metaTitle: "Generador de enlaces de tiempo YouTube gratis | Clipnexo",
-        metaDescription: "Crea enlaces de YouTube con marca de tiempo. Pega una URL, elige minuto y segundo, y copia el enlace exacto para compartir momentos específicos de tus videos.",
+        metaTitle: "Crea enlaces de tiempo en YouTube",
+        metaDescription:
+          "Crea enlaces de YouTube con marca de tiempo en Clipnexo. Pega una URL, elige minuto y segundo, y copia el enlace exacto para compartir momentos",
         h1: "Generador de enlaces de tiempo de YouTube",
         lead: "Pega la URL de tu video y elige minuto y segundo para generar un enlace directo con marca de tiempo listo para compartir.",
         howTitle: "Cómo usar el generador de enlaces de tiempo",
@@ -1624,8 +1625,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       en: {
-        metaTitle: "Free YouTube timestamp link generator tool | Clipnexo",
-        metaDescription: "Create YouTube links with a specific timestamp. Paste a URL, choose minutes and seconds, and copy the exact link to share key video moments in seconds.",
+        metaTitle: "YouTube Timestamp Link Generator Online",
+        metaDescription:
+          "Create YouTube links with a specific timestamp on Clipnexo. Paste a URL, choose minutes and seconds, and copy the exact link to share key video moments now.",
         h1: "Free YouTube timestamp link generator tool",
         lead: "Paste your video URL and choose minutes and seconds to generate a direct timestamp link ready to share.",
         howTitle: "How to use the timestamp generator",
@@ -1643,8 +1645,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       pt: {
-        metaTitle: "Gerador de links de tempo YouTube grátis | Clipnexo",
-        metaDescription: "Crie links do YouTube com marca de tempo. Cole uma URL, escolha o minuto e segundo, e copie o link exato para compartilhar momentos específicos do vídeo.",
+        metaTitle: "Gerador de links de tempo YouTube",
+        metaDescription:
+          "Crie links do YouTube com marca de tempo no Clipnexo. Cole uma URL, escolha o minuto e segundo, e copie o link exato para compartilhar momentos específicos.",
         h1: "Gerador de links de tempo de YouTube",
         lead: "Cole a URL do seu vídeo e escolha o minuto e segundo para gerar um link direto com marca de tempo pronto para compartilhar.",
         howTitle: "Como usar o gerador de links de tempo",
@@ -1667,8 +1670,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeSubscribeLinkGenerator",
     content: {
       es: {
-        metaTitle: "Generador de enlaces de suscripción YouTube | Clipnexo",
-        metaDescription: "Crea un enlace de suscripción automática para tu canal de YouTube. Aumenta tus suscriptores con un link directo que pide confirmación al usuario.",
+        metaTitle: "Generador de enlaces de suscripción YouTube",
+        metaDescription:
+          "Crea un enlace de suscripción automática para tu canal de YouTube en Clipnexo. Aumenta tus suscriptores con un link directo que pide confirmación al usuario.",
         h1: "Generador de enlaces de suscripción de YouTube",
         lead: "Crea un enlace directo que pide confirmación de suscripción al abrir tu canal de YouTube.",
         howTitle: "Cómo crear tu enlace",
@@ -1683,8 +1687,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Funciona en móviles?", a: "Sí, funciona tanto en navegadores móviles como de escritorio." }]
       },
       en: {
-        metaTitle: "YouTube subscription link generator tool | Clipnexo",
-        metaDescription: "Create an auto-subscription link for your YouTube channel. Boost your subscribers with a direct link that asks users for confirmation immediately.",
+        metaTitle: "YouTube Subscribe Link Generator Online",
+        metaDescription:
+          "Create an auto-subscription link for your YouTube channel on Clipnexo. Boost your subscribers with a direct link that asks users for confirmation immediately.",
         h1: "YouTube subscription link generator tool",
         lead: "Create a direct link that prompts users to confirm their subscription when they visit your YouTube channel.",
         howTitle: "How to create your link",
@@ -1699,8 +1704,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Does it work on mobile?", a: "Yes, it works on both mobile and desktop browsers." }]
       },
       pt: {
-        metaTitle: "Gerador de links de inscrição YouTube grátis | Clipnexo",
-        metaDescription: "Crie um link de inscrição automática para seu canal do YouTube. Aumente seus inscritos com um link direto que pede confirmação ao usuário agora.",
+        metaTitle: "Gerador de links de inscrição YouTube grátis no",
+        metaDescription: "Crie um link de inscrição automática para seu canal do YouTube no Clipnexo. Aumente seus inscritos com um link direto que pede confirmação ao usuário agora.",
         h1: "Gerador de links de inscrição de YouTube",
         lead: "Crie um link direto que solicita a confirmação de inscrição ao abrir seu canal do YouTube.",
         howTitle: "Como criar seu link",
@@ -1720,8 +1725,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeThumbnailDownloader",
     content: {
       es: {
-        metaTitle: "Descargar miniaturas de YouTube gratis online | Clipnexo",
-        metaDescription: "Descarga las miniaturas de cualquier video de YouTube en alta resolución (HD). Solo pega la URL del video y obtén la imagen de portada en segundos.",
+        metaTitle: "Descargar miniaturas de YouTube",
+        metaDescription:
+          "Descarga las miniaturas de cualquier video de YouTube en alta resolución (HD) con Clipnexo. Solo pega la URL del video y obtén la imagen de portada hoy mismo.",
         h1: "Descargar miniaturas de YouTube gratis online",
         lead: "Obtén la imagen de portada (miniatura) de cualquier video de YouTube en máxima calidad.",
         howTitle: "Cómo descargar la miniatura",
@@ -1736,8 +1742,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Es legal descargar miniaturas?", a: "Sí, para uso personal o referencia. No debes usarlas como propias sin permiso del autor." }]
       },
       en: {
-        metaTitle: "Download YouTube thumbnails free online tool | Clipnexo",
-        metaDescription: "Download thumbnails from any YouTube video in high resolution (HD). Just paste the video URL and get the cover image in seconds for free today.",
+        metaTitle: "Free YouTube Thumbnail Downloader",
+        metaDescription:
+          "Download thumbnails from any YouTube video in high resolution (HD) on Clipnexo. Just paste the video URL and get the cover image in seconds for free today.",
         h1: "Download YouTube thumbnails free online tool",
         lead: "Get the cover image (thumbnail) of any YouTube video in maximum quality easily.",
         howTitle: "How to download the thumbnail",
@@ -1752,8 +1759,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Is it legal to download thumbnails?", a: "Yes, for personal use or reference. Do not use them as your own without permission." }]
       },
       pt: {
-        metaTitle: "Baixar miniaturas do YouTube grátis online | Clipnexo",
-        metaDescription: "Baixe as miniaturas de qualquer vídeo do YouTube em alta resolução (HD). Basta colar a URL do vídeo e obter a imagem de capa em segundos grátis.",
+        metaTitle: "Baixar miniaturas do YouTube grátis online",
+        metaDescription:
+          "Baixe as miniaturas de qualquer vídeo do YouTube em alta resolução (HD) no Clipnexo. Basta colar a URL do vídeo e obter a imagem de capa em segundos grátis.",
         h1: "Baixar miniaturas do YouTube grátis online",
         lead: "Obtenha a imagem de capa (miniatura) de qualquer vídeo do YouTube em qualidade máxima.",
         howTitle: "Como baixar a miniatura",
@@ -1773,52 +1781,54 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeMoneyCalculator",
     content: {
       es: {
-        metaTitle: "Calculadora de dinero de YouTube gratis online | Clipnexo",
-        metaDescription: "Calcula cuánto dinero puede ganar un video o canal de YouTube según las vistas y el CPM estimado. Herramienta gratuita para creadores de contenido.",
+        metaTitle: "Calculadora de dinero de YouTube",
+        metaDescription:
+          "Calcula cuánto dinero puede ganar un video o canal de YouTube según las vistas y el CPM estimado en Clipnexo. Herramienta gratuita para creadores sociales.",
         h1: "Calculadora de dinero de YouTube gratis online",
         lead: "Estima los ingresos potenciales de un video de YouTube basándote en el número de visualizaciones y el CPM de tu nicho.",
         howTitle: "Cómo calcular ingresos",
         howSteps: ["Ingresa el número total de vistas.", "Ajusta el CPM estimado (por 1000 vistas).", "Revisa el resultado diario, mensual y anual.", "Compara con diferentes niveles de retención."],
-        purposeTitle: "Planificación financiera",
-        purposeText: "Esta herramienta ayuda a los creadores a entender el potencial económico de sus canales y a establecer metas de crecimiento realistas.",
-        tipsTitle: "Sobre el CPM",
-        tips: ["El CPM varía según el país y el nicho.", "Niches de finanzas suelen tener CPM más alto.", "Vistas de países desarrollados pagan mejor."],
-        moreToolsTitle: "Más herramientas",
-        moreToolsIntro: "Analiza más a fondo tu canal:",
+        purposeTitle: "Planifica tu monetización",
+        purposeText: "Conocer tus ingresos potenciales te ayuda a decidir qué tipo de contenido es más rentable para tu canal.",
+        tipsTitle: "Consejos de CPM",
+        tips: ["El CPM varía según el país de tu audiencia.", "Nichos como finanzas tienen CPM más alto.", "Aumenta la duración de tus videos para más anuncios."],
+        moreToolsTitle: "Herramientas financieras",
+        moreToolsIntro: "Otras formas de analizar tu éxito:",
         faqTitle: "Preguntas frecuentes",
-        faqs: [{ q: "¿Es exacto?", a: "Es una estimación basada en promedios. Los ingresos reales dependen de YouTube Adsense." }]
+        faqs: [{ q: "¿El resultado es exacto?", a: "Es una estimación basada en promedios. YouTube descuenta una comisión del 45%." }]
       },
       en: {
-        metaTitle: "Free YouTube money calculator for creators | Clipnexo",
-        metaDescription: "Calculate how much money a YouTube video or channel can earn based on views and estimated CPM. Free tool for content creators and marketers today.",
+        metaTitle: "YouTube Money Calculator for Creators",
+        metaDescription:
+          "Calculate how much money a YouTube video or channel can earn based on views and estimated CPM on Clipnexo. Free online tool for social media creators now.",
         h1: "Free YouTube money calculator for creators",
-        lead: "Estimate potential earnings for a YouTube video based on view count and niche CPM.",
-        howTitle: "How to calculate earnings",
-        howSteps: ["Enter the total number of views.", "Adjust the estimated CPM (per 1000 views).", "Review daily, monthly and yearly results.", "Compare with different retention levels."],
-        purposeTitle: "Financial Planning",
-        purposeText: "This tool helps creators understand their channel's economic potential and set realistic growth goals.",
-        tipsTitle: "About CPM",
-        tips: ["CPM varies by country and niche.", "Finance niches usually have higher CPM.", "Views from developed countries pay better."],
-        moreToolsTitle: "More tools",
-        moreToolsIntro: "Analyze your channel further:",
+        lead: "Estimate the potential earnings of a YouTube video based on the number of views and the CPM of your niche.",
+        howTitle: "How to calculate income",
+        howSteps: ["Enter the total number of views.", "Adjust the estimated CPM (per 1000 views).", "Review the daily, monthly, and yearly result.", "Compare with different retention levels."],
+        purposeTitle: "Plan your monetization",
+        purposeText: "Knowing your potential income helps you decide what type of content is most profitable for your channel.",
+        tipsTitle: "CPM Tips",
+        tips: ["CPM varies by your audience's country.", "Niches like finance have higher CPM.", "Increase your video length for more ads."],
+        moreToolsTitle: "Financial Tools",
+        moreToolsIntro: "Other ways to analyze your success:",
         faqTitle: "Frequently Asked Questions",
-        faqs: [{ q: "Is it accurate?", a: "It is an estimate based on averages. Real earnings depend on YouTube AdSense." }]
+        faqs: [{ q: "Is the result exact?", a: "It is an estimate based on averages. YouTube takes a 45% commission." }]
       },
       pt: {
-        metaTitle: "Calculadora de dinheiro do YouTube grátis online | Clipnexo",
-        metaDescription: "Calcule quanto dinheiro um vídeo ou canal do YouTube pode ganhar com base em visualizações e CPM estimado. Ferramenta gratuita para criadores agora.",
+        metaTitle: "Calculadora de dinheiro do YouTube",
+        metaDescription: "Calcule quanto dinheiro um vídeo ou canal do YouTube pode ganhar com base em visualizações e CPM estimado no Clipnexo. Ferramenta grátis para criadores.",
         h1: "Calculadora de dinheiro do YouTube grátis online",
-        lead: "Estime os ganhos potenciais de um vídeo do YouTube baseando-se no número de visualizações e no CPM do seu nicho.",
+        lead: "Estime os ganhos potenciais de um vídeo do YouTube com base no número de visualizações e no CPM do seu nicho.",
         howTitle: "Como calcular ganhos",
-        howSteps: ["Insira o número total de views.", "Ajuste o CPM estimado (por 1000 views).", "Revise o resultado diário, mensal e anual.", "Compare com diferentes níveis de retenção."],
-        purposeTitle: "Planejamento financeiro",
-        purposeText: "Esta ferramenta ajuda criadores a entender o potencial econômico de seus canais e a estabelecer metas de crescimento realistas.",
-        tipsTitle: "Sobre o CPM",
-        tips: ["O CPM varia por país e nicho.", "Nichos de finanças costumam ter CPM maior.", "Visualizações de países desenvolvidos pagam melhor."],
-        moreToolsTitle: "Mais ferramentas",
-        moreToolsIntro: "Analise seu canal mais a fundo:",
-        faqTitle: "Perguntas frequentes",
-        faqs: [{ q: "É exato?", a: "É uma estimativa baseada em médias. Os ganhos reais dependem do YouTube AdSense." }]
+        howSteps: ["Insira o número total de visualizações.", "Ajuste o CPM estimado (por 1000 visualizações).", "Revise o resultado diário, mensal e anual.", "Compare com diferentes níveis de retenção."],
+        purposeTitle: "Planeje sua monetização",
+        purposeText: "Conhecer sua renda potencial ajuda você a decidir que tipo de conteúdo é mais lucrativo para seu canal.",
+        tipsTitle: "Dicas de CPM",
+        tips: ["O CPM varia conforme o país do seu público.", "Nichos como finanças têm CPM mais alto.", "Aumente a duração dos vídeos para ter mais anúncios."],
+        moreToolsTitle: "Ferramentas financeiras",
+        moreToolsIntro: "Outras formas de analisar seu sucesso:",
+        faqTitle: "Preguntas frequentes",
+        faqs: [{ q: "O resultado é exato?", a: "É uma estimativa baseada em médias. O YouTube desconta uma comissão de 45%." }]
       }
     }
   },
@@ -1826,52 +1836,54 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "youtubeViewRatioCalculator",
     content: {
       es: {
-        metaTitle: "Calculadora de proporción de vistas YouTube | Clipnexo",
-        metaDescription: "Analiza la proporción de vistas vs suscriptores de tu canal de YouTube. Descubre qué tan viral es tu contenido comparado con tu base de fans actual.",
-        h1: "Calculadora de proporción de vistas de YouTube",
-        lead: "Calcula el porcentaje de visualizaciones en relación a tus suscriptores para medir el alcance de tus videos.",
-        howTitle: "Cómo calcular la proporción",
-        howSteps: ["Ingresa el número de suscriptores.", "Ingresa el número de vistas del video.", "Obtén el porcentaje de rendimiento.", "Analiza si el video superó a tu audiencia base."],
-        purposeTitle: "Mide tu alcance",
-        purposeText: "Una proporción alta indica que tu video está llegando a nuevas audiencias más allá de tus suscriptores actuales.",
-        tipsTitle: "Interpretación",
-        tips: ["Más del 100% indica potencial viral.", "Entre 10% y 50% es normal para canales sanos.", "Menos del 5% puede indicar problemas de miniatura."],
-        moreToolsTitle: "Optimización de videos",
-        moreToolsIntro: "Mejora estos números usando:",
+        metaTitle: "Calculadora de proporción de vistas YouTube",
+        metaDescription:
+          "Calcula la proporción de vistas de tus videos de YouTube según impresiones y CTR en Clipnexo. Optimiza el rendimiento de tu canal con datos precisos hoy.",
+        h1: "Calculadora de proporción de vistas de YouTube gratis",
+        lead: "Analiza el rendimiento de tus miniaturas y títulos calculando el porcentaje de clics (CTR) y vistas generadas.",
+        howTitle: "Cómo usar la calculadora",
+        howSteps: ["Ingresa el número de impresiones.", "Escribe el número de clics o vistas.", "Revisa el porcentaje de conversión.", "Ajusta tus miniaturas según el resultado."],
+        purposeTitle: "Optimiza tu CTR",
+        purposeText: "Una buena proporción de vistas indica que tu miniatura y título están captando la atención de tu audiencia.",
+        tipsTitle: "Mejora tus vistas",
+        tips: ["Usa colores llamativos en miniaturas.", "Crea títulos que generen curiosidad.", "Analiza qué videos tienen mejor proporción."],
+        moreToolsTitle: "Más estadísticas",
+        moreToolsIntro: "Entiende mejor tu canal:",
         faqTitle: "Preguntas frecuentes",
-        faqs: [{ q: "¿Qué es una buena proporción?", a: "Depende del tamaño del canal, pero superar el 20% suele ser positivo." }]
+        faqs: [{ q: "¿Qué es un buen CTR?", a: "En YouTube, un CTR entre el 2% y el 10% se considera normal." }]
       },
       en: {
-        metaTitle: "Free YouTube view ratio calculator tool online | Clipnexo",
-        metaDescription: "Analyze the views vs subscribers ratio for your YouTube channel. Discover how viral your content is compared to your current fan base easily for free.",
-        h1: "Free YouTube view ratio calculator tool online",
-        lead: "Calculate the percentage of views relative to your subscribers to measure your video's reach and performance.",
-        howTitle: "How to calculate the ratio",
-        howSteps: ["Enter the number of subscribers.", "Enter the video's view count.", "Get the performance percentage.", "Analyze if the video exceeded your base audience."],
-        purposeTitle: "Measure Your Reach",
-        purposeText: "A high ratio indicates that your video is reaching new audiences beyond your current subscribers.",
-        tipsTitle: "Interpretation",
-        tips: ["Over 100% indicates viral potential.", "Between 10% and 50% is normal for healthy channels.", "Under 5% may indicate thumbnail or title issues."],
-        moreToolsTitle: "Video Optimization",
-        moreToolsIntro: "Improve these numbers using:",
+        metaTitle: "YouTube View Ratio Calculator Online",
+        metaDescription:
+          "Calculate your YouTube video view ratio based on impressions and CTR on Clipnexo. Optimize your channel performance with accurate data for free online now.",
+        h1: "Free YouTube view ratio calculator for creators",
+        lead: "Analyze your thumbnail and title performance by calculating the click-through rate (CTR) and views generated.",
+        howTitle: "How to use the calculator",
+        howSteps: ["Enter the number of impressions.", "Type the number of clicks or views.", "Review the conversion percentage.", "Adjust your thumbnails based on the result."],
+        purposeTitle: "Optimize your CTR",
+        purposeText: "A good view ratio indicates that your thumbnail and title are capturing your audience's attention.",
+        tipsTitle: "Improve your views",
+        tips: ["Use striking colors in thumbnails.", "Create titles that spark curiosity.", "Analyze which videos have the best ratio."],
+        moreToolsTitle: "More Statistics",
+        moreToolsIntro: "Understand your channel better:",
         faqTitle: "Frequently Asked Questions",
-        faqs: [{ q: "What is a good ratio?", a: "It depends on channel size, but exceeding 20% is usually positive." }]
+        faqs: [{ q: "What is a good CTR?", a: "On YouTube, a CTR between 2% and 10% is considered normal." }]
       },
       pt: {
-        metaTitle: "Calculadora de proporção de views YouTube grátis | Clipnexo",
-        metaDescription: "Analise a proporção de visualizações vs inscritos do seu canal do YouTube. Descubra o quão viral é seu conteúdo comparado à sua base de fãs atual.",
-        h1: "Calculadora de proporção de views de YouTube",
-        lead: "Calcule a porcentagem de visualizações em relação aos seus inscritos para medir o alcance dos seus vídeos.",
-        howTitle: "Como usar",
-        howSteps: ["Insira o número de inscritos.", "Insira o número de views do vídeo.", "Obtenha a porcentagem de desempenho.", "Analise se o vídeo superou sua audiência base."],
-        purposeTitle: "Meça seu alcance",
-        purposeText: "Uma proporção alta indica que seu vídeo está alcançando novos públicos além dos seus inscritos atuais.",
-        tipsTitle: "Interpretação",
-        tips: ["Mais de 100% indica potencial viral.", "Entre 10% e 50% é normal para canais saudáveis.", "Menos de 5% pode indicar problemas de miniatura."],
-        moreToolsTitle: "Otimização de vídeos",
-        moreToolsIntro: "Melhore estes números usando:",
+        metaTitle: "Calculadora de proporção de views YouTube",
+        metaDescription: "Calcule a proporção de visualizações dos seus vídeos do YouTube com base em impressões no Clipnexo. Otimize o desempenho do seu canal com dados reais agora.",
+        h1: "Calculadora de proporção de views de YouTube grátis",
+        lead: "Analise o desempenho de suas miniaturas e títulos calculando a taxa de cliques (CTR) e visualizações geradas.",
+        howTitle: "Como usar a calculadora",
+        howSteps: ["Insira o número de impressões.", "Digite o número de cliques ou views.", "Revise a porcentagem de conversão.", "Ajuste suas miniaturas conforme o resultado."],
+        purposeTitle: "Otimize seu CTR",
+        purposeText: "Uma boa proporção de visualizações indica que sua miniatura e título estão captando a atenção do seu público.",
+        tipsTitle: "Melhore suas views",
+        tips: ["Use cores vibrantes nas miniaturas.", "Crie títulos que gerem curiosidade.", "Analise quais vídeos têm a melhor proporção."],
+        moreToolsTitle: "Mais estatísticas",
+        moreToolsIntro: "Entenda melhor seu canal:",
         faqTitle: "Perguntas frequentes",
-        faqs: [{ q: "O que é uma boa proporção?", a: "Depende do tamanho do canal, mas superar 20% costuma ser positivo." }]
+        faqs: [{ q: "O que é um bom CTR?", a: "No YouTube, um CTR entre 2% e 10% é considerado normal." }]
       }
     }
   },
@@ -1879,8 +1891,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "instagramCaptionGenerator",
     content: {
       es: {
-        metaTitle: "Generador de captions para Instagram gratis online | Clipnexo",
-        metaDescription: "Crea captions para Instagram según tu tema, tono y objetivo. Genera textos atractivos, rápidos y listos para copiar en segundos con nuestra herramienta gratuita.",
+        metaTitle: "Generador de captions para Instagram",
+        metaDescription:
+          "Crea captions para Instagram según tu tema, tono y objetivo en Clipnexo. Genera textos atractivos, rápidos y listos para copiar en segundos con esta utilidad.",
         h1: "Generador de captions para Instagram gratis online",
         lead: "Crea captions para Instagram según tu tema, tono y objetivo. Genera textos atractivos, rápidos y listos para copiar en segundos.",
         howTitle: "Cómo funciona el generador de captions",
@@ -1898,8 +1911,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       en: {
-        metaTitle: "Free Instagram caption generator for better posts | Clipnexo",
-        metaDescription: "Create Instagram captions by topic, tone and goal. Generate engaging text ideas that are quick, useful and ready to copy for your social media posts today.",
+        metaTitle: "Free Instagram Caption Generator",
+        metaDescription:
+          "Create Instagram captions by topic, tone and goal on Clipnexo. Generate engaging text ideas that are quick, useful and ready to copy for your social media.",
         h1: "Free Instagram caption generator for better posts",
         lead: "Create Instagram captions by topic, tone and goal. Generate engaging text ideas that are quick, useful and ready to copy.",
         howTitle: "How the caption generator works",
@@ -1917,8 +1931,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       pt: {
-        metaTitle: "Gerador de legendas para Instagram grátis online | Clipnexo",
-        metaDescription: "Crie legendas para Instagram por tema, tom e objetivo. Gere textos atrativos, rápidos e prontos para copiar em segundos com nossa ferramenta gratuita agora.",
+        metaTitle: "Gerador de legendas para Instagram",
+        metaDescription:
+          "Crie legendas para Instagram por tema, tom e objetivo no Clipnexo. Gere textos atrativos, rápidos e prontos para copiar em segundos com esta ferramenta hoje.",
         h1: "Gerador de legendas para Instagram grátis online",
         lead: "Crie legendas para Instagram por tema, tom e objetivo. Gere textos atrativos, rápidos e prontos para copiar em segundos.",
         howTitle: "Como funciona o gerador de legendas",
@@ -1941,8 +1956,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "instagramHashtagGenerator",
     content: {
       es: {
-        metaTitle: "Generador de hashtags para Instagram gratis online | Clipnexo",
-        metaDescription: "Genera hashtags para Instagram según tu nicho o tema. Crea etiquetas limpias, relevantes y listas para copiar en segundos para mejorar tu alcance orgánico.",
+        metaTitle: "Generador de hashtags para Instagram",
+        metaDescription:
+          "Genera hashtags para Instagram según tu nicho o tema en Clipnexo. Crea etiquetas limpias, relevantes y listas para copiar en segundos para ser más viral hoy.",
         h1: "Generador de hashtags para Instagram gratis online",
         lead: "Genera hashtags para Instagram según tu nicho o tema. Crea etiquetas limpias, relevantes y listas para copiar en segundos.",
         howTitle: "Cómo usar el generador",
@@ -1957,8 +1973,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Cuántos hashtags genera?", a: "Puedes elegir entre 10 y 30 hashtags." }]
       },
       en: {
-        metaTitle: "Free Instagram hashtag generator for your posts | Clipnexo",
-        metaDescription: "Generate Instagram hashtags by niche or topic. Create clean, relevant and ready-to-copy tags for posts, reels and stories to grow your account today easily.",
+        metaTitle: "Free Instagram Hashtag Generator for Viral Reach",
+        metaDescription:
+          "Generate Instagram hashtags by topic or niche on Clipnexo. Create clean, relevant and ready-to-copy tags for posts, reels and stories to grow online fast.",
         h1: "Free Instagram hashtag generator for your posts",
         lead: "Generate Instagram hashtags by niche or topic. Create clean, relevant and ready-to-copy tags for posts, reels and stories.",
         howTitle: "How to use the generator",
@@ -1973,8 +1990,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "How many hashtags does it generate?", a: "You can choose between 10 and 30 hashtags." }]
       },
       pt: {
-        metaTitle: "Gerador de hashtags para Instagram grátis online | Clipnexo",
-        metaDescription: "Gere hashtags para Instagram por nicho ou tema. Crie etiquetas limpas, relevantes e prontas para copiar rapidamente e aumentar seu alcance nas redes sociais.",
+        metaTitle: "Gerador de hashtags para Instagram",
+        metaDescription:
+          "Gere hashtags para Instagram por nicho ou tema no Clipnexo. Crie etiquetas limpas, relevantes e prontas para copiar rapidamente e aumentar seu alcance agora.",
         h1: "Gerador de hashtags para Instagram grátis online",
         lead: "Gere hashtags para Instagram por nicho ou tema. Crie etiquetas limpas, relevantes e prontas para copiar rapidamente.",
         howTitle: "Como usar o gerador",
@@ -1994,44 +2012,46 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "instagramBioGenerator",
     content: {
       es: {
-        metaTitle: "Generador de bio para Instagram gratis online | Clipnexo",
-        metaDescription: "Crea bios para Instagram según tu marca, nicho o estilo. Genera ideas cortas, claras y listas para copiar en segundos para atraer más seguidores a tu perfil.",
+        metaTitle: "Generador de bio para Instagram",
+        metaDescription:
+          "Crea bios profesionales para Instagram según tu estilo y marca en Clipnexo. Genera ideas creativas, rápidas y listas para copiar en segundos para tu",
         h1: "Generador de bio para Instagram gratis online",
-        lead: "Crea bios para Instagram según tu marca, nicho o estilo. Genera ideas cortas, claras y listas para copiar en segundos.",
-        howTitle: "Crea tu bio perfecta",
-        howSteps: ["Pon tu nombre o marca.", "Elige estilo y tono.", "Copia la que más te guste."],
-        purposeTitle: "Importancia de la bio",
-        purposeText: "Tu biografía es tu carta de presentación. Una buena bio convierte visitantes en seguidores.",
-        tipsTitle: "Tips para una gran bio",
-        tips: ["Usa palabras clave.", "Incluye un llamado a la acción.", "Manténlo corto y directo."],
-        moreToolsTitle: "Más para tu perfil",
-        moreToolsIntro: "Dale un toque profesional a tu Instagram:",
+        lead: "Crea bios profesionales para Instagram según tu estilo y marca. Genera ideas creativas, rápidas y listas para copiar en segundos.",
+        howTitle: "Cómo crear tu bio",
+        howSteps: ["Describe tu perfil o negocio.", "Selecciona el estilo.", "Copia la bio que más te guste."],
+        purposeTitle: "Optimiza tu perfil",
+        purposeText: "Tu bio es lo primero que ven los usuarios; asegúrate de que sea atractiva y clara.",
+        tipsTitle: "Consejos para tu bio",
+        tips: ["Sé breve y directo.", "Incluye una llamada a la acción.", "Usa emojis relevantes."],
+        moreToolsTitle: "Mejora tu Instagram",
+        moreToolsIntro: "Otras herramientas para tu perfil:",
         faqTitle: "Preguntas frecuentes",
-        faqs: [{ q: "¿Puedo usar emojis?", a: "Nuestras sugerencias ya incluyen emojis optimizados." }]
+        faqs: [{ q: "¿Puedo usarla para negocios?", a: "Sí, es ideal para perfiles personales y profesionales." }]
       },
       en: {
-        metaTitle: "Free Instagram bio generator for your profile | Clipnexo",
-        metaDescription: "Create Instagram bio ideas by brand, niche or style. Generate short, clear and ready-to-copy profile texts in seconds to grow your online presence faster now.",
+        metaTitle: "Free Instagram Bio Generator Online",
+        metaDescription:
+          "Create professional Instagram bios based on your style and brand on Clipnexo. Generate creative, quick and ready-to-copy ideas in seconds for your profile now.",
         h1: "Free Instagram bio generator for your profile",
-        lead: "Create Instagram bio ideas by brand, niche or style. Generate short, clear and ready-to-copy profile texts in seconds.",
-        howTitle: "Create your perfect bio",
-        howSteps: ["Enter your name or brand.", "Choose style and tone.", "Copy the one you like best."],
-        purposeTitle: "Importance of the bio",
-        purposeText: "Your bio is your business card. A good bio converts visitors into followers.",
-        tipsTitle: "Tips for a great bio",
-        tips: ["Use keywords.", "Include a call to action.", "Keep it short and direct."],
-        moreToolsTitle: "More for your profile",
-        moreToolsIntro: "Give your Instagram a professional touch:",
+        lead: "Create professional Instagram bios based on your style and brand. Generate creative, quick and ready-to-copy ideas in seconds.",
+        howTitle: "How to create your bio",
+        howSteps: ["Describe your profile or business.", "Select the style.", "Copy the bio you like best."],
+        purposeTitle: "Optimize your profile",
+        purposeText: "Your bio is the first thing users see; make sure it's engaging and clear.",
+        tipsTitle: "Tips for your bio",
+        tips: ["Be brief and direct.", "Include a call to action.", "Use relevant emojis."],
+        moreToolsTitle: "Improve your Instagram",
+        moreToolsIntro: "Other tools for your profile:",
         faqTitle: "Frequently Asked Questions",
-        faqs: [{ q: "Can I use emojis?", a: "Our suggestions already include optimized emojis." }]
+        faqs: [{ q: "Can I use it for business?", a: "Yes, it is ideal for personal and professional profiles." }]
       },
       pt: {
-        metaTitle: "Gerador de bio para Instagram grátis online | Clipnexo",
-        metaDescription: "Crie bios para Instagram por marca, nicho ou estilo. Gere ideias curtas, claras e prontas para copiar em segundos para seu perfil profissional ou pessoal.",
+        metaTitle: "Gerador de bio para Instagram",
+        metaDescription: "Crie bios profissionais para Instagram baseadas no seu estilo e marca no Clipnexo. Gere ideias criativas, rápidas e prontas para copiar para seu perfil agora.",
         h1: "Gerador de bio para Instagram grátis online",
-        lead: "Crie bios para Instagram por marca, nicho ou estilo. Gere ideias curtas, claras e prontas para copiar em segundos.",
-        howTitle: "Crie sua bio perfeita",
-        howSteps: ["Coloque seu nome ou marca.", "Escolha estilo e tom.", "Copie a que mais gostar."],
+        lead: "Crie bios profissionais para Instagram baseadas no seu estilo e marca. Gere ideias criativas, rápidas e prontas para copiar em segundos.",
+        howTitle: "Como criar sua bio",
+        howSteps: ["Descreva seu perfil ou negócio.", "Selecione o estilo.", "Copie a bio que mais gostar."],
         purposeTitle: "Importância da bio",
         purposeText: "Sua biografia é o seu cartão de visitas. Uma boa bio converte visitantes em seguidores.",
         tipsTitle: "Dicas para uma ótima bio",
@@ -2047,8 +2067,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "instagramReelsIdeas",
     content: {
       es: {
-        metaTitle: "Ideas para Reels de Instagram gratis online | Clipnexo",
-        metaDescription: "Genera ideas para Reels según tu nicho, tema u objetivo. Encuentra propuestas rápidas para crear contenido atractivo y viral para tu audiencia en Instagram.",
+        metaTitle: "Ideas para Reels de Instagram",
+        metaDescription:
+          "Genera ideas para Reels según tu nicho, tema u objetivo en Clipnexo. Encuentra propuestas rápidas para crear contenido atractivo y viral para tu audiencia.",
         h1: "Ideas para Reels de Instagram gratis online",
         lead: "Genera ideas para Reels según tu nicho, tema u objetivo. Encuentra propuestas rápidas para crear contenido atractivo.",
         howTitle: "Cómo tener ideas infinitas",
@@ -2063,8 +2084,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Sirve para otros formatos?", a: "Sí, muchas ideas funcionan para TikTok y Shorts." }]
       },
       en: {
-        metaTitle: "Free Instagram Reels ideas generator online | Clipnexo",
-        metaDescription: "Generate Instagram Reels ideas by niche, topic or goal. Find quick content suggestions to create engaging short videos that grow your channel and audience today.",
+        metaTitle: "Free Instagram Reels Ideas Generator Online",
+        metaDescription:
+          "Generate Instagram Reels ideas by niche, topic or goal on Clipnexo. Find quick content suggestions to create engaging short videos that grow your channel fast.",
         h1: "Free Instagram Reels ideas generator online",
         lead: "Generate Instagram Reels ideas by niche, topic or goal. Find quick content suggestions to create engaging short videos.",
         howTitle: "How to get infinite ideas",
@@ -2079,8 +2101,9 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Does it work for other formats?", a: "Yes, many ideas work for TikTok and Shorts." }]
       },
       pt: {
-        metaTitle: "Ideias para Reels do Instagram grátis online | Clipnexo",
-        metaDescription: "Gere ideias para Reels por nicho, tema ou objetivo. Encontre sugestões rápidas para criar vídeos curtos atrativos e virais para seu perfil do Instagram agora.",
+        metaTitle: "Ideias para Reels do Instagram",
+        metaDescription:
+          "Gere ideias para Reels por nicho, tema ou objetivo no Clipnexo. Encontre sugestões rápidas para criar vídeos curtos atrativos e virais para seu perfil agora.",
         h1: "Ideias para Reels do Instagram grátis online",
         lead: "Gere ideias para Reels por nicho, tema ou objetivo. Encontre sugestões rápidas para criar vídeos curtos atrativos.",
         howTitle: "Como ter ideias infinitas",
@@ -2100,8 +2123,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "instagramReelsHooks",
     content: {
       es: {
-        metaTitle: "Ganchos para Reels de Instagram gratis online | Clipnexo",
-        metaDescription: "Crea ganchos para Reels según tu tema y estilo. Genera frases iniciales atractivas para captar atención rápidamente y mejorar la retención de tus videos cortos.",
+        metaTitle: "Ganchos para Reels de Instagram",
+        metaDescription: "Crea ganchos para Reels según tu tema y estilo en Clipnexo. Genera frases iniciales atractivas para captar atención rápidamente y mejorar la retención hoy.",
         h1: "Ganchos para Reels de Instagram gratis online",
         lead: "Crea ganchos para Reels según tu tema y estilo. Genera frases iniciales atractivas para captar atención rápidamente.",
         howTitle: "Atrapa a tu audiencia",
@@ -2116,8 +2139,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Cuántos ganchos genera?", a: "Generamos 15 variaciones por cada tema." }]
       },
       en: {
-        metaTitle: "Free Instagram Reels hook generator online | Clipnexo",
-        metaDescription: "Create Instagram Reels hooks by topic and style. Generate catchy opening lines to grab attention in the first seconds and increase your video views and engagement.",
+        metaTitle: "Free Instagram Reels Hook Generator Online Tool",
+        metaDescription: "Create Instagram Reels hooks by topic and style on Clipnexo. Generate catchy opening lines to grab attention in the first seconds and increase your",
         h1: "Free Instagram Reels hook generator online",
         lead: "Create Instagram Reels hooks by topic and style. Generate catchy opening lines to grab attention in the first seconds.",
         howTitle: "Hook your audience",
@@ -2132,8 +2155,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "How many hooks does it generate?", a: "We generate 15 variations for each topic." }]
       },
       pt: {
-        metaTitle: "Ganchos para Reels do Instagram grátis online | Clipnexo",
-        metaDescription: "Crie ganchos para Reels por tema e estilo. Gere frases iniciais atrativas para prender atenção rapidamente e melhorar a performance dos seus vídeos no Instagram.",
+        metaTitle: "Ganchos para Reels do Instagram",
+        metaDescription: "Crie ganchos para Reels por tema e estilo no Clipnexo. Gere frases iniciais atrativas para prender atenção rapidamente e melhorar a performance dos vídeos.",
         h1: "Ganchos para Reels do Instagram grátis online",
         lead: "Crie ganchos para Reels por tema e estilo. Gere frases iniciais atrativas para prender atenção rapidamente.",
         howTitle: "Prenda seu público",
@@ -2153,8 +2176,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "facebookPostGenerator",
     content: {
       es: {
-        metaTitle: "Generador de posts para Facebook gratis online | Clipnexo",
-        metaDescription: "Crea publicaciones para Facebook según tu tema, tono y objetivo. Genera textos útiles, claros y listos para copiar que aumenten la interacción en tu página hoy.",
+        metaTitle: "Generador de posts para Facebook",
+        metaDescription: "Crea publicaciones para Facebook según tu tema, tono y objetivo en Clipnexo. Genera textos útiles, claros y listos para copiar que aumenten la interacción hoy.",
         h1: "Generador de posts para Facebook gratis online",
         lead: "Crea publicaciones para Facebook según tu tema, tono y objetivo. Genera textos útiles, claros y listos para copiar.",
         howTitle: "Crea posts que funcionen",
@@ -2169,8 +2192,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Es seguro?", a: "Totalmente, no pedimos acceso a tu cuenta." }]
       },
       en: {
-        metaTitle: "Free Facebook post generator for better content | Clipnexo",
-        metaDescription: "Create Facebook posts by topic, tone and goal. Generate useful, clear and ready-to-copy content ideas for your page that attract more followers and engagement.",
+        metaTitle: "Free Facebook Post Generator Online",
+        metaDescription: "Create Facebook posts by topic, tone and goal on Clipnexo. Generate useful, clear and ready-to-copy content ideas for your page that attract more",
         h1: "Free Facebook post generator for better content",
         lead: "Create Facebook posts by topic, tone and goal. Generate useful, clear and ready-to-copy content ideas for your page.",
         howTitle: "Create posts that work",
@@ -2185,8 +2208,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Is it safe?", a: "Totally, we don't ask for access to your account." }]
       },
       pt: {
-        metaTitle: "Gerador de posts para Facebook grátis online | Clipnexo",
-        metaDescription: "Crie publicações para Facebook por tema, tom e objetivo. Gere textos úteis, claros e prontos para copiar que aumentem o engajamento da sua página profissional agora.",
+        metaTitle: "Gerador de posts para Facebook",
+        metaDescription: "Crie publicações para Facebook por tema, tom e objetivo no Clipnexo. Gere textos úteis, claros e prontos para copiar que aumentem o engajamento da",
         h1: "Gerador de posts para Facebook grátis online",
         lead: "Crie publicações para Facebook por tema, tom e objetivo. Gere textos úteis, claros e prontos para copiar.",
         howTitle: "Crie posts que funcionam",
@@ -2206,8 +2229,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "facebookAdGenerator",
     content: {
       es: {
-        metaTitle: "Generador de anuncios para Facebook gratis online | Clipnexo",
-        metaDescription: "Crea textos para anuncios de Facebook según producto, público y objetivo. Genera ideas claras para campañas y publicaciones publicitarias altamente rentables.",
+        metaTitle: "Generador de anuncios para Facebook",
+        metaDescription: "Crea textos para anuncios de Facebook según producto y público en Clipnexo. Genera ideas claras para campañas y publicaciones publicitarias muy rentables hoy.",
         h1: "Generador de anuncios para Facebook gratis online",
         lead: "Crea textos para anuncios de Facebook según producto, público y objetivo. Genera ideas claras para campañas y publicaciones.",
         howTitle: "Vende más en Facebook",
@@ -2222,8 +2245,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Genera varios anuncios?", a: "Sí, generamos 5 variaciones completas." }]
       },
       en: {
-        metaTitle: "Free Facebook ad copy generator for campaigns | Clipnexo",
-        metaDescription: "Create Facebook ad copy by product, audience and goal. Generate clear ideas for campaigns, posts and promotions that drive more sales and leads for your business.",
+        metaTitle: "Free Facebook Ad Copy Generator Online",
+        metaDescription: "Create Facebook ad copy by product, audience and goal on Clipnexo. Generate clear ideas for campaigns, posts and promotions that drive more sales and",
         h1: "Free Facebook ad copy generator for campaigns",
         lead: "Create Facebook ad copy by product, audience and goal. Generate clear ideas for campaigns, posts and promotions.",
         howTitle: "Sell more on Facebook",
@@ -2238,8 +2261,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Does it generate multiple ads?", a: "Yes, we generate 5 complete variations." }]
       },
       pt: {
-        metaTitle: "Gerador de anúncios para Facebook grátis online | Clipnexo",
-        metaDescription: "Crie textos para anúncios do Facebook por produto, público e objetivo. Gere ideias claras para campanhas e promoções que convertem mais leads e vendas online.",
+        metaTitle: "Gerador de anúncios para Facebook",
+        metaDescription: "Crie textos para anúncios do Facebook por produto e objetivo no Clipnexo. Gere ideias claras para campanhas e promoções que convertem mais leads e",
         h1: "Gerador de anúncios para Facebook grátis online",
         lead: "Crie textos para anúncios do Facebook por produto, público e objetivo. Gere ideias claras para campanhas e promoções.",
         howTitle: "Venda mais no Facebook",
@@ -2259,8 +2282,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "marketplaceTextGenerator",
     content: {
       es: {
-        metaTitle: "Generador de textos para Marketplace online | Clipnexo",
-        metaDescription: "Crea descripciones para Facebook Marketplace según producto, estado y precio. Genera textos claros para vender más rápido y profesionalmente tus productos usados.",
+        metaTitle: "Generador de textos para Marketplace online",
+        metaDescription: "Crea descripciones para Facebook Marketplace según producto y precio en Clipnexo. Genera textos claros para vender más rápido y profesionalmente tus productos.",
         h1: "Generador de textos para Marketplace online",
         lead: "Crea descripciones para Facebook Marketplace según producto, estado y precio. Genera textos claros para vender más rápido.",
         howTitle: "Vende rápido tus productos",
@@ -2275,8 +2298,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Es para cualquier producto?", a: "Sí, funciona para tecnología, muebles, ropa, etc." }]
       },
       en: {
-        metaTitle: "Free Marketplace text generator for products | Clipnexo",
-        metaDescription: "Create Facebook Marketplace descriptions by product, condition and price. Generate clear texts to sell items faster and avoid common questions from buyers easily.",
+        metaTitle: "Free Marketplace Text Generator for Online",
+        metaDescription: "Create Facebook Marketplace descriptions by product and price on Clipnexo. Generate clear texts to sell items faster and avoid common questions from",
         h1: "Free Marketplace text generator for products",
         lead: "Create Facebook Marketplace descriptions by product, condition and price. Generate clear texts to sell items faster.",
         howTitle: "Sell your products fast",
@@ -2291,8 +2314,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Is it for any product?", a: "Yes, it works for tech, furniture, clothes, etc." }]
       },
       pt: {
-        metaTitle: "Gerador de textos para Marketplace online | Clipnexo",
-        metaDescription: "Crie descrições para Facebook Marketplace por produto, estado e preço. Gere textos claros para vender mais rápido e atrair compradores qualificados para seus itens.",
+        metaTitle: "Gerador de textos para Marketplace online",
+        metaDescription: "Crie descrições para Facebook Marketplace por produto e preço no Clipnexo. Gere textos claros para vender mais rápido e atrair compradores qualificados agora.",
         h1: "Gerador de textos para Marketplace online",
         lead: "Crie descrições para Facebook Marketplace por produto, estado e preço. Gere textos claros para vender mais rápido.",
         howTitle: "Venda seus produtos rápido",
@@ -2312,8 +2335,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "shortVideoScriptGenerator",
     content: {
       es: {
-        metaTitle: "Generador de guiones para videos cortos gratis | Clipnexo",
-        metaDescription: "Crea guiones para TikTok, Reels y Shorts según tu tema. Genera hook, desarrollo, cierre y CTA listos para usar en tus videos para mejorar la retención hoy.",
+        metaTitle: "Generador de guiones para videos cortos gratis",
+        metaDescription: "Crea guiones para TikTok, Reels y Shorts según tu tema en Clipnexo. Genera hook, desarrollo, cierre y CTA listos para usar en tus videos para ser viral",
         h1: "Generador de guiones para videos cortos gratis",
         lead: "Crea guiones para TikTok, Reels y Shorts según tu tema. Genera hook, desarrollo, cierre y CTA listos para usar.",
         howTitle: "Guiones en segundos",
@@ -2328,8 +2351,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Incluye hashtags?", a: "Sí, sugerimos los mejores para tu tema." }]
       },
       en: {
-        metaTitle: "Free short video script generator for creators | Clipnexo",
-        metaDescription: "Create scripts for TikTok, Reels and Shorts by topic. Generate hook, body, closing and CTA ideas ready to use and viralize your short videos easily right now.",
+        metaTitle: "Short Video Script Generator Online",
+        metaDescription: "Create scripts for TikTok, Reels and Shorts by topic on Clipnexo. Generate hook, body, closing and CTA ideas ready to use and viralize your short",
         h1: "Free short video script generator for creators",
         lead: "Create scripts for TikTok, Reels and Shorts by topic. Generate hook, body, closing and CTA ideas ready to use.",
         howTitle: "Scripts in seconds",
@@ -2344,8 +2367,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Does it include hashtags?", a: "Yes, we suggest the best ones for your topic." }]
       },
       pt: {
-        metaTitle: "Gerador de roteiros para vídeos curtos grátis | Clipnexo",
-        metaDescription: "Crie roteiros para TikTok, Reels e Shorts por tema. Gere gancho, desenvolvimento, fechamento e CTA prontos para usar e viralizar seus vídeos curtos nas redes agora.",
+        metaTitle: "Gerador de roteiros para vídeos curtos grátis no",
+        metaDescription: "Crie roteiros para TikTok, Reels e Shorts por tema no Clipnexo. Gere gancho, desenvolvimento, fechamento e CTA prontos para usar e viralizar seus",
         h1: "Gerador de roteiros para vídeos curtos grátis",
         lead: "Crie roteiros para TikTok, Reels e Shorts por tema. Gere gancho, desenvolvimento, fechamento e CTA prontos para usar.",
         howTitle: "Roteiros em segundos",
@@ -2356,7 +2379,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         tips: ["Grave na vertical.", "Cuide da iluminação.", "Seja breve e direto."],
         moreToolsTitle: "Tudo para vídeos",
         moreToolsIntro: "Complemente seus vídeos com:",
-        faqTitle: "Preguntas frecuentes",
+        faqTitle: "Perguntas frequentes",
         faqs: [{ q: "Inclui hashtags?", a: "Sim, sugerimos as melhores para o seu tema." }]
       }
     }
@@ -2365,8 +2388,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "socialMediaCharacterCounter",
     content: {
       es: {
-        metaTitle: "Contador de caracteres para redes sociales | Clipnexo",
-        metaDescription: "Cuenta caracteres, palabras, hashtags y emojis para Instagram, TikTok, YouTube, Facebook, LinkedIn y Twitter/X en segundos con límites actualizados para 2024.",
+        metaTitle: "Contador de caracteres para redes sociales",
+        metaDescription: "Cuenta caracteres, palabras, hashtags y emojis para Instagram, TikTok, YouTube, Facebook y Twitter en Clipnexo con límites actualizados para el año 2026 hoy.",
         h1: "Contador de caracteres para redes sociales",
         lead: "Cuenta caracteres, palabras, hashtags y emojis para Instagram, TikTok, YouTube, Facebook, LinkedIn y Twitter/X en segundos.",
         howTitle: "Cómo usar el contador",
@@ -2381,8 +2404,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "¿Cuenta emojis?", a: "Sí, los detectamos correctamente." }]
       },
       en: {
-        metaTitle: "Social media character counter online tool | Clipnexo",
-        metaDescription: "Count characters, words, hashtags and emojis for Instagram, TikTok, YouTube, Facebook, LinkedIn and Twitter/X in seconds with current 2024 limits for you.",
+        metaTitle: "Social Media Character Counter Online Tool for",
+        metaDescription: "Count characters, words, hashtags and emojis for Instagram, TikTok, YouTube, Facebook and Twitter on Clipnexo with current 2026 limits for all your posts now.",
         h1: "Social media character counter online tool",
         lead: "Count characters, words, hashtags and emojis for Instagram, TikTok, YouTube, Facebook, LinkedIn and Twitter/X in seconds.",
         howTitle: "How to use the counter",
@@ -2397,8 +2420,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "Does it count emojis?", a: "Yes, we detect them correctly." }]
       },
       pt: {
-        metaTitle: "Contador de caracteres para redes sociais | Clipnexo",
-        metaDescription: "Conte caracteres, palavras, hashtags e emojis para Instagram, TikTok, YouTube, Facebook, LinkedIn e Twitter/X em segundos com os limites de 2024 atualizados.",
+        metaTitle: "Contador de caracteres para redes sociais",
+        metaDescription: "Conte caracteres, palavras, hashtags e emojis para Instagram, TikTok, YouTube, Facebook e Twitter no Clipnexo com os limites de 2026 atualizados para",
         h1: "Contador de caracteres para redes sociais",
         lead: "Conte caracteres, palavras, hashtags e emojis para Instagram, TikTok, YouTube, Facebook, LinkedIn e Twitter/X em segundos.",
         howTitle: "Como usar o contador",

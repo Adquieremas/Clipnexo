@@ -2,29 +2,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import DownloaderBox from "@/components/DownloaderBox";
 import { getMoreToolsLinks } from "@/lib/tools-content";
-import { normalizeLang } from "@/lib/routes";
-import { buildSeoMetadata } from "@/lib/seo";
+import { normalizeLang, getLocalizedRoute } from "@/lib/routes";
+import { buildSeoMetadata, getAbsoluteUrl } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
+const titles = {
+  es: "Descargar videos y audios de TikTok gratis",
+  en: "Download TikTok videos and MP3 audio for free",
+  pt: "Baixar vídeos do TikTok e áudio MP3 grátis",
+};
+
+const descriptions = {
+  es: "Descarga videos de TikTok sin marca de agua y audios MP3 gratis. Herramienta rápida, online y compatible con celular y PC sin instalar nada hoy.",
+  en: "Download TikTok videos without watermark and free MP3 audio. Fast, online tool compatible with mobile and PC without installing anything today.",
+  pt: "Baixe vídeos do TikTok sem marca d'água e áudio MP3 grátis. Ferramenta rápida, online e compatível com celular e PC sem instalar nada hoje.",
+};
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
-
-  const titles = {
-    es: "Descargar videos TikTok y audios MP3 | Clipnexo",
-    en: "Download TikTok videos and MP3 audio | Clipnexo",
-    pt: "Baixar vídeos do TikTok e áudio MP3 | Clipnexo",
-  };
-
-  const descriptions = {
-    es: "Descarga videos de TikTok sin marca de agua y audios MP3 gratis. Rápido, online y compatible con celular y PC.",
-    en: "Download TikTok videos without watermark and free MP3 audio. Fast, online, and compatible with mobile and PC.",
-    pt: "Baixe vídeos do TikTok sem marca d’água e áudio MP3 grátis. Rápido, online e compatível com celular e PC.",
-  };
 
   return buildSeoMetadata({
     title: titles[currentLang as keyof typeof titles],
@@ -191,9 +191,70 @@ export default async function Home({ params, searchParams }: PageProps) {
 
   const t = copy[currentLang as keyof typeof copy] ?? copy.es;
   const toolLinks = getMoreToolsLinks(currentLang);
+  const canonicalUrl = getAbsoluteUrl(getLocalizedRoute("home", currentLang));
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: t.title,
+    description: descriptions[currentLang as keyof typeof descriptions],
+    url: canonicalUrl,
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Windows, macOS, Android, iOS",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    datePublished: "2026-05-06T00:00:00.000Z",
+    dateModified: "2026-05-06T00:00:00.000Z",
+    author: {
+      "@type": "Organization",
+      name: "Clipnexo",
+      url: "https://clipnexo.com",
+    },
+  };
+
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Clipnexo",
+    url: "https://clipnexo.com",
+    logo: "https://clipnexo.com/logo.png", // Assuming there's a logo
+    sameAs: [
+      "https://facebook.com/clipnexo",
+      "https://twitter.com/clipnexo",
+      "https://instagram.com/clipnexo",
+    ],
+  };
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <section
         style={{
           padding: "48px 20px 72px",

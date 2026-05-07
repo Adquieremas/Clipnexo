@@ -34,15 +34,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
 
   const titles = {
-    es: "Descargar videos TikTok sin marca de agua | Clipnexo",
-    en: "Download TikTok videos without watermark | Clipnexo",
-    pt: "Baixar vídeos do TikTok sem marca d’água | Clipnexo",
+    es: "Descargar videos TikTok sin marca de agua",
+    en: "Download TikTok videos without watermark",
+    pt: "Baixar vídeos do TikTok sem marca d'água",
   };
 
   const descriptions = {
-    es: "Descarga videos de TikTok sin marca de agua gratis. Rápido, online y compatible con celular y PC.",
-    en: "Download TikTok videos without watermark for free. Fast, online, and compatible with mobile and PC.",
-    pt: "Baixe vídeos do TikTok sem marca d’água grátis. Rápido, online e compatível com celular e PC.",
+    es: "Descarga videos de TikTok sin marca de agua gratis con Clipnexo. Nuestra herramienta online es rápida, segura y compatible con celular y PC para todos hoy.",
+    en: "Download TikTok videos without watermark for free with Clipnexo. Our online tool is fast, safe, and compatible with mobile and PC for all global users in 2026.",
+    pt: "Baixe vídeos do TikTok sem marca d'água grátis com Clipnexo. Nossa ferramenta online é rápida, segura e compatível com celular e PC para todos os usuários.",
   };
 
   return buildSeoMetadata({

@@ -322,6 +322,11 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "shortVideoScriptGenerator",
   "socialMediaCharacterCounter",
   "about",
+  "privacy",
+  "terms",
+  "dmca",
+  "contact",
+  "blog",
 ];
 
 function normalizePath(pathname: string): string {

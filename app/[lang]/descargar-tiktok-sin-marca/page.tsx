@@ -15,9 +15,9 @@ type Props = {
 
 const pageContent = {
   es: {
-    metaTitle: "Descargar TikTok sin marca de agua gratis | Clipnexo",
+    metaTitle: "Descargar TikTok sin marca de agua",
     metaDescription:
-      "Descarga videos de TikTok sin marca de agua gratis y en español con Clipnexo. Rápido, online, seguro y compatible con celular o PC.",
+      "Descarga videos de TikTok sin marca de agua gratis y en español con Clipnexo. Nuestra herramienta online es rápida, segura y fácil de usar para todos hoy.",
     h1: "Descargar TikTok sin marca de agua gratis",
     lead:
       "Clipnexo te permite descargar videos de TikTok sin marca de agua gratis, online y en español. Solo pega el enlace del video para guardar el archivo en tu celular o PC sin instalar programas adicionales.",
@@ -87,9 +87,9 @@ const pageContent = {
     ctaAbout: "Acerca de Clipnexo",
   },
   en: {
-    metaTitle: "Download TikTok without watermark for free | Clipnexo",
+    metaTitle: "Download TikTok without watermark for free",
     metaDescription:
-      "Download TikTok videos without watermark for free with Clipnexo. Fast, online, safe, and compatible with mobile and desktop.",
+      "Download TikTok videos without watermark for free with Clipnexo. Fast, online, safe, and compatible with mobile and desktop for all users worldwide in 2026.",
     h1: "Download TikTok without watermark for free",
     lead:
       "Clipnexo lets you download TikTok videos without watermark for free, online, and without installing extra software. Paste the video link and save the file to your phone or PC in seconds.",
@@ -159,9 +159,9 @@ const pageContent = {
     ctaAbout: "About Clipnexo",
   },
   pt: {
-    metaTitle: "Baixar TikTok sem marca d’água grátis | Clipnexo",
+    metaTitle: "Baixar TikTok sem marca d’água",
     metaDescription:
-      "Baixe vídeos do TikTok sem marca d’água grátis com Clipnexo. Rápido, online, seguro e compatível com celular e computador.",
+      "Baixe vídeos do TikTok sem marca d’água grátis com Clipnexo. Rápido, online, seguro e compatível com celular e computador para todos os usuários agora em 2026.",
     h1: "Baixar TikTok sem marca d’água grátis",
     lead:
       "Clipnexo permite baixar vídeos do TikTok sem marca d’água grátis, online e sem instalar programas adicionais. Basta colar o link do vídeo para salvar o arquivo no celular ou PC em segundos.",

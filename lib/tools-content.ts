@@ -64,8 +64,13 @@ export type ToolPageContent = {
 
 export type ToolConfig = {
   routeKey: ToolKey;
+  publishedAt?: string;
+  updatedAt?: string;
   content: Record<SupportedLang, ToolPageContent>;
 };
+
+export const DEFAULT_PUBLISHED_AT = "2026-05-06T00:00:00.000Z";
+export const DEFAULT_UPDATED_AT = "2026-05-06T00:00:00.000Z";
 
 export const toolKeys = [
   "tiktokBio",
@@ -114,9 +119,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "tiktokBio",
     content: {
       es: {
-        metaTitle: "Generador de bio para TikTok gratis",
+        metaTitle: "Generador de bio para TikTok gratis online",
         metaDescription:
-          "Crea bios para TikTok gratis según tu estilo, nicho o marca. Genera ideas rápidas para mejorar tu perfil en segundos.",
+          "Crea bios para TikTok gratis según tu estilo, nicho o marca en Clipnexo. Genera ideas rápidas y profesionales para mejorar tu perfil de TikTok en",
         h1: "Generador de bio para TikTok",
         lead:
           "Escribe una palabra clave, elige tu nicho y crea bios cortas para mejorar tu perfil de TikTok sin instalar nada.",
@@ -156,9 +161,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free TikTok Bio Generator",
+        metaTitle: "Free TikTok Bio Generator Online",
         metaDescription:
-          "Create TikTok bio ideas for your profile, niche or brand. Generate short, clear and catchy bios in seconds.",
+          "Create TikTok bio ideas for your profile, niche or brand on Clipnexo. Generate short, clear and catchy bios in seconds with our free online tools for creators.",
         h1: "TikTok Bio Generator",
         lead:
           "Enter a keyword, choose your niche and generate short TikTok bio ideas ready to copy.",
@@ -198,9 +203,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Gerador de bio para TikTok grátis",
+        metaTitle: "Gerador de bio para TikTok grátis online",
         metaDescription:
-          "Crie bios para TikTok de acordo com seu estilo, nicho ou marca. Gere ideias rápidas para melhorar seu perfil.",
+          "Crie bios para TikTok de acordo com seu estilo, nicho ou marca no Clipnexo. Gere ideias rápidas e atraentes para melhorar seu perfil do TikTok em",
         h1: "Gerador de bio para TikTok",
         lead:
           "Digite uma palavra-chave, escolha seu nicho e gere bios curtas para melhorar seu perfil no TikTok.",
@@ -245,9 +250,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "tiktokIdeas",
     content: {
       es: {
-        metaTitle: "Ideas para videos de TikTok gratis",
+        metaTitle: "Ideas para videos de TikTok gratis online",
         metaDescription:
-          "Genera ideas para videos de TikTok según tu nicho. Encuentra temas rápidos para crear contenido atractivo y publicar más fácil.",
+          "Genera ideas para videos de TikTok según tu nicho en Clipnexo. Encuentra temas rápidos para crear contenido atractivo y publicar más fácil en todas tus redes.",
         h1: "Ideas para videos de TikTok",
         lead:
           "Genera ideas rápidas para publicar más seguido en TikTok según tu nicho, tema y tipo de contenido.",
@@ -287,9 +292,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free TikTok Video Ideas",
+        metaTitle: "Free TikTok Video Ideas for Creators",
         metaDescription:
-          "Generate TikTok video ideas by niche or topic. Find quick content ideas to create videos faster and easier.",
+          "Generate TikTok video ideas by niche or topic on Clipnexo. Find quick content ideas to create videos faster and easier for your social media channels today.",
         h1: "TikTok Video Ideas",
         lead:
           "Create quick TikTok video ideas by niche, topic and content type so you can publish more consistently.",
@@ -329,9 +334,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Ideias para vídeos do TikTok grátis",
+        metaTitle: "Ideias para vídeos do TikTok grátis online",
         metaDescription:
-          "Gere ideias para vídeos do TikTok por nicho ou tema. Encontre sugestões rápidas para criar conteúdo com mais facilidade.",
+          "Gere ideias para vídeos do TikTok por nicho ou tema no Clipnexo. Encontre sugestões rápidas para criar conteúdo com mais facilidade em suas redes sociais.",
         h1: "Ideias para vídeos do TikTok",
         lead:
           "Gere ideias rápidas para publicar com mais frequência no TikTok de acordo com seu nicho e tipo de conteúdo.",
@@ -376,9 +381,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "tiktokHooks",
     content: {
       es: {
-        metaTitle: "Ganchos virales para TikTok gratis",
+        metaTitle: "Ganchos virales para TikTok gratis online",
         metaDescription:
-          "Crea frases iniciales para captar atención en TikTok. Genera ganchos virales para videos cortos en segundos.",
+          "Crea frases iniciales para captar atención en TikTok con Clipnexo. Genera ganchos virales para videos cortos en segundos y mejora tu retención de audiencia.",
         h1: "Ganchos virales para TikTok",
         lead:
           "Crea frases iniciales breves para captar atención en los primeros segundos de tus videos de TikTok.",
@@ -418,9 +423,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free TikTok Hook Generator",
+        metaTitle: "Free TikTok Hook Generator Online",
         metaDescription:
-          "Generate catchy TikTok hooks to grab attention in the first seconds of your videos. Quick ideas ready to copy.",
+          "Generate catchy TikTok hooks to grab attention in the first seconds of your videos on Clipnexo. Quick ideas ready to copy and improve your video retention.",
         h1: "TikTok Hook Generator",
         lead:
           "Generate short opening lines to grab attention in the first seconds of your TikTok videos.",
@@ -460,9 +465,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Ganchos virais para TikTok grátis",
+        metaTitle: "Ganchos virais para TikTok grátis online",
         metaDescription:
-          "Crie frases iniciais para chamar atenção no TikTok. Gere ganchos virais para vídeos curtos em segundos.",
+          "Crie frases iniciais para chamar atenção no TikTok no Clipnexo. Gere ganchos virais para vídeos curtos em segundos e aumente a retenção de seus seguidores.",
         h1: "Ganchos virais para TikTok",
         lead:
           "Crie frases iniciais curtas para chamar atenção nos primeiros segundos dos seus vídeos do TikTok.",
@@ -509,7 +514,7 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       es: {
         metaTitle: "Generador de captions para TikTok",
         metaDescription:
-          "Crea captions para TikTok gratis según el tema de tu video. Genera descripciones rápidas, atractivas y listas para copiar.",
+          "Crea captions para TikTok gratis según el tema de tu video en Clipnexo. Genera descripciones rápidas, atractivas y listas para copiar en segundos ahora mismo.",
         h1: "Generador de captions para TikTok",
         lead:
           "Crea captions cortos para TikTok según el tema de tu video, el tono y si quieres incluir hashtags.",
@@ -549,9 +554,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free TikTok Caption Generator",
+        metaTitle: "Free TikTok Caption Generator Online",
         metaDescription:
-          "Create TikTok captions based on your video topic. Generate short, engaging descriptions ready to copy.",
+          "Create TikTok captions based on your video topic on Clipnexo. Generate short, engaging descriptions ready to copy and paste for your next viral video post.",
         h1: "TikTok Caption Generator",
         lead:
           "Create short TikTok captions based on your video topic, tone and optional hashtags.",
@@ -593,7 +598,7 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       pt: {
         metaTitle: "Gerador de legendas para TikTok",
         metaDescription:
-          "Crie legendas para TikTok com base no tema do vídeo. Gere descrições rápidas, atrativas e prontas para copiar.",
+          "Crie legendas para TikTok com base no tema do vídeo no Clipnexo. Gere descrições rápidas, atrativas e prontas para copiar em suas redes sociais favoritas.",
         h1: "Gerador de legendas para TikTok",
         lead:
           "Crie legendas curtas para TikTok de acordo com o tema do vídeo, o tom e a opção de incluir hashtags.",
@@ -640,7 +645,7 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       es: {
         metaTitle: "Generador de hashtags para TikTok",
         metaDescription:
-          "Genera hashtags para TikTok según tu tema o nicho. Encuentra etiquetas para videos, captions y contenido corto.",
+          "Genera hashtags para TikTok según tu tema o nicho en Clipnexo. Encuentra etiquetas para videos, captions y contenido corto para mejorar tu alcance viral.",
         h1: "Generador de hashtags para TikTok",
         lead:
           "Crea listas limpias de hashtags para TikTok según tu tema, nicho y cantidad de etiquetas.",
@@ -680,9 +685,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Free TikTok Hashtag Generator",
+        metaTitle: "Free TikTok Hashtag Generator Online for Reach",
         metaDescription:
-          "Generate TikTok hashtags by topic or niche. Find tags for captions, short videos and social content.",
+          "Generate TikTok hashtags by topic or niche on Clipnexo. Find tags for captions, short videos and social content to improve your discoverability online now.",
         h1: "TikTok Hashtag Generator",
         lead:
           "Create clean TikTok hashtag lists by topic, niche and number of tags.",
@@ -724,7 +729,7 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
       pt: {
         metaTitle: "Gerador de hashtags para TikTok",
         metaDescription:
-          "Gere hashtags para TikTok por tema ou nicho. Encontre etiquetas para vídeos, legendas e conteúdo curto.",
+          "Gere hashtags para TikTok por tema ou nicho no Clipnexo. Encontre etiquetas para vídeos, legendas e conteúdo curto para aumentar seu alcance viral hoje.",
         h1: "Gerador de hashtags para TikTok",
         lead:
           "Crie listas limpas de hashtags para TikTok por tema, nicho e quantidade de etiquetas.",
@@ -769,9 +774,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "shortVideoTitleHashtag",
     content: {
       es: {
-        metaTitle: "Títulos y hashtags para videos cortos",
+        metaTitle: "Títulos y hashtags para videos cortos gratis en",
         metaDescription:
-          "Genera títulos y hashtags para TikTok, Reels y Shorts. Crea ideas rápidas para mejorar tus videos cortos.",
+          "Genera títulos y hashtags para TikTok, Reels y Shorts en Clipnexo. Crea ideas rápidas para mejorar tus videos cortos y aumentar tu audiencia en segundos.",
         h1: "Títulos y hashtags para videos cortos",
         lead:
           "Genera títulos y hashtags para videos cortos en TikTok, Reels, Shorts o cualquier plataforma.",
@@ -811,9 +816,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       en: {
-        metaTitle: "Short Video Title and Hashtag Generator",
+        metaTitle: "Short Video Title and Hashtag Generator Online",
         metaDescription:
-          "Generate titles and hashtags for TikTok, Reels and Shorts. Create quick ideas for your short videos.",
+          "Generate titles and hashtags for TikTok, Reels and Shorts on Clipnexo. Create quick ideas for your short videos to improve your social media engagement.",
         h1: "Short Video Title and Hashtag Generator",
         lead:
           "Generate titles and hashtags for short videos on TikTok, Reels, Shorts or any short-form platform.",
@@ -853,9 +858,9 @@ const baseToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ],
       },
       pt: {
-        metaTitle: "Títulos e hashtags para vídeos curtos",
+        metaTitle: "Títulos e hashtags para vídeos curtos grátis no",
         metaDescription:
-          "Gere títulos e hashtags para TikTok, Reels e Shorts. Crie ideias rápidas para melhorar seus vídeos curtos.",
+          "Gere títulos e hashtags para TikTok, Reels e Shorts no Clipnexo. Crie ideias rápidas para melhorar seus vídeos curtos e aumentar seu engajamento online.",
         h1: "Títulos e hashtags para vídeos curtos",
         lead:
           "Gere títulos e hashtags para vídeos curtos no TikTok, Reels, Shorts ou qualquer plataforma.",
@@ -957,6 +962,14 @@ export function getToolPageContent(toolKey: ToolKey, lang: string) {
 
 export function getToolRouteKey(toolKey: ToolKey): ToolKey {
   return toolsContent[toolKey].routeKey;
+}
+
+export function getToolDates(toolKey: ToolKey) {
+  const tool = toolsContent[toolKey];
+  return {
+    publishedAt: tool.publishedAt || DEFAULT_PUBLISHED_AT,
+    updatedAt: tool.updatedAt || DEFAULT_UPDATED_AT,
+  };
 }
 
 export function getToolAlternates(toolKey: ToolKey) {

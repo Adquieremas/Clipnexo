@@ -12,9 +12,9 @@ type PageProps = {
 
 const pageContent = {
   es: {
-    metaTitle: "Cómo descargar videos de TikTok con Clipnexo | Guía fácil",
+    metaTitle: "Cómo descargar videos de TikTok con Clipnexo",
     metaDescription:
-      "Descargar videos de TikTok en Clipnexo es gratis y rápido. Aprende a bajar videos sin marca de agua en celular o PC.",
+      "Aprende cómo descargar videos de TikTok en Clipnexo de forma gratuita, rápida y segura. Guía completa para bajar videos sin marca de agua en tu celular o PC.",
     h1: "Cómo descargar videos de TikTok con Clipnexo",
     intro:
       "¿Cómo descargar videos de TikTok? Si buscas una forma simple, rápida y segura de guardar tus videos favoritos, Clipnexo te permite descargar videos de TikTok sin marca de agua, gratis, online y sin instalar programas. Funciona en iPhone, Android, Windows y Mac, por lo que puedes usarlo desde tu celular o PC en pocos segundos.",
@@ -84,9 +84,9 @@ const pageContent = {
     ],
   },
   en: {
-    metaTitle: "How to download TikTok videos with Clipnexo | Easy guide",
+    metaTitle: "How to download TikTok videos with Clipnexo for",
     metaDescription:
-      "Learn how to download TikTok videos with Clipnexo for free and save videos without watermark on mobile or PC.",
+      "Learn how to download TikTok videos with Clipnexo for free and save videos without watermark on mobile or PC. Follow our easy step-by-step guide right now.",
     h1: "How to download TikTok videos with Clipnexo",
     intro:
       "How do you download TikTok videos? If you want a simple, fast, and safe way to save your favorite videos, Clipnexo lets you download TikTok videos without watermark, free, online, and without installing software. It works on iPhone, Android, Windows, and Mac.",
@@ -156,9 +156,9 @@ const pageContent = {
     ],
   },
   pt: {
-    metaTitle: "Como baixar vídeos do TikTok com Clipnexo | Guia fácil",
+    metaTitle: "Como baixar vídeos do TikTok com Clipnexo",
     metaDescription:
-      "Aprenda como baixar vídeos do TikTok com Clipnexo grátis e sem marca d’água no celular ou PC.",
+      "Aprenda como baixar vídeos do TikTok com Clipnexo grátis e sem marca d’água no celular ou PC de forma rápida, segura e profissional para todos hoje mesmo.",
     h1: "Como baixar vídeos do TikTok com Clipnexo",
     intro:
       "Como baixar vídeos do TikTok? Se você procura uma forma simples, rápida e segura de salvar seus vídeos favoritos, o Clipnexo permite baixar vídeos do TikTok sem marca d’água, grátis, online e sem instalar programas. Funciona no iPhone, Android, Windows e Mac.",

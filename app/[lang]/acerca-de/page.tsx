@@ -41,9 +41,9 @@ type PageProps = {
 
 const fallbackAbout: Record<Lang, AboutContent> = {
   es: {
-    metaTitle: "Acerca de Clipnexo | Descargador de TikTok y MP3",
+    metaTitle: "Acerca de Clipnexo gratis | Descargador de",
     metaDescription:
-      "Conoce qué es Clipnexo, cómo funciona y por qué es una herramienta rápida para descargar videos de TikTok y convertir audio a MP3.",
+      "Conoce qué es Clipnexo, cómo funciona y por qué es la herramienta más rápida para descargar videos de TikTok y convertir audio a MP3 de alta calidad hoy mismo.",
     title: "Acerca de Clipnexo",
     lead:
       "Clipnexo es una herramienta online que te permite descargar videos y audios de TikTok sin marca de agua de forma rápida, segura y gratuita desde celular o PC.",
@@ -97,9 +97,9 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       "Si buscas una forma simple de descargar videos de TikTok o convertirlos a MP3, Clipnexo es una opción pensada para ofrecer rapidez, compatibilidad y facilidad de uso en una sola experiencia.",
   },
   en: {
-    metaTitle: "About Clipnexo | TikTok Downloader and MP3 Tool",
+    metaTitle: "About Clipnexo Free Online | TikTok Downloader",
     metaDescription:
-      "Learn what Clipnexo is, how it works, and why it is a fast tool for downloading TikTok videos and converting audio to MP3.",
+      "Learn what Clipnexo is, how it works, and why it is the fastest tool for downloading TikTok videos and converting audio to MP3 for all users for free in 2026.",
     title: "About Clipnexo",
     lead:
       "Clipnexo is an online tool that helps you download TikTok videos and audio without watermark quickly, safely, and for free from mobile or PC.",
@@ -153,9 +153,9 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       "If you need a simple way to download TikTok videos or convert them to MP3, Clipnexo is designed to offer speed, compatibility, and ease of use in one experience.",
   },
   pt: {
-    metaTitle: "Sobre o Clipnexo | Downloader de TikTok e MP3",
+    metaTitle: "Sobre o Clipnexo Grátis | Downloader de TikTok",
     metaDescription:
-      "Saiba o que é o Clipnexo, como funciona e por que é uma ferramenta rápida para baixar vídeos do TikTok e converter áudio para MP3.",
+      "Saiba o que é o Clipnexo, como funciona e por que é a ferramenta mais rápida para baixar vídeos do TikTok e converter áudio para MP3 de alta qualidade agora.",
     title: "Sobre o Clipnexo",
     lead:
       "Clipnexo é uma ferramenta online que permite baixar vídeos e áudio do TikTok sem marca d’água de forma rápida, segura e gratuita no celular ou PC.",

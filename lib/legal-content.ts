@@ -4,9 +4,9 @@ export const legalContent = {
       title: "Política de Copyright (DMCA)",
       intro:
         "Clipnexo respeta los derechos de propiedad intelectual de terceros y espera que sus usuarios hagan lo mismo. De acuerdo con la Digital Millennium Copyright Act (DMCA), responderemos a reclamaciones válidas relacionadas con derechos de autor.",
-      metaTitle: "Política DMCA - Clipnexo",
+      metaTitle: "Política DMCA Clipnexo - Protección de",
       metaDescription:
-        "Conoce la política DMCA de Clipnexo y cómo gestionamos reclamaciones de derechos de autor y solicitudes de eliminación de contenido.",
+        "Conoce la política DMCA de Clipnexo y cómo gestionamos reclamaciones de derechos de autor y solicitudes de eliminación de contenido de terceros hoy mismo.",
       section1: "Contenido y responsabilidad",
       section1Text:
         "Clipnexo no aloja ningún contenido protegido por derechos de autor en sus servidores. Nuestra herramienta únicamente facilita el procesamiento de enlaces públicos disponibles en plataformas de terceros.",
@@ -32,9 +32,9 @@ export const legalContent = {
       title: "Copyright Policy (DMCA)",
       intro:
         "Clipnexo respects the intellectual property rights of third parties and expects its users to do the same. In accordance with the Digital Millennium Copyright Act (DMCA), we respond to valid copyright-related claims.",
-      metaTitle: "DMCA Policy - Clipnexo",
+      metaTitle: "DMCA Copyright Policy Clipnexo - Content",
       metaDescription:
-        "Learn about Clipnexo's DMCA policy and how we handle copyright complaints and content removal requests.",
+        "Learn about Clipnexo's DMCA policy and how we handle copyright complaints and content removal requests for publicly available video content right now for you.",
       section1: "Content and Responsibility",
       section1Text:
         "Clipnexo does not host copyrighted content on its servers. Our tool only facilitates the processing of publicly available links from third-party platforms.",
@@ -60,9 +60,9 @@ export const legalContent = {
       title: "Política de Direitos Autorais (DMCA)",
       intro:
         "O Clipnexo respeita os direitos de propriedade intelectual de terceiros e espera que seus usuários façam o mesmo. De acordo com a Digital Millennium Copyright Act (DMCA), responderemos a reclamações válidas relacionadas a direitos autorais.",
-      metaTitle: "Política DMCA - Clipnexo",
+      metaTitle: "Política de Copyright DMCA Clipnexo - Proteção",
       metaDescription:
-        "Saiba como o Clipnexo lida com reclamações DMCA, direitos autorais e solicitações de remoção de conteúdo.",
+        "Saiba como o Clipnexo lida com reclamações DMCA, direitos autorais e solicitações de remoção de conteúdo público de forma rápida, segura e profissional hoje.",
       section1: "Conteúdo e responsabilidade",
       section1Text:
         "O Clipnexo não hospeda conteúdo protegido por direitos autorais em seus servidores. Nossa ferramenta apenas facilita o processamento de links públicos disponíveis em plataformas de terceiros.",
@@ -91,9 +91,9 @@ export const legalContent = {
       title: "Política de Privacidad",
       intro:
         "En Clipnexo valoramos la privacidad de nuestros usuarios. Esta Política de Privacidad explica qué información podemos recopilar, cómo la utilizamos y qué medidas aplicamos para protegerla al usar nuestro sitio web y nuestras herramientas de descarga.",
-      metaTitle: "Política de Privacidad - Clipnexo",
+      metaTitle: "Política de Privacidad de Clipnexo - Seguridad",
       metaDescription:
-        "Descubre cómo Clipnexo protege tu privacidad, gestiona cookies, publicidad y tratamiento de datos en su sitio web.",
+        "Descubre cómo Clipnexo protege tu privacidad, gestiona cookies, publicidad y tratamiento de datos técnicos en su sitio web oficial de herramientas en 2026.",
       section1: "Información que recopilamos",
       section1Text:
         "Clipnexo no solicita registro obligatorio para usar sus funciones principales. Podemos recopilar información técnica básica como dirección IP, tipo de navegador, sistema operativo, idioma, páginas visitadas y datos de rendimiento con fines analíticos y de seguridad.",
@@ -124,9 +124,9 @@ export const legalContent = {
       title: "Privacy Policy",
       intro:
         "At Clipnexo, we value the privacy of our users. This Privacy Policy explains what information we may collect, how we use it, and what measures we take to protect it when you use our website and download tools.",
-      metaTitle: "Privacy Policy - Clipnexo",
+      metaTitle: "Privacy Policy Clipnexo - Security and Data",
       metaDescription:
-        "Learn how Clipnexo protects your privacy, manages cookies, advertising, and data processing on its website.",
+        "Learn how Clipnexo protects your privacy, manages cookies, advertising, and data processing on its website and official online video tools for free today.",
       section1: "Information We Collect",
       section1Text:
         "Clipnexo does not require mandatory registration to use its main features. We may collect basic technical information such as IP address, browser type, operating system, language, visited pages, and performance-related data for analytics and security purposes.",
@@ -157,9 +157,9 @@ export const legalContent = {
       title: "Política de Privacidade",
       intro:
         "No Clipnexo, valorizamos a privacidade dos nossos usuários. Esta Política de Privacidade explica quais informações podemos coletar, como as utilizamos e quais medidas aplicamos para protegê-las ao usar nosso site e nossas ferramentas de download.",
-      metaTitle: "Política de Privacidade - Clipnexo",
+      metaTitle: "Política de Privacidade Clipnexo - Segurança de",
       metaDescription:
-        "Veja como o Clipnexo protege sua privacidade, gerencia cookies, publicidade e tratamento de dados em seu site.",
+        "Veja como o Clipnexo protege sua privacidade, gerencia cookies, publicidade e tratamento de dados técnicos em seu site de ferramentas de vídeo online agora.",
       section1: "Informações que coletamos",
       section1Text:
         "O Clipnexo não exige cadastro obrigatório para usar seus principais recursos. Podemos coletar informações técnicas básicas como endereço IP, tipo de navegador, sistema operacional, idioma, páginas visitadas e dados de desempenho para fins analíticos e de segurança.",
@@ -193,9 +193,9 @@ export const legalContent = {
       title: "Términos de servicio",
       intro:
         "Bienvenido a Clipnexo. Al acceder y utilizar este sitio web, aceptas cumplir con los presentes términos y condiciones de uso. Si no estás de acuerdo con alguno de estos términos, te recomendamos no utilizar nuestros servicios.",
-      metaTitle: "Términos de servicio - Clipnexo",
+      metaTitle: "Términos de Servicio Clipnexo - Condiciones de",
       metaDescription:
-        "Consulta los términos de servicio de Clipnexo, condiciones de uso, responsabilidad del usuario, publicidad y limitación de responsabilidad.",
+        "Consulta los términos de servicio de Clipnexo, condiciones de uso, responsabilidad del usuario, publicidad y limitación de responsabilidad legal del sitio.",
       section1: "Uso del servicio",
       section1Text:
         "Clipnexo proporciona una herramienta online para procesar enlaces públicos de TikTok y facilitar la descarga de contenido disponible públicamente. El uso del servicio debe realizarse únicamente con fines personales, legales y no comerciales, salvo que el usuario cuente con autorización expresa del titular del contenido.",
@@ -226,9 +226,9 @@ export const legalContent = {
       title: "Terms of Service",
       intro:
         "Welcome to Clipnexo. By accessing and using this website, you agree to comply with these terms and conditions of use. If you do not agree with any of these terms, we recommend that you do not use our services.",
-      metaTitle: "Terms of Service - Clipnexo",
+      metaTitle: "Terms of Service Clipnexo - Official Conditions",
       metaDescription:
-        "Read Clipnexo's terms of service, user responsibilities, advertising terms, intellectual property and limitation of liability.",
+        "Read Clipnexo's terms of service, user responsibilities, advertising terms, intellectual property and limitation of legal liability on our tool website today.",
       section1: "Use of the Service",
       section1Text:
         "Clipnexo provides an online tool to process public TikTok links and facilitate access to publicly available content. The service must only be used for personal, lawful, and non-commercial purposes unless the user has express authorization from the content owner.",
@@ -259,9 +259,9 @@ export const legalContent = {
       title: "Termos de Serviço",
       intro:
         "Bem-vindo ao Clipnexo. Ao acessar e utilizar este site, você concorda em cumprir estes termos e condições de uso. Se não concordar com qualquer um destes termos, recomendamos que não utilize nossos serviços.",
-      metaTitle: "Termos de Serviço - Clipnexo",
+      metaTitle: "Termos de Serviço Clipnexo - Condições Oficiais",
       metaDescription:
-        "Leia os termos de serviço do Clipnexo, responsabilidades do usuário, publicidade, propriedade intelectual e limitação de responsabilidade.",
+        "Leia os termos de serviço do Clipnexo, responsabilidades do usuário, publicidade, propriedade intelectual e limitação de responsabilidade do site oficial.",
       section1: "Uso do Serviço",
       section1Text:
         "O Clipnexo oferece uma ferramenta online para processar links públicos do TikTok e facilitar o acesso a conteúdo publicamente disponível. O serviço deve ser utilizado apenas para fins pessoais, legais e não comerciais, salvo se o usuário tiver autorização expressa do titular do conteúdo.",
@@ -292,9 +292,9 @@ export const legalContent = {
 
   contact: {
     es: {
-      metaTitle: "Contacto - Clipnexo",
+      metaTitle: "Contacto Clipnexo - Soporte Técnico y Consultas",
       metaDescription:
-        "Ponte en contacto con Clipnexo para soporte, consultas, sugerencias o reportes relacionados con nuestra herramienta.",
+        "Ponte en contacto con Clipnexo para soporte, consultas, sugerencias o reportes relacionados con nuestra herramienta de video y redes sociales hoy mismo.",
       title: "Contacto",
       intro:
         "Si tienes alguna consulta, sugerencia, reporte técnico o propuesta relacionada con Clipnexo, puedes escribirnos directamente. Nuestro equipo revisa los mensajes enviados a través del correo y del formulario de contacto.",
@@ -326,9 +326,9 @@ export const legalContent = {
       updated: "Última actualización: 2026",
     },
     en: {
-      metaTitle: "Contact - Clipnexo",
+      metaTitle: "Contact Clipnexo - Technical Support and",
       metaDescription:
-        "Get in touch with Clipnexo for support, questions, suggestions, or reports related to our tool.",
+        "Get in touch with Clipnexo for support, questions, suggestions, or reports related to our video and social media tool online for free right now in 2026.",
       title: "Contact",
       intro:
         "If you have any questions, suggestions, technical reports, or proposals related to Clipnexo, you can contact us directly. Our team reviews messages sent through email and the contact form.",
@@ -360,9 +360,9 @@ export const legalContent = {
       updated: "Last updated: 2026",
     },
     pt: {
-      metaTitle: "Contato - Clipnexo",
+      metaTitle: "Contato Clipnexo - Suporte Técnico e Consultas",
       metaDescription:
-        "Entre em contato com o Clipnexo para suporte, dúvidas, sugestões ou relatórios relacionados à nossa ferramenta.",
+        "Entre em contato com o Clipnexo para suporte, dúvidas, sugestões ou relatórios relacionados à nossa ferramenta de vídeo e redes sociais para você hoje.",
       title: "Contato",
       intro:
         "Se você tiver alguma dúvida, sugestão, relatório técnico ou proposta relacionada ao Clipnexo, pode entrar em contato conosco diretamente. Nossa equipe analisa as mensagens enviadas por e-mail e pelo formulário de contato.",

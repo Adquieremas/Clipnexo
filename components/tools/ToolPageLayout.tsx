@@ -2,9 +2,12 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import {
   getMoreToolsLinks,
+  getToolDates,
   type ToolPageContent,
+  type ToolKey,
 } from "@/lib/tools-content";
-import type { RouteKey, SupportedLang } from "@/lib/routes";
+import { type RouteKey, type SupportedLang, getLocalizedRoute } from "@/lib/routes";
+import { getAbsoluteUrl } from "@/lib/seo";
 
 type ToolPageLayoutProps = {
   content: ToolPageContent;
@@ -20,6 +23,11 @@ export default function ToolPageLayout({
   children,
 }: ToolPageLayoutProps) {
   const relatedLinks = getMoreToolsLinks(lang, routeKey);
+  const canonicalUrl = getAbsoluteUrl(getLocalizedRoute(routeKey, lang));
+  
+  // Get dates if it's a tool key, otherwise use defaults
+  const dates = getToolDates(routeKey as ToolKey);
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -33,11 +41,37 @@ export default function ToolPageLayout({
     })),
   };
 
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: content.h1,
+    description: content.metaDescription,
+    url: canonicalUrl,
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Windows, macOS, Android, iOS",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    datePublished: dates.publishedAt,
+    dateModified: dates.updatedAt,
+    author: {
+      "@type": "Organization",
+      name: "Clipnexo",
+      url: "https://clipnexo.com",
+    },
+  };
+
   return (
     <main className="tool-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
 
       <section className="tool-hero">

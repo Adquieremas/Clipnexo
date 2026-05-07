@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:check": "node scripts/seo-check.js"
   },
   "dependencies": {
     "next": "16.2.3",

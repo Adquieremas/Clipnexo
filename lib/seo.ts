@@ -42,12 +42,20 @@ export function buildSeoMetadata({
   robots = {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph,
   twitter,
 }: BuildSeoMetadataOptions): Metadata {
   const currentLang = normalizeLang(lang);
   const canonicalUrl = getAbsoluteUrl(getLocalizedRoute(routeKey, currentLang));
+  const locale = currentLang === "es" ? "es_ES" : currentLang === "pt" ? "pt_BR" : "en_US";
 
   return {
     metadataBase,
@@ -58,25 +66,20 @@ export function buildSeoMetadata({
       canonical: canonicalUrl,
       languages: getSeoLanguages(routeKey),
     },
-    ...(openGraph
-      ? {
-          openGraph: {
-            title,
-            description,
-            url: canonicalUrl,
-            siteName: "Clipnexo",
-            ...openGraph,
-          },
-        }
-      : {}),
-    ...(twitter
-      ? {
-          twitter: {
-            title,
-            description,
-            ...twitter,
-          },
-        }
-      : {}),
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "Clipnexo",
+      locale,
+      type: "website",
+      ...openGraph,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...twitter,
+    },
   };
 }

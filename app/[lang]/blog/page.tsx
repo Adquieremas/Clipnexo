@@ -11,15 +11,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
 
   const titles = {
-    es: "Blog de Clipnexo",
-    en: "Clipnexo Blog",
-    pt: "Blog do Clipnexo",
+    es: "Guías y trucos para redes sociales",
+    en: "Social Media Guides and Tips",
+    pt: "Guias e dicas para redes sociais",
   };
 
   const descriptions = {
-    es: "Artículos y recursos de Clipnexo próximamente.",
-    en: "Clipnexo articles and resources coming soon.",
-    pt: "Artigos e recursos do Clipnexo em breve.",
+    es: "Explora el blog con los mejores artículos y recursos sobre redes sociales, video y herramientas online próximamente para todos nuestros usuarios.",
+    en: "Explore the Clipnexo blog with the best articles and resources about social media, video and online tools coming soon for all our global users right now.",
+    pt: "Explore o blog do Clipnexo com os melhores artigos e recursos sobre redes sociais, vídeo e ferramentas online em breve para todos os nossos usuários agora.",
   };
 
   return buildSeoMetadata({

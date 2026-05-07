@@ -32,15 +32,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const currentLang = normalizeLang(lang);
 
   const titles = {
-    es: "Descargar audio TikTok MP3 gratis | Clipnexo",
-    en: "Download TikTok audio MP3 free | Clipnexo",
-    pt: "Baixar áudio do TikTok em MP3 grátis | Clipnexo",
+    es: "Descargar audio TikTok MP3 gratis",
+    en: "Download TikTok audio MP3 free",
+    pt: "Baixar áudio do TikTok em MP3 grátis",
   };
 
   const descriptions = {
-    es: "Convierte videos de TikTok a MP3 y descarga audios gratis. Rápido, online y compatible con celular y PC.",
-    en: "Convert TikTok videos to MP3 and download audio for free. Fast, online, and compatible with mobile and PC.",
-    pt: "Converta vídeos do TikTok em MP3 e baixe áudio grátis. Rápido, online e compatível com celular e PC.",
+    es: "Convierte videos de TikTok a MP3 y descarga audios gratis con Clipnexo. Nuestra herramienta online es rápida, segura y compatible con celular y PC hoy mismo.",
+    en: "Convert TikTok videos to MP3 and download audio for free with Clipnexo. Our online tool is fast, safe, and compatible with mobile and PC for all users in 2026.",
+    pt: "Converta vídeos do TikTok em MP3 e baixe áudio grátis no Clipnexo. Nossa ferramenta online é rápida, segura e compatível com celular e PC para todos agora.",
   };
 
   return buildSeoMetadata({

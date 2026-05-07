@@ -13,8 +13,8 @@ type PageProps = {
 
 const pageContent = {
   es: {
-    metaTitle: "Todas las herramientas de Clipnexo",
-    metaDescription: "Descubre nuestra colección completa de herramientas gratuitas para TikTok, YouTube y redes sociales. Optimiza tu contenido hoy.",
+    metaTitle: "Todas las herramientas de Clipnexo gratis",
+    metaDescription: "Descubre nuestra colección completa de herramientas gratuitas para TikTok, YouTube y redes sociales. Optimiza tu contenido digital de forma fácil hoy mismo.",
     h1: "Herramientas de Clipnexo",
     lead: "Explora nuestra colección de herramientas gratuitas organizadas por plataforma para mejorar tu contenido digital.",
     clusters: {
@@ -67,7 +67,7 @@ const pageContent = {
   },
   en: {
     metaTitle: "All Clipnexo Tools - Optimize Your Social Media",
-    metaDescription: "Discover our complete collection of free tools for TikTok, YouTube, Instagram and Facebook. Optimize your content today.",
+    metaDescription: "Discover our complete collection of free tools for TikTok, YouTube, Instagram and Facebook. Optimize your content and social media presence fast right now.",
     h1: "Clipnexo Tools",
     lead: "Explore our collection of free tools organized by platform to improve your digital content strategy.",
     clusters: {
@@ -119,8 +119,8 @@ const pageContent = {
     }
   },
   pt: {
-    metaTitle: "Todas as ferramentas do Clipnexo - Otimize suas redes",
-    metaDescription: "Descubra nossa coleção completa de ferramentas gratuitas para TikTok, YouTube, Instagram e Facebook. Otimize seu conteúdo hoje.",
+    metaTitle: "Todas as ferramentas do Clipnexo - Otimize suas",
+    metaDescription: "Descubra nossa coleção completa de ferramentas gratuitas para TikTok, YouTube, Instagram e Facebook no Clipnexo. Otimize seu conteúdo digital hoje mesmo.",
     h1: "Ferramentas do Clipnexo",
     lead: "Explore nossa coleção de ferramentas gratuitas organizadas por plataforma para melhorar sua estratégia digital.",
     clusters: {
