@@ -7,7 +7,9 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "seo:check": "node scripts/seo-check.js"
+    "seo:check": "node scripts/seo-check.js",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "indexnow:blog": "node scripts/submit-indexnow.mjs --blog"
   },
   "dependencies": {
     "@vercel/speed-insights": "^2.0.0",
