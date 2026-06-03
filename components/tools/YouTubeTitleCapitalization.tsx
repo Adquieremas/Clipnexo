@@ -8,7 +8,20 @@ type Props = {
   lang: SupportedLang;
 };
 
-const copy = {
+const copy: Record<string, {
+  label: string;
+  placeholder: string;
+  upper: string;
+  lower: string;
+  title: string;
+  sentence: string;
+  resultsHeading: string;
+  copy: string;
+  copied: string;
+  emptyTitle: string;
+  emptyText: string;
+  charCount: string;
+}> = {
   es: {
     label: "Título",
     placeholder: "Escribe tu título aquí...",
@@ -21,6 +34,7 @@ const copy = {
     copied: "Copiado",
     emptyTitle: "Tu resultado aparecerá aquí",
     emptyText: "Escribe un título y elige un formato de capitalización.",
+    charCount: "caracteres",
   },
   en: {
     label: "Title",
@@ -34,6 +48,7 @@ const copy = {
     copied: "Copied",
     emptyTitle: "Your result will appear here",
     emptyText: "Enter a title and choose a capitalization format.",
+    charCount: "characters",
   },
   pt: {
     label: "Título",
@@ -47,33 +62,56 @@ const copy = {
     copied: "Copiado",
     emptyTitle: "Seu resultado aparecerá aqui",
     emptyText: "Digite um título e escolha um formato de capitalização.",
+    charCount: "caracteres",
   },
-} as const;
+};
+
+function toTitleCase(str: string): string {
+  const smallWords = new Set([
+    "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
+    "of", "by", "with", "from", "as", "is", "it", "its", "if",
+    "de", "la", "el", "en", "y", "o", "a", "e", "do", "da", "dos", "das",
+    "um", "uma", "uns", "umas", "com", "por", "para", "sem", "sob",
+  ]);
+  return str
+    .toLowerCase()
+    .split(/\s+/)
+    .map((word, i, arr) => {
+      if (i === 0 || i === arr.length - 1 || !smallWords.has(word)) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }
+      return word;
+    })
+    .join(" ");
+}
 
 export default function YouTubeTitleCapitalization({ lang }: Props) {
-  const t = copy[lang];
+  const t = copy[lang] || copy.es;
   const [title, setTitle] = useState("");
   const [result, setResult] = useState("");
 
   const convert = (type: string) => {
     if (!title.trim()) return;
-    if (type === "upper") setResult(title.toUpperCase());
-    if (type === "lower") setResult(title.toLowerCase());
-    if (type === "title")
-      setResult(
-        title.replace(
-          /\w\S*/g,
-          (txt) => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()
-        )
-      );
-    if (type === "sentence")
-      setResult(title.charAt(0).toUpperCase() + title.slice(1).toLowerCase());
+    switch (type) {
+      case "upper":
+        setResult(title.toUpperCase());
+        break;
+      case "lower":
+        setResult(title.toLowerCase());
+        break;
+      case "title":
+        setResult(toTitleCase(title));
+        break;
+      case "sentence":
+        setResult(title.charAt(0).toUpperCase() + title.slice(1).toLowerCase());
+        break;
+    }
   };
 
   return (
     <div className="tool-card">
       <div className="tool-grid">
-        <label className="tool-field">
+        <label className="tool-field" style={{ gridColumn: "span 2" }}>
           <span>{t.label}</span>
           <input
             type="text"
@@ -84,49 +122,74 @@ export default function YouTubeTitleCapitalization({ lang }: Props) {
         </label>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-        <button
-          onClick={() => convert("upper")}
-          className="tool-button-secondary"
-          style={{ padding: "10px" }}
-        >
-          {t.upper}
-        </button>
-        <button
-          onClick={() => convert("lower")}
-          className="tool-button-secondary"
-          style={{ padding: "10px" }}
-        >
-          {t.lower}
-        </button>
-        <button
-          onClick={() => convert("title")}
-          className="tool-button-secondary"
-          style={{ padding: "10px" }}
-        >
-          {t.title}
-        </button>
-        <button
-          onClick={() => convert("sentence")}
-          className="tool-button-secondary"
-          style={{ padding: "10px" }}
-        >
-          {t.sentence}
-        </button>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: 10,
+          marginTop: 18,
+        }}
+      >
+        {[
+          { key: "upper", label: t.upper },
+          { key: "lower", label: t.lower },
+          { key: "title", label: t.title },
+          { key: "sentence", label: t.sentence },
+        ].map((btn) => (
+          <button
+            key={btn.key}
+            type="button"
+            className="tool-button-secondary"
+            onClick={() => convert(btn.key)}
+            disabled={!title.trim()}
+          >
+            {btn.label}
+          </button>
+        ))}
       </div>
 
       {result ? (
         <div className="tool-combined-results">
           <section>
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="m-0 text-xl font-bold text-gray-800">{t.resultsHeading}</h3>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <h3
+                style={{
+                  margin: 0,
+                  color: "#111827",
+                  fontSize: 21,
+                  fontWeight: 800,
+                  lineHeight: 1.25,
+                }}
+              >
+                {t.resultsHeading}
+              </h3>
               <CopyButton text={result} label={t.copy} copiedLabel={t.copied} />
             </div>
-            <textarea
-              readOnly
-              value={result}
-              className="w-full h-20 p-4 bg-gray-50 border border-gray-200 rounded-xl outline-none resize-none font-medium text-gray-700"
-            />
+            <p
+              style={{
+                margin: "6px 0 0",
+                fontSize: 18,
+                color: "#111827",
+                fontWeight: 500,
+                lineHeight: 1.5,
+                padding: "14px 16px",
+                background: "#f9fafb",
+                borderRadius: 12,
+                border: "1px solid #e5e7eb",
+              }}
+            >
+              {result}
+            </p>
+            <span
+              style={{
+                fontSize: 12,
+                color: "#9ca3af",
+                marginTop: 6,
+                display: "inline-block",
+              }}
+            >
+              {result.length} {t.charCount}
+            </span>
           </section>
         </div>
       ) : (

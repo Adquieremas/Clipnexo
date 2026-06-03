@@ -1,6 +1,13 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { metadataBase } from "@/lib/seo";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase,
@@ -23,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" className={inter.variable} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );

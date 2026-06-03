@@ -1,27 +1,78 @@
 import type { MetadataRoute } from "next";
-import { indexableRouteKeys, seoRoutes, supportedLangs, type RouteKey } from "@/lib/routes";
+import { indexableRouteKeys, seoRoutes, supportedLangs, type RouteKey, type SupportedLang } from "@/lib/routes";
 import { getAbsoluteUrl, getSeoLanguages } from "@/lib/seo";
+import { blogPosts } from "@/lib/blog-content";
 
-const lastModified = new Date("2026-05-06T00:00:00.000Z");
+const defaultLastModified = new Date("2026-06-02T00:00:00.000Z");
 
 function getPriority(routeKey: RouteKey): number {
-  if (routeKey === "home") return 1.0;
-  if (["video", "mp3", "withoutWatermark"].includes(routeKey)) return 0.95;
-  if (routeKey === "tools") return 0.9;
-  if (["about", "privacy", "terms", "dmca", "contact", "blog"].includes(routeKey)) return 0.5;
-  return 0.8; // Default for tools
+  switch (routeKey) {
+    case "home":
+      return 1.0;
+    case "video":
+    case "mp3":
+    case "withoutWatermark":
+      return 0.95;
+    case "tools":
+      return 0.9;
+    case "blog":
+      return 0.7;
+    case "about":
+    case "privacy":
+    case "terms":
+    case "dmca":
+    case "contact":
+      return 0.5;
+    default:
+      return 0.8;
+  }
+}
+
+function getChangeFrequency(routeKey: RouteKey): "weekly" | "monthly" | "yearly" {
+  if (routeKey === "home" || routeKey === "video" || routeKey === "mp3" || routeKey === "withoutWatermark" || routeKey === "tools") {
+    return "weekly";
+  }
+  if (routeKey === "blog" || routeKey === "about" || routeKey === "contact") {
+    return "weekly";
+  }
+  if (["privacy", "terms", "dmca"].includes(routeKey)) {
+    return "yearly";
+  }
+  return "weekly";
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return supportedLangs.flatMap((lang) =>
+  const staticRoutes = supportedLangs.flatMap((lang) =>
     indexableRouteKeys.map((routeKey) => ({
       url: getAbsoluteUrl(seoRoutes[routeKey][lang]),
-      lastModified,
-      changeFrequency: "weekly" as const,
+      lastModified: defaultLastModified,
+      changeFrequency: getChangeFrequency(routeKey),
       priority: getPriority(routeKey),
       alternates: {
         languages: getSeoLanguages(routeKey),
       },
     }))
   );
+
+  const blogRoutes = blogPosts.flatMap((post) =>
+    (supportedLangs as SupportedLang[]).map((lang) => {
+      const slug = post.slugs[lang];
+      const url = getAbsoluteUrl(`/${lang}/blog/${slug}`);
+      const alternates: Record<string, string> = {};
+      for (const l of supportedLangs as SupportedLang[]) {
+        alternates[l] = getAbsoluteUrl(`/${l}/blog/${post.slugs[l]}`);
+      }
+      alternates["x-default"] = getAbsoluteUrl(`/es/blog/${post.slugs.es}`);
+
+      return {
+        url,
+        lastModified: new Date(post.updatedAt),
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+        alternates: { languages: alternates },
+      };
+    })
+  );
+
+  return [...staticRoutes, ...blogRoutes];
 }

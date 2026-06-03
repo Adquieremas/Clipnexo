@@ -197,20 +197,20 @@ export default async function Page({ params }: PageProps) {
   return (
     <main
       style={{
-        padding: "48px 24px 72px",
+        padding: "32px 20px 60px",
         maxWidth: "980px",
         margin: "0 auto",
         color: "#111",
         position: "relative",
       }}
     >
-      <section style={{ marginBottom: "48px", textAlign: "center" }}>
+      <section style={{ marginBottom: "36px", textAlign: "center" }}>
         <h1
           style={{
             color: "#111",
             position: "relative",
             zIndex: 1,
-            fontSize: "clamp(30px, 4.6vw, 46px)",
+            fontSize: "clamp(24px, 4vw, 34px)",
             lineHeight: 1.05,
             fontWeight: 800,
             margin: "0 0 18px",
@@ -223,10 +223,10 @@ export default async function Page({ params }: PageProps) {
             color: "#444",
             position: "relative",
             zIndex: 1,
-            fontSize: "20px",
-            lineHeight: 1.75,
-            maxWidth: "860px",
-            margin: "0 auto 30px",
+            fontSize: "17px",
+            lineHeight: 1.7,
+            maxWidth: "780px",
+            margin: "0 auto 24px",
           }}
         >
           {content.lead}
@@ -237,27 +237,27 @@ export default async function Page({ params }: PageProps) {
       </section>
 
       <section style={{ maxWidth: "860px", margin: "0 auto" }}>
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(22px, 3vw, 34px)",
-              lineHeight: 1.12,
+              fontSize: "clamp(20px, 3vw, 26px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 14px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.introTitle}
           </h2>
-          <p style={{ fontSize: "19px", lineHeight: 1.8, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.intro}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -266,15 +266,15 @@ export default async function Page({ params }: PageProps) {
           >
             {content.sectionIntroTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {content.sectionIntroText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -285,17 +285,17 @@ export default async function Page({ params }: PageProps) {
           </h2>
           <ol style={{ paddingLeft: "24px", margin: 0, color: "#222" }}>
             {t.steps.map((step: string, i: number) => (
-              <li key={i} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+              <li key={i} style={{ marginBottom: "10px", fontSize: "17px", lineHeight: 1.7 }}>
                 {step}
               </li>
             ))}
           </ol>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -306,17 +306,17 @@ export default async function Page({ params }: PageProps) {
           </h2>
           <ul style={{ paddingLeft: "24px", margin: 0, color: "#222" }}>
             {t.benefits.map((b: string, i: number) => (
-              <li key={i} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+              <li key={i} style={{ marginBottom: "10px", fontSize: "17px", lineHeight: 1.7 }}>
                 {b}
               </li>
             ))}
           </ul>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -325,15 +325,15 @@ export default async function Page({ params }: PageProps) {
           >
             {content.whyTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {content.whyText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -342,15 +342,15 @@ export default async function Page({ params }: PageProps) {
           >
             {content.compatibilityTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {content.compatibilityText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -359,15 +359,15 @@ export default async function Page({ params }: PageProps) {
           >
             {content.qualityTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {content.qualityText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -376,15 +376,15 @@ export default async function Page({ params }: PageProps) {
           >
             {t.extraTitle || content.securityTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.extraContent || content.securityText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 14px",
@@ -397,7 +397,7 @@ export default async function Page({ params }: PageProps) {
             <div key={i} style={{ marginBottom: "20px" }}>
               <h3
                 style={{
-                  fontSize: "19px",
+                  fontSize: "18px",
                   lineHeight: 1.3,
                   fontWeight: 700,
                   margin: "0 0 8px",
@@ -406,7 +406,7 @@ export default async function Page({ params }: PageProps) {
               >
                 {item.q}
               </h3>
-              <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: 0 }}>
+              <p style={{ fontSize: "17px", lineHeight: 1.7, color: "#444", margin: 0 }}>
                 {item.a}
               </p>
             </div>
@@ -415,7 +415,7 @@ export default async function Page({ params }: PageProps) {
             <div key={`extra-${i}`} style={{ marginBottom: "20px" }}>
               <h3
                 style={{
-                  fontSize: "24px",
+                  fontSize: "18px",
                   lineHeight: 1.3,
                   fontWeight: 700,
                   margin: "0 0 8px",
@@ -424,17 +424,17 @@ export default async function Page({ params }: PageProps) {
               >
                 {item.q}
               </h3>
-              <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: 0 }}>
+              <p style={{ fontSize: "17px", lineHeight: 1.7, color: "#444", margin: 0 }}>
                 {item.a}
               </p>
             </div>
           ))}
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -443,7 +443,7 @@ export default async function Page({ params }: PageProps) {
           >
             {content.closingTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {content.closingText}
           </p>
         </section>
@@ -453,7 +453,7 @@ export default async function Page({ params }: PageProps) {
         <section>
           <h2
             style={{
-              fontSize: "clamp(21px, 2.7vw, 30px)",
+              fontSize: "clamp(20px, 3vw, 26px)",
               lineHeight: 1.18,
               fontWeight: 800,
               margin: "0 0 12px",
@@ -462,12 +462,12 @@ export default async function Page({ params }: PageProps) {
           >
             {content.toolsTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: "0 0 16px" }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.7, color: "#444", margin: "0 0 16px" }}>
             {content.toolsIntro}
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
             {relatedLinks.map((link) => (
-              <li key={link.routeKey} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+              <li key={link.routeKey} style={{ marginBottom: "10px", fontSize: "17px", lineHeight: 1.7 }}>
                 <Link href={link.href}>{link.label}</Link>
               </li>
             ))}

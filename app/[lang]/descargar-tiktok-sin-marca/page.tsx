@@ -159,33 +159,33 @@ const pageContent = {
     ctaAbout: "About Clipnexo",
   },
   pt: {
-    metaTitle: "Baixar TikTok sem marca d’água",
+    metaTitle: "Baixar TikTok sem marca d'água",
     metaDescription:
-      "Baixe vídeos do TikTok sem marca d’água grátis com Clipnexo. Rápido, online, seguro e compatível com celular e computador para todos os usuários agora em 2026.",
-    h1: "Baixar TikTok sem marca d’água grátis",
+      "Baixe vídeos do TikTok sem marca d'água grátis com Clipnexo. Rápido, online, seguro e compatível com celular e computador para todos os usuários agora em 2026.",
+    h1: "Baixar TikTok sem marca d'água grátis",
     lead:
-      "Clipnexo permite baixar vídeos do TikTok sem marca d’água grátis, online e sem instalar programas adicionais. Basta colar o link do vídeo para salvar o arquivo no celular ou PC em segundos.",
+      "Clipnexo permite baixar vídeos do TikTok sem marca d'água grátis, online e sem instalar programas adicionais. Basta colar o link do vídeo para salvar o arquivo no celular ou PC em segundos.",
     introTitle: "O que é o Clipnexo e para que serve?",
     introText:
-      "Clipnexo é uma ferramenta web para quem quer baixar TikTok grátis, salvar vídeos sem marca d’água e usar um fluxo rápido direto do navegador. Foi criada para uso prático em dispositivos móveis e desktop.",
-    benefitsTitle: "Vantagens de baixar vídeos sem marca d’água com Clipnexo",
+      "Clipnexo é uma ferramenta web para quem quer baixar TikTok grátis, salvar vídeos sem marca d'água e usar um fluxo rápido direto do navegador. Foi criada para uso prático em dispositivos móveis e desktop.",
+    benefitsTitle: "Vantagens de baixar vídeos sem marca d'água com Clipnexo",
     benefits: [
-      "Baixa vídeos públicos do TikTok sem marca d’água em poucos passos.",
+      "Baixa vídeos públicos do TikTok sem marca d'água em poucos passos.",
       "Não exige instalação de APKs nem programas pesados.",
       "Funciona em Android, iPhone, tablet e computador.",
       "É útil para quem busca baixar TikTok grátis de forma prática.",
       "Ajuda a salvar conteúdo público para uso pessoal permitido.",
     ],
-    howTitle: "Como baixar conteúdo do TikTok sem marca d’água",
+    howTitle: "Como baixar conteúdo do TikTok sem marca d'água",
     howSteps: [
       "Copie o link do vídeo no aplicativo ou site do TikTok.",
       "Cole o link na caixa de download do Clipnexo.",
       "Processe o conteúdo e escolha a opção de download disponível.",
-      "Salve o vídeo no seu dispositivo sem marca d’água.",
+      "Salve o vídeo no seu dispositivo sem marca d'água.",
     ],
     whyTitle: "Por que o Clipnexo pode ser uma opção mais prática",
     whyText:
-      "Buscas como TikTok save download, TikTok download APK, baixar TikTok lite ou baixar sem marca d’água no CapCut mostram que as pessoas querem soluções rápidas e simples. O Clipnexo foi pensado para isso: uma experiência mais clara no navegador para processar links públicos do TikTok.",
+      "Buscas como TikTok save download, TikTok download APK, baixar TikTok lite ou baixar sem marca d'água no CapCut mostram que as pessoas querem soluções rápidas e simples. O Clipnexo foi pensado para isso: uma experiência mais clara no navegador para processar links públicos do TikTok.",
     safetyTitle: "Baixar TikTok grátis sem instalar APKs duvidosos",
     safetyText:
       "Se você prefere evitar APKs desconhecidos ou aplicativos de terceiros, o Clipnexo reduz essa necessidade porque funciona direto no navegador. Não substitui as regras da plataforma, mas oferece um fluxo mais simples para links públicos.",
@@ -194,15 +194,15 @@ const pageContent = {
       "Esta página está otimizada para usuários em português e intenção de busca internacional. A estrutura foi organizada para SEO, motores de resposta e pessoas que querem entender rapidamente como a ferramenta funciona.",
     toolsTitle: "Mais ferramentas relacionadas do Clipnexo",
     toolsIntro:
-      "Além de baixar vídeos do TikTok sem marca d’água, você também pode usar outras ferramentas para salvar vídeos completos, converter áudio e aprender a usar o Clipnexo passo a passo.",
+      "Além de baixar vídeos do TikTok sem marca d'água, você também pode usar outras ferramentas para salvar vídeos completos, converter áudio e aprender a usar o Clipnexo passo a passo.",
     faqTitle: "Perguntas frequentes sobre baixar TikTok grátis",
     faqs: [
       {
         q: "Como baixar um vídeo do TikTok sem marcas no vídeo?",
-        a: "Copie o link do vídeo público, cole no Clipnexo e use a opção de download disponível. Assim você pode salvar o vídeo sem marca d’água em poucos passos.",
+        a: "Copie o link do vídeo público, cole no Clipnexo e use a opção de download disponível. Assim você pode salvar o vídeo sem marca d'água em poucos passos.",
       },
       {
-        q: "Como posso remover a marca d’água do TikTok grátis?",
+        q: "Como posso remover a marca d'água do TikTok grátis?",
         a: "Uma maneira prática é usar uma ferramenta online como o Clipnexo, que processa links públicos do TikTok e oferece um fluxo de download mais simples.",
       },
       {
@@ -222,7 +222,7 @@ const pageContent = {
         a: "Sim. Você também pode usar a ferramenta TikTok para MP3 dentro do Clipnexo se quiser apenas o áudio.",
       },
     ],
-    closingTitle: "Uma opção rápida para baixar vídeos do TikTok sem marca d’água",
+    closingTitle: "Uma opção rápida para baixar vídeos do TikTok sem marca d'água",
     closingText:
       "Se você quer uma forma simples de baixar TikTok grátis sem instalações complicadas, o Clipnexo oferece uma opção prática no navegador para usuários mobile e desktop.",
     ctaVideo: "Baixar vídeos do TikTok",
@@ -274,101 +274,273 @@ export default async function Page({ params }: Props) {
   };
 
   return (
-    <main style={{ padding: "40px", maxWidth: "900px", margin: "0 auto", color: "#111" }}>
+    <main
+      style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "32px 20px 60px",
+        color: "#111",
+      }}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <header style={{ marginBottom: "28px" }}>
-        <h1 style={{ fontSize: "clamp(30px, 5vw, 52px)", lineHeight: 1.08, fontWeight: 800, margin: "0 0 16px" }}>
+        <h1
+          style={{
+            fontSize: "clamp(24px, 4vw, 34px)",
+            lineHeight: 1.15,
+            fontWeight: 800,
+            margin: "0 0 12px",
+            color: "#111",
+          }}
+        >
           {t.h1}
         </h1>
-        <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: 0 }}>{t.lead}</p>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.7,
+            color: "#444",
+            margin: 0,
+            maxWidth: "780px",
+          }}
+        >
+          {t.lead}
+        </p>
       </header>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
-          {t.introTitle}
-        </h2>
-        <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>{t.introText}</p>
-      </section>
-
-      <section style={{ marginBottom: "34px" }}>
+      <section style={{ marginBottom: "36px" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto" }}>
           <DownloaderBox lang={currentLang} type="video" />
         </div>
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
+          {t.introTitle}
+        </h2>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "#444",
+            margin: 0,
+          }}
+        >
+          {t.introText}
+        </p>
+      </section>
+
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.howTitle}
         </h2>
-        <ol style={{ paddingLeft: "24px", margin: 0, color: "#222" }}>
+        <ol style={{ paddingLeft: "22px", margin: 0, color: "#222" }}>
           {t.howSteps.map((step, i) => (
-            <li key={i} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+            <li
+              key={i}
+              style={{
+                marginBottom: "8px",
+                fontSize: "17px",
+                lineHeight: 1.7,
+              }}
+            >
               {step}
             </li>
           ))}
         </ol>
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.benefitsTitle}
         </h2>
-        <ul style={{ paddingLeft: "24px", margin: 0, color: "#222" }}>
+        <ul style={{ paddingLeft: "22px", margin: 0, color: "#222" }}>
           {t.benefits.map((benefit, i) => (
-            <li key={i} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+            <li
+              key={i}
+              style={{
+                marginBottom: "8px",
+                fontSize: "17px",
+                lineHeight: 1.7,
+              }}
+            >
               {benefit}
             </li>
           ))}
         </ul>
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.whyTitle}
         </h2>
-        <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>{t.whyText}</p>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "#444",
+            margin: 0,
+          }}
+        >
+          {t.whyText}
+        </p>
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.safetyTitle}
         </h2>
-        <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>{t.safetyText}</p>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "#444",
+            margin: 0,
+          }}
+        >
+          {t.safetyText}
+        </p>
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.geoTitle}
         </h2>
-        <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>{t.geoText}</p>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "#444",
+            margin: 0,
+          }}
+        >
+          {t.geoText}
+        </p>
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.faqTitle}
         </h2>
         {t.faqs.map((item, i) => (
-          <div key={i} style={{ marginBottom: "20px" }}>
-            <h3 style={{ fontSize: "20px", lineHeight: 1.3, fontWeight: 700, margin: "0 0 8px", color: "#111" }}>
+          <div key={i} style={{ marginBottom: "16px" }}>
+            <h3
+              style={{
+                fontSize: "18px",
+                lineHeight: 1.3,
+                fontWeight: 700,
+                margin: "0 0 6px",
+                color: "#111",
+              }}
+            >
               {item.q}
             </h3>
-            <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: 0 }}>{item.a}</p>
+            <p
+              style={{
+                fontSize: "17px",
+                lineHeight: 1.75,
+                color: "#444",
+                margin: 0,
+              }}
+            >
+              {item.a}
+            </p>
           </div>
         ))}
       </section>
 
-      <section style={{ marginBottom: "34px" }}>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.toolsTitle}
         </h2>
-        <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: "0 0 14px" }}>{t.toolsIntro}</p>
-        <ul style={{ paddingLeft: "24px", margin: 0 }}>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "#444",
+            margin: "0 0 12px",
+          }}
+        >
+          {t.toolsIntro}
+        </p>
+        <ul style={{ paddingLeft: "22px", margin: 0 }}>
           {relatedLinks.map((link) => (
-            <li key={link.routeKey} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+            <li
+              key={link.routeKey}
+              style={{
+                marginBottom: "8px",
+                fontSize: "17px",
+                lineHeight: 1.7,
+              }}
+            >
               <Link href={link.href}>{link.label}</Link>
             </li>
           ))}
@@ -376,10 +548,27 @@ export default async function Page({ params }: Props) {
       </section>
 
       <section>
-        <h2 style={{ fontSize: "clamp(23px, 3vw, 34px)", lineHeight: 1.18, fontWeight: 800, margin: "0 0 12px" }}>
+        <h2
+          style={{
+            fontSize: "clamp(20px, 3vw, 26px)",
+            lineHeight: 1.2,
+            fontWeight: 800,
+            margin: "0 0 10px",
+            color: "#111",
+          }}
+        >
           {t.closingTitle}
         </h2>
-        <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>{t.closingText}</p>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "#444",
+            margin: 0,
+          }}
+        >
+          {t.closingText}
+        </p>
       </section>
     </main>
   );
