@@ -41,7 +41,7 @@ type PageProps = {
 
 const fallbackAbout: Record<Lang, AboutContent> = {
   es: {
-    metaTitle: "Acerca de Clipnexo gratis | Descargador de",
+    metaTitle: "Acerca de Clipnexo | Descargador de TikTok sin marca de agua",
     metaDescription:
       "Conoce qué es Clipnexo, cómo funciona y por qué es la herramienta más rápida para descargar videos de TikTok y convertir audio a MP3 de alta calidad hoy mismo.",
     title: "Acerca de Clipnexo",
@@ -252,21 +252,21 @@ export default async function Page({ params }: PageProps) {
   return (
     <main
       style={{
-        maxWidth: "980px",
-        margin: "40px auto",
-        padding: "24px",
-        lineHeight: "1.75",
+        maxWidth: "900px",
+        margin: "32px auto 60px",
+        padding: "20px",
+        lineHeight: "1.7",
         color: "#111",
       }}
     >
-      <section style={{ textAlign: "center", marginBottom: "52px" }}>
+      <section style={{ textAlign: "center", marginBottom: "42px" }}>
         <h1
           style={{
-            fontSize: "clamp(40px, 6vw, 64px)",
+            fontSize: "clamp(28px, 4vw, 42px)",
             fontWeight: 800,
             color: "#111",
-            lineHeight: "1.05",
-            margin: "0 0 16px",
+            lineHeight: "1.1",
+            margin: "0 0 14px",
           }}
         >
           {t.title}
@@ -274,59 +274,59 @@ export default async function Page({ params }: PageProps) {
 
         <p
           style={{
-            color: "#444",
+            color: "#555",
             margin: "0 auto",
-            fontSize: "20px",
-            maxWidth: "860px",
-            lineHeight: "1.85",
+            fontSize: "17px",
+            maxWidth: "780px",
+            lineHeight: "1.7",
           }}
         >
           {t.lead}
         </p>
       </section>
 
-      <section style={{ maxWidth: "860px", margin: "0 auto" }}>
-        <section style={{ marginBottom: "34px" }}>
+      <section style={{ maxWidth: "780px", margin: "0 auto" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(32px, 4vw, 46px)",
-              lineHeight: 1.12,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 14px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.introTitle}
           </h2>
-          <p style={{ fontSize: "19px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.intro}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.missionTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.missionText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
@@ -334,69 +334,69 @@ export default async function Page({ params }: PageProps) {
           </h2>
           <ul style={{ paddingLeft: "24px", margin: 0, color: "#222" }}>
             {t.whyItems.map((item) => (
-              <li key={item} style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+              <li key={item} style={{ marginBottom: "8px", fontSize: "16px", lineHeight: 1.7 }}>
                 {item}
               </li>
             ))}
           </ul>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.compatibilityTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.compatibilityText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.qualityTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.qualityText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.securityTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.securityText}
           </p>
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 14px",
               color: "#111",
@@ -405,63 +405,63 @@ export default async function Page({ params }: PageProps) {
             {t.faqTitle}
           </h2>
           {t.faqs.map((item, i) => (
-            <div key={`${item.q}-${i}`} style={{ marginBottom: "20px" }}>
+            <div key={`${item.q}-${i}`} style={{ marginBottom: "16px" }}>
               <h3
                 style={{
-                  fontSize: "24px",
-                  lineHeight: 1.3,
+                  fontSize: "18px",
+                  lineHeight: 1.35,
                   fontWeight: 700,
-                  margin: "0 0 8px",
+                  margin: "0 0 6px",
                   color: "#111",
                 }}
               >
                 {item.q}
               </h3>
-              <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: 0 }}>
+              <p style={{ fontSize: "15px", lineHeight: 1.7, color: "#555", margin: 0 }}>
                 {item.a}
               </p>
             </div>
           ))}
         </section>
 
-        <section style={{ marginBottom: "34px" }}>
+        <section style={{ marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.toolsTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#444", margin: "0 0 16px" }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.7, color: "#444", margin: "0 0 14px" }}>
             {t.toolsIntro}
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
-            <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+            <li style={{ marginBottom: "8px", fontSize: "16px", lineHeight: 1.7 }}>
               <a href={`/${currentLang}/descargar-tiktok`}>{links.labelVideo}</a>
             </li>
-            <li style={{ marginBottom: "10px", fontSize: "18px", lineHeight: 1.8 }}>
+            <li style={{ marginBottom: "8px", fontSize: "16px", lineHeight: 1.7 }}>
               <a href={`/${currentLang}/descargar-tiktok-mp3`}>{links.labelMp3}</a>
             </li>
           </ul>
         </section>
 
-        <section style={{ marginBottom: "20px" }}>
+        <section style={{ marginBottom: "8px" }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.2vw, 38px)",
-              lineHeight: 1.18,
+              fontSize: "clamp(22px, 3vw, 30px)",
+              lineHeight: 1.2,
               fontWeight: 800,
-              margin: "0 0 12px",
+              margin: "0 0 10px",
               color: "#111",
             }}
           >
             {t.closingTitle}
           </h2>
-          <p style={{ fontSize: "18px", lineHeight: 1.85, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
             {t.closingText}
           </p>
         </section>

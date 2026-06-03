@@ -1,16 +1,17 @@
 {
-  "id": "/",
   "name": "Clipnexo",
   "short_name": "Clipnexo",
-  "description": "Descargador de videos de TikTok sin marca de agua",
+  "description": "Descargador de TikTok sin marca de agua. Herramientas gratis para descargar videos, crear textos y generar hashtags.",
   "lang": "es",
-  "start_url": "/es",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "orientation": "portrait",
-  "categories": ["utilities", "video", "productivity"],
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "categories": ["utilities", "video", "productivity", "social"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-192.png",

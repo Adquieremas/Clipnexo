@@ -1922,22 +1922,20 @@ input, select, textarea, button {
 
 /* FOOTER */
 .footer {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border-top: 3px solid transparent;
-  border-image: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899) 1;
-  margin-top: 48px;
+  background: linear-gradient(180deg, #faf9ff 0%, #f5f3ff 50%, #fdf2f8 100%);
+  margin-top: 64px;
 }
 
 .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 44px 24px 0;
+  padding: 56px 24px 0;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 28px;
+  gap: 32px;
 }
 
 .footer-col {
@@ -1951,16 +1949,15 @@ input, select, textarea, button {
 
 .footer-brand-name {
   display: inline-block;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
-  color: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   line-height: 1;
   margin-bottom: 14px;
-}
-
-.footer-brand-name:hover {
-  color: #4338ca;
 }
 
 .footer-brand-desc {
@@ -1990,25 +1987,28 @@ input, select, textarea, button {
 .footer-badge-free {
   background: #eef2ff;
   color: #4f46e5;
+  border: 1px solid #c7d2fe;
 }
 
 .footer-badge-online {
   background: #fdf2f8;
   color: #db2777;
+  border: 1px solid #fbcfe8;
 }
 
 .footer-badge-app {
   background: #f5f3ff;
   color: #7c3aed;
+  border: 1px solid #ddd6fe;
 }
 
 .footer-col-title {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  color: #6b7280;
-  margin: 0 0 16px;
+  color: #9ca3af;
+  margin: 0 0 18px;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
 }
 
 .footer-links {
@@ -2039,7 +2039,7 @@ input, select, textarea, button {
 .footer-cta-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 24px 0;
+  padding: 40px 24px 0;
 }
 
 .footer-cta-card {
@@ -2047,17 +2047,18 @@ input, select, textarea, button {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background: linear-gradient(135deg, #f5f3ff, #fdf2f8);
-  border: 1px solid #e0dff7;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
-  padding: 22px 28px;
+  padding: 24px 32px;
   flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .footer-cta-text {
   font-size: 15px;
   font-weight: 600;
-  color: #1f2937;
+  color: #374151;
   margin: 0;
   line-height: 1.5;
 }
@@ -2065,34 +2066,34 @@ input, select, textarea, button {
 .footer-cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   text-decoration: none;
   color: #ffffff;
   background: linear-gradient(135deg, #4f46e5, #ec4899);
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
-  padding: 12px 24px;
-  border-radius: 10px;
+  padding: 13px 26px;
+  border-radius: 12px;
   white-space: nowrap;
   transition: transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.18);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.18);
   flex-shrink: 0;
 }
 
 .footer-cta-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.26);
+  box-shadow: 0 8px 22px rgba(79, 70, 229, 0.26);
 }
 
 .footer-bottom {
-  border-top: 1px solid #e5e7eb;
+  padding: 36px 0 28px;
 }
 
 .footer-bottom-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2124,22 +2125,22 @@ input, select, textarea, button {
 
 @media (max-width: 640px) {
   .footer-inner {
-    padding: 32px 16px 0;
+    padding: 40px 16px 0;
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 28px;
   }
 
   .footer-cta-section {
-    padding: 24px 16px 0;
+    padding: 28px 16px 0;
   }
 
   .footer-cta-card {
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    padding: 24px 20px;
   }
 
   .footer-cta-button {
@@ -2150,14 +2151,14 @@ input, select, textarea, button {
   .footer-bottom-inner {
     flex-direction: column;
     text-align: center;
-    padding: 16px;
+    padding: 0 16px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
   }
 
   .footer-col-title {

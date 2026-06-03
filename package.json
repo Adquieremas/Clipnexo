@@ -10,6 +10,7 @@
     "seo:check": "node scripts/seo-check.js"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "next": "16.2.6",
     "next-pwa": "^5.6.0",
     "react": "19.2.4",
