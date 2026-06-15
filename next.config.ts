@@ -12,18 +12,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/",
+        source: "/(.*)",
         headers: [
           {
             key: "Link",
             value:
-              '</.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="service-desc", </llms.txt>; rel="describedby"',
+              '</.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/oauth-authorization-server>; rel="service-doc"',
           },
-        ],
-      },
-      {
-        source: "/(.*)",
-        headers: [
           {
             key: "X-DNS-Prefetch-Control",
             value: "on",
