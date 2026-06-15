@@ -1,6 +1,6 @@
 import type { SupportedLang } from "./routes";
 
-export type ClusterKey = "tiktok" | "youtube" | "instagram" | "facebook" | "shortVideo" | "socialMedia";
+export type ClusterKey = "tiktok" | "youtube" | "instagram" | "facebook" | "shortVideo" | "socialMedia" | "students";
 
 export type ClusterContent = {
   metaTitle: string;
@@ -333,6 +333,65 @@ const clusters: Record<string, Record<SupportedLang, ClusterContent>> = {
       ],
     },
   },
+  students: {
+    es: {
+      metaTitle: "Herramientas para estudiantes gratis | Clipnexo",
+      metaDescription: "Herramientas gratuitas para estudiantes: contador de palabras, convertidor de mayúsculas, generador de índices, títulos, introducciones y conclusiones.",
+      h1: "Herramientas para estudiantes",
+      intro: "Descubre herramientas gratuitas para estudiantes. Cuenta palabras y caracteres, convierte mayúsculas y minúsculas, genera índices, títulos, introducciones y conclusiones para tus trabajos académicos.",
+      howToTitle: "Cómo usar estas herramientas",
+      howToSteps: [
+        "Elige la herramienta que necesitas de la lista.",
+        "Ingresa el texto o tema requerido.",
+        "Obtén tu resultado al instante.",
+      ],
+      recommendedTitle: "Herramientas recomendadas para estudiantes",
+      faq: [
+        { q: "¿Son gratuitas estas herramientas?", a: "Sí, todas las herramientas para estudiantes son completamente gratuitas." },
+        { q: "¿Necesito registrarme?", a: "No, no requieren registro ni inicio de sesión." },
+        { q: "¿Funcionan en dispositivos móviles?", a: "Sí, funcionan en cualquier navegador moderno." },
+        { q: "¿Puedo usar los textos generados en mis trabajos?", a: "Sí, los textos generados son libres de usar como base para tus trabajos académicos." },
+      ],
+    },
+    en: {
+      metaTitle: "Free Student Tools Online | Clipnexo",
+      metaDescription: "Free tools for students: word counter, case converter, outline generator, title generator, introduction and conclusion generators.",
+      h1: "Student Tools",
+      intro: "Discover free tools for students. Count words and characters, convert text case, generate outlines, titles, introductions and conclusions for your academic work.",
+      howToTitle: "How to use these tools",
+      howToSteps: [
+        "Choose the tool you need from the list.",
+        "Enter the required text or topic.",
+        "Get your result instantly.",
+      ],
+      recommendedTitle: "Recommended student tools",
+      faq: [
+        { q: "Are these tools free?", a: "Yes, all student tools are completely free." },
+        { q: "Do I need to register?", a: "No, they require no registration or login." },
+        { q: "Do they work on mobile devices?", a: "Yes, they work on any modern browser." },
+        { q: "Can I use generated texts in my work?", a: "Yes, the generated texts are free to use as a basis for your academic work." },
+      ],
+    },
+    pt: {
+      metaTitle: "Ferramentas para estudantes grátis | Clipnexo",
+      metaDescription: "Ferramentas gratuitas para estudantes: contador de palavras, conversor de maiúsculas, gerador de índices, títulos, introduções e conclusões.",
+      h1: "Ferramentas para estudantes",
+      intro: "Descubra ferramentas gratuitas para estudantes. Conte palavras e caracteres, converta maiúsculas e minúsculas, gere índices, títulos, introduções e conclusões para seus trabalhos acadêmicos.",
+      howToTitle: "Como usar estas ferramentas",
+      howToSteps: [
+        "Escolha a ferramenta que precisa da lista.",
+        "Insira o texto ou tema necessário.",
+        "Obtenha seu resultado instantaneamente.",
+      ],
+      recommendedTitle: "Ferramentas recomendadas para estudantes",
+      faq: [
+        { q: "Estas ferramentas são gratuitas?", a: "Sim, todas as ferramentas para estudantes são completamente gratuitas." },
+        { q: "Preciso me registrar?", a: "Não, não exigem registro nem login." },
+        { q: "Funcionam em dispositivos móveis?", a: "Sim, funcionam em qualquer navegador moderno." },
+        { q: "Posso usar os textos gerados em meus trabalhos?", a: "Sim, os textos gerados são livres para usar como base para seus trabalhos acadêmicos." },
+      ],
+    },
+  },
   socialMedia: {
     es: {
       metaTitle: "Herramientas para redes sociales | Clipnexo",
@@ -429,6 +488,16 @@ const clusterToolKeys: Record<ClusterKey, string[]> = {
     "socialMediaTextGenerator", "socialMediaCharacterCounter",
     "instagramCaptionGenerator", "facebookPostGenerator",
     "shortVideoScriptGenerator",
+    "usernameGenerator", "contentCalendarGenerator",
+  ],
+  students: [
+    "wordCounter", "caseConverter",
+    "outlineGenerator", "assignmentTitleGenerator",
+    "introductionGenerator", "conclusionGenerator",
+    "textSummarizer",
+    "textParaphraser", "apaCitationGenerator", "textCorrector",
+    "pdfToText", "textToPdf", "pomodoroTimer",
+    "gradeAverageCalculator", "studyScheduleGenerator",
   ],
 };
 
@@ -444,6 +513,7 @@ export function getClusterRouteKey(clusterKey: ClusterKey): string {
     facebook: "facebookTools",
     shortVideo: "shortVideoTools",
     socialMedia: "socialMediaTools",
+    students: "studentsTools",
   };
   return map[clusterKey];
 }
@@ -452,4 +522,4 @@ export function getClusterToolKeys(clusterKey: ClusterKey): string[] {
   return clusterToolKeys[clusterKey];
 }
 
-export const clusterKeys: ClusterKey[] = ["tiktok", "youtube", "instagram", "facebook", "shortVideo", "socialMedia"];
+export const clusterKeys: ClusterKey[] = ["tiktok", "youtube", "instagram", "facebook", "shortVideo", "socialMedia", "students"];

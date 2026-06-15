@@ -45,6 +45,23 @@ const toolLabelMap: Record<string, Record<SupportedLang, string>> = {
   shortVideoScriptGenerator: { es: "Generador de guiones para videos cortos", en: "Short video script generator", pt: "Gerador de roteiros para vídeos curtos" },
   socialMediaTextGenerator: { es: "Crear textos para redes sociales", en: "Social media text generator", pt: "Criar textos para redes sociais" },
   socialMediaCharacterCounter: { es: "Contador de caracteres", en: "Social media character counter", pt: "Contador de caracteres" },
+  wordCounter: { es: "Contador de palabras y caracteres", en: "Word and character counter", pt: "Contador de palavras e caracteres" },
+  caseConverter: { es: "Convertidor de mayúsculas y minúsculas", en: "Case converter", pt: "Conversor de maiúsculas e minúsculas" },
+  outlineGenerator: { es: "Generador de índice para trabajos", en: "Outline generator", pt: "Gerador de índice para trabalhos" },
+  assignmentTitleGenerator: { es: "Generador de títulos para trabajos", en: "Assignment title generator", pt: "Gerador de títulos para trabalhos" },
+  introductionGenerator: { es: "Generador de introducciones", en: "Introduction generator", pt: "Gerador de introduções" },
+  conclusionGenerator: { es: "Generador de conclusiones", en: "Conclusion generator", pt: "Gerador de conclusões" },
+  textSummarizer: { es: "Resumidor de texto", en: "Text summarizer", pt: "Resumidor de texto" },
+  textParaphraser: { es: "Parafraseador de texto", en: "Text paraphraser", pt: "Parafraseador de texto" },
+  apaCitationGenerator: { es: "Generador de citas APA", en: "APA citation generator", pt: "Gerador de citações APA" },
+  textCorrector: { es: "Corrector de texto básico", en: "Basic text corrector", pt: "Corretor de texto básico" },
+  pdfToText: { es: "PDF a texto", en: "PDF to text", pt: "PDF para texto" },
+  textToPdf: { es: "Texto a PDF", en: "Text to PDF", pt: "Texto para PDF" },
+  pomodoroTimer: { es: "Temporizador Pomodoro", en: "Pomodoro timer", pt: "Temporizador Pomodoro" },
+  gradeAverageCalculator: { es: "Calculadora de promedio", en: "Grade average calculator", pt: "Calculadora de média" },
+  studyScheduleGenerator: { es: "Generador de horario de estudio", en: "Study schedule generator", pt: "Gerador de horário de estudo" },
+  usernameGenerator: { es: "Generador de nombres de usuario", en: "Username generator", pt: "Gerador de nomes de usuário" },
+  contentCalendarGenerator: { es: "Generador de calendario de contenido", en: "Content calendar generator", pt: "Gerador de calendário de conteúdo" },
 };
 
 const clusterFaqMap: Record<string, Record<SupportedLang, string>> = {
@@ -54,6 +71,7 @@ const clusterFaqMap: Record<string, Record<SupportedLang, string>> = {
   facebookTools: { es: "Preguntas frecuentes sobre herramientas Facebook", en: "FAQ about Facebook tools", pt: "Perguntas frequentes sobre ferramentas Facebook" },
   shortVideoTools: { es: "Preguntas frecuentes sobre videos cortos", en: "FAQ about short videos", pt: "Perguntas frequentes sobre vídeos curtos" },
   socialMediaTools: { es: "Preguntas frecuentes sobre redes sociales", en: "FAQ about social media", pt: "Perguntas frequentes sobre redes sociais" },
+  studentsTools: { es: "Preguntas frecuentes sobre herramientas para estudiantes", en: "FAQ about student tools", pt: "Perguntas frequentes sobre ferramentas para estudantes" },
 };
 
 export default function ClusterPage({ clusterKey, lang }: Props) {

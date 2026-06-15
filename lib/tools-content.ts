@@ -40,7 +40,24 @@ export type ToolKey =
   | "facebookAdGenerator"
   | "marketplaceTextGenerator"
   | "shortVideoScriptGenerator"
-  | "socialMediaCharacterCounter";
+  | "socialMediaCharacterCounter"
+  | "wordCounter"
+  | "caseConverter"
+  | "outlineGenerator"
+  | "assignmentTitleGenerator"
+  | "introductionGenerator"
+  | "conclusionGenerator"
+  | "textSummarizer"
+  | "textParaphraser"
+  | "apaCitationGenerator"
+  | "textCorrector"
+  | "pdfToText"
+  | "textToPdf"
+  | "pomodoroTimer"
+  | "gradeAverageCalculator"
+  | "studyScheduleGenerator"
+  | "usernameGenerator"
+  | "contentCalendarGenerator";
 
 export type ToolPageContent = {
   metaTitle: string;
@@ -106,6 +123,23 @@ export const toolKeys = [
   "marketplaceTextGenerator",
   "shortVideoScriptGenerator",
   "socialMediaCharacterCounter",
+  "wordCounter",
+  "caseConverter",
+  "outlineGenerator",
+  "assignmentTitleGenerator",
+  "introductionGenerator",
+  "conclusionGenerator",
+  "textSummarizer",
+  "textParaphraser",
+  "apaCitationGenerator",
+  "textCorrector",
+  "pdfToText",
+  "textToPdf",
+  "pomodoroTimer",
+  "gradeAverageCalculator",
+  "studyScheduleGenerator",
+  "usernameGenerator",
+  "contentCalendarGenerator",
 ] as const satisfies readonly ToolKey[];
 
 const ogLocales: Record<SupportedLang, string> = {
@@ -924,6 +958,13 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
       routeKey: "shortVideoTitleHashtag",
       label: "Títulos y hashtags para videos cortos",
     },
+    { routeKey: "wordCounter", label: "Contador de palabras y caracteres" },
+    { routeKey: "caseConverter", label: "Convertidor de mayúsculas y minúsculas" },
+    { routeKey: "outlineGenerator", label: "Generador de índice para trabajos" },
+    { routeKey: "assignmentTitleGenerator", label: "Generador de títulos para trabajos" },
+    { routeKey: "introductionGenerator", label: "Generador de introducciones" },
+    { routeKey: "conclusionGenerator", label: "Generador de conclusiones" },
+    { routeKey: "studentsTools", label: "Herramientas para estudiantes" },
   ],
   en: [
     { routeKey: "video", label: "TikTok video downloader" },
@@ -938,6 +979,13 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
       routeKey: "shortVideoTitleHashtag",
       label: "Short Video Title and Hashtag Generator",
     },
+    { routeKey: "wordCounter", label: "Word and Character Counter" },
+    { routeKey: "caseConverter", label: "Case Converter" },
+    { routeKey: "outlineGenerator", label: "Outline Generator" },
+    { routeKey: "assignmentTitleGenerator", label: "Assignment Title Generator" },
+    { routeKey: "introductionGenerator", label: "Introduction Generator" },
+    { routeKey: "conclusionGenerator", label: "Conclusion Generator" },
+    { routeKey: "studentsTools", label: "Student Tools" },
   ],
   pt: [
     { routeKey: "video", label: "Baixar vídeos do TikTok" },
@@ -952,6 +1000,13 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
       routeKey: "shortVideoTitleHashtag",
       label: "Títulos e hashtags para vídeos curtos",
     },
+    { routeKey: "wordCounter", label: "Contador de palavras e caracteres" },
+    { routeKey: "caseConverter", label: "Conversor de maiúsculas e minúsculas" },
+    { routeKey: "outlineGenerator", label: "Gerador de índice para trabalhos" },
+    { routeKey: "assignmentTitleGenerator", label: "Gerador de títulos para trabalhos" },
+    { routeKey: "introductionGenerator", label: "Gerador de introduções" },
+    { routeKey: "conclusionGenerator", label: "Gerador de conclusões" },
+    { routeKey: "studentsTools", label: "Ferramentas para estudantes" },
   ],
 };
 

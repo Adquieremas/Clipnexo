@@ -154,6 +154,76 @@ Clipnexo helps users:
 - Social media character counter: https://clipnexo.com/en/social-media-character-counter
 - Contador de caracteres para redes sociais: https://clipnexo.com/pt/contador-caracteres-redes-sociais
 
+## Student tools
+
+- Contador de palabras y caracteres: https://clipnexo.com/es/contador-palabras-caracteres
+- Word and character counter: https://clipnexo.com/en/word-character-counter
+- Contador de palavras e caracteres: https://clipnexo.com/pt/contador-palavras-caracteres
+
+- Convertidor de mayúsculas y minúsculas: https://clipnexo.com/es/convertidor-mayusculas-minusculas
+- Case converter: https://clipnexo.com/en/case-converter
+- Conversor de maiúsculas e minúsculas: https://clipnexo.com/pt/conversor-maiusculas-minusculas
+
+- Generador de índice para trabajos: https://clipnexo.com/es/generador-indice-trabajos
+- Outline generator: https://clipnexo.com/en/outline-generator
+- Gerador de índice para trabalhos: https://clipnexo.com/pt/gerador-indice-trabalhos
+
+- Generador de títulos para trabajos: https://clipnexo.com/es/generador-titulos-trabajos
+- Assignment title generator: https://clipnexo.com/en/assignment-title-generator
+- Gerador de títulos para trabalhos: https://clipnexo.com/pt/gerador-titulos-trabalhos
+
+- Generador de introducciones: https://clipnexo.com/es/generador-introducciones
+- Introduction generator: https://clipnexo.com/en/introduction-generator
+- Gerador de introduções: https://clipnexo.com/pt/gerador-introducoes
+
+- Generador de conclusiones: https://clipnexo.com/es/generador-conclusiones
+- Conclusion generator: https://clipnexo.com/en/conclusion-generator
+- Gerador de conclusões: https://clipnexo.com/pt/gerador-conclusoes
+
+- Resumidor de texto: https://clipnexo.com/es/resumidor-texto
+- Text summarizer: https://clipnexo.com/en/text-summarizer
+- Resumidor de texto: https://clipnexo.com/pt/resumidor-texto
+
+- Parafraseador de texto: https://clipnexo.com/es/parafraseador-texto
+- Text paraphraser: https://clipnexo.com/en/text-paraphraser
+- Parafraseador de texto: https://clipnexo.com/pt/parafraseador-texto
+
+- Generador de citas APA: https://clipnexo.com/es/generador-citas-apa
+- APA citation generator: https://clipnexo.com/en/apa-citation-generator
+- Gerador de citações APA: https://clipnexo.com/pt/gerador-citacoes-apa
+
+- Corrector de texto: https://clipnexo.com/es/corrector-texto
+- Text corrector: https://clipnexo.com/en/text-corrector
+- Corretor de texto: https://clipnexo.com/pt/corretor-texto
+
+- PDF a texto: https://clipnexo.com/es/pdf-a-texto
+- PDF to text: https://clipnexo.com/en/pdf-to-text
+- PDF para texto: https://clipnexo.com/pt/pdf-para-texto
+
+- Texto a PDF: https://clipnexo.com/es/texto-a-pdf
+- Text to PDF: https://clipnexo.com/en/text-to-pdf
+- Texto para PDF: https://clipnexo.com/pt/texto-para-pdf
+
+- Temporizador Pomodoro: https://clipnexo.com/es/temporizador-pomodoro
+- Pomodoro timer: https://clipnexo.com/en/pomodoro-timer
+- Temporizador Pomodoro: https://clipnexo.com/pt/temporizador-pomodoro
+
+- Calculadora de promedio de notas: https://clipnexo.com/es/calculadora-promedio-notas
+- Grade average calculator: https://clipnexo.com/en/grade-average-calculator
+- Calculadora de média de notas: https://clipnexo.com/pt/calculadora-media-notas
+
+- Generador de horario de estudio: https://clipnexo.com/es/generador-horario-estudio
+- Study schedule generator: https://clipnexo.com/en/study-schedule-generator
+- Gerador de horário de estudo: https://clipnexo.com/pt/gerador-horario-estudo
+
+- Generador de nombres de usuario: https://clipnexo.com/es/generador-nombres-usuario
+- Username generator: https://clipnexo.com/en/username-generator
+- Gerador de nomes de usuário: https://clipnexo.com/pt/gerador-nomes-usuario
+
+- Generador de calendario de contenido: https://clipnexo.com/es/generador-calendario-contenido
+- Content calendar generator: https://clipnexo.com/en/content-calendar-generator
+- Gerador de calendário de conteúdo: https://clipnexo.com/pt/gerador-calendario-conteudo
+
 ## Tool clusters
 
 Spanish:
@@ -163,6 +233,7 @@ Spanish:
 - Facebook tools: https://clipnexo.com/es/herramientas/facebook
 - Short video tools: https://clipnexo.com/es/herramientas/videos-cortos
 - Social media tools: https://clipnexo.com/es/herramientas/redes-sociales
+- Student tools: https://clipnexo.com/es/herramientas/estudiantes
 
 English:
 - TikTok tools: https://clipnexo.com/en/tools/tiktok
@@ -171,6 +242,7 @@ English:
 - Facebook tools: https://clipnexo.com/en/tools/facebook
 - Short video tools: https://clipnexo.com/en/tools/short-videos
 - Social media tools: https://clipnexo.com/en/tools/social-media
+- Student tools: https://clipnexo.com/en/tools/students
 
 Portuguese:
 - Ferramentas TikTok: https://clipnexo.com/pt/ferramentas/tiktok
@@ -179,6 +251,7 @@ Portuguese:
 - Ferramentas Facebook: https://clipnexo.com/pt/ferramentas/facebook
 - Ferramentas para vídeos curtos: https://clipnexo.com/pt/ferramentas/videos-curtos
 - Ferramentas para redes sociais: https://clipnexo.com/pt/ferramentas/redes-sociais
+- Ferramentas para estudantes: https://clipnexo.com/pt/ferramentas/estudantes
 
 ## Blog articles
 

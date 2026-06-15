@@ -21,6 +21,7 @@ function getPriority(routeKey: RouteKey): number {
     case "facebookTools":
     case "shortVideoTools":
     case "socialMediaTools":
+    case "studentsTools":
       return 0.85;
     case "blog":
       return 0.7;

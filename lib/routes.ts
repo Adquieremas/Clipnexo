@@ -51,7 +51,25 @@ export type RouteKey =
   | "instagramTools"
   | "facebookTools"
   | "shortVideoTools"
-  | "socialMediaTools";
+  | "socialMediaTools"
+  | "studentsTools"
+  | "wordCounter"
+  | "caseConverter"
+  | "outlineGenerator"
+  | "assignmentTitleGenerator"
+  | "introductionGenerator"
+  | "conclusionGenerator"
+  | "textSummarizer"
+  | "textParaphraser"
+  | "apaCitationGenerator"
+  | "textCorrector"
+  | "pdfToText"
+  | "textToPdf"
+  | "pomodoroTimer"
+  | "gradeAverageCalculator"
+  | "studyScheduleGenerator"
+  | "usernameGenerator"
+  | "contentCalendarGenerator";
 
 const TRAILING_SLASH_REGEX = /\/$/;
 
@@ -313,6 +331,96 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     en: "/en/tools/social-media",
     pt: "/pt/ferramentas/redes-sociais",
   },
+  studentsTools: {
+    es: "/es/herramientas/estudiantes",
+    en: "/en/tools/students",
+    pt: "/pt/ferramentas/estudantes",
+  },
+  wordCounter: {
+    es: "/es/contador-palabras-caracteres",
+    en: "/en/word-character-counter",
+    pt: "/pt/contador-palavras-caracteres",
+  },
+  caseConverter: {
+    es: "/es/convertidor-mayusculas-minusculas",
+    en: "/en/case-converter",
+    pt: "/pt/conversor-maiusculas-minusculas",
+  },
+  outlineGenerator: {
+    es: "/es/generador-indice-trabajos",
+    en: "/en/outline-generator",
+    pt: "/pt/gerador-indice-trabalhos",
+  },
+  assignmentTitleGenerator: {
+    es: "/es/generador-titulos-trabajos",
+    en: "/en/assignment-title-generator",
+    pt: "/pt/gerador-titulos-trabalhos",
+  },
+  introductionGenerator: {
+    es: "/es/generador-introducciones",
+    en: "/en/introduction-generator",
+    pt: "/pt/gerador-introducoes",
+  },
+  conclusionGenerator: {
+    es: "/es/generador-conclusiones",
+    en: "/en/conclusion-generator",
+    pt: "/pt/gerador-conclusoes",
+  },
+  textSummarizer: {
+    es: "/es/resumidor-texto",
+    en: "/en/text-summarizer",
+    pt: "/pt/resumidor-texto",
+  },
+  textParaphraser: {
+    es: "/es/parafraseador-texto",
+    en: "/en/text-paraphraser",
+    pt: "/pt/parafraseador-texto",
+  },
+  apaCitationGenerator: {
+    es: "/es/generador-citas-apa",
+    en: "/en/apa-citation-generator",
+    pt: "/pt/gerador-citacoes-apa",
+  },
+  textCorrector: {
+    es: "/es/corrector-texto",
+    en: "/en/text-corrector",
+    pt: "/pt/corretor-texto",
+  },
+  pdfToText: {
+    es: "/es/pdf-a-texto",
+    en: "/en/pdf-to-text",
+    pt: "/pt/pdf-para-texto",
+  },
+  textToPdf: {
+    es: "/es/texto-a-pdf",
+    en: "/en/text-to-pdf",
+    pt: "/pt/texto-para-pdf",
+  },
+  pomodoroTimer: {
+    es: "/es/temporizador-pomodoro",
+    en: "/en/pomodoro-timer",
+    pt: "/pt/temporizador-pomodoro",
+  },
+  gradeAverageCalculator: {
+    es: "/es/calculadora-promedio-notas",
+    en: "/en/grade-average-calculator",
+    pt: "/pt/calculadora-media-notas",
+  },
+  studyScheduleGenerator: {
+    es: "/es/generador-horario-estudio",
+    en: "/en/study-schedule-generator",
+    pt: "/pt/gerador-horario-estudo",
+  },
+  usernameGenerator: {
+    es: "/es/generador-nombres-usuario",
+    en: "/en/username-generator",
+    pt: "/pt/gerador-nomes-usuario",
+  },
+  contentCalendarGenerator: {
+    es: "/es/generador-calendario-contenido",
+    en: "/en/content-calendar-generator",
+    pt: "/pt/gerador-calendario-conteudo",
+  },
 };
 
 export const seoRoutes = localizedRoutes;
@@ -363,6 +471,24 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "facebookTools",
   "shortVideoTools",
   "socialMediaTools",
+  "studentsTools",
+  "wordCounter",
+  "caseConverter",
+  "outlineGenerator",
+  "assignmentTitleGenerator",
+  "introductionGenerator",
+  "conclusionGenerator",
+  "textSummarizer",
+  "textParaphraser",
+  "apaCitationGenerator",
+  "textCorrector",
+  "pdfToText",
+  "textToPdf",
+  "pomodoroTimer",
+  "gradeAverageCalculator",
+  "studyScheduleGenerator",
+  "usernameGenerator",
+  "contentCalendarGenerator",
   "about",
   "blog",
 ];

@@ -45,6 +45,7 @@ export const footerContent: Record<string, FooterLangContent> = {
           { label: "Instagram", routeKey: "instagramTools" },
           { label: "Facebook", routeKey: "facebookTools" },
           { label: "Videos cortos", routeKey: "shortVideoTools" },
+          { label: "Estudiantes", routeKey: "studentsTools" },
         ],
       },
       {
@@ -96,6 +97,7 @@ export const footerContent: Record<string, FooterLangContent> = {
           { label: "Instagram", routeKey: "instagramTools" },
           { label: "Facebook", routeKey: "facebookTools" },
           { label: "Short videos", routeKey: "shortVideoTools" },
+          { label: "Students", routeKey: "studentsTools" },
         ],
       },
       {
@@ -147,6 +149,7 @@ export const footerContent: Record<string, FooterLangContent> = {
           { label: "Instagram", routeKey: "instagramTools" },
           { label: "Facebook", routeKey: "facebookTools" },
           { label: "Vídeos curtos", routeKey: "shortVideoTools" },
+          { label: "Estudantes", routeKey: "studentsTools" },
         ],
       },
       {
