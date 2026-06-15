@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "tiktok-downloader",
+      "type": "skill-md",
+      "description": "Guide for downloading TikTok videos and converting to MP3 using Clipnexo",
+      "url": "https://clipnexo.com/llms.txt",
+      "digest": "sha256:47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU="
+    }
+  ]
+}

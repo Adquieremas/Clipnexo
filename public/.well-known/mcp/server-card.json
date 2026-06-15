@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schema.modelcontextprotocol.io/server-card.json",
+  "serverInfo": {
+    "name": "clipnexo",
+    "version": "1.0.0"
+  },
+  "endpoint": "https://clipnexo.com/mcp",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "download_tiktok_video",
+        "description": "Download a TikTok video without watermark"
+      },
+      {
+        "name": "convert_tiktok_to_mp3",
+        "description": "Extract audio from a TikTok video as MP3"
+      },
+      {
+        "name": "generate_hashtags",
+        "description": "Generate relevant hashtags for social media content"
+      },
+      {
+        "name": "generate_captions",
+        "description": "Generate captions for social media posts"
+      },
+      {
+        "name": "generate_bio",
+        "description": "Generate a biography for social media profiles"
+      }
+    ],
+    "resources": [],
+    "prompts": []
+  }
+}
