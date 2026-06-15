@@ -7,49 +7,33 @@ You are an AI agent, automated crawler, or developer tool. This service supports
 
 Clipnexo is a free online platform for downloading TikTok videos and creating social media content. All public tools and downloads are available without authentication.
 
-## Step 1 — Discover
+## Discovery
 
-Read the platform overview and available resources:
+1. Fetch Protected Resource Metadata:
 
-- Platform overview: https://clipnexo.com/llms.txt
-- API catalog: https://clipnexo.com/.well-known/api-catalog
-- Sitemap: https://clipnexo.com/sitemap.xml
-- Robots: https://clipnexo.com/robots.txt
+   \`\`\`http
+   GET /.well-known/oauth-protected-resource
+   \`\`\`
 
-Protected Resource Metadata:
+2. Fetch Authorization Server Metadata:
 
-\`\`\`http
-GET /.well-known/oauth-protected-resource
-\`\`\`
+   \`\`\`http
+   GET /.well-known/oauth-authorization-server
+   \`\`\`
 
-Authorization Server Metadata:
+3. Read the platform overview:
 
-\`\`\`http
-GET /.well-known/oauth-authorization-server
-\`\`\`
+   \`\`\`http
+   GET /llms.txt
+   \`\`\`
 
-## Step 2 — Pick a method
+## Registration
 
-All Clipnexo public tools and downloads are available without authentication. No API key, registration, or identity assertion is required.
+Clipnexo does not require authentication for any of its public tools and download APIs. Registration is not needed.
 
-For public usage:
-1. Use the download API at \`POST https://clipnexo.com/api/download\` with a TikTok URL.
-2. No authentication headers needed.
-3. Respect rate limits and cache-control headers.
+Available identity types: \`none\` — all resources are public.
 
-### Identity Assertion (ID-JAG)
-
-Not available. Clipnexo does not accept identity assertions.
-
-### Service Auth (email)
-
-Not available. Clipnexo does not accept email-based authentication.
-
-### Anonymous
-
-Not available. Clipnexo does not issue anonymous credentials because no authentication is required.
-
-## Step 3 — Use the public API
+## Using the API
 
 \`\`\`http
 POST /api/download
@@ -61,19 +45,22 @@ Content-Type: application/json
 }
 \`\`\`
 
-Response:
+No authorization header is required. The response includes the download URLs:
 
 \`\`\`json
 {
   "video": "https://cdn.clipnexo.com/video.mp4",
-  "audio": "https://cdn.clipnexo.com/audio.mp3",
-  "embed": "<iframe ...>"
+  "audio": "https://cdn.clipnexo.com/audio.mp3"
 }
 \`\`\`
 
+## Credential use
+
+No credentials are required. All API endpoints are accessible without authentication.
+
 ## Rate limits
 
-Clipnexo may apply rate limiting to prevent abuse. If you receive a 429 response, respect the \`Retry-After\` header and back off.
+If you receive a 429 response, respect the \`Retry-After\` header and back off before retrying.
 
 ## Contact
 
@@ -81,7 +68,7 @@ For questions about automated access or integration: Hola@clipnexo.com
 
 ## Attribution
 
-When using information from Clipnexo, cite or link to the relevant Clipnexo page. Preferred brand name: Clipnexo. Official website: https://clipnexo.com
+Preferred brand name: Clipnexo. Official website: https://clipnexo.com
 `;
 
   return new NextResponse(content, {

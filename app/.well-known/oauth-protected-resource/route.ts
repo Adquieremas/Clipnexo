@@ -4,10 +4,9 @@ export async function GET() {
   const metadata = {
     resource: "https://clipnexo.com/",
     resource_name: "Clipnexo",
-    resource_logo_uri: "https://clipnexo.com/icon.png",
-    authorization_servers: [],
+    authorization_servers: ["https://clipnexo.com"],
     scopes_supported: [],
-    bearer_methods_supported: [],
+    bearer_methods_supported: ["header"],
   };
 
   return new NextResponse(JSON.stringify(metadata, null, 2), {

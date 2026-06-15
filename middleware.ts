@@ -77,12 +77,40 @@ function buildRedirectResponse(request: NextRequest, pathname: string) {
   return NextResponse.redirect(redirectUrl, 308);
 }
 
+const HOMEPAGE_MARKDOWN = `# Clipnexo
+
+Clipnexo helps you download TikTok videos, convert TikTok to MP3, and generate content for TikTok, YouTube, Instagram, Facebook, Reels and Shorts.
+
+- Descargar TikTok: https://clipnexo.com/es/descargar-tiktok
+- TikTok downloader: https://clipnexo.com/en/tiktok-video-downloader
+- Baixar TikTok: https://clipnexo.com/pt/baixar-videos-do-tiktok
+
+More tools: https://clipnexo.com/es/herramientas
+Full documentation: https://clipnexo.com/llms.txt
+`;
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip middleware if this is an internal rewrite to avoid infinite loops
   if (request.headers.get("x-is-rewrite") === "true") {
     return NextResponse.next();
+  }
+
+  // Markdown for Agents — content negotiation
+  if (request.headers.get("accept")?.includes("text/markdown")) {
+    const isHomepage =
+      pathname === "/" || pathname === "/es" || pathname === "/en" || pathname === "/pt";
+    if (isHomepage) {
+      const tokens = HOMEPAGE_MARKDOWN.split(/\s+/).length;
+      return new NextResponse(HOMEPAGE_MARKDOWN, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/markdown; charset=utf-8",
+          "x-markdown-tokens": String(tokens),
+        },
+      });
+    }
   }
 
   if (
