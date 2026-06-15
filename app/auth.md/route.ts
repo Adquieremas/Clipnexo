@@ -7,33 +7,64 @@ You are an AI agent, automated crawler, or developer tool. This service supports
 
 Clipnexo is a free online platform for downloading TikTok videos and creating social media content. All public tools and downloads are available without authentication.
 
-## Discovery
+This document describes the complete registration flow. Follow the steps below.
 
-1. Fetch Protected Resource Metadata:
+## Step 1 — Discover
 
-   \`\`\`http
-   GET /.well-known/oauth-protected-resource
-   \`\`\`
+Fetch the Protected Resource Metadata:
 
-2. Fetch Authorization Server Metadata:
+\`\`\`http
+GET /.well-known/oauth-protected-resource
+\`\`\`
 
-   \`\`\`http
-   GET /.well-known/oauth-authorization-server
-   \`\`\`
+Fetch the Authorization Server Metadata:
 
-3. Read the platform overview:
+\`\`\`http
+GET /.well-known/oauth-authorization-server
+\`\`\`
 
-   \`\`\`http
-   GET /llms.txt
-   \`\`\`
+Read the platform overview:
 
-## Registration
+\`\`\`http
+GET /llms.txt
+\`\`\`
 
-Clipnexo does not require authentication for any of its public tools and download APIs. Registration is not needed.
+## Step 2 — Pick a registration method
 
-Available identity types: \`none\` — all resources are public.
+Clipnexo does not require authentication for any of its public tools and download APIs. No registration method is needed.
 
-## Using the API
+Supported identity types:
+- **anonymous** — no identity assertion required; all resources are public
+
+No credential is issued because no authentication is needed. The public API is accessible directly.
+
+## Step 3 — Register
+
+No registration is required. Skip to Step 4 to use the API.
+
+If you were to register:
+
+\`\`\`http
+POST /agent/identity
+Content-Type: application/json
+
+{ "type": "anonymous" }
+\`\`\`
+
+Response (for public resources, no identity assertion is returned):
+
+\`\`\`json
+{
+  "registration_id": "public",
+  "registration_type": "anonymous",
+  "identity_assertion": null,
+  "pre_claim_scopes": ["public"]
+}
+\`\`\`
+
+## Step 4 — Use the public API
+
+All Clipnexo endpoints are accessible without an access token:
 
 \`\`\`http
 POST /api/download
@@ -45,7 +76,7 @@ Content-Type: application/json
 }
 \`\`\`
 
-No authorization header is required. The response includes the download URLs:
+Response:
 
 \`\`\`json
 {
@@ -54,13 +85,19 @@ No authorization header is required. The response includes the download URLs:
 }
 \`\`\`
 
-## Credential use
+No authorization header is required.
 
-No credentials are required. All API endpoints are accessible without authentication.
+## Step 5 — Errors
 
-## Rate limits
+| HTTP Status | Error Code | Meaning |
+|-------------|------------|---------|
+| 429 | rate_limited | Back off and respect Retry-After |
+| 400 | invalid_request | Malformed request body |
 
-If you receive a 429 response, respect the \`Retry-After\` header and back off before retrying.
+Retry policy:
+- 5xx — exponential backoff, retry the same request
+- 4xx — do not retry the same payload; fix the input first
+- 429 — respect Retry-After header, then retry
 
 ## Contact
 

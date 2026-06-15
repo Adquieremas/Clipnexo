@@ -5,7 +5,7 @@ export async function GET() {
     resource: "https://clipnexo.com/",
     resource_name: "Clipnexo",
     authorization_servers: ["https://clipnexo.com"],
-    scopes_supported: [],
+    scopes_supported: ["public"],
     bearer_methods_supported: ["header"],
   };
 

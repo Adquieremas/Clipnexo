@@ -4,7 +4,7 @@ export async function GET() {
   const metadata = {
     resource: "https://clipnexo.com/",
     authorization_servers: ["https://clipnexo.com"],
-    scopes_supported: [],
+    scopes_supported: ["public"],
     bearer_methods_supported: ["header"],
     issuer: "https://clipnexo.com",
     service_documentation: "https://clipnexo.com/llms.txt",
@@ -12,8 +12,14 @@ export async function GET() {
     op_tos_uri: "https://clipnexo.com/es/terminos-de-servicio",
     agent_auth: {
       skill: "https://clipnexo.com/auth.md",
+      register_uri: "https://clipnexo.com/auth.md",
       identity_endpoint: "",
-      identity_types_supported: [],
+      claim_endpoint: "",
+      identity_types_supported: ["anonymous"],
+      anonymous: {
+        credential_types_supported: ["none"],
+        claim_uri: "",
+      },
       events_supported: [],
     },
   };
