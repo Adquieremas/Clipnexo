@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
 import { footerContent } from "@/lib/footer-content";
 
@@ -16,7 +17,13 @@ export default function Footer({ lang }: Props) {
         <div className="footer-grid">
           <div className="footer-col footer-col-brand">
             <Link href={`/${currentLang}`} className="footer-brand-name">
-              {content.brandName}
+              <Image
+                src="/clipnexo-logo.webp"
+                alt="Clipnexo"
+                width={332}
+                height={80}
+                className="footer-logo-img"
+              />
             </Link>
             <p className="footer-brand-desc">{content.brandDescription}</p>
             <div className="footer-badges">

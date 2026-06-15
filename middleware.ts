@@ -47,6 +47,12 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   marketplaceTextGenerator: "/generador-textos-marketplace",
   shortVideoScriptGenerator: "/generador-guiones-videos-cortos",
   socialMediaCharacterCounter: "/contador-caracteres-redes-sociales",
+  tiktokTools: "/herramientas/tiktok",
+  youtubeTools: "/herramientas/youtube",
+  instagramTools: "/herramientas/instagram",
+  facebookTools: "/herramientas/facebook",
+  shortVideoTools: "/herramientas/videos-cortos",
+  socialMediaTools: "/herramientas/redes-sociales",
 };
 
 function buildInternalPath(routeKey: RouteKey, lang: string) {

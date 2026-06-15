@@ -40,11 +40,11 @@ export const footerContent: Record<string, FooterLangContent> = {
       {
         title: "Plataformas",
         links: [
-          { label: "TikTok", routeKey: "video" },
-          { label: "YouTube", routeKey: "youtubeTagGenerator" },
-          { label: "Instagram", routeKey: "instagramCaptionGenerator" },
-          { label: "Facebook", routeKey: "facebookPostGenerator" },
-          { label: "Videos cortos", routeKey: "shortVideoTitleHashtag" },
+          { label: "TikTok", routeKey: "tiktokTools" },
+          { label: "YouTube", routeKey: "youtubeTools" },
+          { label: "Instagram", routeKey: "instagramTools" },
+          { label: "Facebook", routeKey: "facebookTools" },
+          { label: "Videos cortos", routeKey: "shortVideoTools" },
         ],
       },
       {
@@ -91,11 +91,11 @@ export const footerContent: Record<string, FooterLangContent> = {
       {
         title: "Platforms",
         links: [
-          { label: "TikTok", routeKey: "video" },
-          { label: "YouTube", routeKey: "youtubeTagGenerator" },
-          { label: "Instagram", routeKey: "instagramCaptionGenerator" },
-          { label: "Facebook", routeKey: "facebookPostGenerator" },
-          { label: "Short videos", routeKey: "shortVideoTitleHashtag" },
+          { label: "TikTok", routeKey: "tiktokTools" },
+          { label: "YouTube", routeKey: "youtubeTools" },
+          { label: "Instagram", routeKey: "instagramTools" },
+          { label: "Facebook", routeKey: "facebookTools" },
+          { label: "Short videos", routeKey: "shortVideoTools" },
         ],
       },
       {
@@ -142,11 +142,11 @@ export const footerContent: Record<string, FooterLangContent> = {
       {
         title: "Plataformas",
         links: [
-          { label: "TikTok", routeKey: "video" },
-          { label: "YouTube", routeKey: "youtubeTagGenerator" },
-          { label: "Instagram", routeKey: "instagramCaptionGenerator" },
-          { label: "Facebook", routeKey: "facebookPostGenerator" },
-          { label: "Vídeos curtos", routeKey: "shortVideoTitleHashtag" },
+          { label: "TikTok", routeKey: "tiktokTools" },
+          { label: "YouTube", routeKey: "youtubeTools" },
+          { label: "Instagram", routeKey: "instagramTools" },
+          { label: "Facebook", routeKey: "facebookTools" },
+          { label: "Vídeos curtos", routeKey: "shortVideoTools" },
         ],
       },
       {

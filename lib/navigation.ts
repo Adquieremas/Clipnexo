@@ -12,6 +12,7 @@ type NavDropdown = {
 
 type NavMegaColumn = {
   title: string;
+  routeKey?: RouteKey;
   links: NavLink[];
 };
 
@@ -51,6 +52,7 @@ export const navigation: Record<string, NavLangContent> = {
       columns: [
         {
           title: "TikTok",
+          routeKey: "tiktokTools",
           links: [
             { label: "Generador de hashtags", routeKey: "tiktokHashtags" },
             { label: "Generador de captions", routeKey: "tiktokCaptions" },
@@ -60,6 +62,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "YouTube",
+          routeKey: "youtubeTools",
           links: [
             { label: "Generador de títulos", routeKey: "youtubeTitleGenerator" },
             { label: "Generador de etiquetas", routeKey: "youtubeTagGenerator" },
@@ -69,6 +72,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "Instagram",
+          routeKey: "instagramTools",
           links: [
             { label: "Captions para Instagram", routeKey: "instagramCaptionGenerator" },
             { label: "Hashtags para Instagram", routeKey: "instagramHashtagGenerator" },
@@ -78,6 +82,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "Redes sociales",
+          routeKey: "socialMediaTools",
           links: [
             { label: "Crear textos para redes", routeKey: "socialMediaTextGenerator" },
             { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },
@@ -135,6 +140,7 @@ export const navigation: Record<string, NavLangContent> = {
       columns: [
         {
           title: "TikTok",
+          routeKey: "tiktokTools",
           links: [
             { label: "Hashtag generator", routeKey: "tiktokHashtags" },
             { label: "Caption generator", routeKey: "tiktokCaptions" },
@@ -144,6 +150,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "YouTube",
+          routeKey: "youtubeTools",
           links: [
             { label: "Title generator", routeKey: "youtubeTitleGenerator" },
             { label: "Tag generator", routeKey: "youtubeTagGenerator" },
@@ -153,6 +160,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "Instagram",
+          routeKey: "instagramTools",
           links: [
             { label: "Caption generator", routeKey: "instagramCaptionGenerator" },
             { label: "Hashtag generator", routeKey: "instagramHashtagGenerator" },
@@ -162,6 +170,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "Social media",
+          routeKey: "socialMediaTools",
           links: [
             { label: "Social media text generator", routeKey: "socialMediaTextGenerator" },
             { label: "Character counter", routeKey: "socialMediaCharacterCounter" },
@@ -219,6 +228,7 @@ export const navigation: Record<string, NavLangContent> = {
       columns: [
         {
           title: "TikTok",
+          routeKey: "tiktokTools",
           links: [
             { label: "Gerador de hashtags", routeKey: "tiktokHashtags" },
             { label: "Gerador de legendas", routeKey: "tiktokCaptions" },
@@ -228,6 +238,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "YouTube",
+          routeKey: "youtubeTools",
           links: [
             { label: "Gerador de títulos", routeKey: "youtubeTitleGenerator" },
             { label: "Gerador de tags", routeKey: "youtubeTagGenerator" },
@@ -237,6 +248,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "Instagram",
+          routeKey: "instagramTools",
           links: [
             { label: "Gerador de legendas", routeKey: "instagramCaptionGenerator" },
             { label: "Gerador de hashtags", routeKey: "instagramHashtagGenerator" },
@@ -246,6 +258,7 @@ export const navigation: Record<string, NavLangContent> = {
         },
         {
           title: "Redes sociais",
+          routeKey: "socialMediaTools",
           links: [
             { label: "Criar textos para redes", routeKey: "socialMediaTextGenerator" },
             { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },

@@ -154,6 +154,32 @@ Clipnexo helps users:
 - Social media character counter: https://clipnexo.com/en/social-media-character-counter
 - Contador de caracteres para redes sociais: https://clipnexo.com/pt/contador-caracteres-redes-sociais
 
+## Tool clusters
+
+Spanish:
+- TikTok tools: https://clipnexo.com/es/herramientas/tiktok
+- YouTube tools: https://clipnexo.com/es/herramientas/youtube
+- Instagram tools: https://clipnexo.com/es/herramientas/instagram
+- Facebook tools: https://clipnexo.com/es/herramientas/facebook
+- Short video tools: https://clipnexo.com/es/herramientas/videos-cortos
+- Social media tools: https://clipnexo.com/es/herramientas/redes-sociales
+
+English:
+- TikTok tools: https://clipnexo.com/en/tools/tiktok
+- YouTube tools: https://clipnexo.com/en/tools/youtube
+- Instagram tools: https://clipnexo.com/en/tools/instagram
+- Facebook tools: https://clipnexo.com/en/tools/facebook
+- Short video tools: https://clipnexo.com/en/tools/short-videos
+- Social media tools: https://clipnexo.com/en/tools/social-media
+
+Portuguese:
+- Ferramentas TikTok: https://clipnexo.com/pt/ferramentas/tiktok
+- Ferramentas YouTube: https://clipnexo.com/pt/ferramentas/youtube
+- Ferramentas Instagram: https://clipnexo.com/pt/ferramentas/instagram
+- Ferramentas Facebook: https://clipnexo.com/pt/ferramentas/facebook
+- Ferramentas para vídeos curtos: https://clipnexo.com/pt/ferramentas/videos-curtos
+- Ferramentas para redes sociais: https://clipnexo.com/pt/ferramentas/redes-sociais
+
 ## Blog articles
 
 - Mejor descargador de TikTok sin marca de agua: https://clipnexo.com/es/blog/mejor-descargador-tiktok-sin-marca-agua

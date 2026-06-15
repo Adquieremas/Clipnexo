@@ -45,7 +45,13 @@ export type RouteKey =
   | "facebookAdGenerator"
   | "marketplaceTextGenerator"
   | "shortVideoScriptGenerator"
-  | "socialMediaCharacterCounter";
+  | "socialMediaCharacterCounter"
+  | "tiktokTools"
+  | "youtubeTools"
+  | "instagramTools"
+  | "facebookTools"
+  | "shortVideoTools"
+  | "socialMediaTools";
 
 const TRAILING_SLASH_REGEX = /\/$/;
 
@@ -277,6 +283,36 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     en: "/en/social-media-character-counter",
     pt: "/pt/contador-caracteres-redes-sociais",
   },
+  tiktokTools: {
+    es: "/es/herramientas/tiktok",
+    en: "/en/tools/tiktok",
+    pt: "/pt/ferramentas/tiktok",
+  },
+  youtubeTools: {
+    es: "/es/herramientas/youtube",
+    en: "/en/tools/youtube",
+    pt: "/pt/ferramentas/youtube",
+  },
+  instagramTools: {
+    es: "/es/herramientas/instagram",
+    en: "/en/tools/instagram",
+    pt: "/pt/ferramentas/instagram",
+  },
+  facebookTools: {
+    es: "/es/herramientas/facebook",
+    en: "/en/tools/facebook",
+    pt: "/pt/ferramentas/facebook",
+  },
+  shortVideoTools: {
+    es: "/es/herramientas/videos-cortos",
+    en: "/en/tools/short-videos",
+    pt: "/pt/ferramentas/videos-curtos",
+  },
+  socialMediaTools: {
+    es: "/es/herramientas/redes-sociales",
+    en: "/en/tools/social-media",
+    pt: "/pt/ferramentas/redes-sociais",
+  },
 };
 
 export const seoRoutes = localizedRoutes;
@@ -321,6 +357,12 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "marketplaceTextGenerator",
   "shortVideoScriptGenerator",
   "socialMediaCharacterCounter",
+  "tiktokTools",
+  "youtubeTools",
+  "instagramTools",
+  "facebookTools",
+  "shortVideoTools",
+  "socialMediaTools",
   "about",
   "blog",
 ];

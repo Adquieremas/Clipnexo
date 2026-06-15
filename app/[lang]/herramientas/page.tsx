@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
+import { getLocalizedRoute, normalizeLang, type RouteKey } from "@/lib/routes";
 import { buildSeoMetadata } from "@/lib/seo";
 
 type Lang = "es" | "en" | "pt";
@@ -15,8 +15,9 @@ const pageContent = {
   es: {
     metaTitle: "Todas las herramientas de Clipnexo gratis",
     metaDescription: "Descubre nuestra colección completa de herramientas gratuitas para TikTok, YouTube y redes sociales. Optimiza tu contenido digital de forma fácil hoy mismo.",
-    h1: "Herramientas de Clipnexo",
-    lead: "Explora nuestra colección de herramientas gratuitas organizadas por plataforma para mejorar tu contenido digital.",
+    h1: "Herramientas gratuitas para creadores",
+    lead: "Explora herramientas online para descargar videos, crear textos, generar hashtags, preparar captions y optimizar contenido para redes sociales.",
+    popularTitle: "Herramientas populares",
     clusters: {
       tiktok: "Herramientas para TikTok",
       youtube: "Herramientas para YouTube",
@@ -63,13 +64,26 @@ const pageContent = {
       marketplaceTextGenerator: "Textos para Marketplace",
       shortVideoScriptGenerator: "Guiones para videos cortos",
       socialMediaCharacterCounter: "Contador de caracteres",
+    },
+    faq: [
+      { q: "¿Son gratuitas todas las herramientas?", a: "Sí, todas las herramientas de Clipnexo son completamente gratuitas, no requieren registro ni instalación." },
+      { q: "¿En qué dispositivos puedo usarlas?", a: "Funcionan en cualquier navegador moderno, tanto en ordenadores como en tablets y móviles." },
+      { q: "¿Necesito crear una cuenta?", a: "No, no necesitas registrarte ni iniciar sesión para usar ninguna herramienta." },
+      { q: "¿Las herramientas funcionan para cualquier red social?", a: "Sí, están diseñadas para TikTok, YouTube, Instagram, Facebook, Reels, Shorts y más." },
+    ],
+    ctaTitle: "Empieza con una herramienta gratuita",
+    ctaSubtitle: "Descarga videos, genera contenido y optimiza tus redes sociales al instante.",
+    ctaButtons: {
+      primary: { label: "Descargar video", routeKey: "video" },
+      secondary: { label: "Ver herramientas populares", routeKey: "tools" },
     }
   },
   en: {
     metaTitle: "All Clipnexo Tools - Optimize Your Social Media",
     metaDescription: "Discover our complete collection of free tools for TikTok, YouTube, Instagram and Facebook. Optimize your content and social media presence fast right now.",
-    h1: "Clipnexo Tools",
-    lead: "Explore our collection of free tools organized by platform to improve your digital content strategy.",
+    h1: "Free tools for creators",
+    lead: "Explore online tools to download videos, create texts, generate hashtags, prepare captions and optimize social media content.",
+    popularTitle: "Popular tools",
     clusters: {
       tiktok: "TikTok Tools",
       youtube: "YouTube Tools",
@@ -116,13 +130,26 @@ const pageContent = {
       marketplaceTextGenerator: "Marketplace Text Generator",
       shortVideoScriptGenerator: "Short Video Script Generator",
       socialMediaCharacterCounter: "Social Media Character Counter",
+    },
+    faq: [
+      { q: "Are all tools free?", a: "Yes, all Clipnexo tools are completely free, no registration or installation required." },
+      { q: "What devices can I use them on?", a: "They work on any modern browser, on computers, tablets and phones." },
+      { q: "Do I need to create an account?", a: "No, you don't need to sign up or log in to use any tool." },
+      { q: "Do the tools work for any social network?", a: "Yes, they are designed for TikTok, YouTube, Instagram, Facebook, Reels, Shorts and more." },
+    ],
+    ctaTitle: "Start with a free tool",
+    ctaSubtitle: "Download videos, generate content and optimize your social media instantly.",
+    ctaButtons: {
+      primary: { label: "Download video", routeKey: "video" },
+      secondary: { label: "View popular tools", routeKey: "tools" },
     }
   },
   pt: {
     metaTitle: "Todas as ferramentas do Clipnexo - Otimize suas",
     metaDescription: "Descubra nossa coleção completa de ferramentas gratuitas para TikTok, YouTube, Instagram e Facebook no Clipnexo. Otimize seu conteúdo digital hoje mesmo.",
-    h1: "Ferramentas do Clipnexo",
-    lead: "Explore nossa coleção de ferramentas gratuitas organizadas por plataforma para melhorar sua estratégia digital.",
+    h1: "Ferramentas gratuitas para criadores",
+    lead: "Explore ferramentas online para baixar vídeos, criar textos, gerar hashtags, preparar legendas e otimizar conteúdo para redes sociais.",
+    popularTitle: "Ferramentas populares",
     clusters: {
       tiktok: "Ferramentas para TikTok",
       youtube: "Ferramentas para YouTube",
@@ -169,6 +196,18 @@ const pageContent = {
       marketplaceTextGenerator: "Textos para Marketplace",
       shortVideoScriptGenerator: "Gerador de roteiros para vídeos curtos",
       socialMediaCharacterCounter: "Contador de caracteres",
+    },
+    faq: [
+      { q: "Todas as ferramentas são gratuitas?", a: "Sim, todas as ferramentas do Clipnexo são completamente gratuitas, sem necessidade de registro ou instalação." },
+      { q: "Em quais dispositivos posso usá-las?", a: "Funcionam em qualquer navegador moderno, tanto em computadores quanto em tablets e celulares." },
+      { q: "Preciso criar uma conta?", a: "Não, você não precisa se registrar nem fazer login para usar nenhuma ferramenta." },
+      { q: "As ferramentas funcionam para qualquer rede social?", a: "Sim, são projetadas para TikTok, YouTube, Instagram, Facebook, Reels, Shorts e muito mais." },
+    ],
+    ctaTitle: "Comece com uma ferramenta gratuita",
+    ctaSubtitle: "Baixe vídeos, gere conteúdo e otimize suas redes sociais instantaneamente.",
+    ctaButtons: {
+      primary: { label: "Baixar vídeo", routeKey: "video" },
+      secondary: { label: "Ver ferramentas populares", routeKey: "tools" },
     }
   }
 };
@@ -190,6 +229,15 @@ export default async function ToolsPage({ params }: PageProps) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
   const t = pageContent[currentLang];
+
+  const popularTools = [
+    { key: "video", name: t.tools.video },
+    { key: "mp3", name: t.tools.mp3 },
+    { key: "tiktokHashtags", name: t.tools.tiktokHashtags },
+    { key: "instagramCaptionGenerator", name: t.tools.instagramCaptionGenerator },
+    { key: "youtubeTitleGenerator", name: t.tools.youtubeTitleGenerator },
+    { key: "socialMediaCharacterCounter", name: t.tools.socialMediaCharacterCounter },
+  ] as const;
 
   const clusters = [
     {
@@ -296,6 +344,49 @@ export default async function ToolsPage({ params }: PageProps) {
         </p>
       </section>
 
+      <section style={{ marginBottom: "52px" }}>
+        <h2
+          style={{
+            fontSize: "28px",
+            fontWeight: 700,
+            marginBottom: "24px",
+            borderBottom: "2px solid #eaeaea",
+            paddingBottom: "8px",
+          }}
+        >
+          {t.popularTitle}
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "20px",
+          }}
+        >
+          {popularTools.map((item) => (
+            <Link
+              key={item.key}
+              href={getLocalizedRoute(item.key, currentLang)}
+              style={{
+                display: "block",
+                padding: "20px",
+                backgroundColor: "#f9f9f9",
+                borderRadius: "12px",
+                textDecoration: "none",
+                color: "#111",
+                fontWeight: 600,
+                fontSize: "18px",
+                transition: "transform 0.2s, box-shadow 0.2s",
+                border: "1px solid #eee",
+              }}
+              className="tool-card-link"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
         {clusters.map((cluster) => (
           <section key={cluster.title}>
@@ -340,6 +431,118 @@ export default async function ToolsPage({ params }: PageProps) {
           </section>
         ))}
       </div>
+
+      <section style={{ margin: "48px 0" }}>
+        <h2
+          style={{
+            fontSize: "24px",
+            fontWeight: 700,
+            marginBottom: "24px",
+          }}
+        >
+          {currentLang === "es" ? "Preguntas frecuentes" : currentLang === "pt" ? "Perguntas frequentes" : "Frequently asked questions"}
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          {t.faq.map((item, i) => (
+            <details
+              key={i}
+              style={{
+                background: "#f9f9f9",
+                padding: "16px 20px",
+                borderRadius: "10px",
+                border: "1px solid #eee",
+              }}
+            >
+              <summary style={{ fontWeight: 600, cursor: "pointer", color: "#111", fontSize: "16px" }}>
+                {item.q}
+              </summary>
+              <p style={{ marginTop: "12px", color: "#444", lineHeight: "1.7" }}>
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section
+        style={{
+          marginBottom: "32px",
+          padding: "40px 32px",
+          backgroundColor: "#f5f5ff",
+          borderRadius: "16px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "28px",
+            fontWeight: 700,
+            color: "#111",
+            margin: "0 0 12px",
+          }}
+        >
+          {t.ctaTitle}
+        </h2>
+        <p
+          style={{
+            color: "#444",
+            fontSize: "17px",
+            marginBottom: "24px",
+            lineHeight: "1.6",
+          }}
+        >
+          {t.ctaSubtitle}
+        </p>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+          <Link
+            href={getLocalizedRoute(t.ctaButtons.primary.routeKey as RouteKey, currentLang)}
+            style={{
+              display: "inline-block",
+              padding: "14px 28px",
+              background: "linear-gradient(90deg, #6366f1, #ec4899)",
+              color: "white",
+              borderRadius: "12px",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "16px",
+            }}
+          >
+            {t.ctaButtons.primary.label}
+          </Link>
+          <Link
+            href={getLocalizedRoute(t.ctaButtons.secondary.routeKey as RouteKey, currentLang)}
+            style={{
+              display: "inline-block",
+              padding: "14px 28px",
+              background: "white",
+              color: "#4f46e5",
+              borderRadius: "12px",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "16px",
+              border: "1px solid #c7d2fe",
+            }}
+          >
+            {t.ctaButtons.secondary.label}
+          </Link>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: t.faq.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: { "@type": "Answer", text: item.a },
+            })),
+          }),
+        }}
+      />
+
       <style dangerouslySetInnerHTML={{
         __html: `
           .tool-card-link:hover {

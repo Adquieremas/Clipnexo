@@ -15,6 +15,13 @@ function getPriority(routeKey: RouteKey): number {
       return 0.95;
     case "tools":
       return 0.9;
+    case "tiktokTools":
+    case "youtubeTools":
+    case "instagramTools":
+    case "facebookTools":
+    case "shortVideoTools":
+    case "socialMediaTools":
+      return 0.85;
     case "blog":
       return 0.7;
     case "about":
@@ -29,12 +36,6 @@ function getPriority(routeKey: RouteKey): number {
 }
 
 function getChangeFrequency(routeKey: RouteKey): "weekly" | "monthly" | "yearly" {
-  if (routeKey === "home" || routeKey === "video" || routeKey === "mp3" || routeKey === "withoutWatermark" || routeKey === "tools") {
-    return "weekly";
-  }
-  if (routeKey === "blog" || routeKey === "about" || routeKey === "contact") {
-    return "weekly";
-  }
   if (["privacy", "terms", "dmca"].includes(routeKey)) {
     return "yearly";
   }

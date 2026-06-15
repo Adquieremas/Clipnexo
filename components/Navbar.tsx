@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
@@ -86,7 +87,14 @@ export default function Navbar({ lang }: NavbarProps) {
     <header className="navbar">
       <div className="nav-inner">
         <Link href={resolveHref("home")} className="logo">
-          Clipnexo
+          <Image
+            src="/clipnexo-logo.webp"
+            alt="Clipnexo"
+            width={332}
+            height={80}
+            priority
+            className="logo-img"
+          />
         </Link>
 
         <nav className="nav-desktop" aria-label="Main navigation">
@@ -117,7 +125,15 @@ export default function Navbar({ lang }: NavbarProps) {
               <div className="nav-mega-grid">
                 {nav.tools.columns.map((col) => (
                   <div key={col.title} className="nav-mega-col">
-                    <h4 className="nav-mega-col-title">{col.title}</h4>
+                    <h4 className="nav-mega-col-title">
+                      {col.routeKey ? (
+                        <Link href={resolveHref(col.routeKey)} className="nav-mega-col-link">
+                          {col.title}
+                        </Link>
+                      ) : (
+                        col.title
+                      )}
+                    </h4>
                     {col.links.map((link) => (
                       <Link key={link.label} href={resolveHref(link.routeKey)} className="nav-dropdown-link" role="menuitem">
                         {link.label}
@@ -207,7 +223,15 @@ export default function Navbar({ lang }: NavbarProps) {
       >
         <div className="mobile-drawer-inner">
           <div className="mobile-drawer-header">
-            <span className="mobile-drawer-logo">Clipnexo</span>
+            <span className="mobile-drawer-logo">
+              <Image
+                src="/clipnexo-logo.webp"
+                alt="Clipnexo"
+                width={332}
+                height={80}
+                className="mobile-logo-img"
+              />
+            </span>
             <button
               type="button"
               className="mobile-drawer-close"

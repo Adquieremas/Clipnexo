@@ -43,14 +43,17 @@ input, select, textarea, button {
 }
 
 .logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  color: #4f46e5;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
   flex-shrink: 0;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-desktop {
@@ -179,6 +182,17 @@ input, select, textarea, button {
   padding: 0 14px;
 }
 
+.nav-mega-col-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: color 0.15s;
+}
+
+.nav-mega-col-link:hover {
+  color: #4f46e5;
+}
+
 .nav-mega-col .nav-dropdown-link {
   padding: 8px 14px;
   font-size: 13px;
@@ -287,8 +301,8 @@ input, select, textarea, button {
     gap: 12px;
   }
 
-  .logo {
-    font-size: 22px;
+  .logo-img {
+    height: 32px;
   }
 
   .nav-desktop {
@@ -359,9 +373,15 @@ input, select, textarea, button {
   }
 
   .mobile-drawer-logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: #4f46e5;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   .mobile-drawer-close {
@@ -1948,16 +1968,18 @@ input, select, textarea, button {
 }
 
 .footer-brand-name {
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  line-height: 1;
   margin-bottom: 14px;
+}
+
+.footer-logo-img {
+  height: 30px;
+  width: auto;
+  max-width: 130px;
+  display: block;
+  object-fit: contain;
 }
 
 .footer-brand-desc {
@@ -2104,7 +2126,7 @@ input, select, textarea, button {
 .footer-copy,
 .footer-tagline {
   font-size: 13px;
-  color: #9ca3af;
+  color: #6b7280;
   margin: 0;
   line-height: 1.5;
 }
