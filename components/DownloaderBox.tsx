@@ -83,8 +83,7 @@ export default function DownloaderBox({
       pasteLoading: "Pegando...",
       clear: "Limpiar",
       success: "Información del video encontrada correctamente.",
-      metadataOnly:
-        "La API ya está conectada para obtener información. Las descargas reales se habilitarán en una siguiente fase.",
+      metadataOnly: "Video listo. Elige una opción de descarga.",
       emptyTitle:
         type === "mp3"
           ? "Convierte TikTok a MP3 en segundos"
@@ -137,8 +136,7 @@ export default function DownloaderBox({
       pasteLoading: "Pasting...",
       clear: "Clear",
       success: "Video information found successfully.",
-      metadataOnly:
-        "The API is now connected for video information. Real downloads will be enabled in a later phase.",
+      metadataOnly: "Video ready. Choose a download option.",
       emptyTitle:
         type === "mp3"
           ? "Convert TikTok to MP3 in seconds"
@@ -191,8 +189,7 @@ export default function DownloaderBox({
       pasteLoading: "Colando...",
       clear: "Limpar",
       success: "Informações do vídeo encontradas com sucesso.",
-      metadataOnly:
-        "A API já está conectada para obter informações. Os downloads reais serão ativados em uma próxima fase.",
+      metadataOnly: "Video pronto. Escolha uma opção de download.",
       emptyTitle:
         type === "mp3"
           ? "Converta TikTok para MP3 em segundos"
