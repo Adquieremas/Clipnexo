@@ -5,6 +5,8 @@ const execFileAsync = promisify(execFile);
 const YT_DLP_PATH = "/usr/local/bin/yt-dlp";
 const TIKWM_ENDPOINT = "https://www.tikwm.com/api/";
 const MAX_TIKTOK_METADATA_MS = 30_000;
+const PRIMARY_PROVIDER_TIMEOUT_MS = 5_000;
+const TIKTOK_TIMEOUT_ERROR = "TikTok tardó demasiado en responder. Intenta con otro enlace de video.";
 
 type TikTokMetadataRecord = {
   success: true;
@@ -194,12 +196,36 @@ async function getTikTokInfoWithTikWm(url: string, timeoutMs = MAX_TIKTOK_METADA
 }
 
 export async function getTikTokInfoWithFallback(url: string, timeoutMs = MAX_TIKTOK_METADATA_MS) {
-  const primary = await getTikTokInfoWithYtDlp(url, timeoutMs);
+  const startedAt = Date.now();
+  const getRemainingTimeoutMs = () => Math.max(0, timeoutMs - (Date.now() - startedAt));
+  const primaryTimeoutMs = Math.min(getRemainingTimeoutMs(), PRIMARY_PROVIDER_TIMEOUT_MS);
+
+  if (primaryTimeoutMs <= 0) {
+    return {
+      success: false as const,
+      error: TIKTOK_TIMEOUT_ERROR,
+      errorCode: "REQUEST_TIMEOUT",
+    } satisfies TikTokMetadataError;
+  }
+
+  const primary = await getTikTokInfoWithYtDlp(url, primaryTimeoutMs);
   if (primary.success) {
     return primary;
   }
 
-  const fallback = await getTikTokInfoWithTikWm(url, timeoutMs);
+  const fallbackTimeoutMs = getRemainingTimeoutMs();
+  if (fallbackTimeoutMs <= 0) {
+    return {
+      success: false as const,
+      error: TIKTOK_TIMEOUT_ERROR,
+      errorCode: "REQUEST_TIMEOUT",
+      details: {
+        primary: primary.errorCode,
+      },
+    } satisfies TikTokMetadataError;
+  }
+
+  const fallback = await getTikTokInfoWithTikWm(url, fallbackTimeoutMs);
   if (fallback.success) {
     return fallback;
   }

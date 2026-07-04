@@ -66,6 +66,10 @@ export default function DownloaderBox({
       videoInfoError: "No se pudo obtener información del video",
       serviceUnavailable: "Servicio temporalmente no disponible",
       genericError: "Ocurrió un error. Inténtalo nuevamente.",
+      unsupportedPhoto:
+        "Este enlace es de fotos/carrusel. Por ahora Clipnexo solo admite videos de TikTok.",
+      requestTimeout: "TikTok tardó demasiado en responder. Intenta con otro video.",
+      providersFailed: "No se pudo obtener la información del video en este momento.",
       downloadVideo: "Descargar Video",
       downloadAudio: "Descargar Audio (MP3)",
       downloadingVideo: "Preparando video...",
@@ -116,6 +120,10 @@ export default function DownloaderBox({
       videoInfoError: "Could not get video information",
       serviceUnavailable: "Service temporarily unavailable",
       genericError: "Something went wrong. Please try again.",
+      unsupportedPhoto:
+        "This is a photo/carousel link. Clipnexo currently only supports TikTok videos.",
+      requestTimeout: "TikTok took too long to respond. Try another video.",
+      providersFailed: "Could not get the video information right now.",
       downloadVideo: "Download Video",
       downloadAudio: "Download Audio (MP3)",
       downloadingVideo: "Preparing video...",
@@ -166,6 +174,10 @@ export default function DownloaderBox({
       videoInfoError: "Não foi possível obter informações do vídeo",
       serviceUnavailable: "Serviço temporariamente indisponível",
       genericError: "Ocorreu um erro. Tente novamente.",
+      unsupportedPhoto:
+        "Este link é de fotos/carrossel. Por enquanto, o Clipnexo só aceita vídeos do TikTok.",
+      requestTimeout: "O TikTok demorou demais para responder. Tente outro vídeo.",
+      providersFailed: "Não foi possível obter as informações do vídeo neste momento.",
       downloadVideo: "Baixar Vídeo",
       downloadAudio: "Baixar Áudio (MP3)",
       downloadingVideo: "Preparando vídeo...",
@@ -360,7 +372,6 @@ export default function DownloaderBox({
 
       setHistoryItems(updatedHistory);
     } catch (error) {
-      setResult({ error: true });
       setStatusType("error");
       const friendlyMessage = getFriendlyClipnexoApiError(error);
       const errorCode =
@@ -368,18 +379,39 @@ export default function DownloaderBox({
           ? error.code
           : undefined;
       const devSuffix = process.env.NODE_ENV !== "production" && errorCode ? ` (${errorCode})` : "";
+      const specificMessage =
+        errorCode === "UNSUPPORTED_TIKTOK_PHOTO"
+          ? t.unsupportedPhoto
+          : errorCode === "REQUEST_TIMEOUT"
+          ? t.requestTimeout
+          : errorCode === "TIKTOK_PROVIDERS_FAILED"
+          ? t.providersFailed
+          : "";
 
-      setStatusMessage(
-        friendlyMessage === "El enlace no es válido"
-          ? t.invalidUrl
-          : friendlyMessage === "Servicio temporalmente no disponible"
-          ? process.env.NODE_ENV !== "production"
+      setResult(specificMessage ? null : { error: true });
+
+      let nextStatusMessage: string;
+
+      if (specificMessage) {
+        nextStatusMessage =
+          process.env.NODE_ENV !== "production"
+            ? `${specificMessage}${devSuffix}`
+            : specificMessage;
+      } else if (friendlyMessage === "El enlace no es válido") {
+        nextStatusMessage = t.invalidUrl;
+      } else if (friendlyMessage === "Servicio temporalmente no disponible") {
+        nextStatusMessage =
+          process.env.NODE_ENV !== "production"
             ? `${t.serviceUnavailable}${devSuffix}`
-            : t.serviceUnavailable
-          : process.env.NODE_ENV !== "production"
-          ? `${t.videoInfoError}${devSuffix}`
-          : t.videoInfoError || t.genericError
-      );
+            : t.serviceUnavailable;
+      } else {
+        nextStatusMessage =
+          process.env.NODE_ENV !== "production"
+            ? `${t.videoInfoError}${devSuffix}`
+            : t.videoInfoError || t.genericError;
+      }
+
+      setStatusMessage(nextStatusMessage);
     } finally {
       setLoading(false);
     }
