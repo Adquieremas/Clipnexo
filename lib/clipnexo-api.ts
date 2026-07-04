@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_CLIPNEXO_API_URL;
+const DEFAULT_API_BASE_URL = "https://api.clipnexo.com";
+const API_BASE_URL = process.env.NEXT_PUBLIC_CLIPNEXO_API_URL?.trim() || DEFAULT_API_BASE_URL;
 const DEFAULT_TIMEOUT_MS = 45_000;
 
 export type ClipnexoVideoFormat = {
@@ -46,17 +47,12 @@ export class ClipnexoApiError extends Error {
 }
 
 function normalizeBaseUrl(value: string | undefined) {
-  if (!value?.trim()) {
-    throw new ClipnexoApiError(
-      "NEXT_PUBLIC_CLIPNEXO_API_URL is not configured.",
-      "API_URL_MISSING"
-    );
-  }
+  const trimmedValue = value?.trim() || DEFAULT_API_BASE_URL;
 
   let parsed: URL;
 
   try {
-    parsed = new URL(value.trim());
+    parsed = new URL(trimmedValue);
   } catch {
     throw new ClipnexoApiError(
       "NEXT_PUBLIC_CLIPNEXO_API_URL is invalid.",
@@ -81,6 +77,10 @@ function normalizeBaseUrl(value: string | undefined) {
   return parsed.toString().replace(/\/+$/, "");
 }
 
+export function getClipnexoApiBaseUrl() {
+  return normalizeBaseUrl(API_BASE_URL);
+}
+
 export function buildClipnexoApiEndpoint(path: string) {
   const baseUrl = normalizeBaseUrl(API_BASE_URL);
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
@@ -88,14 +88,7 @@ export function buildClipnexoApiEndpoint(path: string) {
 }
 
 function shouldUseSameOriginProxy() {
-  if (typeof window === "undefined") return false;
-  if (window.location.protocol !== "https:") return false;
-
-  try {
-    return new URL(normalizeBaseUrl(API_BASE_URL)).protocol === "http:";
-  } catch {
-    return false;
-  }
+  return typeof window !== "undefined";
 }
 
 function createTimeoutSignal(timeoutMs: number) {

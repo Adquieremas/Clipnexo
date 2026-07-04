@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import {
   ClipnexoApiError,
-  fetchVideoInfoFromConfiguredApi,
   getClipnexoApiErrorStatus,
   getFriendlyClipnexoApiError,
+  getClipnexoApiBaseUrl,
+  isLocalOrPrivateHostname,
 } from "@/lib/clipnexo-api";
 
 const MAX_REQUEST_BYTES = 10 * 1024;
+const DEFAULT_TIMEOUT_MS = 30_000;
+const SUPPORTED_TIKTOK_HOSTS = ["tiktok.com", "m.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"];
 
 function isRequestTooLarge(req: Request) {
   const contentLength = req.headers.get("content-length");
@@ -24,11 +27,25 @@ function extractHashtags(text: string): string[] {
 function isValidTikTokUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
-    const hostname = parsed.hostname.replace(/^www\./, "").toLowerCase();
+    if (!["http:", "https:"].includes(parsed.protocol)) return false;
+    if (parsed.username || parsed.password || isLocalOrPrivateHostname(parsed.hostname)) return false;
 
-    return ["tiktok.com", "m.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"].includes(hostname);
+    const hostname = parsed.hostname.replace(/^www\./, "").toLowerCase();
+    return SUPPORTED_TIKTOK_HOSTS.includes(hostname);
   } catch {
     return false;
+  }
+}
+
+function getUpstreamInfoEndpoint() {
+  return `${getClipnexoApiBaseUrl().replace(/\/+$/, "")}/api/video/info`;
+}
+
+async function readJsonSafely(response: Response) {
+  try {
+    return await response.json();
+  } catch {
+    return null;
   }
 }
 
@@ -45,7 +62,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const body = await req.json();
+    const body = await req.json().catch(() => null);
     const url = typeof body?.url === "string" ? body.url.trim() : "";
 
     if (!url) {
@@ -70,7 +87,29 @@ export async function POST(req: Request) {
       );
     }
 
-    const data = await fetchVideoInfoFromConfiguredApi(url);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT_MS);
+
+    const upstreamResponse = await fetch(getUpstreamInfoEndpoint(), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url }),
+      signal: controller.signal,
+    });
+
+    const data = await readJsonSafely(upstreamResponse);
+    clearTimeout(timeoutId);
+
+    if (!upstreamResponse.ok || !data || data.success === false) {
+      throw new ClipnexoApiError(
+        data?.error || "No se pudo obtener información del video",
+        data?.errorCode || "VIDEO_INFO_FAILED",
+        upstreamResponse.status
+      );
+    }
+
     const title = data.title?.trim() || "";
 
     return NextResponse.json({

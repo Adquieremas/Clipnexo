@@ -363,11 +363,21 @@ export default function DownloaderBox({
       setResult({ error: true });
       setStatusType("error");
       const friendlyMessage = getFriendlyClipnexoApiError(error);
+      const errorCode =
+        error && typeof error === "object" && "code" in error && typeof error.code === "string"
+          ? error.code
+          : undefined;
+      const devSuffix = process.env.NODE_ENV !== "production" && errorCode ? ` (${errorCode})` : "";
+
       setStatusMessage(
         friendlyMessage === "El enlace no es válido"
           ? t.invalidUrl
           : friendlyMessage === "Servicio temporalmente no disponible"
-          ? t.serviceUnavailable
+          ? process.env.NODE_ENV !== "production"
+            ? `${t.serviceUnavailable}${devSuffix}`
+            : t.serviceUnavailable
+          : process.env.NODE_ENV !== "production"
+          ? `${t.videoInfoError}${devSuffix}`
           : t.videoInfoError || t.genericError
       );
     } finally {
