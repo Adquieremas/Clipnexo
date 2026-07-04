@@ -1,8 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { getFriendlyClipnexoApiError, getVideoInfo } from "@/lib/clipnexo-api";
 
 type DownloadResult = {
+  title?: string | null;
+  thumbnail?: string | null;
+  webpage_url?: string | null;
   embed?: string;
   video?: string;
   audio?: string;
@@ -16,25 +20,16 @@ export default function Home() {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState<DownloadResult | null>(null);
   const [loading, setLoading] = useState(false);
-  const type = "video";
 
   const handleDownload = async () => {
     setLoading(true);
     setResult(null);
 
-    const res = await fetch("/api/download", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ url, type }),
-    });
-
     try {
-      const data = await res.json();
+      const data = await getVideoInfo(url);
       setResult(data);
-    } catch (e) {
-      setResult({ error: "Error procesando respuesta" });
+    } catch (error) {
+      setResult({ error: getFriendlyClipnexoApiError(error) });
     } finally {
       setLoading(false);
     }
@@ -71,7 +66,7 @@ export default function Home() {
 
       a.remove();
       window.URL.revokeObjectURL(blobUrl);
-    } catch (error) {
+    } catch {
       alert("Error al descargar el archivo");
     }
   };
@@ -172,16 +167,24 @@ export default function Home() {
                 controls
                 style={{ width: "100%", borderRadius: 10 }}
               />
+            ) : result?.thumbnail ? (
+              <img
+                src={result.thumbnail}
+                alt={result.title || "Vista previa del video"}
+                style={{ width: "100%", borderRadius: 10 }}
+              />
             ) : (
-              <p style={{ color: "black" }}>No se pudo cargar el video</p>
+              <p style={{ color: "black" }}>
+                {result.error || "Información del video obtenida"}
+              </p>
             )}
           </div>
 
           {/* INFO + BOTONES */}
           <div style={{ flex: 1 }}>
-            {result?.raw?.title && (
+            {(result?.title || result?.raw?.title) && (
               <p style={{ color: "black", fontWeight: "bold", marginBottom: 10 }}>
-                {result.raw.title}
+                {result.title || result.raw?.title}
               </p>
             )}
 

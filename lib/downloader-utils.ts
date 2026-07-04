@@ -1,23 +1,37 @@
 export type DownloaderResult = {
-  play?: string;
-  video?: string;
-  videoUrl?: string;
-  cover?: string;
-  thumbnail?: string;
-  image?: string;
-  description?: string;
-  desc?: string;
-  title?: string;
-  text?: string;
+  success?: boolean;
+  source?: string;
+  play?: string | null;
+  video?: string | null;
+  videoUrl?: string | null;
+  cover?: string | null;
+  thumbnail?: string | null;
+  image?: string | null;
+  description?: string | null;
+  desc?: string | null;
+  title?: string | null;
+  text?: string | null;
   hashtags?: string[] | string;
   audio?: string;
+  duration?: number | null;
+  uploader?: string | null;
+  webpage_url?: string | null;
+  extractor?: string | null;
+  formats?: unknown[];
+  errorCode?: string;
   error?: string | boolean;
   [key: string]: unknown;
 } | null;
 
 export function isTikTokUrl(value: string) {
-  const normalized = value.trim().toLowerCase();
-  return normalized.includes("tiktok.com") || normalized.includes("vm.tiktok.com");
+  try {
+    const parsed = new URL(value.trim());
+    const hostname = parsed.hostname.replace(/^www\./, "").toLowerCase();
+
+    return ["tiktok.com", "m.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"].includes(hostname);
+  } catch {
+    return false;
+  }
 }
 
 export function getPreviewVideo(result: DownloaderResult) {

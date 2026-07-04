@@ -62,7 +62,7 @@ export default function YouTubeDescriptionExtractor({ lang }: Props) {
     if (!text.trim()) return;
     const linksMatches = text.match(/https?:\/\/\S+/g) || [];
     const tagsMatches = text.match(/#[a-zA-Z0-9_]+/g) || [];
-    let mainText = text
+    const mainText = text
       .replace(/https?:\/\/\S+/g, "")
       .replace(/#[a-zA-Z0-9_]+/g, "")
       .replace(/\n{3,}/g, "\n\n")

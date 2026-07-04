@@ -16,22 +16,6 @@ function isRequestTooLarge(req: Request) {
   return Number.isFinite(bytes) && bytes > MAX_REQUEST_BYTES;
 }
 
-function extractHashtags(text: string): string[] {
-  const matches = text.match(/#[\p{L}\p{N}_]+/gu);
-  return matches ? Array.from(new Set(matches)) : [];
-}
-
-function isValidTikTokUrl(url: string): boolean {
-  try {
-    const parsed = new URL(url);
-    const hostname = parsed.hostname.replace(/^www\./, "").toLowerCase();
-
-    return ["tiktok.com", "m.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"].includes(hostname);
-  } catch {
-    return false;
-  }
-}
-
 export async function POST(req: Request) {
   try {
     if (isRequestTooLarge(req)) {
@@ -52,45 +36,16 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          error: "Debes enviar un enlace de TikTok",
+          error: "Debes enviar un enlace válido",
           errorCode: "EMPTY_URL",
         },
         { status: 400 }
       );
     }
 
-    if (!isValidTikTokUrl(url)) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "El enlace enviado no es válido o no pertenece a TikTok",
-          errorCode: "INVALID_TIKTOK_URL",
-        },
-        { status: 400 }
-      );
-    }
-
     const data = await fetchVideoInfoFromConfiguredApi(url);
-    const title = data.title?.trim() || "";
-
-    return NextResponse.json({
-      ...data,
-      message: "Información del video obtenida correctamente",
-      description: title,
-      desc: title,
-      cover: data.thumbnail || null,
-      image: data.thumbnail || null,
-      hashtags: extractHashtags(title),
-      raw: {
-        title,
-        uploader: data.uploader || null,
-        webpage_url: data.webpage_url || null,
-        extractor: data.extractor || null,
-      },
-    });
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("DOWNLOAD API ERROR:", error);
-
     if (error instanceof ClipnexoApiError) {
       return NextResponse.json(
         {
@@ -105,8 +60,8 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         success: false,
-        error: "Ocurrió un error interno al procesar la descarga",
-        errorCode: "INTERNAL_SERVER_ERROR",
+        error: "No se pudo obtener información del video",
+        errorCode: "VIDEO_INFO_FAILED",
       },
       { status: 500 }
     );

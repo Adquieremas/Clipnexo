@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLocalizedRoute, normalizeLang, type SupportedLang } from "@/lib/routes";
+import { getLocalizedRoute, normalizeLang, type RouteKey, type SupportedLang } from "@/lib/routes";
 import { getClusterContent, getClusterRouteKey, getClusterToolKeys, type ClusterKey } from "@/lib/cluster-content";
 
 type Props = {
@@ -99,7 +99,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Clipnexo", item: `https://clipnexo.com/${currentLang}` },
-      { "@type": "ListItem", position: 2, name: content.h1, item: `https://clipnexo.com${getLocalizedRoute(routeKey as any, currentLang)}` },
+      { "@type": "ListItem", position: 2, name: content.h1, item: `https://clipnexo.com${getLocalizedRoute(routeKey as RouteKey, currentLang)}` },
     ],
   };
 
@@ -176,7 +176,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
             return (
               <Link
                 key={toolKey}
-                href={getLocalizedRoute(toolKey as any, currentLang)}
+                href={getLocalizedRoute(toolKey as RouteKey, currentLang)}
                 style={{
                   display: "block",
                   padding: "20px",

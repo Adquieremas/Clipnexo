@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import DownloadHistory from "@/components/DownloadHistory";
+import { getFriendlyClipnexoApiError, getVideoInfo } from "@/lib/clipnexo-api";
 import {
   addDownloadHistoryItem,
   clearDownloadHistory,
@@ -62,6 +63,8 @@ export default function DownloaderBox({
       button: type === "mp3" ? "DESCARGAR MP3" : "DESCARGAR",
       loading: "Procesando enlace...",
       errorVideo: "No se pudo cargar el video",
+      videoInfoError: "No se pudo obtener información del video",
+      serviceUnavailable: "Servicio temporalmente no disponible",
       genericError: "Ocurrió un error. Inténtalo nuevamente.",
       downloadVideo: "Descargar Video",
       downloadAudio: "Descargar Audio (MP3)",
@@ -75,7 +78,9 @@ export default function DownloaderBox({
       paste: "Pegar enlace",
       pasteLoading: "Pegando...",
       clear: "Limpiar",
-      success: "Video encontrado correctamente. Ya puedes descargarlo.",
+      success: "Información del video encontrada correctamente.",
+      metadataOnly:
+        "La API ya está conectada para obtener información. Las descargas reales se habilitarán en una siguiente fase.",
       emptyTitle:
         type === "mp3"
           ? "Convierte TikTok a MP3 en segundos"
@@ -108,6 +113,8 @@ export default function DownloaderBox({
       button: type === "mp3" ? "DOWNLOAD MP3" : "DOWNLOAD",
       loading: "Processing link...",
       errorVideo: "Could not load video",
+      videoInfoError: "Could not get video information",
+      serviceUnavailable: "Service temporarily unavailable",
       genericError: "Something went wrong. Please try again.",
       downloadVideo: "Download Video",
       downloadAudio: "Download Audio (MP3)",
@@ -121,7 +128,9 @@ export default function DownloaderBox({
       paste: "Paste link",
       pasteLoading: "Pasting...",
       clear: "Clear",
-      success: "Video found successfully. You can download it now.",
+      success: "Video information found successfully.",
+      metadataOnly:
+        "The API is now connected for video information. Real downloads will be enabled in a later phase.",
       emptyTitle:
         type === "mp3"
           ? "Convert TikTok to MP3 in seconds"
@@ -154,6 +163,8 @@ export default function DownloaderBox({
       button: type === "mp3" ? "BAIXAR MP3" : "BAIXAR",
       loading: "Processando link...",
       errorVideo: "Não foi possível carregar o vídeo",
+      videoInfoError: "Não foi possível obter informações do vídeo",
+      serviceUnavailable: "Serviço temporariamente indisponível",
       genericError: "Ocorreu um erro. Tente novamente.",
       downloadVideo: "Baixar Vídeo",
       downloadAudio: "Baixar Áudio (MP3)",
@@ -167,7 +178,9 @@ export default function DownloaderBox({
       paste: "Colar link",
       pasteLoading: "Colando...",
       clear: "Limpar",
-      success: "Vídeo encontrado com sucesso. Agora você pode baixá-lo.",
+      success: "Informações do vídeo encontradas com sucesso.",
+      metadataOnly:
+        "A API já está conectada para obter informações. Os downloads reais serão ativados em uma próxima fase.",
       emptyTitle:
         type === "mp3"
           ? "Converta TikTok para MP3 em segundos"
@@ -217,27 +230,35 @@ export default function DownloaderBox({
   }, []);
 
   useEffect(() => {
-    setHistoryItems(getDownloadHistory());
+    const timeoutId = window.setTimeout(() => {
+      setHistoryItems(getDownloadHistory());
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   useEffect(() => {
-    if (initialUrl.trim()) {
-      setUrl(initialUrl.trim());
-      setStatusType("success");
-      setStatusMessage(t.sharedSuccess);
-      return;
-    }
+    const timeoutId = window.setTimeout(() => {
+      if (initialUrl.trim()) {
+        setUrl(initialUrl.trim());
+        setStatusType("success");
+        setStatusMessage(t.sharedSuccess);
+        return;
+      }
 
-    if (shared && shareError) {
-      setStatusType("error");
-      setStatusMessage(t.sharedError);
-      return;
-    }
+      if (shared && shareError) {
+        setStatusType("error");
+        setStatusMessage(t.sharedError);
+        return;
+      }
 
-    if (invalidPath) {
-      setStatusType("error");
-      setStatusMessage(t.invalidPathMessage);
-    }
+      if (invalidPath) {
+        setStatusType("error");
+        setStatusMessage(t.invalidPathMessage);
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, [
     initialUrl,
     shared,
@@ -321,40 +342,34 @@ export default function DownloaderBox({
     setStatusMessage(t.loading);
 
     try {
-      const res = await fetch("/api/download", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url, type }),
-      });
-
-      const data = (await res.json()) as NonNullable<DownloaderResult>;
+      const data = await getVideoInfo(url);
       setResult(data);
 
-      if (!res.ok || data?.error) {
-        setStatusType("error");
-        setStatusMessage(typeof data?.error === "string" ? data.error : t.errorVideo);
-      } else {
-        setStatusType("success");
-        setStatusMessage(t.success);
+      setStatusType("success");
+      setStatusMessage(t.metadataOnly || t.success);
 
-        const updatedHistory = addDownloadHistoryItem({
-          url,
-          type,
-          title: data?.title || data?.description || data?.desc || "",
-          description: data?.description || data?.desc || data?.title || "",
-          thumbnail: data?.cover || data?.thumbnail || data?.image || "",
-          videoUrl: data?.video || data?.play || data?.videoUrl || "",
-          audioUrl: data?.audio || "",
-        });
+      const updatedHistory = addDownloadHistoryItem({
+        url,
+        type,
+        title: data?.title || "",
+        description: data?.title || "",
+        thumbnail: data?.thumbnail || "",
+        videoUrl: "",
+        audioUrl: "",
+      });
 
-        setHistoryItems(updatedHistory);
-      }
-    } catch {
+      setHistoryItems(updatedHistory);
+    } catch (error) {
       setResult({ error: true });
       setStatusType("error");
-      setStatusMessage(t.genericError);
+      const friendlyMessage = getFriendlyClipnexoApiError(error);
+      setStatusMessage(
+        friendlyMessage === "El enlace no es válido"
+          ? t.invalidUrl
+          : friendlyMessage === "Servicio temporalmente no disponible"
+          ? t.serviceUnavailable
+          : t.videoInfoError || t.genericError
+      );
     } finally {
       setLoading(false);
     }

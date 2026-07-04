@@ -83,7 +83,7 @@ CSP was **not** implemented due to risk of breaking:
 - PWA service worker registration
 - Google Fonts via next/font
 - Inline styles used throughout the project
-- Third-party TikTok API calls (tikwm.com)
+- Clipnexo API calls configured via `NEXT_PUBLIC_CLIPNEXO_API_URL`
 
 **Recommendation:** Add CSP in `Report-Only` mode during staging, then enforce after thorough testing.
 
@@ -111,16 +111,16 @@ CSP was **not** implemented due to risk of breaking:
 
 All `dangerouslySetInnerHTML` usage is for JSON-LD structured data or static CSS — no user input is rendered unsafely. ✅
 
-### 4.4 API Security (`/api/download/route.ts`)
+### 4.4 API Security (`/api/video/info` and `/api/download` compatibility route)
 
 | Check | Status |
 |---|---|
 | TikTok URL validation | ✅ Validates against tiktok.com domain list |
 | Input sanitization | ✅ URL is parsed and hostname-validated |
 | Error handling | ✅ No stack traces exposed in production |
-| SSRF prevention | ✅ Only fetches from tikwm.com API with validated TikTok URLs |
+| SSRF prevention | ✅ Calls the configured Clipnexo API and blocks local/private URLs |
 | No secrets exposed | ✅ No hardcoded keys, no ENV logging |
-| Request size limiting | ⚠️ `req.json()` could accept large payloads — recommend adding `Content-Length` check |
+| Request size limiting | ✅ `Content-Length` checked before JSON parsing (10KB max) |
 
 ### 4.5 Form Security
 
@@ -213,9 +213,8 @@ All internal navigation uses standard `<Link>` — no `target="_blank"`. ✅
 
 1. **CSP Report-Only**: Add `Content-Security-Policy-Report-Only` during staging to detect violations without breaking functionality.
 2. **API rate limiting**: Consider adding rate limiting to `/api/download` to prevent abuse.
-3. **Request size limit**: Add a `Content-Length` check (e.g., max 10KB) to `/api/download` POST handler to prevent large payload attacks.
-4. **Monitor remaining vulns**: The `serialize-javascript` and `postcss` transitive vulnerabilities should be revisited when upstream packages update.
-5. **Verify production behavior**: After deploy, verify all pages in production — especially blog post pages with hreflang, and the download API.
+3. **Monitor remaining vulns**: The `serialize-javascript` and `postcss` transitive vulnerabilities should be revisited when upstream packages update.
+4. **Verify production behavior**: After deploy, verify all pages in production — especially blog post pages with hreflang, and the download API.
 
 ---
 

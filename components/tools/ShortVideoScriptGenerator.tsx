@@ -8,6 +8,15 @@ type Props = {
   lang: SupportedLang;
 };
 
+type ScriptResult = {
+  hook: string;
+  body: string;
+  closing: string;
+  cta: string;
+  caption: string;
+  hashtags: string;
+};
+
 const platforms = ["TikTok", "Reels", "Shorts", "General"];
 const durations = ["15s", "30s", "60s"];
 
@@ -107,7 +116,7 @@ export default function ShortVideoScriptGenerator({ lang }: Props) {
   const [platform, setPlatform] = useState(platforms[0]);
   const [duration, setDuration] = useState(durations[0]);
   const [style, setStyle] = useState<string>(styles[lang][0]);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ScriptResult | null>(null);
 
   const generate = () => {
     const p = topic || (lang === "es" ? "tu tema" : lang === "en" ? "your topic" : "seu tema");

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import CopyButton from "@/components/tools/CopyButton";
 import type { SupportedLang } from "@/lib/routes";
 
@@ -8,7 +8,8 @@ type Props = {
   lang: SupportedLang;
 };
 
-const platforms = ["Instagram", "TikTok", "YouTube", "Facebook", "Twitter/X", "LinkedIn"];
+const platforms = ["Instagram", "TikTok", "YouTube", "Facebook", "Twitter/X", "LinkedIn"] as const;
+type Platform = (typeof platforms)[number];
 
 const copy = {
   es: {
@@ -88,18 +89,8 @@ const copy = {
 export default function SocialCharacterCounter({ lang }: Props) {
   const t = copy[lang];
   const [text, setText] = useState("");
-  const [platform, setPlatform] = useState(platforms[0]);
-  const [stats, setStats] = useState({
-    characters: 0,
-    noSpaces: 0,
-    words: 0,
-    hashtags: 0,
-    mentions: 0,
-    emojis: 0,
-    lines: 0,
-  });
-
-  useEffect(() => {
+  const [platform, setPlatform] = useState<Platform>(platforms[0]);
+  const stats = useMemo(() => {
     const chars = text.length;
     const noSpaces = text.replace(/\s/g, "").length;
     const words = text.trim() ? text.trim().split(/\s+/).length : 0;
@@ -108,7 +99,7 @@ export default function SocialCharacterCounter({ lang }: Props) {
     const emojis = (text.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\u2600-\u26FF|\u2700-\u27BF/g) || []).length;
     const lines = text.trim() ? text.split("\n").length : 0;
 
-    setStats({ characters: chars, noSpaces, words, hashtags, mentions, emojis, lines });
+    return { characters: chars, noSpaces, words, hashtags, mentions, emojis, lines };
   }, [text]);
 
   return (
@@ -117,7 +108,7 @@ export default function SocialCharacterCounter({ lang }: Props) {
         <div className="tool-grid">
            <label className="tool-field" style={{ gridColumn: "span 2" }}>
              <span>{t.platform}</span>
-             <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
+	             <select value={platform} onChange={(event) => setPlatform(event.target.value as Platform)}>
                {platforms.map((p) => (
                  <option key={p} value={p}>{p}</option>
                ))}
@@ -161,7 +152,7 @@ export default function SocialCharacterCounter({ lang }: Props) {
 
         <div style={{ padding: "16px", backgroundColor: "#fffbeb", borderRadius: "12px", border: "1px solid #fef3c7" }}>
            <strong style={{ color: "#92400e", fontSize: "14px" }}>{t.recommendation.replace("{platform}", platform)}</strong>
-           <p style={{ margin: "4px 0 0", color: "#b45309", fontSize: "15px" }}>{(t.limits as any)[platform]}</p>
+	           <p style={{ margin: "4px 0 0", color: "#b45309", fontSize: "15px" }}>{t.limits[platform]}</p>
         </div>
 
         <div className="tool-actions">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { getVideoInfo } from "@/lib/clipnexo-api";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ModelContextAPI = Record<string, any>;
@@ -28,12 +29,7 @@ export default function WebMCP() {
           required: ["url"],
         },
         execute: async ({ url }: { url: string }) => {
-          const res = await fetch("/api/download", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url, type: "video" }),
-          });
-          return res.json();
+          return getVideoInfo(url);
         },
       },
       {
@@ -51,12 +47,7 @@ export default function WebMCP() {
           required: ["url"],
         },
         execute: async ({ url }: { url: string }) => {
-          const res = await fetch("/api/download", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url, type: "audio" }),
-          });
-          return res.json();
+          return getVideoInfo(url);
         },
       },
     ];

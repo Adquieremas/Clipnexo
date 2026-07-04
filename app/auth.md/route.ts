@@ -67,12 +67,11 @@ Response (for public resources, no identity assertion is returned):
 All Clipnexo endpoints are accessible without an access token:
 
 \`\`\`http
-POST /api/download
+POST /api/video/info
 Content-Type: application/json
 
 {
-  "url": "https://www.tiktok.com/@user/video/123456789",
-  "type": "video"
+  "url": "https://www.tiktok.com/@user/video/123456789"
 }
 \`\`\`
 
@@ -80,8 +79,12 @@ Response:
 
 \`\`\`json
 {
-  "video": "https://cdn.clipnexo.com/video.mp4",
-  "audio": "https://cdn.clipnexo.com/audio.mp3"
+  "success": true,
+  "source": "yt-dlp",
+  "title": "Video title",
+  "thumbnail": "https://...",
+  "webpage_url": "https://www.tiktok.com/@user/video/123456789",
+  "formats": []
 }
 \`\`\`
 

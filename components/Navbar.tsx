@@ -72,12 +72,12 @@ export default function Navbar({ lang }: NavbarProps) {
     if (blogSlug) {
       const currentPost = getBlogPostBySlug(blogSlug, currentLang);
       if (currentPost) {
-        window.location.href = getBlogUrl(currentPost, nextLang);
+        window.location.assign(getBlogUrl(currentPost, nextLang));
         return;
       }
     }
 
-    window.location.href = getLocalizedRoute(currentRouteKey, nextLang);
+    window.location.assign(getLocalizedRoute(currentRouteKey, nextLang));
   };
 
   const resolveHref = (routeKey: RouteKey) =>
