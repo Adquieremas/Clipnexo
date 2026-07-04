@@ -39,6 +39,13 @@ function normalizeString(value: unknown) {
   return cleaned ? cleaned : null;
 }
 
+function firstString(value: unknown): string {
+  if (!Array.isArray(value)) return "";
+
+  const first = value.find((item) => typeof item === "string" && item.trim().length > 0);
+  return typeof first === "string" ? first : "";
+}
+
 function normalizeDuration(value: unknown) {
   const asNumber = typeof value === "number" ? value : Number(value);
   return Number.isFinite(asNumber) ? asNumber : null;
@@ -71,11 +78,12 @@ function mapYtDlpPayload(payload: Record<string, unknown>) {
 function mapTikWmPayload(payload: Record<string, unknown>, url: string) {
   const data = payload.data && typeof payload.data === "object" ? (payload.data as Record<string, unknown>) : {};
   const author = data.author && typeof data.author === "object" ? (data.author as Record<string, unknown>) : {};
+  const contentDesc = firstString(data.content_desc);
 
   return {
     success: true as const,
     source: "tikwm",
-    title: normalizeString(data.title) || normalizeString(data.desc) || normalizeString(data.content_desc?.[0]),
+    title: normalizeString(data.title) || normalizeString(data.desc) || normalizeString(contentDesc),
     duration: normalizeDuration(data.duration),
     thumbnail: normalizeString(data.cover) || normalizeString(data.ai_dynamic_cover) || normalizeString(data.thumbnail),
     uploader: normalizeUploader(author.nickname || author.name || author.unique_id),
