@@ -14,7 +14,7 @@ type PageProps = {
 
 const pageContent = {
   es: {
-    metaTitle: "Descargar videos de Instagram gratis en MP4 y MP3 | Clipnexo",
+    metaTitle: "Descargar videos de Instagram en MP4 y MP3",
     metaDescription:
       "Descarga videos y Reels de Instagram gratis en MP4 o MP3. Pega el enlace público, mira la vista previa y guarda el archivo online.",
     h1: "Descargar videos y Reels de Instagram gratis",
@@ -72,7 +72,7 @@ const pageContent = {
     ],
   },
   en: {
-    metaTitle: "Download Instagram Videos Free in MP4 and MP3 | Clipnexo",
+    metaTitle: "Download Instagram Videos Free in MP4 and MP3",
     metaDescription:
       "Download Instagram videos and Reels for free in MP4 or MP3. Paste a public link, preview the content and save it online.",
     h1: "Download Instagram videos and Reels for free",
@@ -130,7 +130,7 @@ const pageContent = {
     ],
   },
   pt: {
-    metaTitle: "Baixar vídeos do Instagram grátis em MP4 e MP3 | Clipnexo",
+    metaTitle: "Baixar vídeos do Instagram grátis em MP4 e MP3",
     metaDescription:
       "Baixe vídeos e Reels do Instagram grátis em MP4 ou MP3. Cole um link público, veja a prévia e salve o arquivo online.",
     h1: "Baixar vídeos e Reels do Instagram grátis",
