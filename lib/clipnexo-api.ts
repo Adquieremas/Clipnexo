@@ -290,3 +290,81 @@ export function getClipnexoApiErrorStatus(error: ClipnexoApiError) {
 
   return error.status || 502;
 }
+
+const DOWNLOAD_TIMEOUT_MS = 45_000;
+
+export function buildInstagramInfoEndpoint() {
+  return buildClipnexoApiEndpoint("/api/instagram/info");
+}
+
+export function buildInstagramDownloadEndpoint() {
+  return buildClipnexoApiEndpoint("/api/instagram/download");
+}
+
+export async function proxyInstagramInfoRequest(url: string, timeoutMs = DEFAULT_TIMEOUT_MS) {
+  const endpoint = buildInstagramInfoEndpoint();
+  const timeout = createTimeoutSignal(timeoutMs);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+      signal: timeout.signal,
+    });
+
+    return response;
+  } catch {
+    throw new ClipnexoApiError("Clipnexo API is unavailable.", "API_UNAVAILABLE");
+  } finally {
+    timeout.clear();
+  }
+}
+
+export async function proxyInstagramDownloadRequest(body: Record<string, unknown>, timeoutMs = DOWNLOAD_TIMEOUT_MS) {
+  const endpoint = buildInstagramDownloadEndpoint();
+  const timeout = createTimeoutSignal(timeoutMs);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      signal: timeout.signal,
+    });
+
+    return response;
+  } catch {
+    throw new ClipnexoApiError("Clipnexo API is unavailable.", "API_UNAVAILABLE");
+  } finally {
+    timeout.clear();
+  }
+}
+
+export function getInstagramErrorStatus(errorCode: string) {
+  if (["EMPTY_URL", "INVALID_INSTAGRAM_URL", "UNSUPPORTED_INSTAGRAM_STORY"].includes(errorCode)) {
+    return 400;
+  }
+
+  if (errorCode === "REQUEST_TIMEOUT") {
+    return 504;
+  }
+
+  if (errorCode === "INSTAGRAM_PROVIDER_NOT_INSTALLED") {
+    return 503;
+  }
+
+  if (errorCode === "INSTAGRAM_PROVIDER_UNAVAILABLE") {
+    return 503;
+  }
+
+  if (errorCode === "INSTAGRAM_LOGIN_REQUIRED") {
+    return 403;
+  }
+
+  if (errorCode === "INSTAGRAM_UPSTREAM_BLOCKED") {
+    return 403;
+  }
+
+  return 502;
+}

@@ -31,6 +31,7 @@ const pageContent = {
       video: "Descargar videos de TikTok",
       mp3: "Descargar audio de TikTok (MP3)",
       withoutWatermark: "Descargar TikTok sin marca",
+      instagramDownloader: "Descargar Instagram",
       tiktokBio: "Generador de bio para TikTok",
       tiktokIdeas: "Ideas para videos TikTok",
       tiktokHooks: "Ganchos virales TikTok",
@@ -115,6 +116,7 @@ const pageContent = {
       video: "Download TikTok videos",
       mp3: "Download TikTok audio (MP3)",
       withoutWatermark: "Download TikTok without watermark",
+      instagramDownloader: "Instagram Downloader",
       tiktokBio: "TikTok Bio Generator",
       tiktokIdeas: "TikTok Video Ideas",
       tiktokHooks: "TikTok Viral Hooks",
@@ -199,6 +201,7 @@ const pageContent = {
       video: "Baixar vídeos do TikTok",
       mp3: "Baixar áudio do TikTok (MP3)",
       withoutWatermark: "Baixar TikTok sem marca d'água",
+      instagramDownloader: "Baixar Instagram",
       tiktokBio: "Gerador de bio para TikTok",
       tiktokIdeas: "Ideias para vídeos TikTok",
       tiktokHooks: "Ganchos virais TikTok",
@@ -287,6 +290,7 @@ export default async function ToolsPage({ params }: PageProps) {
   const popularTools = [
     { key: "video", name: t.tools.video },
     { key: "mp3", name: t.tools.mp3 },
+    { key: "instagramDownloader", name: t.tools.instagramDownloader },
     { key: "tiktokHashtags", name: t.tools.tiktokHashtags },
     { key: "instagramCaptionGenerator", name: t.tools.instagramCaptionGenerator },
     { key: "youtubeTitleGenerator", name: t.tools.youtubeTitleGenerator },
@@ -331,6 +335,7 @@ export default async function ToolsPage({ params }: PageProps) {
     {
       title: t.clusters.instagram,
       items: [
+        { key: "instagramDownloader", name: t.tools.instagramDownloader },
         { key: "instagramCaptionGenerator", name: t.tools.instagramCaptionGenerator },
         { key: "instagramHashtagGenerator", name: t.tools.instagramHashtagGenerator },
         { key: "instagramBioGenerator", name: t.tools.instagramBioGenerator },

@@ -13,6 +13,7 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   mp3: "/descargar-tiktok-mp3",
   guide: "/como-descargar-videos-de-tiktok",
   withoutWatermark: "/descargar-tiktok-sin-marca",
+  instagramDownloader: "/descargar-instagram",
   tiktokBio: "/generador-bio-tiktok",
   tiktokIdeas: "/ideas-para-tiktok",
   tiktokHooks: "/ganchos-virales-tiktok",

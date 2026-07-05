@@ -12,6 +12,7 @@ function getPriority(routeKey: RouteKey): number {
     case "video":
     case "mp3":
     case "withoutWatermark":
+    case "instagramDownloader":
       return 0.95;
     case "tools":
       return 0.9;

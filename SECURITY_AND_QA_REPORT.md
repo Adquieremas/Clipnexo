@@ -1,8 +1,8 @@
 # Security & QA Report — Clipnexo
 
-**Date:** 2026-06-02
+**Date:** 2026-07-05
 **Project:** Clipnexo (Next.js App Router, 3 languages)
-**Pre-production review**
+**Pre-production review — Updated after Phase 2 student tools + Instagram audio fix
 
 ---
 
@@ -16,9 +16,11 @@ A full pre-production review was conducted covering SEO, security, dependency vu
 
 | Item | Status |
 |---|---|
-| Static pages in sitemap | ✅ 41 routes × 3 languages = 123 URLs |
+| Static pages in sitemap | ✅ 53 routes × 3 languages = 159 URLs |
 | Blog index (es/en/pt) | ✅ Included with priority 0.7 |
 | Blog posts in sitemap | ✅ **8 posts × 3 languages = 24 URLs** |
+| Instagram downloader | ✅ Included (ES/EN/PT) — priority 0.8, weekly |
+| Student tools cluster | ✅ 16 tools × 3 languages — priority 0.8, weekly |
 | Blog post slugs translated correctly | ✅ Each post uses its language-specific slug |
 | Absolute production URLs (https://clipnexo.com) | ✅ No localhost/vercel.app |
 | alternates/hreflang on every entry | ✅ |
@@ -198,6 +200,9 @@ All internal navigation uses standard `<Link>` — no `target="_blank"`. ✅
 | Download TikTok | ✅ | ✅ | ✅ |
 | TikTok to MP3 | ✅ | ✅ | ✅ |
 | Download no watermark | ✅ | ✅ | ✅ |
+| **Instagram Downloader** | ✅ | ✅ | ✅ |
+| **Student tools cluster** | ✅ | ✅ | ✅ |
+| **16 student tools** | ✅ | ✅ | ✅ |
 | Legal pages | ✅ | ✅ | ✅ |
 
 ### 5.5 Performance Observations
@@ -242,6 +247,8 @@ All internal navigation uses standard `<Link>` — no `target="_blank"`. ✅
 
 ## 8. Files Modified
 
+### Phase 1 — Initial review (2026-06-02)
+
 | File | Change |
 |---|---|
 | `package.json` | next 16.2.3 → 16.2.6, eslint-config-next 16.2.3 → 16.2.6 |
@@ -250,8 +257,46 @@ All internal navigation uses standard `<Link>` — no `target="_blank"`. ✅
 | `components/blog/BlogPostLayout.tsx` | Translated hardcoded Spanish strings, added tool label mapping |
 | `SECURITY_AND_QA_REPORT.md` | New file — this report |
 
+### Phase 2 — Student tools (2026-07-05)
+
+| File | Change |
+|---|---|
+| `lib/routes.ts` | +17 new RouteKeys (6 student tools + 1 text summarizer + 10 productivity tools) |
+| `middleware.ts` | +17 internal route segments |
+| `lib/tools-content.ts` | +17 ToolKeys + toolKeys array entries |
+| `lib/tools-extra-content.ts` | +17 SEO content entries × 3 languages |
+| `lib/cluster-content.ts` | students cluster: 16 tools, socialMedia cluster: +2 tools |
+| `components/ClusterPage.tsx` | +17 tool labels × 3 languages |
+| `app/[lang]/herramientas/page.tsx` | Student + social cluster sections updated |
+| `public/llms.txt` | +17 tools × 3 languages in student tools section |
+| `lib/navigation.ts` | Students column in mega menu |
+| `lib/footer-content.ts` | Students link in platforms |
+| `components/tools/*.tsx` | 17 new tool components (WordCounter, CaseConverter, TextSummarizer, TextParaphraser, ApaCitationGenerator, TextCorrector, PdfToText, TextToPdf, PomodoroTimer, GradeAverageCalculator, StudyScheduleGenerator, UsernameGenerator, ContentCalendarGenerator, OutlineGenerator, AssignmentTitleGenerator, IntroductionGenerator, ConclusionGenerator) |
+| `app/[lang]/*/page.tsx` | 17 new tool pages |
+| `package.json` | +pdfjs-dist 6.0.227 |
+| `components/tools/PdfToTextClient.tsx` | Client wrapper for pdfjs-dist with next/dynamic ssr:false |
+
+### Phase 3 — Instagram audio fix (2026-07-05)
+
+| File | Change |
+|---|---|
+| `app/api/instagram/info/route.ts` | yt-dlp + Playwright in parallel, audioUrl/combinedUrl extraction, DASH/vp9 detection |
+| `app/api/instagram/download/route.ts` | MP4 transcoding with ffmpeg (H.264/AAC/faststart), audio muxing from separate source, probe + validate output |
+| `lib/instagram-metadata.ts` | mapPayload now extracts audio-only + combined formats from yt-dlp |
+| `lib/instagram-scraper.ts` | Added combinedUrl, videoOnly, audioAvailable, mp3Available fields |
+| `lib/instagram-types.ts` | Added combinedUrl?, videoOnly?, audioAvailable? |
+| `components/InstagramDownloaderBox.tsx` | Audio-aware preview, passes audioUrl/combinedUrl to backend, removed photo/carousel references |
+| `app/[lang]/descargar-instagram/page.tsx` | SEO rewrite: removed photos/carousels, MP4+MP3 focus, char-optimized titles/descriptions |
+
 ## 9. Verdict
 
 **✅ Ready for production.**
 
 All critical issues have been addressed. The remaining 2 vulnerabilities are deep transitive dependencies with no direct exploit path in this application.
+
+### Phase 2 + 3 additions:
+- 17 new student/productivity tools with full SEO, 3 languages, local browser processing
+- Instagram downloader: MP4 with video H.264 + audio AAC (muxed via ffmpeg), MP3 real audio
+- pdfjs-dist 6.0.227 for PDF text extraction (client-side only, no server upload)
+- Instagram SEO rewritten: video + audio focus, char-optimized titles (≤60) and descriptions (≤160)
+- All processing stays client-side or server-side with no external API dependencies

@@ -33,6 +33,7 @@ export const footerContent: Record<string, FooterLangContent> = {
         links: [
           { label: "Descargar video de TikTok", routeKey: "video" },
           { label: "TikTok a MP3", routeKey: "mp3" },
+          { label: "Descargar Instagram", routeKey: "instagramDownloader" },
           { label: "TikTok sin marca de agua", routeKey: "withoutWatermark" },
           { label: "Todas las herramientas", routeKey: "tools" },
         ],
@@ -85,6 +86,7 @@ export const footerContent: Record<string, FooterLangContent> = {
         links: [
           { label: "TikTok video downloader", routeKey: "video" },
           { label: "TikTok to MP3", routeKey: "mp3" },
+          { label: "Instagram Downloader", routeKey: "instagramDownloader" },
           { label: "TikTok without watermark", routeKey: "withoutWatermark" },
           { label: "All tools", routeKey: "tools" },
         ],
@@ -137,6 +139,7 @@ export const footerContent: Record<string, FooterLangContent> = {
         links: [
           { label: "Baixar vídeo do TikTok", routeKey: "video" },
           { label: "TikTok para MP3", routeKey: "mp3" },
+          { label: "Baixar Instagram", routeKey: "instagramDownloader" },
           { label: "TikTok sem marca d'água", routeKey: "withoutWatermark" },
           { label: "Todas as ferramentas", routeKey: "tools" },
         ],
