@@ -156,7 +156,7 @@ function isPrivateIp(address) {
     );
   }
 
-  return true;
+  return false;
 }
 
 function getValidHttpUrl(value) {
@@ -593,8 +593,7 @@ function compactInstagramPayload(payload) {
     const audio = fmts.find((f) => {
       const a = (f.acodec || "").toLowerCase();
       const v = (f.vcodec || "").toLowerCase();
-      const e = (f.ext || "").toLowerCase();
-      return a && a !== "none" && v === "none" && e === "mp3";
+      return a && a !== "none" && (!v || v === "none");
     });
     return audio?.url || null;
   })();
@@ -628,7 +627,23 @@ function compactInstagramPayload(payload) {
     hashtags,
     items,
     formats,
+    videoUrl: items.find((i) => i.type === "video")?.url || null,
+    downloadUrl: items.find((i) => i.type === "video")?.url || null,
+    videoOptions: hasVideo ? [{ label: "MP4", quality: "mp4", url: items.find((i) => i.type === "video")?.url || "", ext: "mp4", width: null, height: null }] : [],
     audioUrl,
+    audioOptions: audioUrl ? [{ label: "MP3", quality: "mp3", url: audioUrl, ext: "mp3" }] : [],
+    combinedUrl: (() => {
+      const fmts = (payload.formats || []).filter((f) => f.url);
+      const combined = fmts.find((f) => {
+        const a = (f.acodec || "").toLowerCase();
+        const v = (f.vcodec || "").toLowerCase();
+        return a && a !== "none" && v && v !== "none";
+      });
+      return combined?.url || null;
+    })(),
+    audioAvailable: Boolean(audioUrl),
+    videoOnly: !audioUrl,
+    mp3Available: Boolean(audioUrl),
     webpage_url: payload.webpage_url || "",
   };
 }
@@ -831,7 +846,12 @@ app.post("/api/instagram/info", infoLimiter, async (req, res) => {
 app.post("/api/instagram/download", async (req, res) => {
   try {
     const fileUrl = req.body?.url;
+    const audioUrl = req.body?.audioUrl || null;
+    const combinedUrl = req.body?.combinedUrl || null;
+    const type = req.body?.type || "video";
+    const format = req.body?.format || "mp4";
     const filename = req.body?.filename || "clipnexo-instagram.mp4";
+    const isAudio = type === "audio" || format === "mp3";
 
     if (!fileUrl || typeof fileUrl !== "string" || !fileUrl.startsWith("http")) {
       res.status(400).json({
@@ -852,32 +872,132 @@ app.post("/api/instagram/download", async (req, res) => {
       return;
     }
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 45_000);
+    const { execFile } = require("node:child_process");
+    const { createWriteStream, existsSync } = require("node:fs");
+    const { mkdtemp, readFile, rm, stat } = require("node:fs/promises");
+    const { tmpdir } = require("node:os");
+    const path = require("node:path");
+    const { finished } = require("node:stream/promises");
+    const { promisify } = require("node:util");
+    const execFileAsync = promisify(execFile);
+
+    async function downloadFile(url, destPath) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 45_000);
+      try {
+        const response = await fetch(url, {
+          method: "GET",
+          headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36", Accept: "*/*", Referer: "https://www.instagram.com/", Origin: "https://www.instagram.com" },
+          signal: controller.signal,
+        });
+        if (!response.ok || !response.body) throw new Error("Download failed");
+        const reader = response.body.getReader();
+        const writer = createWriteStream(destPath);
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            if (value && !writer.write(value)) {
+              await new Promise((resolve, reject) => {
+                writer.once("drain", resolve);
+                writer.once("error", reject);
+              });
+            }
+          }
+          writer.end();
+          await finished(writer);
+        } finally {
+          reader.releaseLock();
+        }
+        return await stat(destPath);
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    }
+
+    const tempDir = await mkdtemp(path.join(tmpdir(), "clipnexo-instagram-"));
+    const sourcePath = path.join(tempDir, "source.mp4");
+    const audioPath = path.join(tempDir, "audio.mp4");
+    const outputPath = path.join(tempDir, isAudio ? "output.mp3" : "output.mp4");
 
     try {
-      const response = await fetch(fileUrl, {
-        method: "GET",
-        headers: { "User-Agent": "Mozilla/5.0", Accept: "*/*" },
-        signal: controller.signal,
-      });
+      await downloadFile(fileUrl, sourcePath);
 
-      if (!response.ok || !response.body) {
-        res.status(502).json({
-          success: false,
-          error: "No se pudo descargar el archivo de Instagram.",
-          errorCode: "INSTAGRAM_DOWNLOAD_FAILED",
-        });
+      if (isAudio) {
+        await execFileAsync("ffmpeg", [
+          "-y", "-i", sourcePath, "-vn", "-codec:a", "libmp3lame", "-q:a", "2", outputPath,
+        ], { timeout: 60_000, maxBuffer: 1024 * 1024 * 2 });
+
+        const mp3Stat = await stat(outputPath);
+        if (mp3Stat.size <= 0) {
+          res.status(502).json({ success: false, error: "No se pudo generar el MP3.", errorCode: "MP3_CONVERSION_FAILED" });
+          return;
+        }
+
+        const mp3Bytes = await readFile(outputPath);
+        res.setHeader("Content-Type", "audio/mpeg");
+        res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+        res.setHeader("Cache-Control", "no-store");
+        res.setHeader("Content-Length", mp3Bytes.length);
+        res.end(Buffer.from(mp3Bytes));
         return;
       }
 
-      res.setHeader("Content-Type", response.headers.get("content-type") || "application/octet-stream");
+      const probeArgs = ["-v", "error", "-show_entries", "stream=codec_type", "-of", "json", sourcePath];
+      let sourceHasAudio = false;
+      try {
+        const { stdout } = await execFileAsync("ffprobe", probeArgs, { timeout: 10_000 });
+        const probe = JSON.parse(stdout);
+        sourceHasAudio = probe.streams?.some((s) => s.codec_type === "audio");
+      } catch {}
+
+      let ffmpegArgs;
+
+      if (sourceHasAudio) {
+        ffmpegArgs = [
+          "-y", "-i", sourcePath,
+          "-map", "0:v:0", "-map", "0:a:0",
+          "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
+          "-c:a", "aac", "-b:a", "128k",
+          "-movflags", "+faststart",
+          outputPath,
+        ];
+      } else if (audioUrl) {
+        await downloadFile(audioUrl, audioPath);
+        ffmpegArgs = [
+          "-y", "-i", sourcePath, "-i", audioPath,
+          "-map", "0:v:0", "-map", "1:a:0",
+          "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
+          "-c:a", "aac", "-b:a", "128k",
+          "-shortest", "-movflags", "+faststart",
+          outputPath,
+        ];
+      } else {
+        ffmpegArgs = [
+          "-y", "-i", sourcePath,
+          "-map", "0:v:0",
+          "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
+          "-movflags", "+faststart",
+          outputPath,
+        ];
+      }
+
+      await execFileAsync("ffmpeg", ffmpegArgs, { timeout: 90_000, maxBuffer: 1024 * 1024 * 4 });
+
+      const outStat = await stat(outputPath);
+      if (outStat.size <= 0) {
+        res.status(502).json({ success: false, error: "No se pudo generar el MP4.", errorCode: "MP4_TRANSCODE_FAILED" });
+        return;
+      }
+
+      const mp4Bytes = await readFile(outputPath);
+      res.setHeader("Content-Type", "video/mp4");
       res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
       res.setHeader("Cache-Control", "no-store");
-
-      response.body.pipe(res);
+      res.setHeader("Content-Length", mp4Bytes.length);
+      res.end(Buffer.from(mp4Bytes));
     } finally {
-      clearTimeout(timeoutId);
+      await rm(tempDir, { recursive: true, force: true }).catch(() => {});
     }
   } catch (caught) {
     console.error("INSTAGRAM_DOWNLOAD_ERROR", caught);
