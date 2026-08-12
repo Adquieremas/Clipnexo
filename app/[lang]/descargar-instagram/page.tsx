@@ -10,6 +10,7 @@ type PageProps = {
   params: Promise<{
     lang: string;
   }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 const pageContent = {
@@ -202,9 +203,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default async function InstagramDownloaderPage({ params }: PageProps) {
+export default async function InstagramDownloaderPage({ params, searchParams }: PageProps) {
   const { lang } = await params;
+  const resolvedSearchParams = await searchParams;
   const currentLang = normalizeLang(lang);
+  const initialUrl =
+    typeof resolvedSearchParams.url === "string" ? resolvedSearchParams.url : "";
   const t = pageContent[currentLang];
 
   const faqSchema = {
@@ -257,7 +261,7 @@ export default async function InstagramDownloaderPage({ params }: PageProps) {
         >
           {t.lead}
         </p>
-        <InstagramDownloaderBox lang={currentLang} />
+        <InstagramDownloaderBox lang={currentLang} initialUrl={initialUrl} />
       </section>
 
       <section style={{ maxWidth: "860px", margin: "0 auto" }}>

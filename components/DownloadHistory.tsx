@@ -8,6 +8,7 @@ import {
 type Props = {
   lang: string;
   items: DownloadHistoryItem[];
+  compact?: boolean;
   onReuse: (item: DownloadHistoryItem) => void;
   onRemove: (id: string) => void;
   onClear: () => void;
@@ -16,6 +17,7 @@ type Props = {
 export default function DownloadHistory({
   lang,
   items,
+  compact = false,
   onReuse,
   onRemove,
   onClear,
@@ -57,10 +59,10 @@ export default function DownloadHistory({
       style={{
         marginTop: "18px",
         textAlign: "left",
-        border: "1px solid #e5e7eb",
-        background: "#ffffff",
-        borderRadius: "12px",
-        padding: "16px",
+        border: compact ? "none" : "1px solid #e5e7eb",
+        background: compact ? "transparent" : "#ffffff",
+        borderRadius: compact ? 0 : "12px",
+        padding: compact ? "0 2px" : "16px",
       }}
     >
       <div
@@ -69,7 +71,7 @@ export default function DownloadHistory({
           justifyContent: "space-between",
           alignItems: "center",
           gap: "10px",
-          marginBottom: "12px",
+          marginBottom: compact ? 0 : "12px",
           flexWrap: "wrap",
         }}
       >
@@ -91,10 +93,11 @@ export default function DownloadHistory({
             style={{
               border: "none",
               background: "transparent",
-              color: "#dc2626",
-              fontWeight: 600,
+              color: compact ? "#6b7280" : "#dc2626",
+              fontSize: compact ? "12px" : undefined,
+              fontWeight: compact ? 500 : 600,
               cursor: "pointer",
-              padding: 0,
+              padding: compact ? "4px 0" : 0,
             }}
           >
             {t.clearAll}
@@ -103,33 +106,44 @@ export default function DownloadHistory({
       </div>
 
       {items.length === 0 ? (
-        <p
+        !compact && (
+          <p
+            style={{
+              margin: 0,
+              fontSize: "14px",
+              color: "#6b7280",
+              lineHeight: 1.6,
+            }}
+          >
+            {t.empty}
+          </p>
+        )
+      ) : (
+        <div
           style={{
-            margin: 0,
-            fontSize: "14px",
-            color: "#6b7280",
-            lineHeight: 1.6,
+            display: "flex",
+            flexDirection: "column",
+            gap: compact ? 0 : "10px",
+            marginTop: compact ? "8px" : 0,
           }}
         >
-          {t.empty}
-        </p>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           {items.map((item) => (
             <div
               key={item.id}
               style={{
-                border: "1px solid #e5e7eb",
-                borderRadius: "10px",
-                padding: "12px",
-                background: "#f8fafc",
+                borderWidth: compact ? "0 0 1px" : "1px",
+                borderStyle: "solid",
+                borderColor: compact ? "#eef0f5" : "#e5e7eb",
+                borderRadius: compact ? 0 : "10px",
+                padding: compact ? "9px 2px" : "12px",
+                background: compact ? "transparent" : "#f8fafc",
               }}
             >
               <div
                 style={{
                   display: "flex",
-                  gap: "12px",
-                  alignItems: "flex-start",
+                  gap: compact ? "10px" : "12px",
+                  alignItems: compact ? "center" : "flex-start",
                 }}
               >
                 {item.thumbnail ? (
@@ -137,10 +151,10 @@ export default function DownloadHistory({
                     src={item.thumbnail}
                     alt={item.title || "Thumbnail"}
                     style={{
-                      width: "72px",
-                      height: "72px",
+                      width: compact ? "48px" : "72px",
+                      height: compact ? "48px" : "72px",
                       objectFit: "cover",
-                      borderRadius: "8px",
+                      borderRadius: compact ? "7px" : "8px",
                       flexShrink: 0,
                       background: "#e5e7eb",
                     }}
@@ -150,11 +164,14 @@ export default function DownloadHistory({
                 <div style={{ minWidth: 0, flex: 1 }}>
                   <p
                     style={{
-                      margin: "0 0 6px 0",
-                      fontSize: "14px",
+                      margin: compact ? "0 0 2px 0" : "0 0 6px 0",
+                      fontSize: compact ? "13px" : "14px",
                       fontWeight: 700,
                       color: "#111827",
-                      wordBreak: "break-word",
+                      wordBreak: compact ? "normal" : "break-word",
+                      whiteSpace: compact ? "nowrap" : "normal",
+                      overflow: compact ? "hidden" : "visible",
+                      textOverflow: compact ? "ellipsis" : "clip",
                     }}
                   >
                     {item.title || item.description || item.url}
@@ -162,10 +179,13 @@ export default function DownloadHistory({
 
                   <p
                     style={{
-                      margin: "0 0 6px 0",
-                      fontSize: "13px",
+                      margin: compact ? "0 0 2px 0" : "0 0 6px 0",
+                      fontSize: compact ? "12px" : "13px",
                       color: "#6b7280",
-                      wordBreak: "break-word",
+                      wordBreak: compact ? "normal" : "break-word",
+                      whiteSpace: compact ? "nowrap" : "normal",
+                      overflow: compact ? "hidden" : "visible",
+                      textOverflow: compact ? "ellipsis" : "clip",
                     }}
                   >
                     {item.url}
@@ -174,8 +194,8 @@ export default function DownloadHistory({
                   <p
                     style={{
                       margin: 0,
-                      fontSize: "12px",
-                      color: "#6b7280",
+                      fontSize: compact ? "11px" : "12px",
+                      color: compact ? "#8b91a1" : "#6b7280",
                     }}
                   >
                     {item.type === "mp3" ? t.typeMp3 : t.typeVideo} ·{" "}
@@ -185,8 +205,8 @@ export default function DownloadHistory({
                   <div
                     style={{
                       display: "flex",
-                      gap: "12px",
-                      marginTop: "10px",
+                      gap: compact ? "8px" : "12px",
+                      marginTop: compact ? "5px" : "10px",
                       flexWrap: "wrap",
                     }}
                   >
@@ -195,10 +215,11 @@ export default function DownloadHistory({
                       onClick={() => onReuse(item)}
                       style={{
                         border: "none",
-                        background: "#2563eb",
-                        color: "#fff",
-                        borderRadius: "8px",
-                        padding: "8px 12px",
+                        background: compact ? "#f0efff" : "#2563eb",
+                        color: compact ? "#4f46e5" : "#fff",
+                        borderRadius: compact ? "7px" : "8px",
+                        padding: compact ? "5px 9px" : "8px 12px",
+                        fontSize: compact ? "12px" : undefined,
                         fontWeight: 600,
                         cursor: "pointer",
                       }}
@@ -212,9 +233,10 @@ export default function DownloadHistory({
                       style={{
                         border: "none",
                         background: "transparent",
-                        color: "#dc2626",
-                        padding: "8px 0",
-                        fontWeight: 600,
+                        color: compact ? "#8b5a67" : "#dc2626",
+                        padding: compact ? "5px 4px" : "8px 0",
+                        fontSize: compact ? "12px" : undefined,
+                        fontWeight: compact ? 500 : 600,
                         cursor: "pointer",
                       }}
                     >

@@ -231,8 +231,8 @@ export default async function Page({ params }: PageProps) {
         >
           {content.lead}
         </p>
-        <div style={{ maxWidth: "760px", margin: "0 auto" }}>
-          <DownloaderBox lang={currentLang} type="mp3" />
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <DownloaderBox lang={currentLang} type="mp3" variant="tool" />
         </div>
       </section>
 

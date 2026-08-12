@@ -313,8 +313,8 @@ export default async function Page({ params }: Props) {
       </header>
 
       <section style={{ marginBottom: "36px" }}>
-        <div style={{ maxWidth: "760px", margin: "0 auto" }}>
-          <DownloaderBox lang={currentLang} type="video" />
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <DownloaderBox lang={currentLang} type="video" variant="tool" />
         </div>
       </section>
 

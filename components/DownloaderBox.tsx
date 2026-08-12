@@ -26,6 +26,7 @@ import { getLocalizedRoute } from "@/lib/routes";
 type Props = {
   lang: string;
   type?: "video" | "mp3";
+  variant?: "default" | "home" | "tool";
   initialUrl?: string;
   shared?: boolean;
   shareError?: boolean;
@@ -35,11 +36,14 @@ type Props = {
 export default function DownloaderBox({
   lang,
   type = "video",
+  variant = "default",
   initialUrl = "",
   shared = false,
   shareError = false,
   invalidPath = false,
 }: Props) {
+  const isHome = variant === "home";
+  const isPolished = variant === "home" || variant === "tool";
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<DownloaderResult>(null);
@@ -59,8 +63,17 @@ export default function DownloaderBox({
         type === "mp3"
           ? "Convierte videos de TikTok a MP3 y descarga audio en segundos."
           : "Descarga videos de TikTok sin marca de agua",
-      placeholder: "Pega aquí el enlace de TikTok...",
-      button: type === "mp3" ? "DESCARGAR MP3" : "DESCARGAR",
+      placeholder: isHome
+        ? "Pega aquí el enlace de TikTok o Instagram…"
+        : "Pega aquí el enlace de TikTok...",
+      button:
+        type === "mp3"
+          ? isPolished
+            ? "Descargar MP3"
+            : "DESCARGAR MP3"
+          : isPolished
+          ? "Descargar"
+          : "DESCARGAR",
       loading: "Procesando enlace...",
       errorVideo: "No se pudo cargar el video",
       videoInfoError: "No se pudo obtener información del video",
@@ -70,7 +83,7 @@ export default function DownloaderBox({
         "Este enlace es de fotos/carrusel. Por ahora Clipnexo solo admite videos de TikTok.",
       requestTimeout: "TikTok tardó demasiado en responder. Intenta con otro video.",
       providersFailed: "No se pudo obtener la información del video en este momento.",
-      downloadVideo: "Descargar Video",
+      downloadVideo: isPolished ? "Descargar video" : "Descargar Video",
       downloadAudio: "Descargar Audio (MP3)",
       downloadingVideo: "Preparando video...",
       downloadingAudio: "Preparando audio...",
@@ -85,14 +98,22 @@ export default function DownloaderBox({
       success: "Información del video encontrada correctamente.",
       metadataOnly: "Video listo. Elige una opción de descarga.",
       emptyTitle:
-        type === "mp3"
+        isHome
+          ? "Descarga videos en segundos"
+          : type === "mp3"
           ? "Convierte TikTok a MP3 en segundos"
           : "Descarga videos de TikTok en segundos",
       emptyText:
-        type === "mp3"
+        isHome
+          ? "Obtén la vista previa y las opciones de descarga disponibles."
+          : type === "mp3"
           ? "Pega el enlace de TikTok, procesa el contenido y descarga el audio listo para tu celular o PC."
+          : isPolished
+          ? "Pega el enlace de TikTok para obtener la vista previa y las opciones de descarga disponibles."
           : "Pega el enlace de TikTok para ver la vista previa, los metadatos del video y los botones de descarga.",
-      guideCta: "¿No sabes cómo usar Clipnexo? Mira la guía paso a paso aquí.",
+      guideCta: isPolished
+        ? "¿Primera vez? Ver cómo funciona →"
+        : "¿No sabes cómo usar Clipnexo? Mira la guía paso a paso aquí.",
       invalidUrl: "Pega un enlace válido de TikTok.",
       clipboardError: "No se pudo pegar desde el portapapeles.",
       clipboardSuccess: "Enlace pegado correctamente.",
@@ -112,8 +133,17 @@ export default function DownloaderBox({
         type === "mp3"
           ? "Convert TikTok videos to MP3 and download audio in seconds."
           : "Download TikTok videos without watermark",
-      placeholder: "Paste TikTok link here...",
-      button: type === "mp3" ? "DOWNLOAD MP3" : "DOWNLOAD",
+      placeholder: isHome
+        ? "Paste a TikTok or Instagram link here…"
+        : "Paste TikTok link here...",
+      button:
+        type === "mp3"
+          ? isPolished
+            ? "Download MP3"
+            : "DOWNLOAD MP3"
+          : isPolished
+          ? "Download"
+          : "DOWNLOAD",
       loading: "Processing link...",
       errorVideo: "Could not load video",
       videoInfoError: "Could not get video information",
@@ -123,7 +153,7 @@ export default function DownloaderBox({
         "This is a photo/carousel link. Clipnexo currently only supports TikTok videos.",
       requestTimeout: "TikTok took too long to respond. Try another video.",
       providersFailed: "Could not get the video information right now.",
-      downloadVideo: "Download Video",
+      downloadVideo: isPolished ? "Download video" : "Download Video",
       downloadAudio: "Download Audio (MP3)",
       downloadingVideo: "Preparing video...",
       downloadingAudio: "Preparing audio...",
@@ -138,14 +168,22 @@ export default function DownloaderBox({
       success: "Video information found successfully.",
       metadataOnly: "Video ready. Choose a download option.",
       emptyTitle:
-        type === "mp3"
+        isHome
+          ? "Download videos in seconds"
+          : type === "mp3"
           ? "Convert TikTok to MP3 in seconds"
           : "Download TikTok videos in seconds",
       emptyText:
-        type === "mp3"
+        isHome
+          ? "Preview the content and access the available download options."
+          : type === "mp3"
           ? "Paste the TikTok link, process the content, and download the audio ready for your phone or PC."
+          : isPolished
+          ? "Paste the TikTok link to preview the content and access the available download options."
           : "Paste the TikTok link to view the preview, video metadata, and download buttons.",
-      guideCta: "Not sure how to use Clipnexo? View the step-by-step guide here.",
+      guideCta: isPolished
+        ? "First time here? See how it works →"
+        : "Not sure how to use Clipnexo? View the step-by-step guide here.",
       invalidUrl: "Paste a valid TikTok link.",
       clipboardError: "Could not paste from clipboard.",
       clipboardSuccess: "Link pasted successfully.",
@@ -165,8 +203,17 @@ export default function DownloaderBox({
         type === "mp3"
           ? "Converta vídeos do TikTok em MP3 e baixe o áudio em segundos."
           : "Baixe vídeos do TikTok sem marca d’água",
-      placeholder: "Cole o link do TikTok aqui...",
-      button: type === "mp3" ? "BAIXAR MP3" : "BAIXAR",
+      placeholder: isHome
+        ? "Cole aqui o link do TikTok ou Instagram…"
+        : "Cole o link do TikTok aqui...",
+      button:
+        type === "mp3"
+          ? isPolished
+            ? "Baixar MP3"
+            : "BAIXAR MP3"
+          : isPolished
+          ? "Baixar"
+          : "BAIXAR",
       loading: "Processando link...",
       errorVideo: "Não foi possível carregar o vídeo",
       videoInfoError: "Não foi possível obter informações do vídeo",
@@ -176,7 +223,7 @@ export default function DownloaderBox({
         "Este link é de fotos/carrossel. Por enquanto, o Clipnexo só aceita vídeos do TikTok.",
       requestTimeout: "O TikTok demorou demais para responder. Tente outro vídeo.",
       providersFailed: "Não foi possível obter as informações do vídeo neste momento.",
-      downloadVideo: "Baixar Vídeo",
+      downloadVideo: isPolished ? "Baixar vídeo" : "Baixar Vídeo",
       downloadAudio: "Baixar Áudio (MP3)",
       downloadingVideo: "Preparando vídeo...",
       downloadingAudio: "Preparando áudio...",
@@ -191,14 +238,22 @@ export default function DownloaderBox({
       success: "Informações do vídeo encontradas com sucesso.",
       metadataOnly: "Video pronto. Escolha uma opção de download.",
       emptyTitle:
-        type === "mp3"
+        isHome
+          ? "Baixe vídeos em segundos"
+          : type === "mp3"
           ? "Converta TikTok para MP3 em segundos"
           : "Baixe vídeos do TikTok em segundos",
       emptyText:
-        type === "mp3"
+        isHome
+          ? "Veja a prévia e acesse as opções de download disponíveis."
+          : type === "mp3"
           ? "Cole o link do TikTok, processe o conteúdo e baixe o áudio pronto para o celular ou PC."
+          : isPolished
+          ? "Cole o link do TikTok para ver a prévia e acessar as opções de download disponíveis."
           : "Cole o link do TikTok para ver a prévia, os metadados do vídeo e os botões de download.",
-      guideCta: "Não sabe como usar o Clipnexo? Veja o guia passo a passo aqui.",
+      guideCta: isPolished
+        ? "Primeira vez? Veja como funciona →"
+        : "Não sabe como usar o Clipnexo? Veja o guia passo a passo aqui.",
       invalidUrl: "Cole um link válido do TikTok.",
       clipboardError: "Não foi possível colar da área de transferência.",
       clipboardSuccess: "Link colado com sucesso.",
@@ -339,6 +394,12 @@ export default function DownloaderBox({
   const handleDownload = async () => {
     if (isBusy) return;
 
+    if (isHome && /^https?:\/\/(?:www\.)?instagram\.com\//i.test(url.trim())) {
+      const instagramUrl = getLocalizedRoute("instagramDownloader", lang);
+      window.location.assign(`${instagramUrl}?url=${encodeURIComponent(url.trim())}`);
+      return;
+    }
+
     if (!url.trim() || !isTikTokUrl(url)) {
       setStatusType("error");
       setStatusMessage(t.invalidUrl);
@@ -449,6 +510,7 @@ export default function DownloaderBox({
 
   const handleReuseHistory = (item: DownloadHistoryItem) => {
     setUrl(item.url);
+    setResult(null);
     setStatusType("info");
     setStatusMessage("");
   };
@@ -465,8 +527,8 @@ export default function DownloaderBox({
   return (
     <section
       style={{
-        maxWidth: "1040px",
-        margin: "0 auto 40px auto",
+        maxWidth: isPolished ? "900px" : "1040px",
+        margin: isPolished ? "0 auto" : "0 auto 40px auto",
         textAlign: "center",
         background: "transparent",
         color: "inherit",
@@ -474,12 +536,15 @@ export default function DownloaderBox({
     >
       <div
         style={{
-          maxWidth: hasResultContent ? "1040px" : "640px",
+          maxWidth: isPolished ? "900px" : hasResultContent ? "1040px" : "640px",
           margin: "0 auto",
           background: "white",
-          padding: isMobile ? "16px" : "25px",
-          borderRadius: "12px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+          padding: isPolished ? (isMobile ? "16px" : "22px") : isMobile ? "16px" : "25px",
+          border: isPolished ? "1px solid #ebeaf3" : "none",
+          borderRadius: isPolished ? "20px" : "12px",
+          boxShadow: isPolished
+            ? "0 18px 50px rgba(79, 70, 229, 0.10)"
+            : "0 10px 30px rgba(0,0,0,0.2)",
           transition: "max-width 0.25s ease",
         }}
       >
@@ -494,10 +559,10 @@ export default function DownloaderBox({
           spellCheck={false}
           style={{
             width: "100%",
-            padding: "15px",
+            padding: isPolished ? "13px 14px" : "15px",
             borderRadius: "8px",
             border: "1px solid #ddd",
-            marginBottom: "15px",
+            marginBottom: isPolished ? "12px" : "15px",
             color: "black",
             boxSizing: "border-box",
           }}
@@ -507,7 +572,7 @@ export default function DownloaderBox({
           style={{
             display: "flex",
             gap: "10px",
-            marginBottom: "15px",
+            marginBottom: isPolished ? "12px" : "15px",
             flexWrap: "wrap",
           }}
         >
@@ -516,8 +581,8 @@ export default function DownloaderBox({
             onClick={() => handlePaste(true)}
             disabled={isBusy}
             style={{
-              flex: "1 1 160px",
-              padding: "12px",
+              flex: isPolished ? "1 1 130px" : "1 1 160px",
+              padding: isPolished ? "10px 12px" : "12px",
               borderRadius: "8px",
               border: "1px solid #d1d5db",
               background: "#fff",
@@ -535,8 +600,8 @@ export default function DownloaderBox({
             onClick={handleClear}
             disabled={isBusy}
             style={{
-              flex: "1 1 160px",
-              padding: "12px",
+              flex: isPolished ? "1 1 130px" : "1 1 160px",
+              padding: isPolished ? "10px 12px" : "12px",
               borderRadius: "8px",
               border: "1px solid #d1d5db",
               background: "#f9fafb",
@@ -555,7 +620,7 @@ export default function DownloaderBox({
           disabled={isBusy}
           style={{
             width: "100%",
-            padding: "15px",
+            padding: isPolished ? "12px 14px" : "15px",
             borderRadius: "8px",
             border: "none",
             color: "white",
@@ -588,17 +653,17 @@ export default function DownloaderBox({
         {!loading && !result && (
           <div
             style={{
-              marginTop: "16px",
+              marginTop: isPolished ? "12px" : "16px",
               textAlign: "left",
-              border: "1px dashed #cbd5e1",
-              background: "#f8fafc",
-              borderRadius: "12px",
-              padding: "16px",
+              border: isPolished ? "none" : "1px dashed #cbd5e1",
+              background: isPolished ? "#fbfaff" : "#f8fafc",
+              borderRadius: isPolished ? "10px" : "12px",
+              padding: isPolished ? "11px 14px" : "16px",
             }}
           >
             <p
               style={{
-                margin: "0 0 6px 0",
+                margin: isPolished ? "0 0 3px 0" : "0 0 6px 0",
                 fontSize: "15px",
                 fontWeight: 700,
                 color: "#111",
@@ -618,7 +683,7 @@ export default function DownloaderBox({
               {t.emptyText}
             </p>
 
-            {isMobile && (
+            {isMobile && !isPolished && (
               <p
                 style={{
                   margin: "10px 0 0 0",
@@ -631,29 +696,31 @@ export default function DownloaderBox({
               </p>
             )}
 
-            <p
-              style={{
-                margin: "8px 0 0 0",
-                fontSize: "13px",
-                lineHeight: 1.6,
-                color: "#64748b",
-              }}
-            >
-              {t.mobilePasteHint}
-            </p>
+            {!isPolished && (
+              <p
+                style={{
+                  margin: "8px 0 0 0",
+                  fontSize: "13px",
+                  lineHeight: 1.6,
+                  color: "#64748b",
+                }}
+              >
+                {t.mobilePasteHint}
+              </p>
+            )}
 
             <p
               style={{
-                margin: "10px 0 0 0",
-                fontSize: "14px",
+                margin: isPolished ? "7px 0 0 0" : "10px 0 0 0",
+                fontSize: isPolished ? "13px" : "14px",
                 lineHeight: 1.6,
               }}
             >
               <a
                 href={guideUrl}
                 style={{
-                  color: "#2563eb",
-                  fontWeight: 600,
+                  color: isPolished ? "#6366f1" : "#2563eb",
+                  fontWeight: isPolished ? 500 : 600,
                   textDecoration: "none",
                 }}
               >
@@ -684,7 +751,7 @@ export default function DownloaderBox({
                   background: "#f8fafc",
                   border: "1px solid #e5e7eb",
                   borderRadius: "12px",
-                  padding: "16px",
+                  padding: isPolished ? "14px" : "16px",
                 }}
               >
                 <div>
@@ -710,7 +777,13 @@ export default function DownloaderBox({
                             width: "100%",
                             borderRadius: "10px",
                             background: "#000",
-                            maxHeight: isMobile ? "360px" : "420px",
+                            maxHeight: isMobile
+                              ? isPolished
+                                ? "380px"
+                                : "420px"
+                              : isPolished
+                              ? "340px"
+                              : "420px",
                           }}
                         >
                           <source src={previewVideo} />
@@ -724,7 +797,13 @@ export default function DownloaderBox({
                             width: "100%",
                             borderRadius: "10px",
                             objectFit: "cover",
-                            maxHeight: isMobile ? "360px" : "420px",
+                            maxHeight: isMobile
+                              ? isPolished
+                                ? "380px"
+                                : "420px"
+                              : isPolished
+                              ? "340px"
+                              : "420px",
                           }}
                         />
                       )}
@@ -761,6 +840,10 @@ export default function DownloaderBox({
                             fontSize: "14px",
                             lineHeight: 1.6,
                             wordBreak: "break-word",
+                            display: isPolished ? "-webkit-box" : undefined,
+                            WebkitBoxOrient: isPolished ? "vertical" : undefined,
+                            WebkitLineClamp: isPolished ? 3 : undefined,
+                            overflow: isPolished ? "hidden" : undefined,
                           }}
                         >
                           {descriptionText}
@@ -813,11 +896,13 @@ export default function DownloaderBox({
                         onClick={() => forceDownload(result.video || "", "video.mp4", "video")}
                         disabled={isBusy}
                         style={{
-                          padding: "12px",
+                          width: "100%",
+                          minHeight: "44px",
+                          padding: "11px 14px",
                           background: "#2563eb",
                           color: "white",
                           border: "none",
-                          borderRadius: "8px",
+                          borderRadius: "10px",
                           fontWeight: "bold",
                           cursor: isBusy ? "not-allowed" : "pointer",
                           opacity: downloadingType === "video" ? 0.85 : 1,
@@ -832,11 +917,13 @@ export default function DownloaderBox({
                         onClick={() => forceDownload(result.audio || "", "audio.mp3", "audio")}
                         disabled={isBusy}
                         style={{
-                          padding: "12px",
+                          width: "100%",
+                          minHeight: "44px",
+                          padding: "11px 14px",
                           background: "#16a34a",
                           color: "white",
                           border: "none",
-                          borderRadius: "8px",
+                          borderRadius: "10px",
                           fontWeight: "bold",
                           cursor: isBusy ? "not-allowed" : "pointer",
                           opacity: downloadingType === "audio" ? 0.85 : 1,
@@ -859,6 +946,7 @@ export default function DownloaderBox({
 
       <DownloadHistory
         lang={lang}
+        compact={isPolished}
         items={historyItems}
         onReuse={handleReuseHistory}
         onRemove={handleRemoveHistory}

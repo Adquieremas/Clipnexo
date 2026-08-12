@@ -41,7 +41,7 @@ type PageProps = {
 
 const fallbackAbout: Record<Lang, AboutContent> = {
   es: {
-    metaTitle: "Acerca de Clipnexo | Descargador de TikTok sin marca de agua",
+    metaTitle: "Acerca de Clipnexo y cómo funciona",
     metaDescription:
       "Conoce qué es Clipnexo, cómo funciona y por qué es la herramienta más rápida para descargar videos de TikTok y convertir audio a MP3 de alta calidad hoy mismo.",
     title: "Acerca de Clipnexo",

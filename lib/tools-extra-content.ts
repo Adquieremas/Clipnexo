@@ -2441,8 +2441,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "wordCounter",
     content: {
       es: {
-        metaTitle: "Contador de palabras y caracteres gratis online | Clipnexo",
-        metaDescription: "Cuenta palabras, caracteres, párrafos, oraciones y tiempo de lectura en tiempo real. Herramienta gratuita para estudiantes, escritores y creadores. Sin registro ni instalación.",
+        metaTitle: "Contador de palabras y caracteres online",
+        metaDescription: "Cuenta palabras, caracteres, párrafos, oraciones y tiempo de lectura. Herramienta gratuita para estudiantes, escritores y creadores, sin registro.",
         h1: "Contador de palabras y caracteres",
         lead: "Pega o escribe tu texto y obtén al instante el número de palabras, caracteres, párrafos, oraciones, tiempo de lectura y palabras más repetidas. Todo en tu navegador, sin enviar datos a servidores.",
         howTitle: "Cómo usar el contador de palabras",
@@ -2476,8 +2476,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       en: {
-        metaTitle: "Free Word and Character Counter Online | Clipnexo",
-        metaDescription: "Count words, characters, paragraphs, sentences and reading time in real time. Free tool for students, writers and creators. No registration or installation needed.",
+        metaTitle: "Free Word and Character Counter",
+        metaDescription: "Count words, characters, paragraphs, sentences and reading time. Free tool for students, writers and creators, with no registration required.",
         h1: "Word and Character Counter",
         lead: "Paste or type your text and instantly get word, character, paragraph and sentence counts, reading time, speaking time and most repeated words. All in your browser with no data sent to servers.",
         howTitle: "How to use the word counter",
@@ -2511,8 +2511,8 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       pt: {
-        metaTitle: "Contador de palavras e caracteres grátis online | Clipnexo",
-        metaDescription: "Conte palavras, caracteres, parágrafos, frases e tempo de leitura em tempo real. Ferramenta gratuita para estudantes, escritores e criadores. Sem registro ou instalação.",
+        metaTitle: "Contador de palavras e caracteres online",
+        metaDescription: "Conte palavras, caracteres, parágrafos, frases e tempo de leitura. Ferramenta grátis para estudantes, escritores e criadores, sem cadastro.",
         h1: "Contador de palavras e caracteres",
         lead: "Cole ou digite seu texto e obtenha instantaneamente a contagem de palavras, caracteres, parágrafos, frases, tempo de leitura e palavras mais repetidas. Tudo no navegador, sem enviar dados a servidores.",
         howTitle: "Como usar o contador de palavras",
@@ -2816,7 +2816,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "textSummarizer",
     content: {
       es: {
-        metaTitle: "Resumidor de texto por caracteres | Clipnexo",
+        metaTitle: "Resumidor de texto por caracteres",
         metaDescription: "Resume textos largos a un número exacto de caracteres. Herramienta gratis para estudiantes, tareas, resúmenes, publicaciones y documentos.",
         h1: "Resumidor de texto por caracteres",
         lead: "Pega tu texto, elige el número máximo de caracteres y obtén un resumen instantáneo manteniendo las ideas principales. Sin registro ni envío de datos a servidores.",
@@ -2884,7 +2884,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         ]
       },
       pt: {
-        metaTitle: "Resumidor de texto por caracteres | Clipnexo",
+        metaTitle: "Resumidor de textos por caracteres",
         metaDescription: "Resuma textos longos para um limite exato de caracteres. Ferramenta grátis para estudantes, tarefas, resumos e documentos.",
         h1: "Resumidor de texto por caracteres",
         lead: "Cole seu texto, escolha o número máximo de caracteres e obtenha um resumo instantâneo mantendo as ideias principais. Sem registro ou envio de dados a servidores.",
@@ -3188,7 +3188,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
     routeKey: "pomodoroTimer",
     content: {
       es: {
-        metaTitle: "Temporizador Pomodoro online | Clipnexo",
+        metaTitle: "Temporizador Pomodoro online",
         metaDescription: "Usa un temporizador Pomodoro gratis para estudiar, concentrarte y organizar descansos. Funciona online desde el navegador.",
         h1: "Temporizador Pomodoro online",
         lead: "Organiza tu tiempo de estudio con un temporizador Pomodoro. Alterna bloques de trabajo concentrado con descansos programados.",
@@ -3220,7 +3220,7 @@ export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
         faqs: [{ q: "What is the Pomodoro technique?", a: "It's a time management method alternating 25 minutes of work with 5 minutes of rest." }, { q: "Does it work offline?", a: "Yes, the timer runs entirely in the browser." }]
       },
       pt: {
-        metaTitle: "Temporizador Pomodoro online | Clipnexo",
+        metaTitle: "Temporizador Pomodoro para estudar",
         metaDescription: "Use um temporizador Pomodoro grátis para estudar, focar e organizar pausas. Funciona online direto no navegador.",
         h1: "Temporizador Pomodoro online",
         lead: "Organize seu tempo de estudo com um temporizador Pomodoro. Alterne blocos de trabalho focado com pausas programadas.",

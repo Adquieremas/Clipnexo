@@ -1,9 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import DownloadHistory from "@/components/DownloadHistory";
+import {
+  addDownloadHistoryItem,
+  clearDownloadHistory,
+  getDownloadHistory,
+  removeDownloadHistoryItem,
+  type DownloadHistoryItem,
+} from "@/lib/download-history";
 import { getStatusStyles, type StatusType } from "@/lib/downloader-status";
 import type { InstagramInfoSuccess } from "@/lib/instagram-types";
+import { getLocalizedRoute } from "@/lib/routes";
 
 type InstagramClientError = {
   success?: false;
@@ -13,6 +22,7 @@ type InstagramClientError = {
 
 type Props = {
   lang: string;
+  initialUrl?: string;
 };
 
 function isInstagramUrl(value: string) {
@@ -129,14 +139,15 @@ async function readJsonSafely<T>(response: Response): Promise<T | null> {
   }
 }
 
-export default function InstagramDownloaderBox({ lang }: Props) {
-  const [url, setUrl] = useState("");
+export default function InstagramDownloaderBox({ lang, initialUrl = "" }: Props) {
+  const [url, setUrl] = useState(initialUrl);
   const [result, setResult] = useState<InstagramInfoSuccess | null>(null);
   const [loading, setLoading] = useState(false);
   const [isPasting, setIsPasting] = useState(false);
   const [downloadingType, setDownloadingType] = useState<"video" | "audio" | null>(null);
   const [statusType, setStatusType] = useState<StatusType>("info");
   const [statusMessage, setStatusMessage] = useState("");
+  const [historyItems, setHistoryItems] = useState<DownloadHistoryItem[]>([]);
 
   const translations: Record<string, Record<string, string>> = {
     es: {
@@ -174,6 +185,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
       emptyTitle: "Descarga Reels y videos públicos en MP4 o MP3",
       emptyText:
         "Pega un enlace público de Instagram para ver la vista previa y descargar el video en MP4 o extraer el audio en MP3.",
+      guideCta: "¿Primera vez? Ver cómo funciona →",
       previewTitle: "Vista previa del contenido",
       descriptionTitle: "Descripción",
       hashtagsTitle: "Hashtags",
@@ -221,6 +233,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
       emptyTitle: "Download public Reels and videos as MP4 or MP3",
       emptyText:
         "Paste a public Instagram link to view the preview and download the video as MP4 or extract the audio as MP3.",
+      guideCta: "First time here? See how it works →",
       previewTitle: "Content preview",
       descriptionTitle: "Description",
       hashtagsTitle: "Hashtags",
@@ -268,6 +281,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
       emptyTitle: "Baixe Reels e vídeos públicos em MP4 ou MP3",
       emptyText:
         "Cole um link público do Instagram para ver a prévia e baixar o vídeo em MP4 ou extrair o áudio em MP3.",
+      guideCta: "Primeira vez? Veja como funciona →",
       previewTitle: "Pré-visualização do conteúdo",
       descriptionTitle: "Descrição",
       hashtagsTitle: "Hashtags",
@@ -292,6 +306,15 @@ export default function InstagramDownloaderBox({ lang }: Props) {
   const previewVideo = result?.combinedUrl || firstVideoItem?.url || "";
   const previewImage = firstVideoItem?.thumbnail || firstImageItem?.url || result?.thumbnail || "";
   const isVideoOnly = result?.videoOnly || false;
+  const guideUrl = getLocalizedRoute("guide", lang);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setHistoryItems(getDownloadHistory().filter((item) => isInstagramUrl(item.url)));
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   const handlePaste = async () => {
     setIsPasting(true);
@@ -379,9 +402,21 @@ export default function InstagramDownloaderBox({ lang }: Props) {
         return;
       }
 
-      setResult(data as InstagramInfoSuccess);
+      const instagramResult = data as InstagramInfoSuccess;
+      setResult(instagramResult);
       setStatusType("success");
       setStatusMessage(t.ready);
+
+      const updatedHistory = addDownloadHistoryItem({
+        url,
+        type: "video",
+        title: instagramResult.title || instagramResult.uploader || "Instagram",
+        description: instagramResult.description || "",
+        thumbnail: instagramResult.thumbnail || "",
+        videoUrl: getInstagramVideoUrl(instagramResult),
+        audioUrl: instagramResult.audioUrl || "",
+      });
+      setHistoryItems(updatedHistory.filter((item) => isInstagramUrl(item.url)));
     } catch {
       setStatusType("error");
       setStatusMessage(t.infoFailed);
@@ -589,23 +624,40 @@ export default function InstagramDownloaderBox({ lang }: Props) {
     }
   };
 
+  const handleReuseHistory = (item: DownloadHistoryItem) => {
+    setUrl(item.url);
+    setResult(null);
+    setStatusType("info");
+    setStatusMessage("");
+  };
+
+  const handleRemoveHistory = (id: string) => {
+    setHistoryItems(removeDownloadHistoryItem(id).filter((item) => isInstagramUrl(item.url)));
+  };
+
+  const handleClearHistory = () => {
+    clearDownloadHistory();
+    setHistoryItems([]);
+  };
+
   return (
     <section
       style={{
-        maxWidth: "1040px",
-        margin: "0 auto 40px auto",
+        maxWidth: "900px",
+        margin: "0 auto",
         textAlign: "center",
         color: "inherit",
       }}
     >
       <div
         style={{
-          maxWidth: result ? "1040px" : "680px",
+          maxWidth: "900px",
           margin: "0 auto",
           background: "white",
-          padding: "clamp(16px, 3vw, 25px)",
-          borderRadius: "12px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
+          padding: "clamp(16px, 3vw, 22px)",
+          border: "1px solid #ebeaf3",
+          borderRadius: "20px",
+          boxShadow: "0 18px 50px rgba(79, 70, 229, 0.10)",
           transition: "max-width 0.25s ease",
         }}
       >
@@ -619,23 +671,23 @@ export default function InstagramDownloaderBox({ lang }: Props) {
           spellCheck={false}
           style={{
             width: "100%",
-            padding: "15px",
+            padding: "13px 14px",
             borderRadius: "8px",
             border: "1px solid #ddd",
-            marginBottom: "15px",
+            marginBottom: "12px",
             color: "black",
             boxSizing: "border-box",
           }}
         />
 
-        <div style={{ display: "flex", gap: "10px", marginBottom: "15px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "10px", marginBottom: "12px", flexWrap: "wrap" }}>
           <button
             type="button"
             onClick={handlePaste}
             disabled={isBusy}
             style={{
-              flex: "1 1 160px",
-              padding: "12px",
+              flex: "1 1 130px",
+              padding: "10px 12px",
               borderRadius: "8px",
               border: "1px solid #d1d5db",
               background: "#fff",
@@ -653,8 +705,8 @@ export default function InstagramDownloaderBox({ lang }: Props) {
             onClick={handleClear}
             disabled={isBusy}
             style={{
-              flex: "1 1 160px",
-              padding: "12px",
+              flex: "1 1 130px",
+              padding: "10px 12px",
               borderRadius: "8px",
               border: "1px solid #d1d5db",
               background: "#f9fafb",
@@ -674,7 +726,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
           disabled={isBusy}
           style={{
             width: "100%",
-            padding: "15px",
+            padding: "12px 14px",
             borderRadius: "8px",
             border: "none",
             color: "white",
@@ -707,22 +759,27 @@ export default function InstagramDownloaderBox({ lang }: Props) {
         {!loading && !result && (
           <div
             style={{
-              marginTop: "16px",
+              marginTop: "12px",
               textAlign: "left",
-              border: "1px dashed #cbd5e1",
-              background: "#f8fafc",
-              borderRadius: "12px",
-              padding: "16px",
+              border: "none",
+              background: "#fbfaff",
+              borderRadius: "10px",
+              padding: "11px 14px",
             }}
           >
-            <p style={{ margin: "0 0 6px 0", fontSize: "15px", fontWeight: 700, color: "#111" }}>
+            <p style={{ margin: "0 0 3px 0", fontSize: "15px", fontWeight: 700, color: "#111" }}>
               {t.emptyTitle}
             </p>
             <p style={{ margin: 0, fontSize: "14px", lineHeight: 1.6, color: "#475569" }}>
               {t.emptyText}
             </p>
-            <p style={{ margin: "10px 0 0 0", fontSize: "13px", lineHeight: 1.6, color: "#64748b" }}>
-              {t.legal}
+            <p style={{ margin: "7px 0 0 0", fontSize: "13px", lineHeight: 1.6 }}>
+              <a
+                href={guideUrl}
+                style={{ color: "#6366f1", fontWeight: 500, textDecoration: "none" }}
+              >
+                {t.guideCta}
+              </a>
             </p>
           </div>
         )}
@@ -738,7 +795,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
               background: "#f8fafc",
               border: "1px solid #e5e7eb",
               borderRadius: "12px",
-              padding: "16px",
+              padding: "14px",
             }}
           >
             <div>
@@ -754,7 +811,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
                     width: "100%",
                     borderRadius: "10px",
                     background: "#000",
-                    maxHeight: "420px",
+                    maxHeight: "340px",
                   }}
                 >
                   <source src={previewVideo} />
@@ -771,7 +828,7 @@ export default function InstagramDownloaderBox({ lang }: Props) {
                     height: "auto",
                     borderRadius: "10px",
                     objectFit: "cover",
-                    maxHeight: "420px",
+                    maxHeight: "340px",
                   }}
                 />
               )}
@@ -790,6 +847,10 @@ export default function InstagramDownloaderBox({ lang }: Props) {
                       fontSize: "14px",
                       lineHeight: 1.6,
                       wordBreak: "break-word",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 3,
+                      overflow: "hidden",
                     }}
                   >
                     {result.description}
@@ -829,11 +890,13 @@ export default function InstagramDownloaderBox({ lang }: Props) {
                     onClick={handleDownloadVideo}
                     disabled={isBusy}
                     style={{
-                      padding: "12px",
+                      width: "100%",
+                      minHeight: "44px",
+                      padding: "11px 14px",
                       background: "#2563eb",
                       color: "white",
                       border: "none",
-                      borderRadius: "8px",
+                      borderRadius: "10px",
                       fontWeight: "bold",
                       cursor: isBusy ? "not-allowed" : "pointer",
                       opacity: downloadingType === "video" ? 0.85 : 1,
@@ -849,11 +912,13 @@ export default function InstagramDownloaderBox({ lang }: Props) {
                     onClick={handleDownloadAudio}
                     disabled={isBusy}
                     style={{
-                      padding: "12px",
+                      width: "100%",
+                      minHeight: "44px",
+                      padding: "11px 14px",
                       background: "#16a34a",
                       color: "white",
                       border: "none",
-                      borderRadius: "8px",
+                      borderRadius: "10px",
                       fontWeight: "bold",
                       cursor: isBusy ? "not-allowed" : "pointer",
                       opacity: downloadingType === "audio" ? 0.85 : 1,
@@ -867,6 +932,15 @@ export default function InstagramDownloaderBox({ lang }: Props) {
           </div>
         )}
       </div>
+
+      <DownloadHistory
+        lang={lang}
+        compact
+        items={historyItems}
+        onReuse={handleReuseHistory}
+        onRemove={handleRemoveHistory}
+        onClear={handleClearHistory}
+      />
     </section>
   );
 }
