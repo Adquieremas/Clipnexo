@@ -231,7 +231,7 @@ const pageContent = {
 
 const imageSteps = [
   {
-    src: "https://media.clipnexo.com/Descargar%20videos%20de%20tiktok%20en%20clipnexo%20pasos.webp",
+    src: "https://media.clipnexo.com/2026/10/Descargar%20videos%20de%20tiktok%20en%20clipnexo%20pasos.webp",
     alt: {
       es: "Copiar enlace de video de TikTok en Clipnexo",
       en: "Copy TikTok video link in Clipnexo",
@@ -239,7 +239,7 @@ const imageSteps = [
     },
   },
   {
-    src: "https://media.clipnexo.com/Descargar%20tiktok%20en%20clipnexo%20pasos.webp",
+    src: "https://media.clipnexo.com/2026/10/Descargar%20tiktok%20en%20clipnexo%20pasos.webp",
     alt: {
       es: "Pegar enlace de TikTok en Clipnexo",
       en: "Paste TikTok link into Clipnexo",
@@ -247,7 +247,7 @@ const imageSteps = [
     },
   },
   {
-    src: "https://media.clipnexo.com/Descargar%20tiktok%20pasos%20clipnexo.webp",
+    src: "https://media.clipnexo.com/2026/10/Descargar%20tiktok%20pasos%20clipnexo.webp",
     alt: {
       es: "Descargar video o audio de TikTok con Clipnexo",
       en: "Download TikTok video or audio with Clipnexo",
