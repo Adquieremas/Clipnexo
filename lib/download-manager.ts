@@ -10,15 +10,22 @@ function isBrowser() {
   return typeof window !== "undefined" && typeof document !== "undefined";
 }
 
+const MAX_FILENAME_LENGTH = 80;
+
 function sanitizeFilename(value: string) {
   return value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[<>:"/\\|?*\x00-\x1F]/g, "")
+    // Drop anything that isn't a plain ASCII letter, digit, space or hyphen \u2014
+    // this removes emoji, hashtags (#), ampersands and other symbols that
+    // some mobile OS download managers mishandle or reject in filenames.
+    .replace(/[^a-zA-Z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "")
-    .toLowerCase();
+    .toLowerCase()
+    .slice(0, MAX_FILENAME_LENGTH)
+    .replace(/-+$/g, "");
 }
 
 function getExtensionFromType(fileType: DownloadFileType) {

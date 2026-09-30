@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import { parseInstagramUrl } from "@/lib/instagram-metadata";
 import { getInstagramErrorStatus, proxyInstagramInfoRequest } from "@/lib/clipnexo-api";
+import { checkRateLimit, rateLimitResponseInit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const MAX_REQUEST_BYTES = 10 * 1024;
+const RATE_LIMIT = { key: "instagram-info", limit: 20, windowMs: 60_000 };
 
 function isRequestTooLarge(req: Request) {
   const contentLength = req.headers.get("content-length");
@@ -15,6 +17,14 @@ function isRequestTooLarge(req: Request) {
 }
 
 export async function POST(req: Request) {
+  const rateLimit = checkRateLimit(req, RATE_LIMIT);
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { success: false, error: "Demasiadas solicitudes. Intenta de nuevo en unos segundos.", errorCode: "RATE_LIMITED" },
+      rateLimitResponseInit(rateLimit)
+    );
+  }
+
   if (isRequestTooLarge(req)) {
     return NextResponse.json(
       { success: false, error: "Cuerpo demasiado grande.", errorCode: "REQUEST_TOO_LARGE" },

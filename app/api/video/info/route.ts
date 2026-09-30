@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { getClipnexoApiBaseUrl, isLocalOrPrivateHostname } from "@/lib/clipnexo-api";
 import { getTikTokInfoWithFallback } from "@/lib/tiktok-metadata";
+import { checkRateLimit, rateLimitResponseInit } from "@/lib/rate-limit";
+
+const RATE_LIMIT = { key: "video-info", limit: 20, windowMs: 60_000 };
 
 const MAX_REQUEST_BYTES = 10 * 1024;
 const DEFAULT_TIMEOUT_MS = 20_000;
@@ -139,6 +142,18 @@ export async function POST(req: Request) {
   const startedAt = Date.now();
 
   try {
+    const rateLimit = checkRateLimit(req, RATE_LIMIT);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Demasiadas solicitudes. Intenta de nuevo en unos segundos.",
+          errorCode: "RATE_LIMITED",
+        },
+        rateLimitResponseInit(rateLimit)
+      );
+    }
+
     if (isRequestTooLarge(req)) {
       return NextResponse.json(
         {

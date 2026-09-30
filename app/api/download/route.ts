@@ -6,6 +6,9 @@ import {
   getClipnexoApiBaseUrl,
   isLocalOrPrivateHostname,
 } from "@/lib/clipnexo-api";
+import { checkRateLimit, rateLimitResponseInit } from "@/lib/rate-limit";
+
+const RATE_LIMIT = { key: "download-info", limit: 20, windowMs: 60_000 };
 
 const MAX_REQUEST_BYTES = 10 * 1024;
 const DEFAULT_TIMEOUT_MS = 30_000;
@@ -51,6 +54,18 @@ async function readJsonSafely(response: Response) {
 
 export async function POST(req: Request) {
   try {
+    const rateLimit = checkRateLimit(req, RATE_LIMIT);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Demasiadas solicitudes. Intenta de nuevo en unos segundos.",
+          errorCode: "RATE_LIMITED",
+        },
+        rateLimitResponseInit(rateLimit)
+      );
+    }
+
     if (isRequestTooLarge(req)) {
       return NextResponse.json(
         {

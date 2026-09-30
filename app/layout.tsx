@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { metadataBase } from "@/lib/seo";
 import { Inter } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import WebMCP from "@/components/WebMCP";
 
 const inter = Inter({
@@ -35,7 +34,6 @@ export default function RootLayout({
     <html lang="es" className={inter.variable} suppressHydrationWarning>
       <body>
         {children}
-        <SpeedInsights />
         <WebMCP />
       </body>
     </html>
