@@ -6,7 +6,6 @@ export type RouteKey =
   | "mp3"
   | "guide"
   | "withoutWatermark"
-  | "instagramDownloader"
   | "tiktokBio"
   | "tiktokIdeas"
   | "tiktokHooks"
@@ -101,11 +100,6 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     es: "/es/descargar-tiktok-sin-marca",
     en: "/en/download-tiktok-without-watermark",
     pt: "/pt/baixar-tiktok-sem-marca-dagua",
-  },
-  instagramDownloader: {
-    es: "/es/descargar-instagram",
-    en: "/en/instagram-downloader",
-    pt: "/pt/baixar-instagram",
   },
   tiktokBio: {
     es: "/es/generador-bio-tiktok",
