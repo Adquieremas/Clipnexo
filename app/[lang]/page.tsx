@@ -92,7 +92,7 @@ const pageContent: Record<string, PageContent> = {
       "Usa Clipnexo para descargar videos de TikTok, convertir audio y crear hashtags, captions, guiones, títulos y textos para redes sociales.",
     h1: "Descarga y crea contenido para redes sociales",
     subtitle:
-      "Descarga videos de TikTok e Instagram y accede a herramientas para crear captions, hashtags, guiones y contenido para tus redes.",
+      "Descarga videos de TikTok y accede a herramientas para crear captions, hashtags, guiones y contenido para tus redes.",
     ctaPrimary: "Descargar video",
     ctaSecondary: "Ver herramientas",
     ctaNote: "Gratis, rápido y desde el navegador",
@@ -230,7 +230,7 @@ const pageContent: Record<string, PageContent> = {
       "Use Clipnexo to download TikTok videos, convert audio and create hashtags, captions, scripts, titles and texts for social media.",
     h1: "Download and create content for social media",
     subtitle:
-      "Download TikTok and Instagram videos and use creator tools for captions, hashtags, scripts and social media content.",
+      "Download TikTok videos and use creator tools for captions, hashtags, scripts and social media content.",
     ctaPrimary: "Download video",
     ctaSecondary: "View tools",
     ctaNote: "Free, fast and from your browser",
@@ -368,7 +368,7 @@ const pageContent: Record<string, PageContent> = {
       "Use o Clipnexo para baixar vídeos do TikTok, converter áudio e criar hashtags, legendas, roteiros, títulos e textos para redes sociais.",
     h1: "Baixe e crie conteúdo para redes sociais",
     subtitle:
-      "Baixe vídeos do TikTok e Instagram e use ferramentas para criar legendas, hashtags, roteiros e conteúdo para suas redes.",
+      "Baixe vídeos do TikTok e use ferramentas para criar legendas, hashtags, roteiros e conteúdo para suas redes.",
     ctaPrimary: "Baixar vídeo",
     ctaSecondary: "Ver ferramentas",
     ctaNote: "Grátis, rápido e do navegador",
