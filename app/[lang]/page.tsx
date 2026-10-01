@@ -102,7 +102,6 @@ const pageContent: Record<string, PageContent> = {
       "Accede rápido a las herramientas más usadas para TikTok, YouTube, Instagram y redes sociales.",
     popularTools: [
       { label: "Descargar videos de TikTok", desc: "Sin marca de agua en HD", routeKey: "video" as RouteKey, icon: "TT" },
-      { label: "Descargar videos de Instagram", desc: "Reels y videos en MP4 o MP3", routeKey: "instagramDownloader" as RouteKey, icon: "IG" },
       { label: "TikTok a MP3", desc: "Convierte video a audio", routeKey: "mp3" as RouteKey, icon: "MP3" },
       { label: "Hashtags para TikTok", desc: "Etiquetas para más alcance", routeKey: "tiktokHashtags" as RouteKey, icon: "#" },
       { label: "Captions para Instagram", desc: "Descripciones atractivas", routeKey: "instagramCaptionGenerator" as RouteKey, icon: "Aa" },
@@ -241,7 +240,6 @@ const pageContent: Record<string, PageContent> = {
       "Quick access to the most used tools for TikTok, YouTube, Instagram and social media.",
     popularTools: [
       { label: "Download TikTok videos", desc: "No watermark in HD", routeKey: "video" as RouteKey, icon: "TT" },
-      { label: "Download Instagram videos", desc: "Reels and videos as MP4 or MP3", routeKey: "instagramDownloader" as RouteKey, icon: "IG" },
       { label: "TikTok to MP3", desc: "Convert video to audio", routeKey: "mp3" as RouteKey, icon: "MP3" },
       { label: "TikTok hashtags", desc: "Tags for more reach", routeKey: "tiktokHashtags" as RouteKey, icon: "#" },
       { label: "Instagram captions", desc: "Engaging descriptions", routeKey: "instagramCaptionGenerator" as RouteKey, icon: "Aa" },
@@ -380,7 +378,6 @@ const pageContent: Record<string, PageContent> = {
       "Acesso rápido às ferramentas mais usadas para TikTok, YouTube, Instagram e redes sociais.",
     popularTools: [
       { label: "Baixar vídeos do TikTok", desc: "Sem marca d'água em HD", routeKey: "video" as RouteKey, icon: "TT" },
-      { label: "Baixar vídeos do Instagram", desc: "Reels e vídeos em MP4 ou MP3", routeKey: "instagramDownloader" as RouteKey, icon: "IG" },
       { label: "TikTok para MP3", desc: "Converta vídeo em áudio", routeKey: "mp3" as RouteKey, icon: "MP3" },
       { label: "Hashtags para TikTok", desc: "Etiquetas para mais alcance", routeKey: "tiktokHashtags" as RouteKey, icon: "#" },
       { label: "Legendas para Instagram", desc: "Descrições atrativas", routeKey: "instagramCaptionGenerator" as RouteKey, icon: "Aa" },

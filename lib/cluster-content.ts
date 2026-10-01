@@ -473,7 +473,6 @@ const clusterToolKeys: Record<ClusterKey, string[]> = {
     "youtubeMoneyCalculator", "youtubeViewRatioCalculator",
   ],
   instagram: [
-    "instagramDownloader",
     "instagramCaptionGenerator", "instagramHashtagGenerator",
     "instagramBioGenerator", "instagramReelsIdeas", "instagramReelsHooks",
   ],

@@ -64,7 +64,7 @@ export default function DownloaderBox({
           ? "Convierte videos de TikTok a MP3 y descarga audio en segundos."
           : "Descarga videos de TikTok sin marca de agua",
       placeholder: isHome
-        ? "Pega aquí el enlace de TikTok o Instagram…"
+        ? "Pega aquí el enlace de TikTok…"
         : "Pega aquí el enlace de TikTok...",
       button:
         type === "mp3"
@@ -134,7 +134,7 @@ export default function DownloaderBox({
           ? "Convert TikTok videos to MP3 and download audio in seconds."
           : "Download TikTok videos without watermark",
       placeholder: isHome
-        ? "Paste a TikTok or Instagram link here…"
+        ? "Paste a TikTok link here…"
         : "Paste TikTok link here...",
       button:
         type === "mp3"
@@ -204,7 +204,7 @@ export default function DownloaderBox({
           ? "Converta vídeos do TikTok em MP3 e baixe o áudio em segundos."
           : "Baixe vídeos do TikTok sem marca d’água",
       placeholder: isHome
-        ? "Cole aqui o link do TikTok ou Instagram…"
+        ? "Cole aqui o link do TikTok…"
         : "Cole o link do TikTok aqui...",
       button:
         type === "mp3"
@@ -393,12 +393,6 @@ export default function DownloaderBox({
 
   const handleDownload = async () => {
     if (isBusy) return;
-
-    if (isHome && /^https?:\/\/(?:www\.)?instagram\.com\//i.test(url.trim())) {
-      const instagramUrl = getLocalizedRoute("instagramDownloader", lang);
-      window.location.assign(`${instagramUrl}?url=${encodeURIComponent(url.trim())}`);
-      return;
-    }
 
     if (!url.trim() || !isTikTokUrl(url)) {
       setStatusType("error");

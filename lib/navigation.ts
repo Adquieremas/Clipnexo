@@ -43,7 +43,6 @@ export const navigation: Record<string, NavLangContent> = {
       links: [
         { label: "Descargar video de TikTok", routeKey: "video" },
         { label: "TikTok a MP3", routeKey: "mp3" },
-        { label: "Descargar Instagram", routeKey: "instagramDownloader" },
         { label: "TikTok sin marca de agua", routeKey: "withoutWatermark" },
         { label: "Cómo descargar videos de TikTok", routeKey: "guide" },
       ],
@@ -75,7 +74,6 @@ export const navigation: Record<string, NavLangContent> = {
           title: "Instagram",
           routeKey: "instagramTools",
           links: [
-            { label: "Descargar Instagram", routeKey: "instagramDownloader" },
             { label: "Captions para Instagram", routeKey: "instagramCaptionGenerator" },
             { label: "Hashtags para Instagram", routeKey: "instagramHashtagGenerator" },
             { label: "Bio para Instagram", routeKey: "instagramBioGenerator" },
@@ -126,7 +124,6 @@ export const navigation: Record<string, NavLangContent> = {
     mobileHighlightedTools: [
       { label: "Todas las herramientas", routeKey: "tools" },
       { label: "Generador de hashtags para TikTok", routeKey: "tiktokHashtags" },
-      { label: "Descargar Instagram", routeKey: "instagramDownloader" },
       { label: "Captions para Instagram", routeKey: "instagramCaptionGenerator" },
       { label: "Títulos de YouTube", routeKey: "youtubeTitleGenerator" },
       { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },
@@ -144,7 +141,6 @@ export const navigation: Record<string, NavLangContent> = {
       links: [
         { label: "TikTok video downloader", routeKey: "video" },
         { label: "TikTok to MP3", routeKey: "mp3" },
-        { label: "Instagram Downloader", routeKey: "instagramDownloader" },
         { label: "TikTok without watermark", routeKey: "withoutWatermark" },
         { label: "How to download TikTok videos", routeKey: "guide" },
       ],
@@ -176,7 +172,6 @@ export const navigation: Record<string, NavLangContent> = {
           title: "Instagram",
           routeKey: "instagramTools",
           links: [
-            { label: "Instagram Downloader", routeKey: "instagramDownloader" },
             { label: "Caption generator", routeKey: "instagramCaptionGenerator" },
             { label: "Hashtag generator", routeKey: "instagramHashtagGenerator" },
             { label: "Bio generator", routeKey: "instagramBioGenerator" },
@@ -227,7 +222,6 @@ export const navigation: Record<string, NavLangContent> = {
     mobileHighlightedTools: [
       { label: "All tools", routeKey: "tools" },
       { label: "TikTok hashtag generator", routeKey: "tiktokHashtags" },
-      { label: "Instagram Downloader", routeKey: "instagramDownloader" },
       { label: "Instagram captions", routeKey: "instagramCaptionGenerator" },
       { label: "YouTube titles", routeKey: "youtubeTitleGenerator" },
       { label: "Character counter", routeKey: "socialMediaCharacterCounter" },
@@ -245,7 +239,6 @@ export const navigation: Record<string, NavLangContent> = {
       links: [
         { label: "Baixar vídeo do TikTok", routeKey: "video" },
         { label: "TikTok para MP3", routeKey: "mp3" },
-        { label: "Baixar Instagram", routeKey: "instagramDownloader" },
         { label: "TikTok sem marca d'água", routeKey: "withoutWatermark" },
         { label: "Como baixar vídeos do TikTok", routeKey: "guide" },
       ],
@@ -277,7 +270,6 @@ export const navigation: Record<string, NavLangContent> = {
           title: "Instagram",
           routeKey: "instagramTools",
           links: [
-            { label: "Baixar Instagram", routeKey: "instagramDownloader" },
             { label: "Gerador de legendas", routeKey: "instagramCaptionGenerator" },
             { label: "Gerador de hashtags", routeKey: "instagramHashtagGenerator" },
             { label: "Bio para Instagram", routeKey: "instagramBioGenerator" },
@@ -328,7 +320,6 @@ export const navigation: Record<string, NavLangContent> = {
     mobileHighlightedTools: [
       { label: "Todas as ferramentas", routeKey: "tools" },
       { label: "Gerador de hashtags para TikTok", routeKey: "tiktokHashtags" },
-      { label: "Baixar Instagram", routeKey: "instagramDownloader" },
       { label: "Legendas para Instagram", routeKey: "instagramCaptionGenerator" },
       { label: "Títulos do YouTube", routeKey: "youtubeTitleGenerator" },
       { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },

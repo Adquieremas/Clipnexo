@@ -437,7 +437,6 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "mp3",
   "guide",
   "withoutWatermark",
-  "instagramDownloader",
   "tiktokBio",
   "tiktokIdeas",
   "tiktokHooks",
