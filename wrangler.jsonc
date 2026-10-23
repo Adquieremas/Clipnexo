@@ -30,7 +30,7 @@
 			// Create the bucket before deploying
 			// You can change the bucket name if you want
 			// See https://developers.cloudflare.com/workers/wrangler/commands/#r2-bucket-create
-			"bucket_name": "clipnexo-opennext-cache"
+			"bucket_name": "clipnexo"
 		}
 	],
 	"images": {
