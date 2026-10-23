@@ -43,6 +43,13 @@ function getChangeFrequency(routeKey: RouteKey): "weekly" | "monthly" | "yearly"
   return "weekly";
 }
 
+function getLanguageOrder(url: string): number {
+  const pathname = new URL(url).pathname;
+  return supportedLangs.findIndex(
+    (lang) => pathname === `/${lang}` || pathname.startsWith(`/${lang}/`)
+  );
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = supportedLangs.flatMap((lang) =>
     indexableRouteKeys.map((routeKey) => ({
@@ -76,5 +83,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...blogRoutes].sort((a, b) => {
+    const languageDifference = getLanguageOrder(a.url) - getLanguageOrder(b.url);
+    if (languageDifference !== 0) {
+      return languageDifference;
+    }
+
+    return a.url < b.url ? -1 : a.url > b.url ? 1 : 0;
+  });
 }

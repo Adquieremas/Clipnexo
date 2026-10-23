@@ -102,9 +102,49 @@ Clipnexo helps users:
 - YouTube title generator: https://clipnexo.com/en/youtube-title-generator
 - Gerador de títulos para YouTube: https://clipnexo.com/pt/gerador-titulos-youtube
 
+- Extractor de títulos de YouTube: https://clipnexo.com/es/extractor-titulos-youtube
+- YouTube title extractor: https://clipnexo.com/en/youtube-title-extractor
+- Extrator de títulos do YouTube: https://clipnexo.com/pt/extrator-titulos-youtube
+
+- Comprobador de longitud de títulos de YouTube: https://clipnexo.com/es/comprobar-longitud-titulo-youtube
+- YouTube title length checker: https://clipnexo.com/en/youtube-title-length-checker
+- Verificador de tamanho de títulos do YouTube: https://clipnexo.com/pt/verificar-tamanho-titulo-youtube
+
+- Generador de descripciones de YouTube: https://clipnexo.com/es/generador-descripciones-youtube
+- YouTube description generator: https://clipnexo.com/en/youtube-description-generator
+- Gerador de descrições para YouTube: https://clipnexo.com/pt/gerador-descricoes-youtube
+
+- Extractor de descripciones de YouTube: https://clipnexo.com/es/extractor-descripcion-youtube
+- YouTube description extractor: https://clipnexo.com/en/youtube-description-extractor
+- Extrator de descrições do YouTube: https://clipnexo.com/pt/extrator-descricao-youtube
+
+- Mayúsculas en títulos de YouTube: https://clipnexo.com/es/mayusculas-titulos-youtube
+- YouTube title capitalization: https://clipnexo.com/en/youtube-title-capitalization
+- Maiúsculas em títulos do YouTube: https://clipnexo.com/pt/maiusculas-titulos-youtube
+
+- Generador de código para insertar videos de YouTube: https://clipnexo.com/es/generador-codigo-insercion-youtube
+- YouTube embed code generator: https://clipnexo.com/en/youtube-embed-code-generator
+- Gerador de código de incorporação do YouTube: https://clipnexo.com/pt/gerador-codigo-incorporacao-youtube
+
+- Generador de enlaces con marca de tiempo de YouTube: https://clipnexo.com/es/generador-enlaces-tiempo-youtube
+- YouTube timestamp link generator: https://clipnexo.com/en/youtube-timestamp-link-generator
+- Gerador de links com marcação de tempo do YouTube: https://clipnexo.com/pt/gerador-links-tempo-youtube
+
+- Generador de enlaces de suscripción de YouTube: https://clipnexo.com/es/generador-enlaces-suscripcion-youtube
+- YouTube subscribe link generator: https://clipnexo.com/en/youtube-subscribe-link-generator
+- Gerador de links de inscrição do YouTube: https://clipnexo.com/pt/gerador-links-inscricao-youtube
+
 - Descargar miniaturas de YouTube: https://clipnexo.com/es/descargar-miniaturas-youtube
 - YouTube thumbnail downloader: https://clipnexo.com/en/youtube-thumbnail-downloader
 - Baixar miniaturas do YouTube: https://clipnexo.com/pt/baixar-miniaturas-youtube
+
+- Calculadora de dinero de YouTube: https://clipnexo.com/es/calculadora-dinero-youtube
+- YouTube money calculator: https://clipnexo.com/en/youtube-money-calculator
+- Calculadora de dinheiro do YouTube: https://clipnexo.com/pt/calculadora-dinheiro-youtube
+
+- Calculadora de proporción de vistas de YouTube: https://clipnexo.com/es/calculadora-proporcion-vistas-youtube
+- YouTube view ratio calculator: https://clipnexo.com/en/youtube-view-ratio-calculator
+- Calculadora de proporção de visualizações do YouTube: https://clipnexo.com/pt/calculadora-proporcao-views-youtube
 
 ## Instagram tools
 
