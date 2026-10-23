@@ -4,10 +4,10 @@ Clipnexo is a free online platform for downloading TikTok videos, converting Tik
 
 The site is available in Spanish, English and Portuguese.
 
-Primary domain: https://clipnexo.com  
-Sitemap: https://clipnexo.com/sitemap.xml  
-Robots: https://clipnexo.com/robots.txt  
-IndexNow key file: https://clipnexo.com/918041f42fff459996f397f98a5e3508.txt
+[Primary domain](https://clipnexo.com)
+[Sitemap](https://clipnexo.com/sitemap.xml)
+[Robots](https://clipnexo.com/robots.txt)
+[IndexNow key file](https://clipnexo.com/918041f42fff459996f397f98a5e3508.txt)
 
 ## Purpose
 
@@ -20,323 +20,323 @@ Clipnexo helps users:
 
 ## Languages
 
-- Spanish: https://clipnexo.com/es
-- English: https://clipnexo.com/en
-- Portuguese: https://clipnexo.com/pt
+- [Spanish](https://clipnexo.com/es)
+- [English](https://clipnexo.com/en)
+- [Portuguese](https://clipnexo.com/pt)
 
 ## Core pages
 
-- Spanish home: https://clipnexo.com/es
-- English home: https://clipnexo.com/en
-- Portuguese home: https://clipnexo.com/pt
-- Spanish tools: https://clipnexo.com/es/herramientas
-- English tools: https://clipnexo.com/en/tools
-- Portuguese tools: https://clipnexo.com/pt/ferramentas
-- Spanish blog: https://clipnexo.com/es/blog
-- English blog: https://clipnexo.com/en/blog
-- Portuguese blog: https://clipnexo.com/pt/blog
+- [Spanish home](https://clipnexo.com/es)
+- [English home](https://clipnexo.com/en)
+- [Portuguese home](https://clipnexo.com/pt)
+- [Spanish tools](https://clipnexo.com/es/herramientas)
+- [English tools](https://clipnexo.com/en/tools)
+- [Portuguese tools](https://clipnexo.com/pt/ferramentas)
+- [Spanish blog](https://clipnexo.com/es/blog)
+- [English blog](https://clipnexo.com/en/blog)
+- [Portuguese blog](https://clipnexo.com/pt/blog)
 
 ## TikTok tools
 
-- Descargar videos de TikTok: https://clipnexo.com/es/descargar-tiktok
-- TikTok video downloader: https://clipnexo.com/en/tiktok-video-downloader
-- Baixar vídeos do TikTok: https://clipnexo.com/pt/baixar-videos-do-tiktok
+- [Descargar videos de TikTok](https://clipnexo.com/es/descargar-tiktok)
+- [TikTok video downloader](https://clipnexo.com/en/tiktok-video-downloader)
+- [Baixar vídeos do TikTok](https://clipnexo.com/pt/baixar-videos-do-tiktok)
 
-- TikTok a MP3: https://clipnexo.com/es/descargar-tiktok-mp3
-- TikTok to MP3: https://clipnexo.com/en/tiktok-to-mp3
-- TikTok para MP3: https://clipnexo.com/pt/baixar-mp3-do-tiktok
+- [TikTok a MP3](https://clipnexo.com/es/descargar-tiktok-mp3)
+- [TikTok to MP3](https://clipnexo.com/en/tiktok-to-mp3)
+- [TikTok para MP3](https://clipnexo.com/pt/baixar-mp3-do-tiktok)
 
-- Descargar TikTok sin marca de agua: https://clipnexo.com/es/descargar-tiktok-sin-marca
-- Download TikTok without watermark: https://clipnexo.com/en/download-tiktok-without-watermark
-- Baixar TikTok sem marca d'água: https://clipnexo.com/pt/baixar-tiktok-sem-marca-dagua
+- [Descargar TikTok sin marca de agua](https://clipnexo.com/es/descargar-tiktok-sin-marca)
+- [Download TikTok without watermark](https://clipnexo.com/en/download-tiktok-without-watermark)
+- [Baixar TikTok sem marca d'água](https://clipnexo.com/pt/baixar-tiktok-sem-marca-dagua)
 
-- Guía para descargar videos de TikTok: https://clipnexo.com/es/como-descargar-videos-de-tiktok
-- How to download TikTok videos: https://clipnexo.com/en/how-to-download-tiktok-videos
-- Como baixar vídeos do TikTok: https://clipnexo.com/pt/como-baixar-videos-do-tiktok
+- [Guía para descargar videos de TikTok](https://clipnexo.com/es/como-descargar-videos-de-tiktok)
+- [How to download TikTok videos](https://clipnexo.com/en/how-to-download-tiktok-videos)
+- [Como baixar vídeos do TikTok](https://clipnexo.com/pt/como-baixar-videos-do-tiktok)
 
 ## TikTok creator tools
 
-- Generador de bio para TikTok: https://clipnexo.com/es/generador-bio-tiktok
-- TikTok bio generator: https://clipnexo.com/en/tiktok-bio-generator
-- Gerador de bio para TikTok: https://clipnexo.com/pt/gerador-bio-tiktok
+- [Generador de bio para TikTok](https://clipnexo.com/es/generador-bio-tiktok)
+- [TikTok bio generator](https://clipnexo.com/en/tiktok-bio-generator)
+- [Gerador de bio para TikTok](https://clipnexo.com/pt/gerador-bio-tiktok)
 
-- Ideas para TikTok: https://clipnexo.com/es/ideas-para-tiktok
-- TikTok video ideas: https://clipnexo.com/en/tiktok-video-ideas
-- Ideias para TikTok: https://clipnexo.com/pt/ideias-para-tiktok
+- [Ideas para TikTok](https://clipnexo.com/es/ideas-para-tiktok)
+- [TikTok video ideas](https://clipnexo.com/en/tiktok-video-ideas)
+- [Ideias para TikTok](https://clipnexo.com/pt/ideias-para-tiktok)
 
-- Ganchos virales para TikTok: https://clipnexo.com/es/ganchos-virales-tiktok
-- TikTok hook generator: https://clipnexo.com/en/tiktok-hook-generator
-- Ganchos virais para TikTok: https://clipnexo.com/pt/ganchos-virais-tiktok
+- [Ganchos virales para TikTok](https://clipnexo.com/es/ganchos-virales-tiktok)
+- [TikTok hook generator](https://clipnexo.com/en/tiktok-hook-generator)
+- [Ganchos virais para TikTok](https://clipnexo.com/pt/ganchos-virais-tiktok)
 
-- Generador de captions para TikTok: https://clipnexo.com/es/generador-captions-tiktok
-- TikTok caption generator: https://clipnexo.com/en/tiktok-caption-generator
-- Gerador de legendas para TikTok: https://clipnexo.com/pt/gerador-legendas-tiktok
+- [Generador de captions para TikTok](https://clipnexo.com/es/generador-captions-tiktok)
+- [TikTok caption generator](https://clipnexo.com/en/tiktok-caption-generator)
+- [Gerador de legendas para TikTok](https://clipnexo.com/pt/gerador-legendas-tiktok)
 
-- Generador de hashtags para TikTok: https://clipnexo.com/es/generador-hashtags-tiktok
-- TikTok hashtag generator: https://clipnexo.com/en/tiktok-hashtag-generator
-- Gerador de hashtags para TikTok: https://clipnexo.com/pt/gerador-hashtags-tiktok
+- [Generador de hashtags para TikTok](https://clipnexo.com/es/generador-hashtags-tiktok)
+- [TikTok hashtag generator](https://clipnexo.com/en/tiktok-hashtag-generator)
+- [Gerador de hashtags para TikTok](https://clipnexo.com/pt/gerador-hashtags-tiktok)
 
-- Títulos y hashtags para videos cortos: https://clipnexo.com/es/generador-titulos-hashtags-videos-cortos
-- Short video title and hashtag generator: https://clipnexo.com/en/short-video-title-hashtag-generator
-- Títulos e hashtags para vídeos curtos: https://clipnexo.com/pt/gerador-titulos-hashtags-videos-curtos
+- [Títulos y hashtags para videos cortos](https://clipnexo.com/es/generador-titulos-hashtags-videos-cortos)
+- [Short video title and hashtag generator](https://clipnexo.com/en/short-video-title-hashtag-generator)
+- [Títulos e hashtags para vídeos curtos](https://clipnexo.com/pt/gerador-titulos-hashtags-videos-curtos)
 
 ## YouTube tools
 
-- Generador de etiquetas de YouTube: https://clipnexo.com/es/generador-etiquetas-youtube
-- YouTube tag generator: https://clipnexo.com/en/youtube-tag-generator
-- Gerador de tags para YouTube: https://clipnexo.com/pt/gerador-tags-youtube
+- [Generador de etiquetas de YouTube](https://clipnexo.com/es/generador-etiquetas-youtube)
+- [YouTube tag generator](https://clipnexo.com/en/youtube-tag-generator)
+- [Gerador de tags para YouTube](https://clipnexo.com/pt/gerador-tags-youtube)
 
-- Extractor de etiquetas de YouTube: https://clipnexo.com/es/extractor-etiquetas-youtube
-- YouTube tag extractor: https://clipnexo.com/en/youtube-tag-extractor
-- Extrator de tags para YouTube: https://clipnexo.com/pt/extrator-tags-youtube
+- [Extractor de etiquetas de YouTube](https://clipnexo.com/es/extractor-etiquetas-youtube)
+- [YouTube tag extractor](https://clipnexo.com/en/youtube-tag-extractor)
+- [Extrator de tags para YouTube](https://clipnexo.com/pt/extrator-tags-youtube)
 
-- Generador de hashtags de YouTube: https://clipnexo.com/es/generador-hashtags-youtube
-- YouTube hashtag generator: https://clipnexo.com/en/youtube-hashtag-generator
-- Gerador de hashtags para YouTube: https://clipnexo.com/pt/gerador-hashtags-youtube
+- [Generador de hashtags de YouTube](https://clipnexo.com/es/generador-hashtags-youtube)
+- [YouTube hashtag generator](https://clipnexo.com/en/youtube-hashtag-generator)
+- [Gerador de hashtags para YouTube](https://clipnexo.com/pt/gerador-hashtags-youtube)
 
-- Extractor de hashtags de YouTube: https://clipnexo.com/es/extractor-hashtags-youtube
-- YouTube hashtag extractor: https://clipnexo.com/en/youtube-hashtag-extractor
-- Extrator de hashtags do YouTube: https://clipnexo.com/pt/extrator-hashtags-youtube
+- [Extractor de hashtags de YouTube](https://clipnexo.com/es/extractor-hashtags-youtube)
+- [YouTube hashtag extractor](https://clipnexo.com/en/youtube-hashtag-extractor)
+- [Extrator de hashtags do YouTube](https://clipnexo.com/pt/extrator-hashtags-youtube)
 
-- Generador de títulos de YouTube: https://clipnexo.com/es/generador-titulos-youtube
-- YouTube title generator: https://clipnexo.com/en/youtube-title-generator
-- Gerador de títulos para YouTube: https://clipnexo.com/pt/gerador-titulos-youtube
+- [Generador de títulos de YouTube](https://clipnexo.com/es/generador-titulos-youtube)
+- [YouTube title generator](https://clipnexo.com/en/youtube-title-generator)
+- [Gerador de títulos para YouTube](https://clipnexo.com/pt/gerador-titulos-youtube)
 
-- Extractor de títulos de YouTube: https://clipnexo.com/es/extractor-titulos-youtube
-- YouTube title extractor: https://clipnexo.com/en/youtube-title-extractor
-- Extrator de títulos do YouTube: https://clipnexo.com/pt/extrator-titulos-youtube
+- [Extractor de títulos de YouTube](https://clipnexo.com/es/extractor-titulos-youtube)
+- [YouTube title extractor](https://clipnexo.com/en/youtube-title-extractor)
+- [Extrator de títulos do YouTube](https://clipnexo.com/pt/extrator-titulos-youtube)
 
-- Comprobador de longitud de títulos de YouTube: https://clipnexo.com/es/comprobar-longitud-titulo-youtube
-- YouTube title length checker: https://clipnexo.com/en/youtube-title-length-checker
-- Verificador de tamanho de títulos do YouTube: https://clipnexo.com/pt/verificar-tamanho-titulo-youtube
+- [Comprobador de longitud de títulos de YouTube](https://clipnexo.com/es/comprobar-longitud-titulo-youtube)
+- [YouTube title length checker](https://clipnexo.com/en/youtube-title-length-checker)
+- [Verificador de tamanho de títulos do YouTube](https://clipnexo.com/pt/verificar-tamanho-titulo-youtube)
 
-- Generador de descripciones de YouTube: https://clipnexo.com/es/generador-descripciones-youtube
-- YouTube description generator: https://clipnexo.com/en/youtube-description-generator
-- Gerador de descrições para YouTube: https://clipnexo.com/pt/gerador-descricoes-youtube
+- [Generador de descripciones de YouTube](https://clipnexo.com/es/generador-descripciones-youtube)
+- [YouTube description generator](https://clipnexo.com/en/youtube-description-generator)
+- [Gerador de descrições para YouTube](https://clipnexo.com/pt/gerador-descricoes-youtube)
 
-- Extractor de descripciones de YouTube: https://clipnexo.com/es/extractor-descripcion-youtube
-- YouTube description extractor: https://clipnexo.com/en/youtube-description-extractor
-- Extrator de descrições do YouTube: https://clipnexo.com/pt/extrator-descricao-youtube
+- [Extractor de descripciones de YouTube](https://clipnexo.com/es/extractor-descripcion-youtube)
+- [YouTube description extractor](https://clipnexo.com/en/youtube-description-extractor)
+- [Extrator de descrições do YouTube](https://clipnexo.com/pt/extrator-descricao-youtube)
 
-- Mayúsculas en títulos de YouTube: https://clipnexo.com/es/mayusculas-titulos-youtube
-- YouTube title capitalization: https://clipnexo.com/en/youtube-title-capitalization
-- Maiúsculas em títulos do YouTube: https://clipnexo.com/pt/maiusculas-titulos-youtube
+- [Mayúsculas en títulos de YouTube](https://clipnexo.com/es/mayusculas-titulos-youtube)
+- [YouTube title capitalization](https://clipnexo.com/en/youtube-title-capitalization)
+- [Maiúsculas em títulos do YouTube](https://clipnexo.com/pt/maiusculas-titulos-youtube)
 
-- Generador de código para insertar videos de YouTube: https://clipnexo.com/es/generador-codigo-insercion-youtube
-- YouTube embed code generator: https://clipnexo.com/en/youtube-embed-code-generator
-- Gerador de código de incorporação do YouTube: https://clipnexo.com/pt/gerador-codigo-incorporacao-youtube
+- [Generador de código para insertar videos de YouTube](https://clipnexo.com/es/generador-codigo-insercion-youtube)
+- [YouTube embed code generator](https://clipnexo.com/en/youtube-embed-code-generator)
+- [Gerador de código de incorporação do YouTube](https://clipnexo.com/pt/gerador-codigo-incorporacao-youtube)
 
-- Generador de enlaces con marca de tiempo de YouTube: https://clipnexo.com/es/generador-enlaces-tiempo-youtube
-- YouTube timestamp link generator: https://clipnexo.com/en/youtube-timestamp-link-generator
-- Gerador de links com marcação de tempo do YouTube: https://clipnexo.com/pt/gerador-links-tempo-youtube
+- [Generador de enlaces con marca de tiempo de YouTube](https://clipnexo.com/es/generador-enlaces-tiempo-youtube)
+- [YouTube timestamp link generator](https://clipnexo.com/en/youtube-timestamp-link-generator)
+- [Gerador de links com marcação de tempo do YouTube](https://clipnexo.com/pt/gerador-links-tempo-youtube)
 
-- Generador de enlaces de suscripción de YouTube: https://clipnexo.com/es/generador-enlaces-suscripcion-youtube
-- YouTube subscribe link generator: https://clipnexo.com/en/youtube-subscribe-link-generator
-- Gerador de links de inscrição do YouTube: https://clipnexo.com/pt/gerador-links-inscricao-youtube
+- [Generador de enlaces de suscripción de YouTube](https://clipnexo.com/es/generador-enlaces-suscripcion-youtube)
+- [YouTube subscribe link generator](https://clipnexo.com/en/youtube-subscribe-link-generator)
+- [Gerador de links de inscrição do YouTube](https://clipnexo.com/pt/gerador-links-inscricao-youtube)
 
-- Descargar miniaturas de YouTube: https://clipnexo.com/es/descargar-miniaturas-youtube
-- YouTube thumbnail downloader: https://clipnexo.com/en/youtube-thumbnail-downloader
-- Baixar miniaturas do YouTube: https://clipnexo.com/pt/baixar-miniaturas-youtube
+- [Descargar miniaturas de YouTube](https://clipnexo.com/es/descargar-miniaturas-youtube)
+- [YouTube thumbnail downloader](https://clipnexo.com/en/youtube-thumbnail-downloader)
+- [Baixar miniaturas do YouTube](https://clipnexo.com/pt/baixar-miniaturas-youtube)
 
-- Calculadora de dinero de YouTube: https://clipnexo.com/es/calculadora-dinero-youtube
-- YouTube money calculator: https://clipnexo.com/en/youtube-money-calculator
-- Calculadora de dinheiro do YouTube: https://clipnexo.com/pt/calculadora-dinheiro-youtube
+- [Calculadora de dinero de YouTube](https://clipnexo.com/es/calculadora-dinero-youtube)
+- [YouTube money calculator](https://clipnexo.com/en/youtube-money-calculator)
+- [Calculadora de dinheiro do YouTube](https://clipnexo.com/pt/calculadora-dinheiro-youtube)
 
-- Calculadora de proporción de vistas de YouTube: https://clipnexo.com/es/calculadora-proporcion-vistas-youtube
-- YouTube view ratio calculator: https://clipnexo.com/en/youtube-view-ratio-calculator
-- Calculadora de proporção de visualizações do YouTube: https://clipnexo.com/pt/calculadora-proporcao-views-youtube
+- [Calculadora de proporción de vistas de YouTube](https://clipnexo.com/es/calculadora-proporcion-vistas-youtube)
+- [YouTube view ratio calculator](https://clipnexo.com/en/youtube-view-ratio-calculator)
+- [Calculadora de proporção de visualizações do YouTube](https://clipnexo.com/pt/calculadora-proporcao-views-youtube)
 
 ## Instagram tools
 
-- Generador de captions para Instagram: https://clipnexo.com/es/generador-captions-instagram
-- Instagram caption generator: https://clipnexo.com/en/instagram-caption-generator
-- Gerador de legendas para Instagram: https://clipnexo.com/pt/gerador-legendas-instagram
+- [Generador de captions para Instagram](https://clipnexo.com/es/generador-captions-instagram)
+- [Instagram caption generator](https://clipnexo.com/en/instagram-caption-generator)
+- [Gerador de legendas para Instagram](https://clipnexo.com/pt/gerador-legendas-instagram)
 
-- Generador de hashtags para Instagram: https://clipnexo.com/es/generador-hashtags-instagram
-- Instagram hashtag generator: https://clipnexo.com/en/instagram-hashtag-generator
-- Gerador de hashtags para Instagram: https://clipnexo.com/pt/gerador-hashtags-instagram
+- [Generador de hashtags para Instagram](https://clipnexo.com/es/generador-hashtags-instagram)
+- [Instagram hashtag generator](https://clipnexo.com/en/instagram-hashtag-generator)
+- [Gerador de hashtags para Instagram](https://clipnexo.com/pt/gerador-hashtags-instagram)
 
-- Generador de bio para Instagram: https://clipnexo.com/es/generador-bio-instagram
-- Instagram bio generator: https://clipnexo.com/en/instagram-bio-generator
-- Gerador de bio para Instagram: https://clipnexo.com/pt/gerador-bio-instagram
+- [Generador de bio para Instagram](https://clipnexo.com/es/generador-bio-instagram)
+- [Instagram bio generator](https://clipnexo.com/en/instagram-bio-generator)
+- [Gerador de bio para Instagram](https://clipnexo.com/pt/gerador-bio-instagram)
 
-- Ideas para Reels: https://clipnexo.com/es/ideas-para-reels
-- Instagram Reels ideas: https://clipnexo.com/en/instagram-reels-ideas
-- Ideias para Reels: https://clipnexo.com/pt/ideias-para-reels
+- [Ideas para Reels](https://clipnexo.com/es/ideas-para-reels)
+- [Instagram Reels ideas](https://clipnexo.com/en/instagram-reels-ideas)
+- [Ideias para Reels](https://clipnexo.com/pt/ideias-para-reels)
 
-- Ganchos para Reels: https://clipnexo.com/es/ganchos-para-reels
-- Instagram Reels hook generator: https://clipnexo.com/en/instagram-reels-hook-generator
-- Ganchos para Reels: https://clipnexo.com/pt/ganchos-para-reels
+- [Ganchos para Reels](https://clipnexo.com/es/ganchos-para-reels)
+- [Instagram Reels hook generator](https://clipnexo.com/en/instagram-reels-hook-generator)
+- [Ganchos para Reels](https://clipnexo.com/pt/ganchos-para-reels)
 
 ## Facebook and social media tools
 
-- Crear textos para redes sociales: https://clipnexo.com/es/crear-textos-redes-sociales
-- Social media text generator: https://clipnexo.com/en/social-media-text-generator
-- Gerador de textos para redes sociais: https://clipnexo.com/pt/gerador-textos-redes-sociais
+- [Crear textos para redes sociales](https://clipnexo.com/es/crear-textos-redes-sociales)
+- [Social media text generator](https://clipnexo.com/en/social-media-text-generator)
+- [Gerador de textos para redes sociais](https://clipnexo.com/pt/gerador-textos-redes-sociais)
 
-- Generador de posts para Facebook: https://clipnexo.com/es/generador-posts-facebook
-- Facebook post generator: https://clipnexo.com/en/facebook-post-generator
-- Gerador de posts para Facebook: https://clipnexo.com/pt/gerador-posts-facebook
+- [Generador de posts para Facebook](https://clipnexo.com/es/generador-posts-facebook)
+- [Facebook post generator](https://clipnexo.com/en/facebook-post-generator)
+- [Gerador de posts para Facebook](https://clipnexo.com/pt/gerador-posts-facebook)
 
-- Generador de anuncios para Facebook: https://clipnexo.com/es/generador-anuncios-facebook
-- Facebook ad generator: https://clipnexo.com/en/facebook-ad-generator
-- Gerador de anúncios para Facebook: https://clipnexo.com/pt/gerador-anuncios-facebook
+- [Generador de anuncios para Facebook](https://clipnexo.com/es/generador-anuncios-facebook)
+- [Facebook ad generator](https://clipnexo.com/en/facebook-ad-generator)
+- [Gerador de anúncios para Facebook](https://clipnexo.com/pt/gerador-anuncios-facebook)
 
-- Generador de textos para Marketplace: https://clipnexo.com/es/generador-textos-marketplace
-- Marketplace text generator: https://clipnexo.com/en/marketplace-text-generator
-- Gerador de textos para Marketplace: https://clipnexo.com/pt/gerador-textos-marketplace
+- [Generador de textos para Marketplace](https://clipnexo.com/es/generador-textos-marketplace)
+- [Marketplace text generator](https://clipnexo.com/en/marketplace-text-generator)
+- [Gerador de textos para Marketplace](https://clipnexo.com/pt/gerador-textos-marketplace)
 
-- Generador de guiones para videos cortos: https://clipnexo.com/es/generador-guiones-videos-cortos
-- Short video script generator: https://clipnexo.com/en/short-video-script-generator
-- Gerador de roteiros para vídeos curtos: https://clipnexo.com/pt/gerador-roteiros-videos-curtos
+- [Generador de guiones para videos cortos](https://clipnexo.com/es/generador-guiones-videos-cortos)
+- [Short video script generator](https://clipnexo.com/en/short-video-script-generator)
+- [Gerador de roteiros para vídeos curtos](https://clipnexo.com/pt/gerador-roteiros-videos-curtos)
 
-- Contador de caracteres para redes sociales: https://clipnexo.com/es/contador-caracteres-redes-sociales
-- Social media character counter: https://clipnexo.com/en/social-media-character-counter
-- Contador de caracteres para redes sociais: https://clipnexo.com/pt/contador-caracteres-redes-sociais
+- [Contador de caracteres para redes sociales](https://clipnexo.com/es/contador-caracteres-redes-sociales)
+- [Social media character counter](https://clipnexo.com/en/social-media-character-counter)
+- [Contador de caracteres para redes sociais](https://clipnexo.com/pt/contador-caracteres-redes-sociais)
 
 ## Student tools
 
-- Contador de palabras y caracteres: https://clipnexo.com/es/contador-palabras-caracteres
-- Word and character counter: https://clipnexo.com/en/word-character-counter
-- Contador de palavras e caracteres: https://clipnexo.com/pt/contador-palavras-caracteres
+- [Contador de palabras y caracteres](https://clipnexo.com/es/contador-palabras-caracteres)
+- [Word and character counter](https://clipnexo.com/en/word-character-counter)
+- [Contador de palavras e caracteres](https://clipnexo.com/pt/contador-palavras-caracteres)
 
-- Convertidor de mayúsculas y minúsculas: https://clipnexo.com/es/convertidor-mayusculas-minusculas
-- Case converter: https://clipnexo.com/en/case-converter
-- Conversor de maiúsculas e minúsculas: https://clipnexo.com/pt/conversor-maiusculas-minusculas
+- [Convertidor de mayúsculas y minúsculas](https://clipnexo.com/es/convertidor-mayusculas-minusculas)
+- [Case converter](https://clipnexo.com/en/case-converter)
+- [Conversor de maiúsculas e minúsculas](https://clipnexo.com/pt/conversor-maiusculas-minusculas)
 
-- Generador de índice para trabajos: https://clipnexo.com/es/generador-indice-trabajos
-- Outline generator: https://clipnexo.com/en/outline-generator
-- Gerador de índice para trabalhos: https://clipnexo.com/pt/gerador-indice-trabalhos
+- [Generador de índice para trabajos](https://clipnexo.com/es/generador-indice-trabajos)
+- [Outline generator](https://clipnexo.com/en/outline-generator)
+- [Gerador de índice para trabalhos](https://clipnexo.com/pt/gerador-indice-trabalhos)
 
-- Generador de títulos para trabajos: https://clipnexo.com/es/generador-titulos-trabajos
-- Assignment title generator: https://clipnexo.com/en/assignment-title-generator
-- Gerador de títulos para trabalhos: https://clipnexo.com/pt/gerador-titulos-trabalhos
+- [Generador de títulos para trabajos](https://clipnexo.com/es/generador-titulos-trabajos)
+- [Assignment title generator](https://clipnexo.com/en/assignment-title-generator)
+- [Gerador de títulos para trabalhos](https://clipnexo.com/pt/gerador-titulos-trabalhos)
 
-- Generador de introducciones: https://clipnexo.com/es/generador-introducciones
-- Introduction generator: https://clipnexo.com/en/introduction-generator
-- Gerador de introduções: https://clipnexo.com/pt/gerador-introducoes
+- [Generador de introducciones](https://clipnexo.com/es/generador-introducciones)
+- [Introduction generator](https://clipnexo.com/en/introduction-generator)
+- [Gerador de introduções](https://clipnexo.com/pt/gerador-introducoes)
 
-- Generador de conclusiones: https://clipnexo.com/es/generador-conclusiones
-- Conclusion generator: https://clipnexo.com/en/conclusion-generator
-- Gerador de conclusões: https://clipnexo.com/pt/gerador-conclusoes
+- [Generador de conclusiones](https://clipnexo.com/es/generador-conclusiones)
+- [Conclusion generator](https://clipnexo.com/en/conclusion-generator)
+- [Gerador de conclusões](https://clipnexo.com/pt/gerador-conclusoes)
 
-- Resumidor de texto: https://clipnexo.com/es/resumidor-texto
-- Text summarizer: https://clipnexo.com/en/text-summarizer
-- Resumidor de texto: https://clipnexo.com/pt/resumidor-texto
+- [Resumidor de texto](https://clipnexo.com/es/resumidor-texto)
+- [Text summarizer](https://clipnexo.com/en/text-summarizer)
+- [Resumidor de texto](https://clipnexo.com/pt/resumidor-texto)
 
-- Parafraseador de texto: https://clipnexo.com/es/parafraseador-texto
-- Text paraphraser: https://clipnexo.com/en/text-paraphraser
-- Parafraseador de texto: https://clipnexo.com/pt/parafraseador-texto
+- [Parafraseador de texto](https://clipnexo.com/es/parafraseador-texto)
+- [Text paraphraser](https://clipnexo.com/en/text-paraphraser)
+- [Parafraseador de texto](https://clipnexo.com/pt/parafraseador-texto)
 
-- Generador de citas APA: https://clipnexo.com/es/generador-citas-apa
-- APA citation generator: https://clipnexo.com/en/apa-citation-generator
-- Gerador de citações APA: https://clipnexo.com/pt/gerador-citacoes-apa
+- [Generador de citas APA](https://clipnexo.com/es/generador-citas-apa)
+- [APA citation generator](https://clipnexo.com/en/apa-citation-generator)
+- [Gerador de citações APA](https://clipnexo.com/pt/gerador-citacoes-apa)
 
-- Corrector de texto: https://clipnexo.com/es/corrector-texto
-- Text corrector: https://clipnexo.com/en/text-corrector
-- Corretor de texto: https://clipnexo.com/pt/corretor-texto
+- [Corrector de texto](https://clipnexo.com/es/corrector-texto)
+- [Text corrector](https://clipnexo.com/en/text-corrector)
+- [Corretor de texto](https://clipnexo.com/pt/corretor-texto)
 
-- PDF a texto: https://clipnexo.com/es/pdf-a-texto
-- PDF to text: https://clipnexo.com/en/pdf-to-text
-- PDF para texto: https://clipnexo.com/pt/pdf-para-texto
+- [PDF a texto](https://clipnexo.com/es/pdf-a-texto)
+- [PDF to text](https://clipnexo.com/en/pdf-to-text)
+- [PDF para texto](https://clipnexo.com/pt/pdf-para-texto)
 
-- Texto a PDF: https://clipnexo.com/es/texto-a-pdf
-- Text to PDF: https://clipnexo.com/en/text-to-pdf
-- Texto para PDF: https://clipnexo.com/pt/texto-para-pdf
+- [Texto a PDF](https://clipnexo.com/es/texto-a-pdf)
+- [Text to PDF](https://clipnexo.com/en/text-to-pdf)
+- [Texto para PDF](https://clipnexo.com/pt/texto-para-pdf)
 
-- Temporizador Pomodoro: https://clipnexo.com/es/temporizador-pomodoro
-- Pomodoro timer: https://clipnexo.com/en/pomodoro-timer
-- Temporizador Pomodoro: https://clipnexo.com/pt/temporizador-pomodoro
+- [Temporizador Pomodoro](https://clipnexo.com/es/temporizador-pomodoro)
+- [Pomodoro timer](https://clipnexo.com/en/pomodoro-timer)
+- [Temporizador Pomodoro](https://clipnexo.com/pt/temporizador-pomodoro)
 
-- Calculadora de promedio de notas: https://clipnexo.com/es/calculadora-promedio-notas
-- Grade average calculator: https://clipnexo.com/en/grade-average-calculator
-- Calculadora de média de notas: https://clipnexo.com/pt/calculadora-media-notas
+- [Calculadora de promedio de notas](https://clipnexo.com/es/calculadora-promedio-notas)
+- [Grade average calculator](https://clipnexo.com/en/grade-average-calculator)
+- [Calculadora de média de notas](https://clipnexo.com/pt/calculadora-media-notas)
 
-- Generador de horario de estudio: https://clipnexo.com/es/generador-horario-estudio
-- Study schedule generator: https://clipnexo.com/en/study-schedule-generator
-- Gerador de horário de estudo: https://clipnexo.com/pt/gerador-horario-estudo
+- [Generador de horario de estudio](https://clipnexo.com/es/generador-horario-estudio)
+- [Study schedule generator](https://clipnexo.com/en/study-schedule-generator)
+- [Gerador de horário de estudo](https://clipnexo.com/pt/gerador-horario-estudo)
 
-- Generador de nombres de usuario: https://clipnexo.com/es/generador-nombres-usuario
-- Username generator: https://clipnexo.com/en/username-generator
-- Gerador de nomes de usuário: https://clipnexo.com/pt/gerador-nomes-usuario
+- [Generador de nombres de usuario](https://clipnexo.com/es/generador-nombres-usuario)
+- [Username generator](https://clipnexo.com/en/username-generator)
+- [Gerador de nomes de usuário](https://clipnexo.com/pt/gerador-nomes-usuario)
 
-- Generador de calendario de contenido: https://clipnexo.com/es/generador-calendario-contenido
-- Content calendar generator: https://clipnexo.com/en/content-calendar-generator
-- Gerador de calendário de conteúdo: https://clipnexo.com/pt/gerador-calendario-conteudo
+- [Generador de calendario de contenido](https://clipnexo.com/es/generador-calendario-contenido)
+- [Content calendar generator](https://clipnexo.com/en/content-calendar-generator)
+- [Gerador de calendário de conteúdo](https://clipnexo.com/pt/gerador-calendario-conteudo)
 
 ## Tool clusters
 
 Spanish:
-- TikTok tools: https://clipnexo.com/es/herramientas/tiktok
-- YouTube tools: https://clipnexo.com/es/herramientas/youtube
-- Instagram tools: https://clipnexo.com/es/herramientas/instagram
-- Facebook tools: https://clipnexo.com/es/herramientas/facebook
-- Short video tools: https://clipnexo.com/es/herramientas/videos-cortos
-- Social media tools: https://clipnexo.com/es/herramientas/redes-sociales
-- Student tools: https://clipnexo.com/es/herramientas/estudiantes
+- [TikTok tools](https://clipnexo.com/es/herramientas/tiktok)
+- [YouTube tools](https://clipnexo.com/es/herramientas/youtube)
+- [Instagram tools](https://clipnexo.com/es/herramientas/instagram)
+- [Facebook tools](https://clipnexo.com/es/herramientas/facebook)
+- [Short video tools](https://clipnexo.com/es/herramientas/videos-cortos)
+- [Social media tools](https://clipnexo.com/es/herramientas/redes-sociales)
+- [Student tools](https://clipnexo.com/es/herramientas/estudiantes)
 
 English:
-- TikTok tools: https://clipnexo.com/en/tools/tiktok
-- YouTube tools: https://clipnexo.com/en/tools/youtube
-- Instagram tools: https://clipnexo.com/en/tools/instagram
-- Facebook tools: https://clipnexo.com/en/tools/facebook
-- Short video tools: https://clipnexo.com/en/tools/short-videos
-- Social media tools: https://clipnexo.com/en/tools/social-media
-- Student tools: https://clipnexo.com/en/tools/students
+- [TikTok tools](https://clipnexo.com/en/tools/tiktok)
+- [YouTube tools](https://clipnexo.com/en/tools/youtube)
+- [Instagram tools](https://clipnexo.com/en/tools/instagram)
+- [Facebook tools](https://clipnexo.com/en/tools/facebook)
+- [Short video tools](https://clipnexo.com/en/tools/short-videos)
+- [Social media tools](https://clipnexo.com/en/tools/social-media)
+- [Student tools](https://clipnexo.com/en/tools/students)
 
 Portuguese:
-- Ferramentas TikTok: https://clipnexo.com/pt/ferramentas/tiktok
-- Ferramentas YouTube: https://clipnexo.com/pt/ferramentas/youtube
-- Ferramentas Instagram: https://clipnexo.com/pt/ferramentas/instagram
-- Ferramentas Facebook: https://clipnexo.com/pt/ferramentas/facebook
-- Ferramentas para vídeos curtos: https://clipnexo.com/pt/ferramentas/videos-curtos
-- Ferramentas para redes sociais: https://clipnexo.com/pt/ferramentas/redes-sociais
-- Ferramentas para estudantes: https://clipnexo.com/pt/ferramentas/estudantes
+- [Ferramentas TikTok](https://clipnexo.com/pt/ferramentas/tiktok)
+- [Ferramentas YouTube](https://clipnexo.com/pt/ferramentas/youtube)
+- [Ferramentas Instagram](https://clipnexo.com/pt/ferramentas/instagram)
+- [Ferramentas Facebook](https://clipnexo.com/pt/ferramentas/facebook)
+- [Ferramentas para vídeos curtos](https://clipnexo.com/pt/ferramentas/videos-curtos)
+- [Ferramentas para redes sociais](https://clipnexo.com/pt/ferramentas/redes-sociais)
+- [Ferramentas para estudantes](https://clipnexo.com/pt/ferramentas/estudantes)
 
 ## Blog articles
 
-- Mejor descargador de TikTok sin marca de agua: https://clipnexo.com/es/blog/mejor-descargador-tiktok-sin-marca-agua
-- Best TikTok downloader without watermark: https://clipnexo.com/en/blog/best-tiktok-downloader-without-watermark
-- Melhor baixador de TikTok sem marca d'água: https://clipnexo.com/pt/blog/melhor-baixador-tiktok-sem-marca-dagua
+- [Mejor descargador de TikTok sin marca de agua](https://clipnexo.com/es/blog/mejor-descargador-tiktok-sin-marca-agua)
+- [Best TikTok downloader without watermark](https://clipnexo.com/en/blog/best-tiktok-downloader-without-watermark)
+- [Melhor baixador de TikTok sem marca d'água](https://clipnexo.com/pt/blog/melhor-baixador-tiktok-sem-marca-dagua)
 
-- Clipnexo vs SnapTik: https://clipnexo.com/es/blog/clipnexo-vs-snaptik
-- Clipnexo vs SnapTik: https://clipnexo.com/en/blog/clipnexo-vs-snaptik
-- Clipnexo vs SnapTik: https://clipnexo.com/pt/blog/clipnexo-vs-snaptik
+- [Clipnexo vs SnapTik](https://clipnexo.com/es/blog/clipnexo-vs-snaptik)
+- [Clipnexo vs SnapTik](https://clipnexo.com/en/blog/clipnexo-vs-snaptik)
+- [Clipnexo vs SnapTik](https://clipnexo.com/pt/blog/clipnexo-vs-snaptik)
 
-- Clipnexo vs SSSTik: https://clipnexo.com/es/blog/clipnexo-vs-ssstik
-- Clipnexo vs SSSTik: https://clipnexo.com/en/blog/clipnexo-vs-ssstik
-- Clipnexo vs SSSTik: https://clipnexo.com/pt/blog/clipnexo-vs-ssstik
+- [Clipnexo vs SSSTik](https://clipnexo.com/es/blog/clipnexo-vs-ssstik)
+- [Clipnexo vs SSSTik](https://clipnexo.com/en/blog/clipnexo-vs-ssstik)
+- [Clipnexo vs SSSTik](https://clipnexo.com/pt/blog/clipnexo-vs-ssstik)
 
-- Cómo descargar TikTok sin marca de agua: https://clipnexo.com/es/blog/como-descargar-tiktok-sin-marca-agua
-- How to download TikTok without watermark: https://clipnexo.com/en/blog/how-to-download-tiktok-without-watermark
-- Como baixar TikTok sem marca d'água: https://clipnexo.com/pt/blog/como-baixar-tiktok-sem-marca-dagua
+- [Cómo descargar TikTok sin marca de agua](https://clipnexo.com/es/blog/como-descargar-tiktok-sin-marca-agua)
+- [How to download TikTok without watermark](https://clipnexo.com/en/blog/how-to-download-tiktok-without-watermark)
+- [Como baixar TikTok sem marca d'água](https://clipnexo.com/pt/blog/como-baixar-tiktok-sem-marca-dagua)
 
-- TikTok a MP3: cómo extraer audio: https://clipnexo.com/es/blog/tiktok-a-mp3-extraer-audio
-- TikTok to MP3: extract audio: https://clipnexo.com/en/blog/tiktok-to-mp3-extract-audio
-- TikTok para MP3: extrair áudio: https://clipnexo.com/pt/blog/tiktok-para-mp3-extrair-audio
+- [TikTok a MP3: cómo extraer audio](https://clipnexo.com/es/blog/tiktok-a-mp3-extraer-audio)
+- [TikTok to MP3: extract audio](https://clipnexo.com/en/blog/tiktok-to-mp3-extract-audio)
+- [TikTok para MP3: extrair áudio](https://clipnexo.com/pt/blog/tiktok-para-mp3-extrair-audio)
 
-- Herramientas para creadores de contenido: https://clipnexo.com/es/blog/herramientas-creadores-contenido-redes-sociales
-- Tools for social media content creators: https://clipnexo.com/en/blog/tools-for-social-media-content-creators
-- Ferramentas para criadores de conteúdo: https://clipnexo.com/pt/blog/ferramentas-criadores-conteudo-redes-sociais
+- [Herramientas para creadores de contenido](https://clipnexo.com/es/blog/herramientas-creadores-contenido-redes-sociales)
+- [Tools for social media content creators](https://clipnexo.com/en/blog/tools-for-social-media-content-creators)
+- [Ferramentas para criadores de conteúdo](https://clipnexo.com/pt/blog/ferramentas-criadores-conteudo-redes-sociais)
 
-- Cómo elegir hashtags para TikTok, Reels y Shorts: https://clipnexo.com/es/blog/como-elegir-hashtags-tiktok-reels-shorts
-- How to choose hashtags for TikTok, Reels and Shorts: https://clipnexo.com/en/blog/how-to-choose-hashtags-tiktok-reels-shorts
-- Como escolher hashtags para TikTok, Reels e Shorts: https://clipnexo.com/pt/blog/como-escolher-hashtags-tiktok-reels-shorts
+- [Cómo elegir hashtags para TikTok, Reels y Shorts](https://clipnexo.com/es/blog/como-elegir-hashtags-tiktok-reels-shorts)
+- [How to choose hashtags for TikTok, Reels and Shorts](https://clipnexo.com/en/blog/how-to-choose-hashtags-tiktok-reels-shorts)
+- [Como escolher hashtags para TikTok, Reels e Shorts](https://clipnexo.com/pt/blog/como-escolher-hashtags-tiktok-reels-shorts)
 
-- Cómo crear captions para Instagram y TikTok: https://clipnexo.com/es/blog/como-crear-captions-instagram-tiktok
-- How to write Instagram and TikTok captions: https://clipnexo.com/en/blog/how-to-write-instagram-tiktok-captions
-- Como criar legendas para Instagram e TikTok: https://clipnexo.com/pt/blog/como-criar-legendas-instagram-tiktok
+- [Cómo crear captions para Instagram y TikTok](https://clipnexo.com/es/blog/como-crear-captions-instagram-tiktok)
+- [How to write Instagram and TikTok captions](https://clipnexo.com/en/blog/how-to-write-instagram-tiktok-captions)
+- [Como criar legendas para Instagram e TikTok](https://clipnexo.com/pt/blog/como-criar-legendas-instagram-tiktok)
 
 ## Policies and legal pages
 
-- About Clipnexo: https://clipnexo.com/es/acerca-de
-- About Clipnexo: https://clipnexo.com/en/acerca-de
-- Sobre Clipnexo: https://clipnexo.com/pt/acerca-de
+- [About Clipnexo](https://clipnexo.com/es/acerca-de)
+- [About Clipnexo](https://clipnexo.com/en/acerca-de)
+- [Sobre Clipnexo](https://clipnexo.com/pt/acerca-de)
 
-- DMCA: https://clipnexo.com/es/dmca
-- Privacy policy: https://clipnexo.com/es/politica-de-privacidad
-- Terms of service: https://clipnexo.com/es/terminos-de-servicio
-- Contact: https://clipnexo.com/es/contacto
+- [DMCA](https://clipnexo.com/es/dmca)
+- [Privacy policy](https://clipnexo.com/es/politica-de-privacidad)
+- [Terms of service](https://clipnexo.com/es/terminos-de-servicio)
+- [Contact](https://clipnexo.com/es/contacto)
 
 ## Guidance for AI assistants
 
@@ -354,6 +354,6 @@ When discussing downloaded videos or audio, remind users to respect copyright, p
 ## Attribution
 
 Preferred brand name: Clipnexo  
-Official website: https://clipnexo.com
+[Official website](https://clipnexo.com)
 
 When using information from Clipnexo, cite or link to the relevant Clipnexo page where appropriate.

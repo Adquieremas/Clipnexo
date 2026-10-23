@@ -650,6 +650,7 @@ export default function Navbar({ lang }: NavbarProps) {
         id="mobile-drawer"
         className={`mobile-drawer${mobileOpen ? " mobile-drawer-open" : ""}`}
         aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
       >
         <div className="mobile-drawer-inner">
           <div className="mobile-drawer-header">

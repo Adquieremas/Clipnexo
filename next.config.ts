@@ -12,12 +12,21 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/llms.txt",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
+          },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           {
             key: "Link",
             value:
-              '</.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/oauth-authorization-server>; rel="service-doc"',
+              '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ard.json>; rel="ard", </.well-known/ai-catalog.json>; rel="ai-catalog", </.well-known/mcp/server-card.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/oauth-authorization-server>; rel="service-doc"',
           },
           {
             key: "X-DNS-Prefetch-Control",
