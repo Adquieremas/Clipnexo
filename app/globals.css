@@ -775,7 +775,7 @@ input, select, textarea, button {
     margin: 0 6px 5px;
   }
 
-  .mobile-tool-group-heading h3 {
+  .mobile-tool-group-title {
     margin: 0;
     color: #222b3d;
     font-size: 12px;

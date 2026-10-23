@@ -439,7 +439,7 @@ export default function Navbar({ lang }: NavbarProps) {
                       <span className={`nav-tool-group-icon nav-tool-option-icon-${group.kind}`}>
                         <ToolMenuIcon kind={group.kind} />
                       </span>
-                      <h3 className="nav-tool-group-title">
+                      <div className="nav-tool-group-title">
                         {group.routeKey ? (
                           <Link
                             href={resolveHref(group.routeKey)}
@@ -451,7 +451,7 @@ export default function Navbar({ lang }: NavbarProps) {
                         ) : (
                           group.title
                         )}
-                      </h3>
+                      </div>
                     </div>
 
                     <div className={`nav-tool-group-sections${group.kind === "utilities" ? " nav-tool-group-sections-split" : ""}`}>
@@ -752,7 +752,7 @@ export default function Navbar({ lang }: NavbarProps) {
                             <span className={`nav-tool-group-icon nav-tool-option-icon-${group.kind}`}>
                               <ToolMenuIcon kind={group.kind} />
                             </span>
-                            <h3>{group.title}</h3>
+                            <div className="mobile-tool-group-title">{group.title}</div>
                           </div>
                           <div className="mobile-tool-options">
                             {mobileLinks.map((link) => (

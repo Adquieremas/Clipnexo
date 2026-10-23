@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { metadataBase } from "@/lib/seo";
 import { Inter } from "next/font/google";
 import WebMCP from "@/components/WebMCP";
@@ -35,6 +36,16 @@ export default function RootLayout({
       <body>
         {children}
         <WebMCP />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JQRSPZY9RT"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JQRSPZY9RT');`}
+        </Script>
       </body>
     </html>
   );
