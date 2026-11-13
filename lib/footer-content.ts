@@ -13,7 +13,6 @@ type FooterColumn = {
 type FooterLangContent = {
   brandName: string;
   brandDescription: string;
-  badges: string[];
   columns: FooterColumn[];
   bottomLine: string;
   tagline: string;
@@ -26,7 +25,6 @@ export const footerContent: Record<string, FooterLangContent> = {
     brandName: "Clipnexo",
     brandDescription:
       "Herramientas gratuitas para descargar videos, crear textos, generar hashtags y preparar contenido para redes sociales.",
-    badges: ["Gratis", "Online", "Sin instalar apps"],
     columns: [
       {
         title: "Herramientas principales",
@@ -78,7 +76,6 @@ export const footerContent: Record<string, FooterLangContent> = {
     brandName: "Clipnexo",
     brandDescription:
       "Free tools to download videos, create texts, generate hashtags and prepare content for social media.",
-    badges: ["Free", "Online", "No app needed"],
     columns: [
       {
         title: "Main tools",
@@ -130,7 +127,6 @@ export const footerContent: Record<string, FooterLangContent> = {
     brandName: "Clipnexo",
     brandDescription:
       "Ferramentas gratuitas para baixar vídeos, criar textos, gerar hashtags e preparar conteúdo para redes sociais.",
-    badges: ["Grátis", "Online", "Sem instalar apps"],
     columns: [
       {
         title: "Ferramentas principais",

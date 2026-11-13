@@ -17,6 +17,7 @@ import {
   getHashtagList,
   getPreviewImage,
   getPreviewVideo,
+  getVideoDownloadUrls,
   hasResultContent as hasResultContentUtil,
   isTikTokUrl,
   type DownloaderResult,
@@ -66,7 +67,7 @@ export default function DownloaderBox({
           ? "Convierte videos de TikTok a MP3 y descarga audio en segundos."
           : "Descarga videos de TikTok sin marca de agua",
       placeholder: isHome
-        ? "Pega aquí el enlace de TikTok…"
+        ? "Enlace de TikTok"
         : "Pega aquí el enlace de TikTok...",
       button:
         type === "mp3"
@@ -81,6 +82,7 @@ export default function DownloaderBox({
       videoInfoError: "No se pudo obtener información del video",
       serviceUnavailable: "Servicio temporalmente no disponible",
       genericError: "Ocurrió un error. Inténtalo nuevamente.",
+      downloadFailed: "No se pudo completar la descarga. Vuelve a procesar el mismo enlace para obtener un archivo actualizado.",
       unsupportedPhoto:
         "Este enlace es de fotos/carrusel. Por ahora Clipnexo solo admite videos de TikTok.",
       requestTimeout: "TikTok tardó demasiado en responder. Intenta con otro video.",
@@ -94,37 +96,16 @@ export default function DownloaderBox({
       previewTitle: "Vista previa del video",
       descriptionTitle: "Descripción",
       hashtagsTitle: "Hashtags",
-      paste: "Pegar enlace",
+      paste: "Pegar",
       pasteLoading: "Pegando...",
       clear: "Limpiar",
       success: "Información del video encontrada correctamente.",
       noDownload: "Se encontró el video, pero el archivo no está disponible para descargar.",
-      emptyTitle:
-        isHome
-          ? "Descarga videos en segundos"
-          : type === "mp3"
-          ? "Convierte TikTok a MP3 en segundos"
-          : "Descarga videos de TikTok en segundos",
-      emptyText:
-        isHome
-          ? "Obtén la vista previa y las opciones de descarga disponibles."
-          : type === "mp3"
-          ? "Pega el enlace de TikTok, procesa el contenido y descarga el audio listo para tu celular o PC."
-          : isPolished
-          ? "Pega el enlace de TikTok para obtener la vista previa y las opciones de descarga disponibles."
-          : "Pega el enlace de TikTok para ver la vista previa, los metadatos del video y los botones de descarga.",
-      guideCta: isPolished
-        ? "¿Primera vez? Ver cómo funciona →"
-        : "¿No sabes cómo usar Clipnexo? Mira la guía paso a paso aquí.",
+      guideCta: "Cómo descargar",
       invalidUrl: "Pega un enlace válido de TikTok.",
       clipboardError: "No se pudo pegar desde el portapapeles.",
       clipboardSuccess: "Enlace pegado correctamente.",
       clipboardEmpty: "No se encontró un enlace en el portapapeles.",
-      mobileHint:
-        type === "mp3"
-          ? "En celular puedes pegar el enlace, convertirlo y descargar el audio en segundos."
-          : "En celular puedes pegar el enlace y descargar el video sin salir de la app.",
-      mobilePasteHint: "Toca el campo o el botón Pegar para usar el enlace copiado.",
       sharedSuccess: "Enlace compartido de TikTok recibido correctamente.",
       sharedError: "No se recibió un enlace válido de TikTok.",
       invalidPathMessage: "Datos no encontrados. ¡Inténtalo de nuevo!",
@@ -136,7 +117,7 @@ export default function DownloaderBox({
           ? "Convert TikTok videos to MP3 and download audio in seconds."
           : "Download TikTok videos without watermark",
       placeholder: isHome
-        ? "Paste a TikTok link here…"
+        ? "TikTok link"
         : "Paste TikTok link here...",
       button:
         type === "mp3"
@@ -151,6 +132,7 @@ export default function DownloaderBox({
       videoInfoError: "Could not get video information",
       serviceUnavailable: "Service temporarily unavailable",
       genericError: "Something went wrong. Please try again.",
+      downloadFailed: "The download could not finish. Submit the same link again to get a fresh file.",
       unsupportedPhoto:
         "This is a photo/carousel link. Clipnexo currently only supports TikTok videos.",
       requestTimeout: "TikTok took too long to respond. Try another video.",
@@ -164,37 +146,16 @@ export default function DownloaderBox({
       previewTitle: "Video preview",
       descriptionTitle: "Description",
       hashtagsTitle: "Hashtags",
-      paste: "Paste link",
+      paste: "Paste",
       pasteLoading: "Pasting...",
       clear: "Clear",
       success: "Video information found successfully.",
       noDownload: "The video was found, but the file is unavailable for download.",
-      emptyTitle:
-        isHome
-          ? "Download videos in seconds"
-          : type === "mp3"
-          ? "Convert TikTok to MP3 in seconds"
-          : "Download TikTok videos in seconds",
-      emptyText:
-        isHome
-          ? "Preview the content and access the available download options."
-          : type === "mp3"
-          ? "Paste the TikTok link, process the content, and download the audio ready for your phone or PC."
-          : isPolished
-          ? "Paste the TikTok link to preview the content and access the available download options."
-          : "Paste the TikTok link to view the preview, video metadata, and download buttons.",
-      guideCta: isPolished
-        ? "First time here? See how it works →"
-        : "Not sure how to use Clipnexo? View the step-by-step guide here.",
+      guideCta: "How to download",
       invalidUrl: "Paste a valid TikTok link.",
       clipboardError: "Could not paste from clipboard.",
       clipboardSuccess: "Link pasted successfully.",
       clipboardEmpty: "No valid link was found in the clipboard.",
-      mobileHint:
-        type === "mp3"
-          ? "On mobile you can paste the link, convert it and download the audio in seconds."
-          : "On mobile you can paste the link and download the video without leaving the app.",
-      mobilePasteHint: "Tap the field or the Paste button to use your copied link.",
       sharedSuccess: "Shared TikTok link received successfully.",
       sharedError: "No valid TikTok link was received.",
       invalidPathMessage: "Data not found. Please try again!",
@@ -206,7 +167,7 @@ export default function DownloaderBox({
           ? "Converta vídeos do TikTok em MP3 e baixe o áudio em segundos."
           : "Baixe vídeos do TikTok sem marca d’água",
       placeholder: isHome
-        ? "Cole aqui o link do TikTok…"
+        ? "Link do TikTok"
         : "Cole o link do TikTok aqui...",
       button:
         type === "mp3"
@@ -221,6 +182,7 @@ export default function DownloaderBox({
       videoInfoError: "Não foi possível obter informações do vídeo",
       serviceUnavailable: "Serviço temporariamente indisponível",
       genericError: "Ocorreu um erro. Tente novamente.",
+      downloadFailed: "Não foi possível concluir o download. Envie o mesmo link novamente para obter um arquivo atualizado.",
       unsupportedPhoto:
         "Este link é de fotos/carrossel. Por enquanto, o Clipnexo só aceita vídeos do TikTok.",
       requestTimeout: "O TikTok demorou demais para responder. Tente outro vídeo.",
@@ -234,37 +196,16 @@ export default function DownloaderBox({
       previewTitle: "Pré-visualização do vídeo",
       descriptionTitle: "Descrição",
       hashtagsTitle: "Hashtags",
-      paste: "Colar link",
+      paste: "Colar",
       pasteLoading: "Colando...",
       clear: "Limpar",
       success: "Informações do vídeo encontradas com sucesso.",
       noDownload: "O vídeo foi encontrado, mas o arquivo não está disponível para download.",
-      emptyTitle:
-        isHome
-          ? "Baixe vídeos em segundos"
-          : type === "mp3"
-          ? "Converta TikTok para MP3 em segundos"
-          : "Baixe vídeos do TikTok em segundos",
-      emptyText:
-        isHome
-          ? "Veja a prévia e acesse as opções de download disponíveis."
-          : type === "mp3"
-          ? "Cole o link do TikTok, processe o conteúdo e baixe o áudio pronto para o celular ou PC."
-          : isPolished
-          ? "Cole o link do TikTok para ver a prévia e acessar as opções de download disponíveis."
-          : "Cole o link do TikTok para ver a prévia, os metadados do vídeo e os botões de download.",
-      guideCta: isPolished
-        ? "Primeira vez? Veja como funciona →"
-        : "Não sabe como usar o Clipnexo? Veja o guia passo a passo aqui.",
+      guideCta: "Como baixar",
       invalidUrl: "Cole um link válido do TikTok.",
       clipboardError: "Não foi possível colar da área de transferência.",
       clipboardSuccess: "Link colado com sucesso.",
       clipboardEmpty: "Nenhum link válido foi encontrado na área de transferência.",
-      mobileHint:
-        type === "mp3"
-          ? "No celular você pode colar o link, converter e baixar o áudio em segundos."
-          : "No celular você pode colar o link e baixar o vídeo sem sair do app.",
-      mobilePasteHint: "Toque no campo ou no botão Colar para usar o link copiado.",
       sharedSuccess: "Link compartilhado do TikTok recebido com sucesso.",
       sharedError: "Nenhum link válido do TikTok foi recebido.",
       invalidPathMessage: "Dados não encontrados. Tente novamente!",
@@ -275,7 +216,8 @@ export default function DownloaderBox({
   const guideUrl = getLocalizedRoute("guide", lang);
 
   const preferredPreview = getPreviewVideo(result);
-  const downloadVideo = result?.video || preferredPreview;
+  const videoDownloadUrls = getVideoDownloadUrls(result);
+  const downloadVideo = videoDownloadUrls[0];
   const previewVideo = previewUnavailable
     ? null
     : failedPreview === preferredPreview
@@ -419,9 +361,11 @@ export default function DownloaderBox({
       const data = await getVideoInfo(url);
       setResult(data);
 
-      const hasDownload = Boolean(data.audio || (type !== "mp3" && getPreviewVideo(data)));
+      const hasDownload = Boolean(type === "mp3" ? data.audio : getVideoDownloadUrls(data).length > 0);
       setStatusType(hasDownload ? "success" : "error");
-      setStatusMessage(hasDownload ? t.success : t.noDownload);
+      setStatusMessage(
+        hasDownload ? t.success : data.downloadErrorCode === "REQUEST_TIMEOUT" ? t.requestTimeout : t.noDownload
+      );
 
       const updatedHistory = addDownloadHistoryItem({
         url,
@@ -495,11 +439,15 @@ export default function DownloaderBox({
         fileType
       );
 
-      await downloadFile({
-        fileUrl,
-        fileType,
-        filename: generatedFilename,
-      });
+      const urls = fileType === "video" ? videoDownloadUrls : [fileUrl];
+      for (const [index, candidate] of urls.entries()) {
+        try {
+          await downloadFile({ fileUrl: candidate, fileType, filename: generatedFilename });
+          break;
+        } catch (error) {
+          if (index === urls.length - 1) throw error;
+        }
+      }
 
       setStatusType("success");
       setStatusMessage(
@@ -507,7 +455,7 @@ export default function DownloaderBox({
       );
     } catch {
       setStatusType("error");
-      setStatusMessage(t.genericError);
+      setStatusMessage(t.downloadFailed);
     } finally {
       setDownloadingType(null);
     }
@@ -539,107 +487,52 @@ export default function DownloaderBox({
         color: "inherit",
       }}
     >
-      <div
-        style={{
-          maxWidth: isPolished ? "900px" : hasResultContent ? "1040px" : "640px",
-          margin: "0 auto",
-          background: "white",
-          padding: isPolished ? (isMobile ? "16px" : "22px") : isMobile ? "16px" : "25px",
-          border: isPolished ? "1px solid #ebeaf3" : "none",
-          borderRadius: isPolished ? "20px" : "12px",
-          boxShadow: isPolished
-            ? "0 18px 50px rgba(79, 70, 229, 0.10)"
-            : "0 10px 30px rgba(0,0,0,0.2)",
-          transition: "max-width 0.25s ease",
-        }}
-      >
-        <input
-          type="text"
-          placeholder={t.placeholder}
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          onFocus={handleInputFocus}
-          autoComplete="off"
-          autoCapitalize="none"
-          spellCheck={false}
-          style={{
-            width: "100%",
-            padding: isPolished ? "13px 14px" : "15px",
-            borderRadius: "8px",
-            border: "1px solid #ddd",
-            marginBottom: isPolished ? "12px" : "15px",
-            color: "black",
-            boxSizing: "border-box",
-          }}
-        />
-
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            marginBottom: isPolished ? "12px" : "15px",
-            flexWrap: "wrap",
+      <div>
+        <form
+          className="tiktok-download-form"
+          onSubmit={(event) => {
+            event.preventDefault();
+            void handleDownload();
           }}
         >
-          <button
-            type="button"
-            onClick={() => handlePaste(true)}
-            disabled={isBusy}
-            style={{
-              flex: isPolished ? "1 1 130px" : "1 1 160px",
-              padding: isPolished ? "10px 12px" : "12px",
-              borderRadius: "8px",
-              border: "1px solid #d1d5db",
-              background: "#fff",
-              color: "#111",
-              fontWeight: 600,
-              cursor: isBusy ? "not-allowed" : "pointer",
-              opacity: isBusy ? 0.7 : 1,
-            }}
-          >
-            {isPasting ? t.pasteLoading : t.paste}
+          <div className="tiktok-download-field">
+            <input
+              type="text"
+              inputMode="url"
+              aria-label={t.placeholder}
+              placeholder={t.placeholder}
+              value={url}
+              onChange={(event) => setUrl(event.target.value)}
+              onFocus={handleInputFocus}
+              autoComplete="off"
+              autoCapitalize="none"
+              spellCheck={false}
+            />
+            <button
+              type="button"
+              onClick={() => handlePaste(true)}
+              disabled={isBusy}
+            >
+              {isPasting ? t.pasteLoading : t.paste}
+            </button>
+          </div>
+          <button type="submit" className="tiktok-download-submit" disabled={isBusy}>
+            {loading ? t.loading : t.button}
           </button>
+        </form>
 
-          <button
-            type="button"
-            onClick={handleClear}
-            disabled={isBusy}
-            style={{
-              flex: isPolished ? "1 1 130px" : "1 1 160px",
-              padding: isPolished ? "10px 12px" : "12px",
-              borderRadius: "8px",
-              border: "1px solid #d1d5db",
-              background: "#f9fafb",
-              color: "#111",
-              fontWeight: 600,
-              cursor: isBusy ? "not-allowed" : "pointer",
-              opacity: isBusy ? 0.7 : 1,
-            }}
-          >
-            {t.clear}
-          </button>
+        <div className="tiktok-download-actions">
+          <a href={guideUrl}>{t.guideCta}</a>
+          {url && (
+            <button type="button" onClick={handleClear} disabled={isBusy}>
+              {t.clear}
+            </button>
+          )}
         </div>
-
-        <button
-          onClick={handleDownload}
-          disabled={isBusy}
-          style={{
-            width: "100%",
-            padding: isPolished ? "12px 14px" : "15px",
-            borderRadius: "8px",
-            border: "none",
-            color: "white",
-            fontWeight: "bold",
-            background: "linear-gradient(90deg, #6366f1, #ec4899)",
-            cursor: isBusy ? "not-allowed" : "pointer",
-            opacity: isBusy ? 0.85 : 1,
-          }}
-        >
-          {loading ? t.loading : t.button}
-        </button>
 
         {statusMessage && (
           <div
+            role={statusType === "error" ? "alert" : "status"}
             style={{
               marginTop: "14px",
               borderRadius: "10px",
@@ -652,86 +545,6 @@ export default function DownloaderBox({
             }}
           >
             {statusMessage}
-          </div>
-        )}
-
-        {!loading && !result && (
-          <div
-            style={{
-              marginTop: isPolished ? "12px" : "16px",
-              textAlign: "left",
-              border: isPolished ? "none" : "1px dashed #cbd5e1",
-              background: isPolished ? "#fbfaff" : "#f8fafc",
-              borderRadius: isPolished ? "10px" : "12px",
-              padding: isPolished ? "11px 14px" : "16px",
-            }}
-          >
-            <p
-              style={{
-                margin: isPolished ? "0 0 3px 0" : "0 0 6px 0",
-                fontSize: "15px",
-                fontWeight: 700,
-                color: "#111",
-              }}
-            >
-              {t.emptyTitle}
-            </p>
-
-            <p
-              style={{
-                margin: 0,
-                fontSize: "14px",
-                lineHeight: 1.6,
-                color: "#475569",
-              }}
-            >
-              {t.emptyText}
-            </p>
-
-            {isMobile && !isPolished && (
-              <p
-                style={{
-                  margin: "10px 0 0 0",
-                  fontSize: "13px",
-                  lineHeight: 1.6,
-                  color: "#64748b",
-                }}
-              >
-                {t.mobileHint}
-              </p>
-            )}
-
-            {!isPolished && (
-              <p
-                style={{
-                  margin: "8px 0 0 0",
-                  fontSize: "13px",
-                  lineHeight: 1.6,
-                  color: "#64748b",
-                }}
-              >
-                {t.mobilePasteHint}
-              </p>
-            )}
-
-            <p
-              style={{
-                margin: isPolished ? "7px 0 0 0" : "10px 0 0 0",
-                fontSize: isPolished ? "13px" : "14px",
-                lineHeight: 1.6,
-              }}
-            >
-              <a
-                href={guideUrl}
-                style={{
-                  color: isPolished ? "#6366f1" : "#2563eb",
-                  fontWeight: isPolished ? 500 : 600,
-                  textDecoration: "none",
-                }}
-              >
-                {t.guideCta}
-              </a>
-            </p>
           </div>
         )}
 
@@ -958,14 +771,16 @@ export default function DownloaderBox({
         )}
       </div>
 
-      <DownloadHistory
-        lang={lang}
-        compact={isPolished}
-        items={historyItems}
-        onReuse={handleReuseHistory}
-        onRemove={handleRemoveHistory}
-        onClear={handleClearHistory}
-      />
+      {(!isPolished || historyItems.length > 0) && (
+        <DownloadHistory
+          lang={lang}
+          compact={isPolished}
+          items={historyItems}
+          onReuse={handleReuseHistory}
+          onRemove={handleRemoveHistory}
+          onClear={handleClearHistory}
+        />
+      )}
     </section>
   );
 }

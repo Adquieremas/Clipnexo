@@ -26,22 +26,6 @@ export default function Footer({ lang }: Props) {
               />
             </Link>
             <p className="footer-brand-desc">{content.brandDescription}</p>
-            <div className="footer-badges">
-              {content.badges.map((badge) => {
-                const badgeClass =
-                  badge.toLowerCase().includes("gratis") ||
-                  badge.toLowerCase() === "free"
-                    ? "footer-badge footer-badge-free"
-                    : badge.toLowerCase().includes("online")
-                      ? "footer-badge footer-badge-online"
-                      : "footer-badge footer-badge-app";
-                return (
-                  <span key={badge} className={badgeClass}>
-                    {badge}
-                  </span>
-                );
-              })}
-            </div>
           </div>
 
           {content.columns.map((col) => (

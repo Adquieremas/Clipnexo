@@ -34,8 +34,27 @@ export function isTikTokUrl(value: string) {
   }
 }
 
+function isMediaUrl(value: unknown): value is string {
+  if (typeof value !== "string") return false;
+  try {
+    const url = new URL(value);
+    return ["https:", "http:"].includes(url.protocol) && !url.username && !url.password;
+  } catch {
+    return false;
+  }
+}
+
+export function getVideoDownloadUrls(result: DownloaderResult) {
+  return Array.from(new Set([
+    result?.video,
+    result?.play,
+    result?.videoUrl,
+    ...(Array.isArray(result?.alternateVideoUrls) ? result.alternateVideoUrls : []),
+  ].filter(isMediaUrl)));
+}
+
 export function getPreviewVideo(result: DownloaderResult) {
-  return result?.play || result?.video || result?.videoUrl || null;
+  return [result?.play, ...getVideoDownloadUrls(result)].find(isMediaUrl) ?? null;
 }
 
 export function getPreviewImage(result: DownloaderResult) {

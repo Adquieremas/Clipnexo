@@ -14,6 +14,7 @@ type TikTokMetadataRecord = {
   formats?: unknown[];
   video?: string;
   audio?: string;
+  alternateVideoUrls?: string[];
   raw?: Record<string, unknown>;
 };
 
@@ -76,7 +77,9 @@ function mapTikWmPayload(payload: Record<string, unknown>, url: string) {
   const data = payload.data && typeof payload.data === "object" ? (payload.data as Record<string, unknown>) : {};
   const author = data.author && typeof data.author === "object" ? (data.author as Record<string, unknown>) : {};
   const contentDesc = firstString(data.content_desc);
-  const video = resolveTikWmMediaUrl(data.play) || resolveTikWmMediaUrl(data.hdplay);
+  const play = resolveTikWmMediaUrl(data.play);
+  const hdplay = resolveTikWmMediaUrl(data.hdplay);
+  const video = play || hdplay;
 
   if (!video || (Array.isArray(data.images) && data.images.length > 0)) {
     return {
@@ -96,6 +99,7 @@ function mapTikWmPayload(payload: Record<string, unknown>, url: string) {
     webpage_url: normalizeString(data.webpage_url) || url,
     extractor: "tikwm",
     video,
+    alternateVideoUrls: play && hdplay && play !== hdplay ? [hdplay] : undefined,
     audio: resolveTikWmMediaUrl(data.music),
     formats: [],
     raw: data,

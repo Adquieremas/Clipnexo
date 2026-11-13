@@ -7,7 +7,7 @@ import { checkRateLimit, rateLimitResponseInit } from "@/lib/rate-limit";
 const RATE_LIMIT = { key: "video-info", limit: 20, windowMs: 60_000 };
 
 const MAX_REQUEST_BYTES = 10 * 1024;
-const DEFAULT_TIMEOUT_MS = 20_000;
+const DEFAULT_TIMEOUT_MS = 32_000;
 const UPSTREAM_TIMEOUT_MS = 12_000;
 const SHORT_REDIRECT_TIMEOUT_MS = 4_000;
 const SUPPORTED_TIKTOK_HOSTS = ["tiktok.com", "m.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"];
@@ -64,7 +64,7 @@ function isSupportedTikTokHost(url: URL) {
 
 function isShortTikTokUrl(url: URL) {
   const hostname = getNormalizedTikTokHostname(url);
-  return hostname === "vm.tiktok.com" || hostname === "vt.tiktok.com";
+  return hostname === "vm.tiktok.com" || hostname === "vt.tiktok.com" || /^\/t\/[^/]+\/?$/i.test(url.pathname);
 }
 
 function hasUnsupportedTikTokPath(url: URL) {
@@ -207,6 +207,10 @@ export async function POST(req: Request) {
       return unsupportedTikTokPhotoResponse();
     }
 
+    parsedUrl.hash = "";
+    if (/\/video\/\d+\/?$/i.test(parsedUrl.pathname)) {
+      parsedUrl.search = "";
+    }
     const safeUrl = parsedUrl.toString();
     const endpoint = getUpstreamInfoEndpoint();
     const upstreamTimeoutMs = Math.min(UPSTREAM_TIMEOUT_MS, getRemainingTimeoutMs(startedAt));
@@ -268,7 +272,10 @@ export async function POST(req: Request) {
       }
 
       if (upstreamSucceeded) {
-        return NextResponse.json(upstreamBody);
+        return NextResponse.json({
+          ...upstreamBody,
+          downloadErrorCode: fallbackResult.errorCode,
+        });
       }
 
       return NextResponse.json(

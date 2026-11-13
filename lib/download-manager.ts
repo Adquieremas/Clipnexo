@@ -11,6 +11,7 @@ function isBrowser() {
 }
 
 const MAX_FILENAME_LENGTH = 80;
+const DOWNLOAD_IDLE_TIMEOUT_MS = 30_000;
 
 function sanitizeFilename(value: string) {
   return value
@@ -80,14 +81,38 @@ export async function downloadFile({
     ? ensureExtension(filename.trim(), fileType)
     : getDefaultFilename(fileType);
 
-  const response = await fetch(fileUrl);
+  const controller = new AbortController();
+  const abort = () => controller.abort();
+  let idleTimeout = window.setTimeout(abort, DOWNLOAD_IDLE_TIMEOUT_MS);
+  let blob: Blob;
 
-  if (!response.ok) {
-    throw new Error(`Download failed with status ${response.status}.`);
+  try {
+    const response = await fetch(fileUrl, { signal: controller.signal });
+    if (!response.ok) {
+      throw new Error(`Download failed with status ${response.status}.`);
+    }
+    const contentType = response.headers.get("content-type")?.toLowerCase() ?? "";
+    if (!response.body || /^(?:text\/|application\/(?:json|xhtml\+xml))/.test(contentType)) {
+      throw new Error("The download response did not contain a media file.");
+    }
+
+    const reader = response.body.getReader();
+    const chunks: BlobPart[] = [];
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      window.clearTimeout(idleTimeout);
+      idleTimeout = window.setTimeout(abort, DOWNLOAD_IDLE_TIMEOUT_MS);
+      chunks.push(value);
+    }
+    blob = new Blob(chunks, { type: contentType });
+  } catch (error) {
+    abort();
+    throw error;
+  } finally {
+    window.clearTimeout(idleTimeout);
   }
-
-  const blob = await response.blob();
-  if (!blob.size || /^(?:text\/|application\/(?:json|xhtml\+xml))/.test(blob.type)) {
+  if (!blob.size) {
     throw new Error("The download response did not contain a media file.");
   }
 

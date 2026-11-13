@@ -21,13 +21,10 @@ type PageContent = {
   metaDescription: string;
   h1: string;
   subtitle: string;
-  ctaPrimary: string;
-  ctaSecondary: string;
-  ctaNote: string;
   downloadTitle: string;
   popularTitle: string;
   popularDesc: string;
-  popularTools: { label: string; desc: string; routeKey: RouteKey; icon: string }[];
+  popularTools: { label: string; desc: string; routeKey: HomeToolRoute }[];
   clustersTitle: string;
   clustersDesc: string;
   clusters: ClusterItem[];
@@ -85,29 +82,49 @@ function getCategoryLabel(categoryKey: string, lang: string): string {
   return labels[categoryKey]?.[lang] || categoryKey;
 }
 
+const homeToolIconPaths = {
+  video: "M5 4.5h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2ZM12 8v8m-3-3 3 3 3-3",
+  mp3: "M3 10v4m4-7v10m5-13v16m5-13v10m4-7v4",
+  tiktokHashtags: "M9 4 6 20m12-16-3 16M4 9h17M3 15h17",
+  instagramCaptionGenerator: "M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3v-3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6",
+  youtubeTitleGenerator: "M4 6h16M4 6v3m16-3v3m-8-3v12m-3 0h6",
+  shortVideoScriptGenerator: "M5 6h14v14H5zM4 6l15-3m-9 10h4m-4 3h7",
+  socialMediaCharacterCounter: "M3 8h18v8H3zm4 0v3m5-3v4m5-4v3",
+} satisfies Partial<Record<RouteKey, string>>;
+
+type HomeToolRoute = keyof typeof homeToolIconPaths;
+
+function HomeToolIcon({ routeKey }: { routeKey: HomeToolRoute }) {
+  return (
+    <span className="home-tool-card-icon" aria-hidden="true">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d={homeToolIconPaths[routeKey]} />
+      </svg>
+    </span>
+  );
+}
+
 const pageContent: Record<string, PageContent> = {
   es: {
     metaTitle: "Clipnexo: descarga y crea contenido",
     metaDescription:
       "Usa Clipnexo para descargar videos de TikTok, convertir audio y crear hashtags, captions, guiones, títulos y textos para redes sociales.",
-    h1: "Descarga y crea contenido para redes sociales",
+    h1: "Descarga videos de TikTok",
     subtitle:
-      "Descarga videos de TikTok y accede a herramientas para crear captions, hashtags, guiones y contenido para tus redes.",
-    ctaPrimary: "Descargar video",
-    ctaSecondary: "Ver herramientas",
-    ctaNote: "Gratis, rápido y desde el navegador",
+      "Pega el enlace para guardar el video o el audio.",
     downloadTitle: "",
     popularTitle: "Herramientas populares de Clipnexo",
     popularDesc:
       "Accede rápido a las herramientas más usadas para TikTok, YouTube, Instagram y redes sociales.",
     popularTools: [
-      { label: "Descargar videos de TikTok", desc: "Sin marca de agua en HD", routeKey: "video" as RouteKey, icon: "TT" },
-      { label: "TikTok a MP3", desc: "Convierte video a audio", routeKey: "mp3" as RouteKey, icon: "MP3" },
-      { label: "Hashtags para TikTok", desc: "Etiquetas para más alcance", routeKey: "tiktokHashtags" as RouteKey, icon: "#" },
-      { label: "Captions para Instagram", desc: "Descripciones atractivas", routeKey: "instagramCaptionGenerator" as RouteKey, icon: "Aa" },
-      { label: "Títulos de YouTube", desc: "Títulos para más clics", routeKey: "youtubeTitleGenerator" as RouteKey, icon: "YT" },
-      { label: "Guiones para videos cortos", desc: "Estructura para TikTok, Reels y Shorts", routeKey: "shortVideoScriptGenerator" as RouteKey, icon: "▶" },
-      { label: "Contador de caracteres", desc: "Mide textos para redes", routeKey: "socialMediaCharacterCounter" as RouteKey, icon: "123" },
+      { label: "Descargar videos de TikTok", desc: "Sin marca de agua en HD", routeKey: "video" },
+      { label: "TikTok a MP3", desc: "Convierte video a audio", routeKey: "mp3" },
+      { label: "Hashtags para TikTok", desc: "Etiquetas para más alcance", routeKey: "tiktokHashtags" },
+      { label: "Captions para Instagram", desc: "Descripciones atractivas", routeKey: "instagramCaptionGenerator" },
+      { label: "Títulos de YouTube", desc: "Títulos para más clics", routeKey: "youtubeTitleGenerator" },
+      { label: "Guiones para videos cortos", desc: "Estructura para TikTok, Reels y Shorts", routeKey: "shortVideoScriptGenerator" },
+      { label: "Contador de caracteres", desc: "Mide textos para redes", routeKey: "socialMediaCharacterCounter" },
     ],
     clustersTitle: "Explora herramientas por plataforma",
     clustersDesc: "Encuentra herramientas organizadas según la red social donde creas contenido.",
@@ -228,24 +245,21 @@ const pageContent: Record<string, PageContent> = {
     metaTitle: "Clipnexo: download and create content",
     metaDescription:
       "Use Clipnexo to download TikTok videos, convert audio and create hashtags, captions, scripts, titles and texts for social media.",
-    h1: "Download and create content for social media",
+    h1: "Download TikTok videos",
     subtitle:
-      "Download TikTok videos and use creator tools for captions, hashtags, scripts and social media content.",
-    ctaPrimary: "Download video",
-    ctaSecondary: "View tools",
-    ctaNote: "Free, fast and from your browser",
+      "Paste a link to save the video or audio.",
     downloadTitle: "",
     popularTitle: "Popular Clipnexo tools",
     popularDesc:
       "Quick access to the most used tools for TikTok, YouTube, Instagram and social media.",
     popularTools: [
-      { label: "Download TikTok videos", desc: "No watermark in HD", routeKey: "video" as RouteKey, icon: "TT" },
-      { label: "TikTok to MP3", desc: "Convert video to audio", routeKey: "mp3" as RouteKey, icon: "MP3" },
-      { label: "TikTok hashtags", desc: "Tags for more reach", routeKey: "tiktokHashtags" as RouteKey, icon: "#" },
-      { label: "Instagram captions", desc: "Engaging descriptions", routeKey: "instagramCaptionGenerator" as RouteKey, icon: "Aa" },
-      { label: "YouTube titles", desc: "Titles for more clicks", routeKey: "youtubeTitleGenerator" as RouteKey, icon: "YT" },
-      { label: "Short video scripts", desc: "Structure for TikTok, Reels & Shorts", routeKey: "shortVideoScriptGenerator" as RouteKey, icon: "▶" },
-      { label: "Character counter", desc: "Measure social text", routeKey: "socialMediaCharacterCounter" as RouteKey, icon: "123" },
+      { label: "Download TikTok videos", desc: "No watermark in HD", routeKey: "video" },
+      { label: "TikTok to MP3", desc: "Convert video to audio", routeKey: "mp3" },
+      { label: "TikTok hashtags", desc: "Tags for more reach", routeKey: "tiktokHashtags" },
+      { label: "Instagram captions", desc: "Engaging descriptions", routeKey: "instagramCaptionGenerator" },
+      { label: "YouTube titles", desc: "Titles for more clicks", routeKey: "youtubeTitleGenerator" },
+      { label: "Short video scripts", desc: "Structure for TikTok, Reels & Shorts", routeKey: "shortVideoScriptGenerator" },
+      { label: "Character counter", desc: "Measure social text", routeKey: "socialMediaCharacterCounter" },
     ],
     clustersTitle: "Explore tools by platform",
     clustersDesc: "Find tools organized by the social network where you create content.",
@@ -366,24 +380,21 @@ const pageContent: Record<string, PageContent> = {
     metaTitle: "Clipnexo: baixar TikTok e criar conteúdo social",
     metaDescription:
       "Use o Clipnexo para baixar vídeos do TikTok, converter áudio e criar hashtags, legendas, roteiros, títulos e textos para redes sociais.",
-    h1: "Baixe e crie conteúdo para redes sociais",
+    h1: "Baixe vídeos do TikTok",
     subtitle:
-      "Baixe vídeos do TikTok e use ferramentas para criar legendas, hashtags, roteiros e conteúdo para suas redes.",
-    ctaPrimary: "Baixar vídeo",
-    ctaSecondary: "Ver ferramentas",
-    ctaNote: "Grátis, rápido e do navegador",
+      "Cole o link para salvar o vídeo ou o áudio.",
     downloadTitle: "",
     popularTitle: "Ferramentas populares do Clipnexo",
     popularDesc:
       "Acesso rápido às ferramentas mais usadas para TikTok, YouTube, Instagram e redes sociais.",
     popularTools: [
-      { label: "Baixar vídeos do TikTok", desc: "Sem marca d'água em HD", routeKey: "video" as RouteKey, icon: "TT" },
-      { label: "TikTok para MP3", desc: "Converta vídeo em áudio", routeKey: "mp3" as RouteKey, icon: "MP3" },
-      { label: "Hashtags para TikTok", desc: "Etiquetas para mais alcance", routeKey: "tiktokHashtags" as RouteKey, icon: "#" },
-      { label: "Legendas para Instagram", desc: "Descrições atrativas", routeKey: "instagramCaptionGenerator" as RouteKey, icon: "Aa" },
-      { label: "Títulos do YouTube", desc: "Títulos para mais cliques", routeKey: "youtubeTitleGenerator" as RouteKey, icon: "YT" },
-      { label: "Roteiros para vídeos curtos", desc: "Estrutura para Reels, TikTok e Shorts", routeKey: "shortVideoScriptGenerator" as RouteKey, icon: "▶" },
-      { label: "Contador de caracteres", desc: "Meça textos para redes", routeKey: "socialMediaCharacterCounter" as RouteKey, icon: "123" },
+      { label: "Baixar vídeos do TikTok", desc: "Sem marca d'água em HD", routeKey: "video" },
+      { label: "TikTok para MP3", desc: "Converta vídeo em áudio", routeKey: "mp3" },
+      { label: "Hashtags para TikTok", desc: "Etiquetas para mais alcance", routeKey: "tiktokHashtags" },
+      { label: "Legendas para Instagram", desc: "Descrições atrativas", routeKey: "instagramCaptionGenerator" },
+      { label: "Títulos do YouTube", desc: "Títulos para mais cliques", routeKey: "youtubeTitleGenerator" },
+      { label: "Roteiros para vídeos curtos", desc: "Estrutura para Reels, TikTok e Shorts", routeKey: "shortVideoScriptGenerator" },
+      { label: "Contador de caracteres", desc: "Meça textos para redes", routeKey: "socialMediaCharacterCounter" },
     ],
     clustersTitle: "Explore ferramentas por plataforma",
     clustersDesc: "Encontre ferramentas organizadas pela rede social onde você cria conteúdo.",
@@ -562,23 +573,11 @@ export default async function Home({ params, searchParams }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* HERO */}
-      <section className="home-hero">
-        <h1>{t.h1}</h1>
-        <p className="home-hero-sub">{t.subtitle}</p>
-        <div className="home-hero-ctas">
-          <Link href={getToolRoute("video", currentLang)} className="home-hero-cta-primary">
-            {t.ctaPrimary}
-          </Link>
-          <Link href={toolsUrl} className="home-hero-cta-secondary">
-            {t.ctaSecondary}
-          </Link>
+      <section className="home-download-section" aria-labelledby="home-download-title">
+        <div className="home-hero">
+          <h1 id="home-download-title">{t.h1}</h1>
+          <p className="home-hero-sub">{t.subtitle}</p>
         </div>
-        <p className="home-hero-note">{t.ctaNote}</p>
-      </section>
-
-      {/* DOWNLOAD BOX */}
-      <section className="home-download-section">
         <div className="home-download-card">
           <DownloaderBox
             lang={currentLang}
@@ -605,9 +604,7 @@ export default async function Home({ params, searchParams }: Props) {
               href={getToolRoute(tool.routeKey, currentLang)}
               className="home-tool-card"
             >
-              <span className="home-tool-card-icon" aria-hidden="true">
-                {tool.icon}
-              </span>
+              <HomeToolIcon routeKey={tool.routeKey} />
               <h3>{tool.label}</h3>
               <p>{tool.desc}</p>
             </Link>

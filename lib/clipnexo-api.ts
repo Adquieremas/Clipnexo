@@ -19,6 +19,7 @@ export type ClipnexoVideoFormat = {
 export type ClipnexoVideoInfoResponse = {
   success: true;
   source?: string;
+  downloadErrorCode?: string;
   video?: string;
   audio?: string;
   play?: string;
