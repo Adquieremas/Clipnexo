@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getClipnexoApiBaseUrl, isLocalOrPrivateHostname } from "@/lib/clipnexo-api";
-import { getTikTokInfoWithFallback } from "@/lib/tiktok-metadata";
+import { getTikTokInfoFromTikWm } from "@/lib/tiktok-metadata";
+import { getPreviewVideo } from "@/lib/downloader-utils";
 import { checkRateLimit, rateLimitResponseInit } from "@/lib/rate-limit";
 
 const RATE_LIMIT = { key: "video-info", limit: 20, windowMs: 60_000 };
@@ -254,23 +255,29 @@ export async function POST(req: Request) {
       clearTimeout(timeoutId);
     }
 
-    if (!upstreamResponse || !upstreamResponse.ok || !upstreamBody || upstreamBody.success === false) {
+    const upstreamSucceeded = upstreamResponse?.ok && upstreamBody && upstreamBody.success !== false;
+    if (!upstreamSucceeded || !getPreviewVideo(upstreamBody)) {
       const remainingTimeoutMs = getRemainingTimeoutMs(startedAt);
       if (remainingTimeoutMs <= 0) {
         return requestTimeoutResponse(DEFAULT_TIMEOUT_MS);
       }
 
-      const fallbackResult = await getTikTokInfoWithFallback(safeUrl, remainingTimeoutMs);
+      const fallbackResult = await getTikTokInfoFromTikWm(safeUrl, remainingTimeoutMs);
       if (fallbackResult.success) {
         return NextResponse.json(fallbackResult);
+      }
+
+      if (upstreamSucceeded) {
+        return NextResponse.json(upstreamBody);
       }
 
       return NextResponse.json(
         {
           success: false,
-          error: fallbackResult.error,
-          errorCode: fallbackResult.errorCode,
-          details: fallbackResult.details,
+          error: fallbackResult.errorCode === "REQUEST_TIMEOUT"
+            ? fallbackResult.error
+            : "No se pudo obtener la información del video de TikTok en este momento.",
+          errorCode: fallbackResult.errorCode === "REQUEST_TIMEOUT" ? "REQUEST_TIMEOUT" : "TIKTOK_PROVIDERS_FAILED",
           debug:
             process.env.NODE_ENV !== "production"
               ? {
@@ -278,7 +285,7 @@ export async function POST(req: Request) {
                   status: upstreamResponse?.status,
                   upstreamBody,
                   upstreamError: upstreamError instanceof Error ? upstreamError.message : upstreamError,
-                  fallback: fallbackResult.details,
+                  fallback: { code: fallbackResult.errorCode, details: fallbackResult.details },
                 }
               : undefined,
         },

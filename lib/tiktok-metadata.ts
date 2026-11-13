@@ -1,11 +1,5 @@
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
-
-const execFileAsync = promisify(execFile);
-const YT_DLP_PATH = "/usr/local/bin/yt-dlp";
 const TIKWM_ENDPOINT = "https://www.tikwm.com/api/";
 const MAX_TIKTOK_METADATA_MS = 30_000;
-const PRIMARY_PROVIDER_TIMEOUT_MS = 5_000;
 const TIKTOK_TIMEOUT_ERROR = "TikTok tardó demasiado en responder. Intenta con otro enlace de video.";
 
 type TikTokMetadataRecord = {
@@ -18,6 +12,8 @@ type TikTokMetadataRecord = {
   webpage_url?: string | null;
   extractor?: string | null;
   formats?: unknown[];
+  video?: string;
+  audio?: string;
   raw?: Record<string, unknown>;
 };
 
@@ -62,86 +58,54 @@ function normalizeUploader(value: unknown) {
   return null;
 }
 
-function mapYtDlpPayload(payload: Record<string, unknown>) {
-  return {
-    success: true as const,
-    source: "yt-dlp",
-    title: normalizeString(payload.title),
-    duration: normalizeDuration(payload.duration),
-    thumbnail: normalizeString(payload.thumbnail) || normalizeString(payload.thumbnail_url),
-    uploader: normalizeUploader(payload.uploader),
-    webpage_url: normalizeString(payload.webpage_url),
-    extractor: normalizeString(payload.extractor) || "yt-dlp",
-    formats: Array.isArray(payload.formats) ? payload.formats : [],
-    raw: payload,
-  } satisfies TikTokMetadataRecord;
+function resolveTikWmMediaUrl(value: unknown) {
+  const path = normalizeString(value);
+  if (!path) return undefined;
+
+  try {
+    const url = new URL(path, TIKWM_ENDPOINT);
+    if (url.protocol === "https:" && !url.username && !url.password) {
+      return url.href;
+    }
+  } catch {
+    return undefined;
+  }
 }
 
 function mapTikWmPayload(payload: Record<string, unknown>, url: string) {
   const data = payload.data && typeof payload.data === "object" ? (payload.data as Record<string, unknown>) : {};
   const author = data.author && typeof data.author === "object" ? (data.author as Record<string, unknown>) : {};
   const contentDesc = firstString(data.content_desc);
+  const video = resolveTikWmMediaUrl(data.play) || resolveTikWmMediaUrl(data.hdplay);
+
+  if (!video || (Array.isArray(data.images) && data.images.length > 0)) {
+    return {
+      success: false as const,
+      error: "TikWM no devolvió un archivo de video.",
+      errorCode: "TIKWM_NO_VIDEO",
+    } satisfies TikTokMetadataError;
+  }
 
   return {
     success: true as const,
     source: "tikwm",
     title: normalizeString(data.title) || normalizeString(data.desc) || normalizeString(contentDesc),
     duration: normalizeDuration(data.duration),
-    thumbnail: normalizeString(data.cover) || normalizeString(data.ai_dynamic_cover) || normalizeString(data.thumbnail),
+    thumbnail: resolveTikWmMediaUrl(data.cover) || resolveTikWmMediaUrl(data.ai_dynamic_cover) || resolveTikWmMediaUrl(data.thumbnail),
     uploader: normalizeUploader(author.nickname || author.name || author.unique_id),
     webpage_url: normalizeString(data.webpage_url) || url,
     extractor: "tikwm",
+    video,
+    audio: resolveTikWmMediaUrl(data.music),
     formats: [],
     raw: data,
   } satisfies TikTokMetadataRecord;
 }
 
-async function getTikTokInfoWithYtDlp(url: string, timeoutMs = MAX_TIKTOK_METADATA_MS) {
-  try {
-    const { stdout, stderr } = await execFileAsync(
-      YT_DLP_PATH,
-      ["--impersonate", "chrome", "--no-playlist", "--dump-single-json", "--socket-timeout", "30", url],
-      {
-        timeout: timeoutMs,
-        maxBuffer: 1024 * 1024 * 2,
-        env: {
-          ...process.env,
-          PYTHONUNBUFFERED: "1",
-        },
-      }
-    );
-
-    const trimmed = stdout.trim();
-    if (!trimmed) {
-      return {
-        success: false as const,
-        error: "yt-dlp no devolvió metadata útil.",
-        errorCode: "YT_DLP_EMPTY_OUTPUT",
-        details: {
-          stderr: summarizeText(stderr),
-        },
-      } satisfies TikTokMetadataError;
-    }
-
-    const parsed = JSON.parse(trimmed) as Record<string, unknown>;
-    return mapYtDlpPayload(parsed);
-  } catch (error) {
-    const stderr = error && typeof error === "object" && "stderr" in error ? String((error as { stderr?: unknown }).stderr || "") : "";
-    const message = error instanceof Error ? error.message : String(error);
-
-    return {
-      success: false as const,
-      error: "yt-dlp falló al extraer la metadata de TikTok.",
-      errorCode: "YT_DLP_FAILED",
-      details: {
-        message,
-        stderr: summarizeText(stderr),
-      },
-    } satisfies TikTokMetadataError;
-  }
-}
-
-async function getTikTokInfoWithTikWm(url: string, timeoutMs = MAX_TIKTOK_METADATA_MS) {
+export async function getTikTokInfoFromTikWm(
+  url: string,
+  timeoutMs = MAX_TIKTOK_METADATA_MS
+): Promise<TikTokMetadataResult> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -182,6 +146,14 @@ async function getTikTokInfoWithTikWm(url: string, timeoutMs = MAX_TIKTOK_METADA
 
     return mapTikWmPayload(payload, url);
   } catch (error) {
+    if (controller.signal.aborted) {
+      return {
+        success: false as const,
+        error: TIKTOK_TIMEOUT_ERROR,
+        errorCode: "REQUEST_TIMEOUT",
+      } satisfies TikTokMetadataError;
+    }
+
     return {
       success: false as const,
       error: "TikWM falló al resolver la metadata de TikTok.",
@@ -193,56 +165,4 @@ async function getTikTokInfoWithTikWm(url: string, timeoutMs = MAX_TIKTOK_METADA
   } finally {
     clearTimeout(timeoutId);
   }
-}
-
-export async function getTikTokInfoWithFallback(url: string, timeoutMs = MAX_TIKTOK_METADATA_MS) {
-  const startedAt = Date.now();
-  const getRemainingTimeoutMs = () => Math.max(0, timeoutMs - (Date.now() - startedAt));
-  const primaryTimeoutMs = Math.min(getRemainingTimeoutMs(), PRIMARY_PROVIDER_TIMEOUT_MS);
-
-  if (primaryTimeoutMs <= 0) {
-    return {
-      success: false as const,
-      error: TIKTOK_TIMEOUT_ERROR,
-      errorCode: "REQUEST_TIMEOUT",
-    } satisfies TikTokMetadataError;
-  }
-
-  const primary = await getTikTokInfoWithYtDlp(url, primaryTimeoutMs);
-  if (primary.success) {
-    return primary;
-  }
-
-  const fallbackTimeoutMs = getRemainingTimeoutMs();
-  if (fallbackTimeoutMs <= 0) {
-    return {
-      success: false as const,
-      error: TIKTOK_TIMEOUT_ERROR,
-      errorCode: "REQUEST_TIMEOUT",
-      details: {
-        primary: primary.errorCode,
-      },
-    } satisfies TikTokMetadataError;
-  }
-
-  const fallback = await getTikTokInfoWithTikWm(url, fallbackTimeoutMs);
-  if (fallback.success) {
-    return fallback;
-  }
-
-  return {
-    success: false as const,
-    error: "No se pudo obtener la metadata de TikTok en este momento.",
-    errorCode: "TIKTOK_PROVIDERS_FAILED",
-    details: {
-      primary: primary.errorCode,
-      fallback: fallback.errorCode,
-      ...(process.env.NODE_ENV !== "production"
-        ? {
-            primaryDetails: primary.details,
-            fallbackDetails: fallback.details,
-          }
-        : {}),
-    },
-  } satisfies TikTokMetadataError;
 }

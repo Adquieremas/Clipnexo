@@ -47,6 +47,8 @@ export default function DownloaderBox({
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<DownloaderResult>(null);
+  const [failedPreview, setFailedPreview] = useState<string | null>(null);
+  const [previewUnavailable, setPreviewUnavailable] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState<StatusType>("info");
   const [isMobile, setIsMobile] = useState(false);
@@ -96,7 +98,7 @@ export default function DownloaderBox({
       pasteLoading: "Pegando...",
       clear: "Limpiar",
       success: "Información del video encontrada correctamente.",
-      metadataOnly: "Video listo. Elige una opción de descarga.",
+      noDownload: "Se encontró el video, pero el archivo no está disponible para descargar.",
       emptyTitle:
         isHome
           ? "Descarga videos en segundos"
@@ -166,7 +168,7 @@ export default function DownloaderBox({
       pasteLoading: "Pasting...",
       clear: "Clear",
       success: "Video information found successfully.",
-      metadataOnly: "Video ready. Choose a download option.",
+      noDownload: "The video was found, but the file is unavailable for download.",
       emptyTitle:
         isHome
           ? "Download videos in seconds"
@@ -236,7 +238,7 @@ export default function DownloaderBox({
       pasteLoading: "Colando...",
       clear: "Limpar",
       success: "Informações do vídeo encontradas com sucesso.",
-      metadataOnly: "Video pronto. Escolha uma opção de download.",
+      noDownload: "O vídeo foi encontrado, mas o arquivo não está disponível para download.",
       emptyTitle:
         isHome
           ? "Baixe vídeos em segundos"
@@ -272,7 +274,13 @@ export default function DownloaderBox({
   const t = translations[lang] || translations.es;
   const guideUrl = getLocalizedRoute("guide", lang);
 
-  const previewVideo = getPreviewVideo(result);
+  const preferredPreview = getPreviewVideo(result);
+  const downloadVideo = result?.video || preferredPreview;
+  const previewVideo = previewUnavailable
+    ? null
+    : failedPreview === preferredPreview
+      ? downloadVideo !== failedPreview ? downloadVideo : null
+      : preferredPreview;
   const previewImage = getPreviewImage(result);
   const descriptionText = getDescriptionText(result);
   const hashtagList = getHashtagList(result);
@@ -401,6 +409,8 @@ export default function DownloaderBox({
     }
 
     setLoading(true);
+    setFailedPreview(null);
+    setPreviewUnavailable(false);
     setResult(null);
     setStatusType("info");
     setStatusMessage(t.loading);
@@ -409,8 +419,9 @@ export default function DownloaderBox({
       const data = await getVideoInfo(url);
       setResult(data);
 
-      setStatusType("success");
-      setStatusMessage(t.metadataOnly || t.success);
+      const hasDownload = Boolean(data.audio || (type !== "mp3" && getPreviewVideo(data)));
+      setStatusType(hasDownload ? "success" : "error");
+      setStatusMessage(hasDownload ? t.success : t.noDownload);
 
       const updatedHistory = addDownloadHistoryItem({
         url,
@@ -764,8 +775,18 @@ export default function DownloaderBox({
 
                       {previewVideo ? (
                         <video
+                          key={previewVideo}
+                          src={previewVideo}
                           controls
                           playsInline
+                          preload="metadata"
+                          onError={() => {
+                            if (previewVideo === preferredPreview && downloadVideo !== previewVideo) {
+                              setFailedPreview(previewVideo);
+                            } else {
+                              setPreviewUnavailable(true);
+                            }
+                          }}
                           poster={previewImage || undefined}
                           style={{
                             width: "100%",
@@ -780,7 +801,6 @@ export default function DownloaderBox({
                               : "420px",
                           }}
                         >
-                          <source src={previewVideo} />
                           {t.errorVideo}
                         </video>
                       ) : (
@@ -885,9 +905,9 @@ export default function DownloaderBox({
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {type !== "mp3" && result?.video && (
+                    {type !== "mp3" && downloadVideo && (
                       <button
-                        onClick={() => forceDownload(result.video || "", "video.mp4", "video")}
+                        onClick={() => forceDownload(downloadVideo, "video.mp4", "video")}
                         disabled={isBusy}
                         style={{
                           width: "100%",

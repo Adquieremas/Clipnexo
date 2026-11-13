@@ -87,6 +87,10 @@ export async function downloadFile({
   }
 
   const blob = await response.blob();
+  if (!blob.size || /^(?:text\/|application\/(?:json|xhtml\+xml))/.test(blob.type)) {
+    throw new Error("The download response did not contain a media file.");
+  }
+
   const blobUrl = window.URL.createObjectURL(blob);
 
   try {
@@ -100,7 +104,8 @@ export async function downloadFile({
     anchor.click();
     anchor.remove();
   } finally {
-    window.URL.revokeObjectURL(blobUrl);
+    // Mobile Safari may still be handing the URL to its download manager.
+    window.setTimeout(() => window.URL.revokeObjectURL(blobUrl), 30_000);
   }
 }
 
