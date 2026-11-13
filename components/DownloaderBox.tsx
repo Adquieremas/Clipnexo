@@ -67,7 +67,7 @@ export default function DownloaderBox({
           ? "Convierte videos de TikTok a MP3 y descarga audio en segundos."
           : "Descarga videos de TikTok sin marca de agua",
       placeholder: isHome
-        ? "Enlace de TikTok"
+        ? "Pega aquí el enlace de TikTok…"
         : "Pega aquí el enlace de TikTok...",
       button:
         type === "mp3"
