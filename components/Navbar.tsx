@@ -19,12 +19,14 @@ import {
 import { getBlogPostBySlug, getBlogUrl } from "@/lib/blog-content";
 import { navigation } from "@/lib/navigation";
 import { toolMenuContent } from "@/lib/tool-menu-content";
+import { getCategoryName, type SoundCategory } from "@/lib/sounds-db";
 
 type NavbarProps = {
   lang: string;
+  soundCategories?: SoundCategory[];
 };
 
-type DesktopDropdownKey = "tools" | "resources" | "language";
+type DesktopDropdownKey = "tools" | "resources" | "sounds" | "language";
 type ToolMenuKind = "tiktok" | "instagram" | "youtube" | "utilities";
 
 function ToolMenuIcon({ kind }: { kind: ToolMenuKind }) {
@@ -103,7 +105,7 @@ function getBlogSlugFromPath(pathname: string): string | null {
   return match ? match[2] : null;
 }
 
-export default function Navbar({ lang }: NavbarProps) {
+export default function Navbar({ lang, soundCategories = [] }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<DesktopDropdownKey | null>(null);
   const [accordions, setAccordions] = useState<Record<string, boolean>>({});
@@ -502,9 +504,63 @@ export default function Navbar({ lang }: NavbarProps) {
             </div>
           </div>
 
-          <Link href={soundsHref} className="nav-link nav-link-highlight">
-            {nav.sounds}
-          </Link>
+          <div
+            data-dropdown="sounds"
+            className={`nav-dropdown${openDropdown === "sounds" ? " nav-dropdown-open" : ""}`}
+            onMouseEnter={() => openDesktopDropdown("sounds")}
+            onMouseLeave={scheduleDropdownClose}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                scheduleDropdownClose();
+              }
+            }}
+          >
+            <button
+              ref={(node) => {
+                dropdownButtonRefs.current.sounds = node || undefined;
+              }}
+              type="button"
+              className="nav-btn"
+              aria-haspopup="menu"
+              aria-expanded={openDropdown === "sounds"}
+              aria-controls="nav-sounds-menu"
+              onClick={() => openDesktopDropdown("sounds")}
+              onKeyDown={(event) => handleDropdownButtonKeyDown(event, "sounds")}
+            >
+              <span className="nav-link-highlight">{nav.sounds}</span>
+              <svg className="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <div
+              id="nav-sounds-menu"
+              className="nav-dropdown-menu"
+              role="menu"
+              aria-label={nav.sounds}
+              onMouseEnter={cancelDropdownClose}
+              onKeyDown={(event) => handleDropdownMenuKeyDown(event, "sounds")}
+            >
+              <Link
+                href={soundsHref}
+                className="nav-dropdown-link"
+                role="menuitem"
+                onClick={closeDesktopDropdown}
+              >
+                {nav.soundsAll}
+              </Link>
+              {soundCategories.map((category) => (
+                <Link
+                  key={category.id}
+                  href={`${soundsHref}?categoria=${category.id}`}
+                  className="nav-dropdown-link"
+                  role="menuitem"
+                  onClick={closeDesktopDropdown}
+                >
+                  {getCategoryName(category, currentLang)}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <Link href={blogHref} className="nav-link">
             {nav.blog}
@@ -741,9 +797,44 @@ export default function Navbar({ lang }: NavbarProps) {
               )}
             </div>
 
-            <Link href={soundsHref} className="mobile-direct-link mobile-direct-link-highlight" onClick={closeMobile}>
-              {nav.sounds}
-            </Link>
+            <div className="mobile-accordion">
+              <button
+                type="button"
+                className="mobile-accordion-btn"
+                onClick={() => toggleAccordion("sounds")}
+                aria-expanded={accordions.sounds || false}
+                aria-controls="mobile-sounds-menu"
+              >
+                <span className="mobile-accordion-btn-label mobile-direct-link-highlight">{nav.sounds}</span>
+                <svg
+                  className={`mobile-accordion-chevron${accordions.sounds ? " open" : ""}`}
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              {accordions.sounds && (
+                <div id="mobile-sounds-menu" className="mobile-accordion-content">
+                  <Link href={soundsHref} className="mobile-link" onClick={closeMobile}>
+                    {nav.soundsAll}
+                  </Link>
+                  {soundCategories.map((category) => (
+                    <Link
+                      key={category.id}
+                      href={`${soundsHref}?categoria=${category.id}`}
+                      className="mobile-link"
+                      onClick={closeMobile}
+                    >
+                      {getCategoryName(category, currentLang)}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <Link href={blogHref} className="mobile-direct-link" onClick={closeMobile}>
               {nav.blog}

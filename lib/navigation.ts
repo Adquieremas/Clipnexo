@@ -26,6 +26,7 @@ export type NavLangContent = {
   tools: NavMegaMenu;
   resources: NavDropdown;
   sounds: string;
+  soundsAll: string;
   blog: string;
   cta: string;
   language: string;
@@ -97,14 +98,14 @@ export const navigation: Record<string, NavLangContent> = {
     resources: {
       label: "Recursos",
       links: [
-        { label: "Blog", routeKey: "blog" },
-        { label: "Emojis gratis", routeKey: "emojiLibrary" },
         { label: "Memes gratis", routeKey: "memesLibrary" },
+        { label: "Emojis gratis", routeKey: "emojiLibrary" },
         { label: "Herramientas populares", routeKey: "tools" },
         { label: "Guías para creadores", routeKey: "blog" },
       ],
     },
     sounds: "Sonidos",
+    soundsAll: "Biblioteca de sonidos",
     blog: "Blog",
     cta: "Ver herramientas",
     language: "Idioma",
@@ -122,7 +123,6 @@ export const navigation: Record<string, NavLangContent> = {
       { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },
     ],
     mobileHighlightedResources: [
-      { label: "Blog", routeKey: "blog" },
       { label: "Guías para creadores", routeKey: "blog" },
       { label: "Crear textos para redes sociales", routeKey: "socialMediaTextGenerator" },
     ],
@@ -188,14 +188,14 @@ export const navigation: Record<string, NavLangContent> = {
     resources: {
       label: "Resources",
       links: [
-        { label: "Blog", routeKey: "blog" },
-        { label: "Free emojis", routeKey: "emojiLibrary" },
         { label: "Free memes", routeKey: "memesLibrary" },
+        { label: "Free emojis", routeKey: "emojiLibrary" },
         { label: "Popular tools", routeKey: "tools" },
         { label: "Creator guides", routeKey: "blog" },
       ],
     },
     sounds: "Sounds",
+    soundsAll: "Sound library",
     blog: "Blog",
     cta: "View tools",
     language: "Language",
@@ -213,7 +213,6 @@ export const navigation: Record<string, NavLangContent> = {
       { label: "Character counter", routeKey: "socialMediaCharacterCounter" },
     ],
     mobileHighlightedResources: [
-      { label: "Blog", routeKey: "blog" },
       { label: "Creator guides", routeKey: "blog" },
       { label: "Social media text generator", routeKey: "socialMediaTextGenerator" },
     ],
@@ -279,14 +278,14 @@ export const navigation: Record<string, NavLangContent> = {
     resources: {
       label: "Recursos",
       links: [
-        { label: "Blog", routeKey: "blog" },
-        { label: "Emojis grátis", routeKey: "emojiLibrary" },
         { label: "Memes grátis", routeKey: "memesLibrary" },
+        { label: "Emojis grátis", routeKey: "emojiLibrary" },
         { label: "Ferramentas populares", routeKey: "tools" },
         { label: "Guias para criadores", routeKey: "blog" },
       ],
     },
     sounds: "Sons",
+    soundsAll: "Biblioteca de sons",
     blog: "Blog",
     cta: "Ver ferramentas",
     language: "Idioma",
@@ -304,7 +303,6 @@ export const navigation: Record<string, NavLangContent> = {
       { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },
     ],
     mobileHighlightedResources: [
-      { label: "Blog", routeKey: "blog" },
       { label: "Guias para criadores", routeKey: "blog" },
       { label: "Gerador de textos para redes sociais", routeKey: "socialMediaTextGenerator" },
     ],
