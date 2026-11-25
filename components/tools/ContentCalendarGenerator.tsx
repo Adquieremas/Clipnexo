@@ -385,7 +385,7 @@ export default function ContentCalendarGenerator({ lang }: Props) {
             style={{
               fontSize: "12px",
               fontWeight: 600,
-              color: "#374151",
+              color: "#d1d7e1",
               textTransform: "uppercase",
               letterSpacing: "0.5px",
             }}
@@ -403,7 +403,7 @@ export default function ContentCalendarGenerator({ lang }: Props) {
               padding: "14px 16px",
               fontSize: "15px",
               borderRadius: "12px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               outline: "none",
               fontFamily: "inherit",
               lineHeight: "1.6",
@@ -416,7 +416,7 @@ export default function ContentCalendarGenerator({ lang }: Props) {
         {/* Platform & duration */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 180px", minWidth: "180px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.platformLabel}
             </label>
             <select
@@ -426,9 +426,9 @@ export default function ContentCalendarGenerator({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 width: "100%",
@@ -442,7 +442,7 @@ export default function ContentCalendarGenerator({ lang }: Props) {
             </select>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 180px", minWidth: "180px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.durationLabel}
             </label>
             <select
@@ -452,9 +452,9 @@ export default function ContentCalendarGenerator({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 width: "100%",
@@ -478,8 +478,8 @@ export default function ContentCalendarGenerator({ lang }: Props) {
               minHeight: "44px",
               flex: "1 0 auto",
               padding: "10px 24px",
-              background: "linear-gradient(135deg, #4f46e5, #ec4899)",
-              color: "#ffffff",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               borderRadius: "10px",
               border: "none",
               fontWeight: 800,
@@ -524,8 +524,8 @@ export default function ContentCalendarGenerator({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: feedback === t.copied || feedback === t.downloaded ? "#f0fdf4" : "#fef2f2",
-              color: feedback === t.copied || feedback === t.downloaded ? "#166534" : "#991b1b",
+              backgroundColor: feedback === t.copied || feedback === t.downloaded ? "#123f20" : "#3f1212",
+              color: feedback === t.copied || feedback === t.downloaded ? "#87e8ac" : "#ec8383",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -539,39 +539,39 @@ export default function ContentCalendarGenerator({ lang }: Props) {
           <div
             style={{
               padding: "20px",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "var(--surface)",
               borderRadius: "12px",
-              border: "1px solid #eee",
+              border: "1px solid var(--border)",
             }}
           >
             <div style={{ overflowX: "auto", maxHeight: "600px", overflowY: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                 <thead>
-                  <tr style={{ borderBottom: "2px solid #e5e7eb", position: "sticky", top: 0, backgroundColor: "#f9f9f9" }}>
-                    <th style={{ textAlign: "center", padding: "8px 12px", color: "#374151", fontWeight: 600, width: "60px" }}>
+                  <tr style={{ borderBottom: "2px solid #474e5c", position: "sticky", top: 0, backgroundColor: "var(--surface)" }}>
+                    <th style={{ textAlign: "center", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, width: "60px" }}>
                       {t.day}
                     </th>
-                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600, minWidth: "180px" }}>
+                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, minWidth: "180px" }}>
                       {t.topic}
                     </th>
-                    <th style={{ textAlign: "center", padding: "8px 12px", color: "#374151", fontWeight: 600, width: "100px" }}>
+                    <th style={{ textAlign: "center", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, width: "100px" }}>
                       {t.format}
                     </th>
-                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600, minWidth: "150px" }}>
+                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, minWidth: "150px" }}>
                       {t.hook}
                     </th>
-                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600, minWidth: "150px" }}>
+                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, minWidth: "150px" }}>
                       {t.cta}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {calendar.map((entry) => (
-                    <tr key={entry.day} style={{ borderBottom: "1px solid #f3f4f6" }}>
-                      <td style={{ padding: "10px 12px", textAlign: "center", fontWeight: 700, color: "#4f46e5", fontSize: "15px" }}>
+                    <tr key={entry.day} style={{ borderBottom: "1px solid #464e5d" }}>
+                      <td style={{ padding: "10px 12px", textAlign: "center", fontWeight: 700, color: "#bdb9f9", fontSize: "15px" }}>
                         {entry.day}
                       </td>
-                      <td style={{ padding: "10px 12px", color: "#111", fontWeight: 500 }}>
+                      <td style={{ padding: "10px 12px", color: "var(--text-primary)", fontWeight: 500 }}>
                         {entry.topic}
                       </td>
                       <td style={{ padding: "10px 12px", textAlign: "center" }}>
@@ -603,10 +603,10 @@ export default function ContentCalendarGenerator({ lang }: Props) {
                           {entry.format}
                         </span>
                       </td>
-                      <td style={{ padding: "10px 12px", color: "#374151", fontSize: "13px" }}>
+                      <td style={{ padding: "10px 12px", color: "#d1d7e1", fontSize: "13px" }}>
                         {entry.hook}
                       </td>
-                      <td style={{ padding: "10px 12px", color: "#374151", fontSize: "13px" }}>
+                      <td style={{ padding: "10px 12px", color: "#d1d7e1", fontSize: "13px" }}>
                         {entry.cta}
                       </td>
                     </tr>
@@ -622,10 +622,10 @@ export default function ContentCalendarGenerator({ lang }: Props) {
           style={{
             padding: "12px 16px",
             borderRadius: "8px",
-            backgroundColor: "#fffbeb",
-            border: "1px solid #fde68a",
+            backgroundColor: "var(--surface)",
+            border: "1px solid var(--border)",
             fontSize: "13px",
-            color: "#92400e",
+            color: "var(--text-secondary)",
             lineHeight: "1.5",
           }}
         >

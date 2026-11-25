@@ -8,11 +8,11 @@ const PdfToText = dynamic(() => import("./PdfToText"), {
   loading: () => (
     <div className="tool-card">
       <div style={{
-        border: "2px dashed #d1d5db",
+        border: "2px dashed #48505c",
         borderRadius: "12px",
         padding: "40px 20px",
         textAlign: "center",
-        backgroundColor: "#f9fafb",
+        backgroundColor: "#222930",
         minHeight: "160px",
         display: "flex",
         flexDirection: "column",
@@ -26,7 +26,7 @@ const PdfToText = dynamic(() => import("./PdfToText"), {
           <line x1="16" y1="13" x2="8" y2="13" />
           <line x1="16" y1="17" x2="8" y2="17" />
         </svg>
-        <span style={{ fontSize: "15px", fontWeight: 600, color: "#374151" }}>Cargando herramienta...</span>
+        <span style={{ fontSize: "15px", fontWeight: 600, color: "#d1d7e1" }}>Cargando herramienta...</span>
       </div>
     </div>
   ),

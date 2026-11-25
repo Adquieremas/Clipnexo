@@ -3,6 +3,7 @@ import Link from "next/link";
 import { normalizeLang, getLocalizedRoute } from "@/lib/routes";
 import { buildSeoMetadata } from "@/lib/seo";
 import { soundsHubContent } from "@/lib/sounds-content";
+import { fitSeoDescription } from "@/lib/media-seo";
 import { getCategoryName, getSoundAudioUrl, listCategories, listSounds } from "@/lib/sounds-db";
 import { SoundPlayerProvider } from "@/components/sounds/SoundPlayerProvider";
 import SoundCard from "@/components/sounds/SoundCard";
@@ -21,12 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const currentLang = normalizeLang(lang);
   const t = soundsHubContent[currentLang];
 
-  return buildSeoMetadata({
+  const metadata = buildSeoMetadata({
     title: t.metaTitle,
-    description: t.metaDescription,
+    description: fitSeoDescription(t.metaDescription, currentLang),
     routeKey: "soundsLibrary",
     lang: currentLang,
   });
+  return { ...metadata, title: { absolute: t.metaTitle } };
 }
 
 export default async function SoundsHubPage({ params, searchParams }: Props) {

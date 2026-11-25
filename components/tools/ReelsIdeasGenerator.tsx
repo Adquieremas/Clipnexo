@@ -155,31 +155,31 @@ export default function ReelsIdeasGenerator({ lang }: Props) {
               key={index}
               style={{
                 padding: "24px",
-                backgroundColor: "#fff",
+                backgroundColor: "var(--surface)",
                 borderRadius: "16px",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
               }}
             >
-              <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#111", margin: 0 }}>
+              <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: 0 }}>
                 {idea.title}
               </h3>
               <div>
-                <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: "#666" }}>
+                <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: "var(--text-primary)" }}>
                   {t.explanation}
                 </strong>
-                <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6", color: "#444" }}>
+                <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6", color: "var(--text-primary)" }}>
                   {idea.text}
                 </p>
               </div>
-              <div style={{ padding: "12px", backgroundColor: "#f0f7ff", borderRadius: "8px" }}>
-                <strong style={{ display: "block", marginBottom: "4px", fontSize: "13px", color: "#2563eb" }}>
+              <div style={{ padding: "12px", backgroundColor: "#14273d", borderRadius: "8px" }}>
+                <strong style={{ display: "block", marginBottom: "4px", fontSize: "13px", color: "#b8cdf9" }}>
                   {t.cta}
                 </strong>
-                <p style={{ margin: 0, fontSize: "15px", fontStyle: "italic", color: "#1e40af" }}>
+                <p style={{ margin: 0, fontSize: "15px", fontStyle: "italic", color: "#bbc8f7" }}>
                   {idea.cta}
                 </p>
               </div>

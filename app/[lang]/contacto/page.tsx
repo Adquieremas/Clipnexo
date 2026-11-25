@@ -60,27 +60,27 @@ export default async function Page({ params }: PageProps) {
         style={{
           fontSize: "32px",
           fontWeight: "bold",
-          color: "#111",
+          color: "var(--text-primary)",
         }}
       >
         {t.title}
       </h1>
 
-      <p style={{ marginTop: "20px", color: "#444" }}>{t.intro}</p>
+      <p style={{ marginTop: "20px", color: "var(--text-primary)" }}>{t.intro}</p>
 
       <p
         style={{
           marginTop: "10px",
           fontWeight: "bold",
-          color: "#111",
+          color: "var(--text-primary)",
         }}
       >
         hola@clipnexo.com
       </p>
 
-      <h2 style={{ marginTop: "40px", color: "#111" }}>{t.formTitle ?? "Formulario de contacto"}</h2>
+      <h2 style={{ marginTop: "40px", color: "var(--text-primary)" }}>{t.formTitle ?? "Formulario de contacto"}</h2>
 
-      <p style={{ marginTop: "10px", color: "#444" }}>
+      <p style={{ marginTop: "10px", color: "var(--text-primary)" }}>
         {t.formText ?? "Si deseas comunicarte con nosotros, puedes usar el siguiente formulario."}
       </p>
 
@@ -96,7 +96,7 @@ export default async function Page({ params }: PageProps) {
         </iframe>
       </div>
 
-      <p style={{ marginTop: "40px", color: "#666", fontSize: "14px" }}>{t.updated}</p>
+      <p style={{ marginTop: "40px", color: "var(--text-primary)", fontSize: "14px" }}>{t.updated}</p>
     </main>
   );
 }

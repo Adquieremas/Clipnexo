@@ -155,7 +155,7 @@ export default function YouTubeTitleCapitalization({ lang }: Props) {
               <h3
                 style={{
                   margin: 0,
-                  color: "#111827",
+                  color: "#c8d3e9",
                   fontSize: 21,
                   fontWeight: 800,
                   lineHeight: 1.25,
@@ -169,13 +169,13 @@ export default function YouTubeTitleCapitalization({ lang }: Props) {
               style={{
                 margin: "6px 0 0",
                 fontSize: 18,
-                color: "#111827",
+                color: "#c8d3e9",
                 fontWeight: 500,
                 lineHeight: 1.5,
                 padding: "14px 16px",
-                background: "#f9fafb",
+                background: "#222930",
                 borderRadius: 12,
-                border: "1px solid #e5e7eb",
+                border: "1px solid #474e5c",
               }}
             >
               {result}
@@ -183,7 +183,7 @@ export default function YouTubeTitleCapitalization({ lang }: Props) {
             <span
               style={{
                 fontSize: 12,
-                color: "#9ca3af",
+                color: "#d4d8dd",
                 marginTop: 6,
                 display: "inline-block",
               }}

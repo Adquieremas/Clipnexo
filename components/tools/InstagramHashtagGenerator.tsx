@@ -125,15 +125,15 @@ export default function InstagramHashtagGenerator({ lang }: Props) {
           <div
             style={{
               padding: "20px",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "var(--surface)",
               borderRadius: "12px",
-              border: "1px solid #eee",
+              border: "1px solid var(--border)",
               display: "flex",
               flexDirection: "column",
               gap: "16px",
             }}
           >
-            <div style={{ fontSize: "18px", lineHeight: "1.6", color: "#333", wordBreak: "break-word" }}>
+            <div style={{ fontSize: "18px", lineHeight: "1.6", color: "var(--text-primary)", wordBreak: "break-word" }}>
               {result}
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>

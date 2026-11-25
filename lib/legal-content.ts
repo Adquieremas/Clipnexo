@@ -198,7 +198,7 @@ export const legalContent = {
         "Consulta los términos de servicio de Clipnexo, condiciones de uso, responsabilidad del usuario, publicidad y limitación de responsabilidad legal del sitio.",
       section1: "Uso del servicio",
       section1Text:
-        "Clipnexo proporciona una herramienta online para procesar enlaces públicos de TikTok y facilitar la descarga de contenido disponible públicamente. El uso del servicio debe realizarse únicamente con fines personales, legales y no comerciales, salvo que el usuario cuente con autorización expresa del titular del contenido.",
+        "Clipnexo ofrece herramientas en línea para crear contenido para redes sociales y bibliotecas de recursos descargables. El usuario debe utilizar cada función de acuerdo con la legislación aplicable y respetar los derechos de terceros.",
       section2: "Responsabilidad del usuario",
       section2Text:
         "El usuario es responsable del uso que haga del contenido descargado o procesado mediante nuestro sitio. Clipnexo no se responsabiliza por el uso indebido del material obtenido a través de enlaces de terceros ni por infracciones derivadas de su utilización.",
@@ -231,7 +231,7 @@ export const legalContent = {
         "Read Clipnexo's terms of service, user responsibilities, advertising terms, intellectual property and limitation of legal liability on our tool website today.",
       section1: "Use of the Service",
       section1Text:
-        "Clipnexo provides an online tool to process public TikTok links and facilitate access to publicly available content. The service must only be used for personal, lawful, and non-commercial purposes unless the user has express authorization from the content owner.",
+        "Clipnexo provides online tools for creating social media content and libraries of downloadable resources. Users must use each feature in accordance with applicable law and respect third-party rights.",
       section2: "User Responsibility",
       section2Text:
         "The user is responsible for how any content obtained through our website is used. Clipnexo is not liable for misuse of materials accessed through third-party links or for any infringement resulting from such use.",
@@ -264,7 +264,7 @@ export const legalContent = {
         "Leia os termos de serviço do Clipnexo, responsabilidades do usuário, publicidade, propriedade intelectual e limitação de responsabilidade do site oficial.",
       section1: "Uso do Serviço",
       section1Text:
-        "O Clipnexo oferece uma ferramenta online para processar links públicos do TikTok e facilitar o acesso a conteúdo publicamente disponível. O serviço deve ser utilizado apenas para fins pessoais, legais e não comerciais, salvo se o usuário tiver autorização expressa do titular do conteúdo.",
+        "O Clipnexo oferece ferramentas online para criar conteúdo para redes sociais e bibliotecas de recursos para baixar. O usuário deve utilizar cada função de acordo com a legislação aplicável e respeitar os direitos de terceiros.",
       section2: "Responsabilidade do Usuário",
       section2Text:
         "O usuário é responsável pela forma como utiliza qualquer conteúdo obtido por meio do nosso site. O Clipnexo não se responsabiliza pelo uso indevido de materiais acessados através de links de terceiros nem por infrações decorrentes desse uso.",

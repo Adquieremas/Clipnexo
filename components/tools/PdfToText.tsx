@@ -288,12 +288,12 @@ export default function PdfToText({ lang }: Props) {
             }
           }}
           style={{
-            border: "2px dashed #d1d5db",
+            border: "2px dashed #48505c",
             borderRadius: "12px",
             padding: "40px 20px",
             textAlign: "center",
             cursor: "pointer",
-            backgroundColor: "#f9fafb",
+            backgroundColor: "#222930",
             transition: "border-color 0.2s, background-color 0.2s",
             minHeight: "160px",
             display: "flex",
@@ -317,15 +317,15 @@ export default function PdfToText({ lang }: Props) {
             <line x1="16" y1="13" x2="8" y2="13" />
             <line x1="16" y1="17" x2="8" y2="17" />
           </svg>
-          <span style={{ fontSize: "15px", fontWeight: 600, color: "#374151" }}>{t.dropText}</span>
-          <span style={{ fontSize: "12px", color: "#9ca3af" }}>{t.dropHint}</span>
+          <span style={{ fontSize: "15px", fontWeight: 600, color: "#d1d7e1" }}>{t.dropText}</span>
+          <span style={{ fontSize: "12px", color: "#d4d8dd" }}>{t.dropHint}</span>
           {fileName && (
             <span style={{
               fontSize: "13px",
               fontWeight: 600,
-              color: "#6366f1",
+              color: "#b8baf9",
               padding: "4px 12px",
-              backgroundColor: "#eef2ff",
+              backgroundColor: "#141e3d",
               borderRadius: "6px",
             }}>
               {fileName}
@@ -349,10 +349,10 @@ export default function PdfToText({ lang }: Props) {
             style={{
               padding: "12px 16px",
               borderRadius: "8px",
-              backgroundColor: "#eef2ff",
-              border: "1px solid #c7d2fe",
+              backgroundColor: "#141e3d",
+              border: "1px solid #213482",
               fontSize: "14px",
-              color: "#4338ca",
+              color: "#c4c0f1",
               fontWeight: 500,
               textAlign: "center",
             }}
@@ -369,8 +369,8 @@ export default function PdfToText({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: feedback.includes(t.copied) ? "#f0fdf4" : "#fef2f2",
-              color: feedback.includes(t.copied) ? "#166534" : "#991b1b",
+              backgroundColor: feedback.includes(t.copied) ? "#123f20" : "#3f1212",
+              color: feedback.includes(t.copied) ? "#87e8ac" : "#ec8383",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -384,11 +384,11 @@ export default function PdfToText({ lang }: Props) {
           <>
             <div style={{
               padding: "20px",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "var(--surface)",
               borderRadius: "12px",
-              border: "1px solid #eee",
+              border: "1px solid var(--border)",
             }}>
-              <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+              <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
                 {t.extractedTitle}
               </h3>
               <textarea
@@ -398,12 +398,12 @@ export default function PdfToText({ lang }: Props) {
                   minHeight: "200px",
                   maxHeight: "500px",
                   padding: "16px",
-                  backgroundColor: "white",
+                  backgroundColor: "var(--surface)",
                   borderRadius: "8px",
-                  border: "1px solid #e5e7eb",
+                  border: "1px solid #474e5c",
                   fontSize: "14px",
                   lineHeight: "1.6",
-                  color: "#111",
+                  color: "var(--text-primary)",
                   fontFamily: "inherit",
                   resize: "vertical",
                   boxSizing: "border-box",
@@ -422,39 +422,39 @@ export default function PdfToText({ lang }: Props) {
             }}>
               <div style={{
                 padding: "14px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {t.pages}
                 </span>
-                <strong style={{ fontSize: "22px", color: "#111" }}>{pageCount}</strong>
+                <strong style={{ fontSize: "22px", color: "var(--text-primary)" }}>{pageCount}</strong>
               </div>
               <div style={{
                 padding: "14px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {t.chars}
                 </span>
-                <strong style={{ fontSize: "22px", color: "#111" }}>{charCount.toLocaleString()}</strong>
+                <strong style={{ fontSize: "22px", color: "var(--text-primary)" }}>{charCount.toLocaleString()}</strong>
               </div>
               <div style={{
                 padding: "14px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {t.words}
                 </span>
-                <strong style={{ fontSize: "22px", color: "#111" }}>{wordCount.toLocaleString()}</strong>
+                <strong style={{ fontSize: "22px", color: "var(--text-primary)" }}>{wordCount.toLocaleString()}</strong>
               </div>
             </div>
 
@@ -472,10 +472,10 @@ export default function PdfToText({ lang }: Props) {
           <div style={{
             padding: "14px 16px",
             borderRadius: "8px",
-            backgroundColor: "#fffbeb",
-            border: "1px solid #fde68a",
+            backgroundColor: "var(--surface)",
+            border: "1px solid var(--border)",
             fontSize: "14px",
-            color: "#92400e",
+            color: "var(--text-secondary)",
             fontWeight: 500,
           }}>
             {t.noSelectable}
@@ -486,10 +486,10 @@ export default function PdfToText({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fefce8",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#854d0e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.legal}
@@ -499,10 +499,10 @@ export default function PdfToText({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fffbeb",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#92400e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.privacy}

@@ -17,6 +17,8 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   shortVideoTitleHashtag: "/generador-titulos-hashtags-videos-cortos",
   tools: "/herramientas",
   soundsLibrary: "/sonidos",
+  emojiLibrary: "/emojis-gratis",
+  memesLibrary: "/memes-gratis",
   socialMediaTextGenerator: "/crear-textos-redes-sociales",
   youtubeTagGenerator: "/generador-etiquetas-youtube",
   youtubeTagExtractor: "/extractor-etiquetas-youtube",
@@ -310,6 +312,36 @@ export function middleware(request: NextRequest) {
   ) {
     const rest = normalizedPathname.slice(soundsInternalPrefix.length);
     return buildRedirectResponse(request, `${soundsCanonicalPrefix}${rest}`);
+  }
+
+  // Per-language meme detail pages (/es/memes-gratis/[slug], /en/free-memes/[slug],
+  // /pt/memes-gratis/[slug]) share one internal folder (app/[lang]/memes-gratis/[slug]).
+  const memesCanonicalPrefix = getLocalizedRoute("memesLibrary", lang);
+  const memesInternalPrefix = buildInternalPath("memesLibrary", lang);
+
+  if (memesCanonicalPrefix && normalizedPathname.startsWith(`${memesCanonicalPrefix}/`)) {
+    if (memesInternalPrefix && memesInternalPrefix !== memesCanonicalPrefix) {
+      const rest = normalizedPathname.slice(memesCanonicalPrefix.length);
+      const rewriteUrl = request.nextUrl.clone();
+      rewriteUrl.pathname = `${memesInternalPrefix}${rest}`;
+
+      const requestHeaders = new Headers(request.headers);
+      requestHeaders.set("x-is-rewrite", "true");
+      requestHeaders.set("x-lang", lang);
+
+      const response = NextResponse.rewrite(rewriteUrl, {
+        request: { headers: requestHeaders },
+      });
+      response.headers.set("x-lang", lang);
+      return response;
+    }
+  } else if (
+    memesInternalPrefix &&
+    memesInternalPrefix !== memesCanonicalPrefix &&
+    normalizedPathname.startsWith(`${memesInternalPrefix}/`)
+  ) {
+    const rest = normalizedPathname.slice(memesInternalPrefix.length);
+    return buildRedirectResponse(request, `${memesCanonicalPrefix}${rest}`);
   }
 
   const finalRequestHeaders = new Headers(request.headers);

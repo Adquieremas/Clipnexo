@@ -292,7 +292,7 @@ export default function SocialMediaTextGenerator({ lang }: { lang: string }) {
             <h3
               style={{
                 margin: 0,
-                color: "#111827",
+                color: "#c8d3e9",
                 fontSize: "21px",
                 fontWeight: 800,
                 lineHeight: 1.25,
@@ -308,7 +308,7 @@ export default function SocialMediaTextGenerator({ lang }: { lang: string }) {
               <span
                 style={{
                   fontSize: "12px",
-                  color: "#9ca3af",
+                  color: "#d4d8dd",
                   marginTop: 4,
                   display: "inline-block",
                 }}

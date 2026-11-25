@@ -28,10 +28,17 @@ export type SoundWithStats = Sound & {
   download_count: number;
 };
 
+export class SoundsDbNotConfiguredError extends Error {
+  constructor() {
+    super("SOUNDS_DB binding is not configured");
+    this.name = "SoundsDbNotConfiguredError";
+  }
+}
+
 export async function getSoundsDb() {
   const { env } = await getCloudflareContext({ async: true });
   if (!env.SOUNDS_DB) {
-    throw new Error("SOUNDS_DB binding is not configured");
+    throw new SoundsDbNotConfiguredError();
   }
   return env.SOUNDS_DB;
 }

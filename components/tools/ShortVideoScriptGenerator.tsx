@@ -195,7 +195,7 @@ export default function ShortVideoScriptGenerator({ lang }: Props) {
 
       {result ? (
         <div className="tool-results" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-          <div style={{ backgroundColor: "#fff", padding: "24px", borderRadius: "16px", border: "1px solid #eee" }}>
+          <div style={{ backgroundColor: "var(--surface)", padding: "24px", borderRadius: "16px", border: "1px solid var(--border)" }}>
              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
                 <h3 style={{ margin: 0 }}>{t.copy.split(" ")[1]}</h3>
                 <CopyButton 
@@ -207,29 +207,29 @@ export default function ShortVideoScriptGenerator({ lang }: Props) {
 
              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div>
-                   <strong style={{ color: "#2563eb", fontSize: "14px", textTransform: "uppercase" }}>{t.hook}</strong>
+                   <strong style={{ color: "#b8cdf9", fontSize: "14px", textTransform: "uppercase" }}>{t.hook}</strong>
                    <p style={{ margin: "4px 0 0", fontSize: "16px", fontWeight: 600 }}>{result.hook}</p>
                 </div>
                 <div>
-                   <strong style={{ color: "#666", fontSize: "14px", textTransform: "uppercase" }}>{t.body}</strong>
+                   <strong style={{ color: "var(--text-primary)", fontSize: "14px", textTransform: "uppercase" }}>{t.body}</strong>
                    <p style={{ margin: "4px 0 0", fontSize: "16px" }}>{result.body}</p>
                 </div>
                 <div>
-                   <strong style={{ color: "#666", fontSize: "14px", textTransform: "uppercase" }}>{t.closing}</strong>
+                   <strong style={{ color: "var(--text-primary)", fontSize: "14px", textTransform: "uppercase" }}>{t.closing}</strong>
                    <p style={{ margin: "4px 0 0", fontSize: "16px" }}>{result.closing}</p>
                 </div>
                 <div>
-                   <strong style={{ color: "#059669", fontSize: "14px", textTransform: "uppercase" }}>{t.cta}</strong>
+                   <strong style={{ color: "#b8f9e5", fontSize: "14px", textTransform: "uppercase" }}>{t.cta}</strong>
                    <p style={{ margin: "4px 0 0", fontSize: "16px", fontWeight: 600 }}>{result.cta}</p>
                 </div>
-                <hr style={{ border: 0, borderTop: "1px solid #eee", margin: "8px 0" }} />
+                <hr style={{ border: 0, borderTop: "1px solid var(--border)", margin: "8px 0" }} />
                 <div>
-                   <strong style={{ color: "#666", fontSize: "14px", textTransform: "uppercase" }}>{t.caption}</strong>
+                   <strong style={{ color: "var(--text-primary)", fontSize: "14px", textTransform: "uppercase" }}>{t.caption}</strong>
                    <p style={{ margin: "4px 0 0", fontSize: "15px", fontStyle: "italic" }}>{result.caption}</p>
                 </div>
                 <div>
-                   <strong style={{ color: "#666", fontSize: "14px", textTransform: "uppercase" }}>{t.hashtags}</strong>
-                   <p style={{ margin: "4px 0 0", fontSize: "15px", color: "#2563eb" }}>{result.hashtags}</p>
+                   <strong style={{ color: "var(--text-primary)", fontSize: "14px", textTransform: "uppercase" }}>{t.hashtags}</strong>
+                   <p style={{ margin: "4px 0 0", fontSize: "15px", color: "#b8cdf9" }}>{result.hashtags}</p>
                 </div>
              </div>
           </div>

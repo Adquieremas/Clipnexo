@@ -151,7 +151,7 @@ export default function YouTubeTagExtractor({ lang }: Props) {
               <h3
                 style={{
                   margin: 0,
-                  color: "#111827",
+                  color: "#c8d3e9",
                   fontSize: "21px",
                   fontWeight: 800,
                   lineHeight: 1.25,
@@ -164,7 +164,7 @@ export default function YouTubeTagExtractor({ lang }: Props) {
             <div
               style={{
                 fontSize: "13px",
-                color: "#9ca3af",
+                color: "#d4d8dd",
                 marginTop: 8,
               }}
             >

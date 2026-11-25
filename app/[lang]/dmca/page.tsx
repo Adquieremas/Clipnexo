@@ -82,30 +82,30 @@ export default async function Page({ params }: PageProps) {
         lineHeight: "1.6",
       }}
     >
-      <h1 style={{ fontSize: "32px", fontWeight: "bold", color: "#111" }}>{t.title}</h1>
+      <h1 style={{ fontSize: "32px", fontWeight: "bold", color: "var(--text-primary)" }}>{t.title}</h1>
 
-      <p style={{ marginTop: "20px", color: "#444" }}>{t.intro}</p>
+      <p style={{ marginTop: "20px", color: "var(--text-primary)" }}>{t.intro}</p>
 
-      <h2 style={{ marginTop: "30px", color: "#111" }}>{t.section1}</h2>
-      <p style={{ color: "#444" }}>{t.section1Text}</p>
+      <h2 style={{ marginTop: "30px", color: "var(--text-primary)" }}>{t.section1}</h2>
+      <p style={{ color: "var(--text-primary)" }}>{t.section1Text}</p>
 
-      <h2 style={{ marginTop: "30px", color: "#111" }}>{t.section2}</h2>
-      <p style={{ color: "#444" }}>{t.section2Text}</p>
+      <h2 style={{ marginTop: "30px", color: "var(--text-primary)" }}>{t.section2}</h2>
+      <p style={{ color: "var(--text-primary)" }}>{t.section2Text}</p>
 
-      <h2 style={{ marginTop: "30px", color: "#111" }}>{t.section3}</h2>
-      <ul style={{ color: "#444", paddingLeft: "20px" }}>
+      <h2 style={{ marginTop: "30px", color: "var(--text-primary)" }}>{t.section3}</h2>
+      <ul style={{ color: "var(--text-primary)", paddingLeft: "20px" }}>
         {requiredItems[currentLang].map((item) => (
           <li key={item}>✔ {item}</li>
         ))}
       </ul>
 
-      <h2 style={{ marginTop: "30px", color: "#111" }}>{t.contact}</h2>
-      <p style={{ fontWeight: "bold", color: "#111" }}>hola@clipnexo.com</p>
+      <h2 style={{ marginTop: "30px", color: "var(--text-primary)" }}>{t.contact}</h2>
+      <p style={{ fontWeight: "bold", color: "var(--text-primary)" }}>hola@clipnexo.com</p>
 
-      <h2 style={{ marginTop: "30px", color: "#111" }}>{t.note}</h2>
-      <p style={{ color: "#444" }}>{t.noteText}</p>
+      <h2 style={{ marginTop: "30px", color: "var(--text-primary)" }}>{t.note}</h2>
+      <p style={{ color: "var(--text-primary)" }}>{t.noteText}</p>
 
-      <p style={{ marginTop: "40px", color: "#666", fontSize: "14px" }}>{t.updated}</p>
+      <p style={{ marginTop: "40px", color: "var(--text-primary)", fontSize: "14px" }}>{t.updated}</p>
     </main>
   );
 }

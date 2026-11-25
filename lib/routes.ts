@@ -16,6 +16,8 @@ export type RouteKey =
   | "dmca"
   | "tools"
   | "soundsLibrary"
+  | "emojiLibrary"
+  | "memesLibrary"
   | "socialMediaTextGenerator"
   | "youtubeTagGenerator"
   | "youtubeTagExtractor"
@@ -147,6 +149,16 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     es: "/es/sonidos",
     en: "/en/sounds",
     pt: "/pt/sons",
+  },
+  emojiLibrary: {
+    es: "/es/emojis-gratis",
+    en: "/en/free-emojis",
+    pt: "/pt/emojis-gratis",
+  },
+  memesLibrary: {
+    es: "/es/memes-gratis",
+    en: "/en/free-memes",
+    pt: "/pt/memes-gratis",
   },
   socialMediaTextGenerator: {
     es: "/es/crear-textos-redes-sociales",
@@ -417,6 +429,8 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "shortVideoTitleHashtag",
   "tools",
   "soundsLibrary",
+  "emojiLibrary",
+  "memesLibrary",
   "socialMediaTextGenerator",
   "youtubeTagGenerator",
   "youtubeTagExtractor",

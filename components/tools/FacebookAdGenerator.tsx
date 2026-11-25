@@ -208,14 +208,14 @@ export default function FacebookAdGenerator({ lang }: Props) {
             { label: t.bodies, items: results.bodies },
             { label: t.ctas, items: results.ctas },
           ].map((section, idx) => (
-            <div key={idx} style={{ backgroundColor: "#fff", padding: "20px", borderRadius: "12px", border: "1px solid #eee" }}>
+            <div key={idx} style={{ backgroundColor: "var(--surface)", padding: "20px", borderRadius: "12px", border: "1px solid var(--border)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
                 <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 700 }}>{section.label}</h3>
                 <CopyButton text={section.items.join("\n\n")} label={t.copy} copiedLabel={t.copied} />
               </div>
               <ul style={{ padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
                 {section.items.map((item, i) => (
-                  <li key={i} style={{ padding: "10px", backgroundColor: "#f9f9f9", borderRadius: "8px", fontSize: "15px" }}>
+                  <li key={i} style={{ padding: "10px", backgroundColor: "var(--surface)", borderRadius: "8px", fontSize: "15px" }}>
                     {item}
                   </li>
                 ))}

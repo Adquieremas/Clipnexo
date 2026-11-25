@@ -28,7 +28,7 @@ export default async function SoundEmbedPage({ params, searchParams }: Props) {
 
   return (
     <SoundPlayerProvider>
-      <div style={{ padding: 10, background: "#fff" }}>
+      <div style={{ padding: 10, background: "var(--surface)" }}>
         <SoundCard
           sound={{
             id: sound.id,
@@ -46,7 +46,7 @@ export default async function SoundEmbedPage({ params, searchParams }: Props) {
           href="https://clipnexo.com"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: "block", textAlign: "center", marginTop: 8, fontSize: 11, color: "#8b5cf6", textDecoration: "none" }}
+          style={{ display: "block", textAlign: "center", marginTop: 8, fontSize: 11, color: "var(--text-primary)", textDecoration: "none" }}
         >
           {poweredByLabel[currentLang]}
         </a>

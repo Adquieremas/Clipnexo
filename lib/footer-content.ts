@@ -30,6 +30,8 @@ export const footerContent: Record<string, FooterLangContent> = {
         title: "Herramientas principales",
         links: [
           { label: "Biblioteca de sonidos", routeKey: "soundsLibrary" },
+          { label: "Emojis gratis", routeKey: "emojiLibrary" },
+          { label: "Memes gratis", routeKey: "memesLibrary" },
           { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
           { label: "Captions para Instagram", routeKey: "instagramCaptionGenerator" },
           { label: "Títulos de YouTube", routeKey: "youtubeTitleGenerator" },
@@ -82,6 +84,8 @@ export const footerContent: Record<string, FooterLangContent> = {
         title: "Main tools",
         links: [
           { label: "Sound library", routeKey: "soundsLibrary" },
+          { label: "Free emojis", routeKey: "emojiLibrary" },
+          { label: "Free memes", routeKey: "memesLibrary" },
           { label: "TikTok hashtag generator", routeKey: "tiktokHashtags" },
           { label: "Instagram captions", routeKey: "instagramCaptionGenerator" },
           { label: "YouTube title generator", routeKey: "youtubeTitleGenerator" },
@@ -134,6 +138,8 @@ export const footerContent: Record<string, FooterLangContent> = {
         title: "Ferramentas principais",
         links: [
           { label: "Biblioteca de sons", routeKey: "soundsLibrary" },
+          { label: "Emojis grátis", routeKey: "emojiLibrary" },
+          { label: "Memes grátis", routeKey: "memesLibrary" },
           { label: "Gerador de hashtags para TikTok", routeKey: "tiktokHashtags" },
           { label: "Legendas para Instagram", routeKey: "instagramCaptionGenerator" },
           { label: "Gerador de títulos do YouTube", routeKey: "youtubeTitleGenerator" },

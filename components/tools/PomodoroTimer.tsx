@@ -190,9 +190,9 @@ export default function PomodoroTimer({ lang }: Props) {
                 fontWeight: 700,
                 fontSize: "14px",
                 borderRadius: "10px",
-                border: mode === key ? "2px solid #4f46e5" : "1px solid #d9dce7",
-                backgroundColor: mode === key ? "#eef2ff" : "#ffffff",
-                color: mode === key ? "#4f46e5" : "#374151",
+                border: mode === key ? "2px solid #262183" : "1px solid #3f4764",
+                backgroundColor: mode === key ? "#121d3f" : "var(--surface)",
+                color: mode === key ? "#bebaf7" : "#a9b4c6",
                 cursor: "pointer",
                 transition: "all 0.2s",
               }}
@@ -206,7 +206,7 @@ export default function PomodoroTimer({ lang }: Props) {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
           {modeButtons.map(({ key, label }) => (
             <div key={key} style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 120px", minWidth: "120px" }}>
-              <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+              <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
                 {label} ({t.min})
               </label>
               <input
@@ -219,7 +219,7 @@ export default function PomodoroTimer({ lang }: Props) {
                 style={{
                   padding: "10px 14px",
                   borderRadius: "8px",
-                  border: "1px solid #d1d5db",
+                  border: "1px solid #48505c",
                   fontSize: "14px",
                   minHeight: "44px",
                   boxSizing: "border-box",
@@ -238,9 +238,9 @@ export default function PomodoroTimer({ lang }: Props) {
             alignItems: "center",
             gap: "16px",
             padding: "32px 20px",
-            backgroundColor: flash ? "#fef2f2" : "#f9f9f9",
+            backgroundColor: flash ? "#3f1212" : "var(--surface)",
             borderRadius: "16px",
-            border: flash ? "2px solid #fca5a5" : "1px solid #eee",
+            border: flash ? "2px solid #832121" : "1px solid var(--border)",
             transition: "background-color 0.15s, border-color 0.15s",
           }}
         >
@@ -286,7 +286,7 @@ export default function PomodoroTimer({ lang }: Props) {
                 style={{
                   fontSize: "48px",
                   fontWeight: 800,
-                  color: flash ? "#dc2626" : "#111",
+                  color: flash ? "#f6bcbc" : "var(--text-primary)",
                   fontVariantNumeric: "tabular-nums",
                   letterSpacing: "1px",
                   transition: "color 0.15s",
@@ -298,7 +298,7 @@ export default function PomodoroTimer({ lang }: Props) {
                 style={{
                   fontSize: "13px",
                   fontWeight: 600,
-                  color: "#6b7280",
+                  color: "#d5d7dc",
                   marginTop: "4px",
                   textTransform: "uppercase",
                   letterSpacing: "0.5px",
@@ -315,7 +315,7 @@ export default function PomodoroTimer({ lang }: Props) {
               style={{
                 width: "100%",
                 height: "6px",
-                backgroundColor: "#e5e7eb",
+                backgroundColor: "#24272d",
                 borderRadius: "3px",
                 overflow: "hidden",
               }}
@@ -324,7 +324,7 @@ export default function PomodoroTimer({ lang }: Props) {
                 style={{
                   width: `${progress}%`,
                   height: "100%",
-                  backgroundColor: mode === "work" ? "#4f46e5" : mode === "shortBreak" ? "#22c55e" : "#f97316",
+                  backgroundColor: mode === "work" ? "#15123f" : mode === "shortBreak" ? "#123f23" : "#3f2512",
                   borderRadius: "3px",
                   transition: "width 0.3s",
                 }}
@@ -351,8 +351,8 @@ export default function PomodoroTimer({ lang }: Props) {
                   minHeight: "44px",
                   minWidth: "120px",
                   padding: "10px 24px",
-                  background: "linear-gradient(135deg, #4f46e5, #ec4899)",
-                  color: "#ffffff",
+                  background: "var(--accent)",
+                  color: "var(--text-primary)",
                   borderRadius: "10px",
                   border: "none",
                   fontWeight: 800,
@@ -379,13 +379,13 @@ export default function PomodoroTimer({ lang }: Props) {
         <div
           style={{
             padding: "16px",
-            backgroundColor: "#f0fdf4",
+            backgroundColor: "#143d21",
             borderRadius: "10px",
-            border: "1px solid #bbf7d0",
+            border: "1px solid #218243",
             textAlign: "center",
           }}
         >
-          <span style={{ fontSize: "14px", color: "#15803d", fontWeight: 600 }}>
+          <span style={{ fontSize: "14px", color: "#bbf7d1", fontWeight: 600 }}>
             {t.completedCycles}: <strong style={{ fontSize: "20px" }}>{cycles}</strong>
           </span>
         </div>
@@ -395,10 +395,10 @@ export default function PomodoroTimer({ lang }: Props) {
           style={{
             padding: "12px 16px",
             borderRadius: "8px",
-            backgroundColor: "#fffbeb",
-            border: "1px solid #fde68a",
+            backgroundColor: "var(--surface)",
+            border: "1px solid var(--border)",
             fontSize: "13px",
-            color: "#92400e",
+            color: "var(--text-secondary)",
             lineHeight: "1.5",
           }}
         >

@@ -231,7 +231,7 @@ export default function IntroductionGenerator({ lang }: Props) {
                 padding: "10px 14px",
                 fontSize: "15px",
                 borderRadius: "8px",
-                border: "1px solid #ddd",
+                border: "1px solid var(--border)",
                 outline: "none",
                 width: "100%",
               }}
@@ -246,7 +246,7 @@ export default function IntroductionGenerator({ lang }: Props) {
                 padding: "10px 14px",
                 fontSize: "15px",
                 borderRadius: "8px",
-                border: "1px solid #ddd",
+                border: "1px solid var(--border)",
                 outline: "none",
                 width: "100%",
               }}
@@ -267,7 +267,7 @@ export default function IntroductionGenerator({ lang }: Props) {
                 padding: "10px 14px",
                 fontSize: "15px",
                 borderRadius: "8px",
-                border: "1px solid #ddd",
+                border: "1px solid var(--border)",
                 outline: "none",
                 width: "100%",
               }}
@@ -285,10 +285,10 @@ export default function IntroductionGenerator({ lang }: Props) {
           <div
             style={{
               padding: "12px",
-              backgroundColor: "#fef2f2",
+              backgroundColor: "#3d1414",
               borderRadius: "8px",
-              border: "1px solid #fecaca",
-              color: "#b91c1c",
+              border: "1px solid #822121",
+              color: "#f8baba",
               fontSize: "14px",
             }}
           >
@@ -310,16 +310,16 @@ export default function IntroductionGenerator({ lang }: Props) {
           <div
             style={{
               padding: "20px",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "var(--surface)",
               borderRadius: "12px",
-              border: "1px solid #eee",
+              border: "1px solid var(--border)",
             }}
           >
             <span
               style={{
                 display: "block",
                 fontSize: "12px",
-                color: "#666",
+                color: "var(--text-primary)",
                 textTransform: "uppercase",
                 marginBottom: "10px",
               }}
@@ -331,7 +331,7 @@ export default function IntroductionGenerator({ lang }: Props) {
                 margin: 0,
                 fontSize: "16px",
                 lineHeight: 1.8,
-                color: "#111",
+                color: "var(--text-primary)",
               }}
             >
               {introduction}

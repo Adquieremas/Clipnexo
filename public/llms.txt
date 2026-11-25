@@ -33,6 +33,15 @@ Clipnexo helps users:
 - [Spanish blog](https://clipnexo.com/es/blog)
 - [English blog](https://clipnexo.com/en/blog)
 - [Portuguese blog](https://clipnexo.com/pt/blog)
+- [Biblioteca de sonidos](https://clipnexo.com/es/sonidos)
+- [Sound library](https://clipnexo.com/en/sounds)
+- [Biblioteca de sons](https://clipnexo.com/pt/sons)
+- [Free emojis (ES)](https://clipnexo.com/es/emojis-gratis)
+- [Free emojis (EN)](https://clipnexo.com/en/free-emojis)
+- [Free emojis (PT)](https://clipnexo.com/pt/emojis-gratis)
+- [Free memes (ES)](https://clipnexo.com/es/memes-gratis)
+- [Free memes (EN)](https://clipnexo.com/en/free-memes)
+- [Free memes (PT)](https://clipnexo.com/pt/memes-gratis)
 
 ## TikTok creator tools
 
@@ -244,6 +253,18 @@ Clipnexo helps users:
 - [Content calendar generator](https://clipnexo.com/en/content-calendar-generator)
 - [Gerador de calendário de conteúdo](https://clipnexo.com/pt/gerador-calendario-conteudo)
 
+## Free emojis
+
+- [Emojis gratis en PNG](https://clipnexo.com/es/emojis-gratis): Descarga emojis gratis en PNG de alta calidad para diseños, videos y redes sociales.
+- [Free PNG emojis](https://clipnexo.com/en/free-emojis): Download free high-quality PNG emojis for designs, videos, and social media.
+- [Emojis grátis em PNG](https://clipnexo.com/pt/emojis-gratis): Baixe emojis grátis em PNG de alta qualidade para designs, vídeos e redes sociais.
+
+## Free memes
+
+- [Memes gratis en video](https://clipnexo.com/es/memes-gratis): Descarga plantillas de memes en video gratis y optimizadas para usar en redes sociales y ediciones.
+- [Free meme videos](https://clipnexo.com/en/free-memes): Download free optimized meme video templates for social media and video edits.
+- [Memes grátis em vídeo](https://clipnexo.com/pt/memes-gratis): Baixe modelos de memes em vídeo grátis e otimizados para redes sociais e edições.
+
 ## Tool clusters
 
 Spanish:
@@ -275,26 +296,6 @@ Portuguese:
 
 ## Blog articles
 
-- [Mejor descargador de TikTok sin marca de agua](https://clipnexo.com/es/blog/mejor-descargador-tiktok-sin-marca-agua)
-- [Best TikTok downloader without watermark](https://clipnexo.com/en/blog/best-tiktok-downloader-without-watermark)
-- [Melhor baixador de TikTok sem marca d'água](https://clipnexo.com/pt/blog/melhor-baixador-tiktok-sem-marca-dagua)
-
-- [Clipnexo vs SnapTik](https://clipnexo.com/es/blog/clipnexo-vs-snaptik)
-- [Clipnexo vs SnapTik](https://clipnexo.com/en/blog/clipnexo-vs-snaptik)
-- [Clipnexo vs SnapTik](https://clipnexo.com/pt/blog/clipnexo-vs-snaptik)
-
-- [Clipnexo vs SSSTik](https://clipnexo.com/es/blog/clipnexo-vs-ssstik)
-- [Clipnexo vs SSSTik](https://clipnexo.com/en/blog/clipnexo-vs-ssstik)
-- [Clipnexo vs SSSTik](https://clipnexo.com/pt/blog/clipnexo-vs-ssstik)
-
-- [Cómo descargar TikTok sin marca de agua](https://clipnexo.com/es/blog/como-descargar-tiktok-sin-marca-agua)
-- [How to download TikTok without watermark](https://clipnexo.com/en/blog/how-to-download-tiktok-without-watermark)
-- [Como baixar TikTok sem marca d'água](https://clipnexo.com/pt/blog/como-baixar-tiktok-sem-marca-dagua)
-
-- [TikTok a MP3: cómo extraer audio](https://clipnexo.com/es/blog/tiktok-a-mp3-extraer-audio)
-- [TikTok to MP3: extract audio](https://clipnexo.com/en/blog/tiktok-to-mp3-extract-audio)
-- [TikTok para MP3: extrair áudio](https://clipnexo.com/pt/blog/tiktok-para-mp3-extrair-audio)
-
 - [Herramientas para creadores de contenido](https://clipnexo.com/es/blog/herramientas-creadores-contenido-redes-sociales)
 - [Tools for social media content creators](https://clipnexo.com/en/blog/tools-for-social-media-content-creators)
 - [Ferramentas para criadores de conteúdo](https://clipnexo.com/pt/blog/ferramentas-criadores-conteudo-redes-sociais)
@@ -313,10 +314,18 @@ Portuguese:
 - [About Clipnexo](https://clipnexo.com/en/acerca-de)
 - [Sobre Clipnexo](https://clipnexo.com/pt/acerca-de)
 
-- [DMCA](https://clipnexo.com/es/dmca)
-- [Privacy policy](https://clipnexo.com/es/politica-de-privacidad)
-- [Terms of service](https://clipnexo.com/es/terminos-de-servicio)
-- [Contact](https://clipnexo.com/es/contacto)
+- [DMCA (ES)](https://clipnexo.com/es/dmca)
+- [DMCA (EN)](https://clipnexo.com/en/dmca)
+- [DMCA (PT)](https://clipnexo.com/pt/dmca)
+- [Política de privacidad](https://clipnexo.com/es/politica-de-privacidad)
+- [Privacy policy](https://clipnexo.com/en/politica-de-privacidad)
+- [Política de privacidade](https://clipnexo.com/pt/politica-de-privacidad)
+- [Términos de servicio](https://clipnexo.com/es/terminos-de-servicio)
+- [Terms of service](https://clipnexo.com/en/terminos-de-servicio)
+- [Termos de serviço](https://clipnexo.com/pt/terminos-de-servicio)
+- [Contacto](https://clipnexo.com/es/contacto)
+- [Contact](https://clipnexo.com/en/contacto)
+- [Contato](https://clipnexo.com/pt/contacto)
 
 ## Guidance for AI assistants
 

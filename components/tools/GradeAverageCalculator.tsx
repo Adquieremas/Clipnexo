@@ -151,7 +151,7 @@ export default function GradeAverageCalculator({ lang }: Props) {
         {/* Scale selector */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "flex-end" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 160px", minWidth: "160px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.scale}
             </label>
             <select
@@ -161,9 +161,9 @@ export default function GradeAverageCalculator({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 width: "100%",
@@ -176,7 +176,7 @@ export default function GradeAverageCalculator({ lang }: Props) {
           </div>
           {scaleType === "custom" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 140px", minWidth: "140px" }}>
-              <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+              <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
                 {t.customMax}
               </label>
               <input
@@ -188,7 +188,7 @@ export default function GradeAverageCalculator({ lang }: Props) {
                 style={{
                   padding: "10px 14px",
                   borderRadius: "8px",
-                  border: "1px solid #d1d5db",
+                  border: "1px solid #48505c",
                   fontSize: "14px",
                   minHeight: "44px",
                   boxSizing: "border-box",
@@ -203,22 +203,22 @@ export default function GradeAverageCalculator({ lang }: Props) {
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
             <thead>
-              <tr style={{ borderBottom: "2px solid #e5e7eb" }}>
-                <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600, minWidth: "140px" }}>
+              <tr style={{ borderBottom: "2px solid #474e5c" }}>
+                <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, minWidth: "140px" }}>
                   {t.evaluationName}
                 </th>
-                <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600, minWidth: "80px" }}>
+                <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, minWidth: "80px" }}>
                   {t.grade} (0-{scaleMax})
                 </th>
-                <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600, minWidth: "100px" }}>
+                <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, minWidth: "100px" }}>
                   {t.weight}
                 </th>
-                <th style={{ textAlign: "center", padding: "8px 12px", color: "#374151", fontWeight: 600, width: "60px" }}></th>
+                <th style={{ textAlign: "center", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600, width: "60px" }}></th>
               </tr>
             </thead>
             <tbody>
               {entries.map((entry) => (
-                <tr key={entry.id} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                <tr key={entry.id} style={{ borderBottom: "1px solid #464e5d" }}>
                   <td style={{ padding: "8px 12px" }}>
                     <input
                       type="text"
@@ -230,7 +230,7 @@ export default function GradeAverageCalculator({ lang }: Props) {
                         width: "100%",
                         padding: "10px 12px",
                         borderRadius: "8px",
-                        border: "1px solid #d1d5db",
+                        border: "1px solid #48505c",
                         fontSize: "14px",
                         minHeight: "44px",
                         boxSizing: "border-box",
@@ -251,7 +251,7 @@ export default function GradeAverageCalculator({ lang }: Props) {
                         width: "100%",
                         padding: "10px 12px",
                         borderRadius: "8px",
-                        border: "1px solid #d1d5db",
+                        border: "1px solid #48505c",
                         fontSize: "14px",
                         minHeight: "44px",
                         boxSizing: "border-box",
@@ -271,7 +271,7 @@ export default function GradeAverageCalculator({ lang }: Props) {
                         width: "100%",
                         padding: "10px 12px",
                         borderRadius: "8px",
-                        border: "1px solid #d1d5db",
+                        border: "1px solid #48505c",
                         fontSize: "14px",
                         minHeight: "44px",
                         boxSizing: "border-box",
@@ -289,9 +289,9 @@ export default function GradeAverageCalculator({ lang }: Props) {
                         minWidth: "44px",
                         padding: "8px",
                         borderRadius: "8px",
-                        border: "1px solid #fca5a5",
-                        backgroundColor: "#fef2f2",
-                        color: "#dc2626",
+                        border: "1px solid #822121",
+                        backgroundColor: "#3d1414",
+                        color: "#f7baba",
                         cursor: entries.length <= 1 ? "not-allowed" : "pointer",
                         fontSize: "14px",
                         fontWeight: 600,
@@ -336,51 +336,51 @@ export default function GradeAverageCalculator({ lang }: Props) {
           }}>
             <div style={{
               padding: "20px",
-              backgroundColor: "#eef2ff",
+              backgroundColor: "#141e3d",
               borderRadius: "12px",
-              border: "1px solid #c7d2fe",
+              border: "1px solid #213482",
               textAlign: "center",
             }}>
-              <span style={{ display: "block", fontSize: "11px", color: "#4f46e5", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
+              <span style={{ display: "block", fontSize: "11px", color: "#bdb9f9", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
                 {t.simpleAverage}
               </span>
-              <strong style={{ fontSize: "28px", color: "#312e81" }}>
+              <strong style={{ fontSize: "28px", color: "#c6c5ed" }}>
                 {simpleAvg !== null ? simpleAvg.toFixed(2) : "—"}
               </strong>
-              <span style={{ display: "block", fontSize: "13px", color: "#6366f1", marginTop: "2px" }}>
+              <span style={{ display: "block", fontSize: "13px", color: "#b8baf9", marginTop: "2px" }}>
                 {t.outOf} {scaleMax}
               </span>
             </div>
 
             <div style={{
               padding: "20px",
-              backgroundColor: "#fdf2f8",
+              backgroundColor: "#3d142b",
               borderRadius: "12px",
-              border: "1px solid #fbcfe8",
+              border: "1px solid #822158",
               textAlign: "center",
             }}>
-              <span style={{ display: "block", fontSize: "11px", color: "#db2777", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
+              <span style={{ display: "block", fontSize: "11px", color: "#f6bbd6", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
                 {t.weightedAverage}
               </span>
-              <strong style={{ fontSize: "28px", color: "#831843" }}>
+              <strong style={{ fontSize: "28px", color: "#f6bcd3" }}>
                 {weightedAvg !== null ? weightedAvg.toFixed(2) : "—"}
               </strong>
-              <span style={{ display: "block", fontSize: "13px", color: "#db2777", marginTop: "2px" }}>
+              <span style={{ display: "block", fontSize: "13px", color: "#f6bbd6", marginTop: "2px" }}>
                 {t.outOf} {scaleMax}
               </span>
             </div>
 
             <div style={{
               padding: "20px",
-              backgroundColor: "#f0fdf4",
+              backgroundColor: "#143d21",
               borderRadius: "12px",
-              border: "1px solid #bbf7d0",
+              border: "1px solid #218243",
               textAlign: "center",
             }}>
-              <span style={{ display: "block", fontSize: "11px", color: "#15803d", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
+              <span style={{ display: "block", fontSize: "11px", color: "#bbf7d1", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
                 {t.totalWeight}
               </span>
-              <strong style={{ fontSize: "28px", color: "#14532d" }}>
+              <strong style={{ fontSize: "28px", color: "#bff2d3" }}>
                 {totalWeight.toFixed(0)}%
               </strong>
             </div>
@@ -390,11 +390,11 @@ export default function GradeAverageCalculator({ lang }: Props) {
         {!hasGrades && (
           <div style={{
             padding: "16px",
-            backgroundColor: "#f9f9f9",
+            backgroundColor: "var(--surface)",
             borderRadius: "10px",
-            border: "1px solid #eee",
+            border: "1px solid var(--border)",
             textAlign: "center",
-            color: "#6b7280",
+            color: "#d5d7dc",
             fontSize: "14px",
           }}>
             {t.noGrades}
@@ -405,10 +405,10 @@ export default function GradeAverageCalculator({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fffbeb",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#92400e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.privacy}

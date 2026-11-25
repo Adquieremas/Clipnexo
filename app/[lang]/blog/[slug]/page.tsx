@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { normalizeLang, type SupportedLang } from "@/lib/routes";
+import { notFound, permanentRedirect } from "next/navigation";
+import { getLocalizedRoute, normalizeLang, type RouteKey, type SupportedLang } from "@/lib/routes";
 import { getAbsoluteUrl } from "@/lib/seo";
 import {
   getBlogPostBySlug,
@@ -13,6 +13,30 @@ import BlogPostLayout from "@/components/blog/BlogPostLayout";
 
 type PageProps = {
   params: Promise<{ lang: string; slug: string }>;
+};
+
+const legacyBlogRedirects: Record<SupportedLang, Record<string, RouteKey>> = {
+  es: {
+    "mejor-descargador-tiktok-sin-marca-agua": "tiktokTools",
+    "clipnexo-vs-snaptik": "tiktokTools",
+    "clipnexo-vs-ssstik": "tiktokTools",
+    "como-descargar-tiktok-sin-marca-agua": "tiktokTools",
+    "tiktok-a-mp3-extraer-audio": "soundsLibrary",
+  },
+  en: {
+    "best-tiktok-downloader-without-watermark": "tiktokTools",
+    "clipnexo-vs-snaptik": "tiktokTools",
+    "clipnexo-vs-ssstik": "tiktokTools",
+    "how-to-download-tiktok-without-watermark": "tiktokTools",
+    "tiktok-to-mp3-extract-audio": "soundsLibrary",
+  },
+  pt: {
+    "melhor-baixador-tiktok-sem-marca-dagua": "tiktokTools",
+    "clipnexo-vs-snaptik": "tiktokTools",
+    "clipnexo-vs-ssstik": "tiktokTools",
+    "como-baixar-tiktok-sem-marca-dagua": "tiktokTools",
+    "tiktok-para-mp3-extrair-audio": "soundsLibrary",
+  },
 };
 
 export async function generateStaticParams() {
@@ -73,6 +97,10 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = getBlogPostBySlug(slug, currentLang);
 
   if (!post) {
+    const redirectRoute = legacyBlogRedirects[currentLang][slug];
+    if (redirectRoute) {
+      permanentRedirect(getLocalizedRoute(redirectRoute, currentLang));
+    }
     notFound();
   }
 

@@ -1,5 +1,14 @@
 import type { SupportedLang } from "./routes";
 
+export const soundFooterCategories = [
+  { id: "memes", es: "Memes", en: "Memes", pt: "Memes" },
+  { id: "efectos", es: "Efectos de sonido", en: "Sound effects", pt: "Efeitos sonoros" },
+  { id: "musica", es: "Música", en: "Music", pt: "Música" },
+  { id: "notificaciones", es: "Notificaciones", en: "Notifications", pt: "Notificações" },
+  { id: "transiciones", es: "Transiciones", en: "Transitions", pt: "Transições" },
+  { id: "otros", es: "Otros", en: "Other", pt: "Outros" },
+] as const;
+
 export type SoundsHubCopy = {
   metaTitle: string;
   metaDescription: string;
@@ -20,8 +29,8 @@ export type SoundsHubCopy = {
 
 export const soundsHubContent: Record<SupportedLang, SoundsHubCopy> = {
   es: {
-    metaTitle: "Biblioteca de sonidos gratis para TikTok y Reels",
-    metaDescription: "Descarga efectos de sonido, memes de audio y música libre de regalías para tus videos. Escucha antes de descargar, gratis y sin registro.",
+    metaTitle: "Biblioteca de sonidos para TikTok y Reels | Clipnexo",
+    metaDescription: "Descarga efectos de sonido, memes de audio y música libre de regalías para tus videos. Escucha antes de descargar, gratis y sin registro. Todo en Clipnexo.",
     h1: "Biblioteca de sonidos para creadores",
     intro: "Escucha, descarga y usa efectos de sonido, memes de audio y música para tus videos de TikTok, Reels y Shorts. Todo gratis y sin registro.",
     searchPlaceholder: "Buscar sonidos...",
@@ -41,8 +50,8 @@ export const soundsHubContent: Record<SupportedLang, SoundsHubCopy> = {
     ],
   },
   en: {
-    metaTitle: "Free sound library for TikTok and Reels",
-    metaDescription: "Download sound effects, meme audio and royalty-free music for your videos. Listen before downloading, free and with no sign-up.",
+    metaTitle: "Free sound library for TikTok and Reels | Clipnexo",
+    metaDescription: "Download sound effects, meme audio and royalty-free music for your videos. Listen before downloading, free and with no sign-up. Free for all creators.",
     h1: "Sound library for creators",
     intro: "Listen to, download and use sound effects, meme audio and music for your TikTok, Reels and Shorts videos. All free, no sign-up required.",
     searchPlaceholder: "Search sounds...",
@@ -62,8 +71,8 @@ export const soundsHubContent: Record<SupportedLang, SoundsHubCopy> = {
     ],
   },
   pt: {
-    metaTitle: "Biblioteca de sons grátis para TikTok e Reels",
-    metaDescription: "Baixe efeitos sonoros, áudios de memes e música livre de direitos para seus vídeos. Ouça antes de baixar, grátis e sem cadastro.",
+    metaTitle: "Biblioteca de sons grátis para TikTok e Reels | Clipnexo",
+    metaDescription: "Baixe efeitos sonoros, áudios de memes e música livre de direitos para seus vídeos. Ouça antes de baixar, grátis e sem cadastro. Tudo no Clipnexo.",
     h1: "Biblioteca de sons para criadores",
     intro: "Ouça, baixe e use efeitos sonoros, áudios de memes e música para seus vídeos do TikTok, Reels e Shorts. Tudo grátis e sem cadastro.",
     searchPlaceholder: "Buscar sons...",

@@ -37,12 +37,12 @@ export default async function NotFound() {
         margin: "100px auto",
         padding: "0 20px",
         textAlign: "center",
-        color: "#111",
+        color: "var(--text-primary)",
         fontFamily: "system-ui, sans-serif",
       }}
     >
       <h1 style={{ fontSize: 32, marginBottom: 12 }}>{t.title}</h1>
-      <p style={{ color: "#555", fontSize: 16, lineHeight: 1.6 }}>{t.text}</p>
+      <p style={{ color: "var(--text-primary)", fontSize: 16, lineHeight: 1.6 }}>{t.text}</p>
       <p style={{ marginTop: 28 }}>
         <Link href={toolsHref} style={{ marginRight: 16 }}>
           {t.tools}

@@ -3,7 +3,13 @@ import Link from "next/link";
 import { normalizeLang, getLocalizedRoute, type RouteKey } from "@/lib/routes";
 import { buildSeoMetadata } from "@/lib/seo";
 import { blogPosts, type BlogPost } from "@/lib/blog-content";
-import { getCategoryName, getPopularSounds, getSoundAudioUrl, listCategories } from "@/lib/sounds-db";
+import {
+  getCategoryName,
+  getPopularSounds,
+  getSoundAudioUrl,
+  listCategories,
+  SoundsDbNotConfiguredError,
+} from "@/lib/sounds-db";
 import { SoundPlayerProvider } from "@/components/sounds/SoundPlayerProvider";
 import SoundCard from "@/components/sounds/SoundCard";
 
@@ -11,21 +17,24 @@ import SoundCard from "@/components/sounds/SoundCard";
 // without requiring a redeploy.
 export const revalidate = 300;
 
-const soundsSpotlightContent: Record<string, { title: string; desc: string; cta: string }> = {
+const soundsSpotlightContent: Record<string, { title: string; cta: string; searchPlaceholder: string; searchCta: string }> = {
   es: {
-    title: "Biblioteca de sonidos para tus videos",
-    desc: "Efectos de sonido, memes de audio y música lista para descargar y usar en TikTok, Reels y Shorts.",
-    cta: "Explorar biblioteca de sonidos",
+    title: "Sonidos para tus videos",
+    cta: "Ver toda la biblioteca",
+    searchPlaceholder: "Buscar sonidos...",
+    searchCta: "Buscar",
   },
   en: {
-    title: "Sound library for your videos",
-    desc: "Sound effects, meme audio and music ready to download and use in TikTok, Reels and Shorts.",
-    cta: "Explore the sound library",
+    title: "Sounds for your videos",
+    cta: "Browse the full library",
+    searchPlaceholder: "Search sounds...",
+    searchCta: "Search",
   },
   pt: {
-    title: "Biblioteca de sons para seus vídeos",
-    desc: "Efeitos sonoros, áudios de memes e música prontos para baixar e usar no TikTok, Reels e Shorts.",
-    cta: "Explorar biblioteca de sons",
+    title: "Sons para seus vídeos",
+    cta: "Ver toda a biblioteca",
+    searchPlaceholder: "Buscar sons...",
+    searchCta: "Buscar",
   },
 };
 
@@ -35,7 +44,7 @@ type Props = {
 
 type ClusterItem = {
   title: string;
-  desc: string;
+  description: string;
   links: { label: string; routeKey: RouteKey }[];
 };
 
@@ -45,12 +54,10 @@ type PageContent = {
   h1: string;
   subtitle: string;
   heroCtaPrimary: string;
-  heroCtaSecondary: string;
+  heroCtaSounds: string;
   popularTitle: string;
-  popularDesc: string;
-  popularTools: { label: string; desc: string; routeKey: HomeToolRoute }[];
+  popularTools: { label: string; description: string; routeKey: HomeToolRoute }[];
   clustersTitle: string;
-  clustersDesc: string;
   clusters: ClusterItem[];
   howTitle: string;
   steps: { title: string; text: string }[];
@@ -58,13 +65,13 @@ type PageContent = {
   diffText: string;
   diffPoints: string[];
   blogTitle: string;
-  blogDesc: string;
+  blogDescription: string;
   faqTitle: string;
-  faqs: { q: string; a: string }[];
-  ctaFinalTitle: string;
-  ctaFinalText: string;
-  ctaFinalPrimary: string;
-  ctaFinalSecondary: string;
+  faqs: { question: string; answer: string }[];
+  finalCtaTitle: string;
+  finalCtaText: string;
+  finalCtaPrimary: string;
+  finalCtaSecondary: string;
 };
 
 const titles: Record<string, string> = {
@@ -85,7 +92,7 @@ function getToolRoute(key: RouteKey, lang: string): string {
 
 function getFilteredBlogPosts(lang: string, count: number = 3): (BlogPost & { url: string; categoryLabel: string })[] {
   const currentLang = normalizeLang(lang);
-  const filtered = blogPosts.filter((p) => p.featured).slice(0, count);
+  const filtered = blogPosts.slice(0, count);
   return filtered.map((post) => ({
     ...post,
     url: `/${currentLang}/blog/${post.slugs[currentLang]}`,
@@ -95,11 +102,6 @@ function getFilteredBlogPosts(lang: string, count: number = 3): (BlogPost & { ur
 
 function getCategoryLabel(categoryKey: string, lang: string): string {
   const labels: Record<string, Record<string, string>> = {
-    tiktok: { es: "TikTok", en: "TikTok", pt: "TikTok" },
-    comparativas: { es: "Comparativas", en: "Comparisons", pt: "Comparativos" },
-    youtube: { es: "YouTube", en: "YouTube", pt: "YouTube" },
-    instagram: { es: "Instagram", en: "Instagram", pt: "Instagram" },
-    facebook: { es: "Facebook", en: "Facebook", pt: "Facebook" },
     "social-media": { es: "Redes sociales", en: "Social media", pt: "Redes sociais" },
     creators: { es: "Creadores", en: "Creators", pt: "Criadores" },
   };
@@ -120,7 +122,7 @@ type HomeToolRoute = keyof typeof homeToolIconPaths;
 function HomeToolIcon({ routeKey }: { routeKey: HomeToolRoute }) {
   return (
     <span className="home-tool-card-icon" aria-hidden="true">
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
         strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <path d={homeToolIconPaths[routeKey]} />
       </svg>
@@ -133,94 +135,53 @@ const pageContent: Record<string, PageContent> = {
     metaTitle: "Clipnexo: herramientas gratuitas para creadores",
     metaDescription:
       "Usa Clipnexo para crear hashtags, captions, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
-    h1: "Herramientas gratuitas para creadores de contenido",
-    subtitle:
-      "Genera hashtags, captions, guiones, títulos y más para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
+    h1: "Herramientas y sonidos gratis para creadores",
+    subtitle: "Hashtags, captions, guiones y una biblioteca de sonidos lista para usar.",
     heroCtaPrimary: "Ver herramientas",
-    heroCtaSecondary: "Ver blog",
-    popularTitle: "Herramientas populares de Clipnexo",
-    popularDesc:
-      "Accede rápido a las herramientas más usadas para TikTok, YouTube, Instagram y redes sociales.",
+    heroCtaSounds: "Explorar sonidos",
+    popularTitle: "Herramientas populares",
     popularTools: [
-      { label: "Hashtags para TikTok", desc: "Etiquetas para más alcance", routeKey: "tiktokHashtags" },
-      { label: "Captions para Instagram", desc: "Descripciones atractivas", routeKey: "instagramCaptionGenerator" },
-      { label: "Títulos de YouTube", desc: "Títulos para más clics", routeKey: "youtubeTitleGenerator" },
-      { label: "Miniaturas de YouTube", desc: "Descarga miniaturas en calidad", routeKey: "youtubeThumbnailDownloader" },
-      { label: "Guiones para videos cortos", desc: "Estructura para TikTok, Reels y Shorts", routeKey: "shortVideoScriptGenerator" },
-      { label: "Contador de caracteres", desc: "Mide textos para redes", routeKey: "socialMediaCharacterCounter" },
+      { label: "Hashtags para TikTok", description: "Encuentra hashtags relevantes para tus videos.", routeKey: "tiktokHashtags" },
+      { label: "Captions para Instagram", description: "Escribe pies de foto claros y atractivos.", routeKey: "instagramCaptionGenerator" },
+      { label: "Títulos de YouTube", description: "Genera títulos que llamen la atención.", routeKey: "youtubeTitleGenerator" },
+      { label: "Miniaturas de YouTube", description: "Descarga miniaturas en buena calidad.", routeKey: "youtubeThumbnailDownloader" },
+      { label: "Guiones para videos cortos", description: "Crea la estructura de tu próximo video.", routeKey: "shortVideoScriptGenerator" },
+      { label: "Contador de caracteres", description: "Revisa el largo ideal antes de publicar.", routeKey: "socialMediaCharacterCounter" },
     ],
-    clustersTitle: "Explora herramientas por plataforma",
-    clustersDesc: "Encuentra herramientas organizadas según la red social donde creas contenido.",
+    clustersTitle: "Herramientas por plataforma",
     clusters: [
-      {
-        title: "TikTok",
-        desc: "Crea hashtags, captions, bios, ideas y ganchos para TikTok.",
-        links: [
-          { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
-          { label: "Captions", routeKey: "tiktokCaptions" as RouteKey },
-          { label: "Ideas", routeKey: "tiktokIdeas" as RouteKey },
-          { label: "Bio", routeKey: "tiktokBio" as RouteKey },
-          { label: "Ganchos", routeKey: "tiktokHooks" as RouteKey },
-        ],
-      },
-      {
-        title: "YouTube",
-        desc: "Genera títulos, etiquetas, hashtags, descripciones, miniaturas, enlaces de tiempo y calculadoras.",
-        links: [
-          { label: "Títulos", routeKey: "youtubeTitleGenerator" as RouteKey },
-          { label: "Etiquetas", routeKey: "youtubeTagGenerator" as RouteKey },
-          { label: "Hashtags", routeKey: "youtubeHashtagGenerator" as RouteKey },
-          { label: "Descripciones", routeKey: "youtubeDescriptionGenerator" as RouteKey },
-          { label: "Miniaturas", routeKey: "youtubeThumbnailDownloader" as RouteKey },
-          { label: "Enlaces de tiempo", routeKey: "youtubeTimestampLinkGenerator" as RouteKey },
-        ],
-      },
-      {
-        title: "Instagram",
-        desc: "Crea captions, hashtags, bios, ideas para Reels y ganchos para tus publicaciones.",
-        links: [
-          { label: "Captions", routeKey: "instagramCaptionGenerator" as RouteKey },
-          { label: "Hashtags", routeKey: "instagramHashtagGenerator" as RouteKey },
-          { label: "Bio", routeKey: "instagramBioGenerator" as RouteKey },
-          { label: "Ideas para Reels", routeKey: "instagramReelsIdeas" as RouteKey },
-          { label: "Ganchos para Reels", routeKey: "instagramReelsHooks" as RouteKey },
-        ],
-      },
-      {
-        title: "Facebook",
-        desc: "Genera posts, anuncios y textos para Marketplace.",
-        links: [
-          { label: "Posts", routeKey: "facebookPostGenerator" as RouteKey },
-          { label: "Anuncios", routeKey: "facebookAdGenerator" as RouteKey },
-          { label: "Marketplace", routeKey: "marketplaceTextGenerator" as RouteKey },
-        ],
-      },
-      {
-        title: "Videos cortos",
-        desc: "Crea guiones, títulos, hashtags y estructuras para TikTok, Reels y Shorts.",
-        links: [
-          { label: "Guiones", routeKey: "shortVideoScriptGenerator" as RouteKey },
-          { label: "Títulos y hashtags", routeKey: "shortVideoTitleHashtag" as RouteKey },
-        ],
-      },
-      {
-        title: "Redes sociales",
-        desc: "Crea textos, mide caracteres y prepara publicaciones para distintas plataformas.",
-        links: [
-          { label: "Generar textos", routeKey: "socialMediaTextGenerator" as RouteKey },
-          { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" as RouteKey },
-        ],
-      },
+      { title: "TikTok", description: "Ideas, hooks, captions y hashtags para crecer en TikTok.", links: [
+        { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
+        { label: "Captions", routeKey: "tiktokCaptions" as RouteKey },
+        { label: "Ideas", routeKey: "tiktokIdeas" as RouteKey },
+        { label: "Bio", routeKey: "tiktokBio" as RouteKey },
+      ] },
+      { title: "YouTube", description: "Optimiza títulos, etiquetas, descripciones y miniaturas.", links: [
+        { label: "Títulos", routeKey: "youtubeTitleGenerator" as RouteKey },
+        { label: "Etiquetas", routeKey: "youtubeTagGenerator" as RouteKey },
+        { label: "Descripciones", routeKey: "youtubeDescriptionGenerator" as RouteKey },
+        { label: "Miniaturas", routeKey: "youtubeThumbnailDownloader" as RouteKey },
+      ] },
+      { title: "Instagram", description: "Crea captions, bios, hashtags e ideas para Reels.", links: [
+        { label: "Captions", routeKey: "instagramCaptionGenerator" as RouteKey },
+        { label: "Hashtags", routeKey: "instagramHashtagGenerator" as RouteKey },
+        { label: "Bio", routeKey: "instagramBioGenerator" as RouteKey },
+        { label: "Ideas para Reels", routeKey: "instagramReelsIdeas" as RouteKey },
+      ] },
+      { title: "Facebook", description: "Genera posts, anuncios y textos para Marketplace.", links: [
+        { label: "Posts", routeKey: "facebookPostGenerator" as RouteKey },
+        { label: "Anuncios", routeKey: "facebookAdGenerator" as RouteKey },
+        { label: "Marketplace", routeKey: "marketplaceTextGenerator" as RouteKey },
+      ] },
     ],
     howTitle: "Cómo funciona Clipnexo",
     steps: [
       { title: "Elige una herramienta", text: "Selecciona si quieres generar textos, crear hashtags, preparar guiones o analizar contenido." },
       { title: "Escribe tu idea o tema", text: "Describe tu tema o pega tu texto para generar resultados rápidos." },
-      { title: "Copia el resultado", text: "Obtén el contenido listo para usar desde tu navegador." },
+      { title: "Copia el resultado", text: "Obtén contenido listo para usar desde tu navegador." },
     ],
     diffTitle: "Más que generadores sueltos",
-    diffText:
-      "Clipnexo reúne herramientas para crear contenido en un solo lugar. Puedes usarlo para trabajar ideas, textos, hashtags, guiones y recursos para tus redes.",
+    diffText: "Clipnexo reúne herramientas para crear contenido en un solo lugar. Trabaja ideas, textos, hashtags, guiones y recursos para tus redes.",
     diffPoints: [
       "Herramientas gratuitas desde el navegador.",
       "Enfoque en creadores de contenido y editores de video.",
@@ -228,305 +189,169 @@ const pageContent: Record<string, PageContent> = {
       "Herramientas organizadas por plataforma.",
       "Contenido y rutas disponibles en español, inglés y portugués.",
     ],
-    blogTitle: "Guías recientes del blog",
-    blogDesc: "Artículos y comparativas para ayudarte a aprovechar mejor las herramientas de Clipnexo.",
+    blogTitle: "Guías del blog",
+    blogDescription: "Artículos y comparativas para ayudarte a aprovechar mejor las herramientas de Clipnexo.",
     faqTitle: "Preguntas frecuentes",
     faqs: [
-      {
-        q: "¿Qué es Clipnexo?",
-        a: "Clipnexo es una plataforma de herramientas online gratuitas para creadores de contenido: genera hashtags, captions, bios, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook.",
-      },
-      {
-        q: "¿Clipnexo solo sirve para TikTok?",
-        a: "No. Clipnexo incluye herramientas para TikTok, YouTube, Instagram, Facebook y estudiantes: hashtags, captions, títulos, guiones, resúmenes y más.",
-      },
-      {
-        q: "¿Necesito instalar una aplicación?",
-        a: "No. Las herramientas de Clipnexo funcionan desde el navegador, tanto en móvil como en computadora.",
-      },
-      {
-        q: "¿Puedo usar Clipnexo en varios idiomas?",
-        a: "Sí. Clipnexo tiene versiones en español, inglés y portugués.",
-      },
-      {
-        q: "¿Las herramientas garantizan más visitas?",
-        a: "No. Las herramientas pueden ayudarte a preparar mejor tu contenido, pero el rendimiento depende de la calidad del contenido, la audiencia, la plataforma y otros factores.",
-      },
-      {
-        q: "¿Es gratis usar Clipnexo?",
-        a: "Sí. Todas las herramientas de Clipnexo son gratuitas y no requieren registro.",
-      },
+      { question: "¿Qué es Clipnexo?", answer: "Clipnexo es una plataforma de herramientas online gratuitas para creadores de contenido: genera hashtags, captions, bios, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook." },
+      { question: "¿Clipnexo solo sirve para TikTok?", answer: "No. Clipnexo incluye herramientas para TikTok, YouTube, Instagram, Facebook y estudiantes: hashtags, captions, títulos, guiones, resúmenes y más." },
+      { question: "¿Necesito instalar una aplicación?", answer: "No. Las herramientas de Clipnexo funcionan desde el navegador, tanto en móvil como en computadora." },
+      { question: "¿Puedo usar Clipnexo en varios idiomas?", answer: "Sí. Clipnexo tiene versiones en español, inglés y portugués." },
+      { question: "¿Las herramientas garantizan más visitas?", answer: "No. Las herramientas pueden ayudarte a preparar mejor tu contenido, pero el rendimiento depende de la calidad del contenido, la audiencia, la plataforma y otros factores." },
+      { question: "¿Es gratis usar Clipnexo?", answer: "Sí. Todas las herramientas de Clipnexo son gratuitas y no requieren registro." },
     ],
-    ctaFinalTitle: "Empieza con una herramienta gratuita",
-    ctaFinalText: "Elige una herramienta de Clipnexo y crea contenido para tus redes en segundos.",
-    ctaFinalPrimary: "Ver herramientas",
-    ctaFinalSecondary: "Explorar herramientas de TikTok",
+    finalCtaTitle: "Empieza con una herramienta gratuita",
+    finalCtaText: "Elige una herramienta de Clipnexo y crea contenido para tus redes en segundos.",
+    finalCtaPrimary: "Ver herramientas",
+    finalCtaSecondary: "Explorar herramientas de TikTok",
   },
   en: {
     metaTitle: "Clipnexo: free tools for creators",
     metaDescription:
       "Use Clipnexo to create hashtags, captions, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook, right from your browser.",
-    h1: "Free tools for content creators",
-    subtitle:
-      "Generate hashtags, captions, scripts, titles and more for TikTok, YouTube, Instagram and Facebook, right from your browser.",
+    h1: "Free tools and sounds for creators",
+    subtitle: "Hashtags, captions, scripts and a ready-to-use sound library.",
     heroCtaPrimary: "View tools",
-    heroCtaSecondary: "View blog",
-    popularTitle: "Popular Clipnexo tools",
-    popularDesc:
-      "Quick access to the most used tools for TikTok, YouTube, Instagram and social media.",
+    heroCtaSounds: "Explore sounds",
+    popularTitle: "Popular tools",
     popularTools: [
-      { label: "TikTok hashtags", desc: "Tags for more reach", routeKey: "tiktokHashtags" },
-      { label: "Instagram captions", desc: "Engaging descriptions", routeKey: "instagramCaptionGenerator" },
-      { label: "YouTube titles", desc: "Titles for more clicks", routeKey: "youtubeTitleGenerator" },
-      { label: "YouTube thumbnails", desc: "Save high-quality thumbnails", routeKey: "youtubeThumbnailDownloader" },
-      { label: "Short video scripts", desc: "Structure for TikTok, Reels & Shorts", routeKey: "shortVideoScriptGenerator" },
-      { label: "Character counter", desc: "Measure social text", routeKey: "socialMediaCharacterCounter" },
+      { label: "TikTok hashtags", description: "Find relevant hashtags for your videos.", routeKey: "tiktokHashtags" },
+      { label: "Instagram captions", description: "Write clear, engaging captions fast.", routeKey: "instagramCaptionGenerator" },
+      { label: "YouTube titles", description: "Generate titles that grab attention.", routeKey: "youtubeTitleGenerator" },
+      { label: "YouTube thumbnails", description: "Download thumbnails in high quality.", routeKey: "youtubeThumbnailDownloader" },
+      { label: "Short video scripts", description: "Build the structure for your next video.", routeKey: "shortVideoScriptGenerator" },
+      { label: "Character counter", description: "Check the ideal length before posting.", routeKey: "socialMediaCharacterCounter" },
     ],
-    clustersTitle: "Explore tools by platform",
-    clustersDesc: "Find tools organized by the social network where you create content.",
+    clustersTitle: "Tools by platform",
     clusters: [
-      {
-        title: "TikTok",
-        desc: "Create hashtags, captions, bios, ideas and hooks for TikTok.",
-        links: [
-          { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
-          { label: "Captions", routeKey: "tiktokCaptions" as RouteKey },
-          { label: "Ideas", routeKey: "tiktokIdeas" as RouteKey },
-          { label: "Bio", routeKey: "tiktokBio" as RouteKey },
-          { label: "Hooks", routeKey: "tiktokHooks" as RouteKey },
-        ],
-      },
-      {
-        title: "YouTube",
-        desc: "Generate titles, tags, hashtags, descriptions, thumbnails, timestamp links and calculators.",
-        links: [
-          { label: "Titles", routeKey: "youtubeTitleGenerator" as RouteKey },
-          { label: "Tags", routeKey: "youtubeTagGenerator" as RouteKey },
-          { label: "Hashtags", routeKey: "youtubeHashtagGenerator" as RouteKey },
-          { label: "Descriptions", routeKey: "youtubeDescriptionGenerator" as RouteKey },
-          { label: "Thumbnails", routeKey: "youtubeThumbnailDownloader" as RouteKey },
-          { label: "Timestamp links", routeKey: "youtubeTimestampLinkGenerator" as RouteKey },
-        ],
-      },
-      {
-        title: "Instagram",
-        desc: "Create captions, hashtags, bios, Reels ideas and hooks for your posts.",
-        links: [
-          { label: "Captions", routeKey: "instagramCaptionGenerator" as RouteKey },
-          { label: "Hashtags", routeKey: "instagramHashtagGenerator" as RouteKey },
-          { label: "Bio", routeKey: "instagramBioGenerator" as RouteKey },
-          { label: "Reels ideas", routeKey: "instagramReelsIdeas" as RouteKey },
-          { label: "Reels hooks", routeKey: "instagramReelsHooks" as RouteKey },
-        ],
-      },
-      {
-        title: "Facebook",
-        desc: "Generate posts, ads and Marketplace texts.",
-        links: [
-          { label: "Posts", routeKey: "facebookPostGenerator" as RouteKey },
-          { label: "Ads", routeKey: "facebookAdGenerator" as RouteKey },
-          { label: "Marketplace", routeKey: "marketplaceTextGenerator" as RouteKey },
-        ],
-      },
-      {
-        title: "Short videos",
-        desc: "Create scripts, titles, hashtags and structures for TikTok, Reels and Shorts.",
-        links: [
-          { label: "Scripts", routeKey: "shortVideoScriptGenerator" as RouteKey },
-          { label: "Titles & hashtags", routeKey: "shortVideoTitleHashtag" as RouteKey },
-        ],
-      },
-      {
-        title: "Social media",
-        desc: "Create texts, measure characters and prepare posts for different platforms.",
-        links: [
-          { label: "Text generator", routeKey: "socialMediaTextGenerator" as RouteKey },
-          { label: "Character counter", routeKey: "socialMediaCharacterCounter" as RouteKey },
-        ],
-      },
+      { title: "TikTok", description: "Ideas, hooks, captions, and hashtags to grow on TikTok.", links: [
+        { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
+        { label: "Captions", routeKey: "tiktokCaptions" as RouteKey },
+        { label: "Ideas", routeKey: "tiktokIdeas" as RouteKey },
+        { label: "Bio", routeKey: "tiktokBio" as RouteKey },
+      ] },
+      { title: "YouTube", description: "Optimize titles, tags, descriptions, and thumbnails.", links: [
+        { label: "Titles", routeKey: "youtubeTitleGenerator" as RouteKey },
+        { label: "Tags", routeKey: "youtubeTagGenerator" as RouteKey },
+        { label: "Descriptions", routeKey: "youtubeDescriptionGenerator" as RouteKey },
+        { label: "Thumbnails", routeKey: "youtubeThumbnailDownloader" as RouteKey },
+      ] },
+      { title: "Instagram", description: "Create captions, bios, hashtags, and Reels ideas.", links: [
+        { label: "Captions", routeKey: "instagramCaptionGenerator" as RouteKey },
+        { label: "Hashtags", routeKey: "instagramHashtagGenerator" as RouteKey },
+        { label: "Bio", routeKey: "instagramBioGenerator" as RouteKey },
+        { label: "Reels ideas", routeKey: "instagramReelsIdeas" as RouteKey },
+      ] },
+      { title: "Facebook", description: "Generate posts, ads, and Marketplace copy.", links: [
+        { label: "Posts", routeKey: "facebookPostGenerator" as RouteKey },
+        { label: "Ads", routeKey: "facebookAdGenerator" as RouteKey },
+        { label: "Marketplace", routeKey: "marketplaceTextGenerator" as RouteKey },
+      ] },
     ],
     howTitle: "How Clipnexo works",
     steps: [
-      { title: "Choose a tool", text: "Select whether you want to generate text, create hashtags, prepare scripts or analyze content." },
+      { title: "Choose a tool", text: "Select whether you want to generate text, create hashtags, prepare scripts, or analyze content." },
       { title: "Write your idea or topic", text: "Describe your topic or paste your text to get quick results." },
-      { title: "Copy the result", text: "Get the content ready to use from your browser." },
+      { title: "Copy the result", text: "Get content ready to use directly from your browser." },
     ],
     diffTitle: "More than standalone generators",
-    diffText:
-      "Clipnexo brings together tools to create content in one place. Use it to work on ideas, texts, hashtags, scripts and resources for your social media.",
+    diffText: "Clipnexo brings content creation tools together in one place. Work on ideas, text, hashtags, scripts, and resources for your social media.",
     diffPoints: [
-      "Free tools from your browser.",
-      "Focus on content creators and video editors.",
-      "Compatible with mobile and desktop.",
+      "Free tools available in your browser.",
+      "Built for content creators and video editors.",
+      "Works on mobile and desktop.",
       "Tools organized by platform.",
-      "Content and routes available in English, Spanish and Portuguese.",
+      "Content and routes available in English, Spanish, and Portuguese.",
     ],
-    blogTitle: "Recent blog guides",
-    blogDesc: "Articles and comparisons to help you get the most out of Clipnexo tools.",
+    blogTitle: "Blog guides",
+    blogDescription: "Articles and comparisons to help you get more from Clipnexo tools.",
     faqTitle: "Frequently asked questions",
     faqs: [
-      {
-        q: "What is Clipnexo?",
-        a: "Clipnexo is a platform of free online tools for content creators: generate hashtags, captions, bios, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook.",
-      },
-      {
-        q: "Does Clipnexo only work for TikTok?",
-        a: "No. Clipnexo includes tools for TikTok, YouTube, Instagram, Facebook and students: hashtags, captions, titles, scripts, summaries and more.",
-      },
-      {
-        q: "Do I need to install an app?",
-        a: "No. Clipnexo tools work from your browser, both on mobile and desktop.",
-      },
-      {
-        q: "Can I use Clipnexo in multiple languages?",
-        a: "Yes. Clipnexo has versions in English, Spanish and Portuguese.",
-      },
-      {
-        q: "Do the tools guarantee more views?",
-        a: "No. The tools can help you prepare better content, but performance depends on content quality, audience, platform and other factors.",
-      },
-      {
-        q: "Is Clipnexo free to use?",
-        a: "Yes. All Clipnexo tools are free and require no sign-up.",
-      },
+      { question: "What is Clipnexo?", answer: "Clipnexo is a platform of free online tools for content creators: generate hashtags, captions, bios, scripts, titles, and text for TikTok, YouTube, Instagram, and Facebook." },
+      { question: "Does Clipnexo only work for TikTok?", answer: "No. Clipnexo includes tools for TikTok, YouTube, Instagram, Facebook, and students: hashtags, captions, titles, scripts, summaries, and more." },
+      { question: "Do I need to install an app?", answer: "No. Clipnexo tools work in your browser on both mobile and desktop." },
+      { question: "Can I use Clipnexo in multiple languages?", answer: "Yes. Clipnexo is available in English, Spanish, and Portuguese." },
+      { question: "Do the tools guarantee more views?", answer: "No. The tools can help you prepare better content, but performance depends on content quality, audience, platform, and other factors." },
+      { question: "Is Clipnexo free to use?", answer: "Yes. All Clipnexo tools are free and require no registration." },
     ],
-    ctaFinalTitle: "Start with a free tool",
-    ctaFinalText: "Choose a Clipnexo tool and create content for your social media in seconds.",
-    ctaFinalPrimary: "View tools",
-    ctaFinalSecondary: "Explore TikTok tools",
+    finalCtaTitle: "Start with a free tool",
+    finalCtaText: "Choose a Clipnexo tool and create content for your social media in seconds.",
+    finalCtaPrimary: "View tools",
+    finalCtaSecondary: "Explore TikTok tools",
   },
   pt: {
     metaTitle: "Clipnexo: ferramentas gratuitas para criadores",
     metaDescription:
       "Use o Clipnexo para criar hashtags, legendas, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
-    h1: "Ferramentas gratuitas para criadores de conteúdo",
-    subtitle:
-      "Gere hashtags, legendas, roteiros, títulos e mais para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
+    h1: "Ferramentas e sons gratuitos para criadores",
+    subtitle: "Hashtags, legendas, roteiros e uma biblioteca de sons pronta para usar.",
     heroCtaPrimary: "Ver ferramentas",
-    heroCtaSecondary: "Ver blog",
-    popularTitle: "Ferramentas populares do Clipnexo",
-    popularDesc:
-      "Acesso rápido às ferramentas mais usadas para TikTok, YouTube, Instagram e redes sociais.",
+    heroCtaSounds: "Explorar sons",
+    popularTitle: "Ferramentas populares",
     popularTools: [
-      { label: "Hashtags para TikTok", desc: "Etiquetas para mais alcance", routeKey: "tiktokHashtags" },
-      { label: "Legendas para Instagram", desc: "Descrições atrativas", routeKey: "instagramCaptionGenerator" },
-      { label: "Títulos do YouTube", desc: "Títulos para mais cliques", routeKey: "youtubeTitleGenerator" },
-      { label: "Miniaturas do YouTube", desc: "Salve miniaturas em qualidade", routeKey: "youtubeThumbnailDownloader" },
-      { label: "Roteiros para vídeos curtos", desc: "Estrutura para Reels, TikTok e Shorts", routeKey: "shortVideoScriptGenerator" },
-      { label: "Contador de caracteres", desc: "Meça textos para redes", routeKey: "socialMediaCharacterCounter" },
+      { label: "Hashtags para TikTok", description: "Encontre hashtags relevantes para seus vídeos.", routeKey: "tiktokHashtags" },
+      { label: "Legendas para Instagram", description: "Escreva legendas claras e envolventes.", routeKey: "instagramCaptionGenerator" },
+      { label: "Títulos do YouTube", description: "Gere títulos que chamam a atenção.", routeKey: "youtubeTitleGenerator" },
+      { label: "Miniaturas do YouTube", description: "Baixe miniaturas em boa qualidade.", routeKey: "youtubeThumbnailDownloader" },
+      { label: "Roteiros para vídeos curtos", description: "Monte a estrutura do seu próximo vídeo.", routeKey: "shortVideoScriptGenerator" },
+      { label: "Contador de caracteres", description: "Confira o tamanho ideal antes de publicar.", routeKey: "socialMediaCharacterCounter" },
     ],
-    clustersTitle: "Explore ferramentas por plataforma",
-    clustersDesc: "Encontre ferramentas organizadas pela rede social onde você cria conteúdo.",
+    clustersTitle: "Ferramentas por plataforma",
     clusters: [
-      {
-        title: "TikTok",
-        desc: "Crie hashtags, legendas, bios, ideias e ganchos para o TikTok.",
-        links: [
-          { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
-          { label: "Legendas", routeKey: "tiktokCaptions" as RouteKey },
-          { label: "Ideias", routeKey: "tiktokIdeas" as RouteKey },
-          { label: "Bio", routeKey: "tiktokBio" as RouteKey },
-          { label: "Ganchos", routeKey: "tiktokHooks" as RouteKey },
-        ],
-      },
-      {
-        title: "YouTube",
-        desc: "Gere títulos, etiquetas, hashtags, descrições, miniaturas, links de tempo e calculadoras.",
-        links: [
-          { label: "Títulos", routeKey: "youtubeTitleGenerator" as RouteKey },
-          { label: "Tags", routeKey: "youtubeTagGenerator" as RouteKey },
-          { label: "Hashtags", routeKey: "youtubeHashtagGenerator" as RouteKey },
-          { label: "Descrições", routeKey: "youtubeDescriptionGenerator" as RouteKey },
-          { label: "Miniaturas", routeKey: "youtubeThumbnailDownloader" as RouteKey },
-          { label: "Links de tempo", routeKey: "youtubeTimestampLinkGenerator" as RouteKey },
-        ],
-      },
-      {
-        title: "Instagram",
-        desc: "Crie legendas, hashtags, bios, ideias para Reels e ganchos para suas publicações.",
-        links: [
-          { label: "Legendas", routeKey: "instagramCaptionGenerator" as RouteKey },
-          { label: "Hashtags", routeKey: "instagramHashtagGenerator" as RouteKey },
-          { label: "Bio", routeKey: "instagramBioGenerator" as RouteKey },
-          { label: "Ideias para Reels", routeKey: "instagramReelsIdeas" as RouteKey },
-          { label: "Ganchos para Reels", routeKey: "instagramReelsHooks" as RouteKey },
-        ],
-      },
-      {
-        title: "Facebook",
-        desc: "Gere posts, anúncios e textos para Marketplace.",
-        links: [
-          { label: "Posts", routeKey: "facebookPostGenerator" as RouteKey },
-          { label: "Anúncios", routeKey: "facebookAdGenerator" as RouteKey },
-          { label: "Marketplace", routeKey: "marketplaceTextGenerator" as RouteKey },
-        ],
-      },
-      {
-        title: "Vídeos curtos",
-        desc: "Crie roteiros, títulos, hashtags e estruturas para TikTok, Reels e Shorts.",
-        links: [
-          { label: "Roteiros", routeKey: "shortVideoScriptGenerator" as RouteKey },
-          { label: "Títulos e hashtags", routeKey: "shortVideoTitleHashtag" as RouteKey },
-        ],
-      },
-      {
-        title: "Redes sociais",
-        desc: "Crie textos, meça caracteres e prepare publicações para diferentes plataformas.",
-        links: [
-          { label: "Gerar textos", routeKey: "socialMediaTextGenerator" as RouteKey },
-          { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" as RouteKey },
-        ],
-      },
+      { title: "TikTok", description: "Ideias, hooks, legendas e hashtags para crescer no TikTok.", links: [
+        { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
+        { label: "Legendas", routeKey: "tiktokCaptions" as RouteKey },
+        { label: "Ideias", routeKey: "tiktokIdeas" as RouteKey },
+        { label: "Bio", routeKey: "tiktokBio" as RouteKey },
+      ] },
+      { title: "YouTube", description: "Otimize títulos, tags, descrições e miniaturas.", links: [
+        { label: "Títulos", routeKey: "youtubeTitleGenerator" as RouteKey },
+        { label: "Tags", routeKey: "youtubeTagGenerator" as RouteKey },
+        { label: "Descrições", routeKey: "youtubeDescriptionGenerator" as RouteKey },
+        { label: "Miniaturas", routeKey: "youtubeThumbnailDownloader" as RouteKey },
+      ] },
+      { title: "Instagram", description: "Crie legendas, bios, hashtags e ideias para Reels.", links: [
+        { label: "Legendas", routeKey: "instagramCaptionGenerator" as RouteKey },
+        { label: "Hashtags", routeKey: "instagramHashtagGenerator" as RouteKey },
+        { label: "Bio", routeKey: "instagramBioGenerator" as RouteKey },
+        { label: "Ideias para Reels", routeKey: "instagramReelsIdeas" as RouteKey },
+      ] },
+      { title: "Facebook", description: "Gere posts, anúncios e textos para Marketplace.", links: [
+        { label: "Posts", routeKey: "facebookPostGenerator" as RouteKey },
+        { label: "Anúncios", routeKey: "facebookAdGenerator" as RouteKey },
+        { label: "Marketplace", routeKey: "marketplaceTextGenerator" as RouteKey },
+      ] },
     ],
     howTitle: "Como o Clipnexo funciona",
     steps: [
       { title: "Escolha uma ferramenta", text: "Selecione se deseja gerar textos, criar hashtags, preparar roteiros ou analisar conteúdo." },
       { title: "Escreva sua ideia ou tema", text: "Descreva seu tema ou cole seu texto para obter resultados rápidos." },
-      { title: "Copie o resultado", text: "Obtenha o conteúdo pronto para usar diretamente do seu navegador." },
+      { title: "Copie o resultado", text: "Obtenha conteúdo pronto para usar diretamente do seu navegador." },
     ],
     diffTitle: "Mais que geradores soltos",
-    diffText:
-      "O Clipnexo reúne ferramentas para criar conteúdo em um só lugar. Use para trabalhar ideias, textos, hashtags, roteiros e recursos para suas redes.",
+    diffText: "O Clipnexo reúne ferramentas de criação de conteúdo em um só lugar. Trabalhe ideias, textos, hashtags, roteiros e recursos para suas redes.",
     diffPoints: [
-      "Ferramentas gratuitas do navegador.",
+      "Ferramentas gratuitas direto do navegador.",
       "Foco em criadores de conteúdo e editores de vídeo.",
       "Compatível com celular e computador.",
       "Ferramentas organizadas por plataforma.",
       "Conteúdo e rotas disponíveis em português, inglês e espanhol.",
     ],
-    blogTitle: "Guias recentes do blog",
-    blogDesc: "Artigos e comparativos para ajudar você a aproveitar melhor as ferramentas do Clipnexo.",
+    blogTitle: "Guias do blog",
+    blogDescription: "Artigos e comparativos para ajudar você a aproveitar melhor as ferramentas do Clipnexo.",
     faqTitle: "Perguntas frequentes",
     faqs: [
-      {
-        q: "O que é o Clipnexo?",
-        a: "O Clipnexo é uma plataforma de ferramentas online gratuitas para criadores de conteúdo: gere hashtags, legendas, bios, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook.",
-      },
-      {
-        q: "O Clipnexo serve apenas para o TikTok?",
-        a: "Não. O Clipnexo inclui ferramentas para TikTok, YouTube, Instagram, Facebook e estudantes: hashtags, legendas, títulos, roteiros, resumos e mais.",
-      },
-      {
-        q: "Preciso instalar um aplicativo?",
-        a: "Não. As ferramentas do Clipnexo funcionam no navegador, tanto no celular quanto no computador.",
-      },
-      {
-        q: "Posso usar o Clipnexo em vários idiomas?",
-        a: "Sim. O Clipnexo tem versões em português, inglês e espanhol.",
-      },
-      {
-        q: "As ferramentas garantem mais visualizações?",
-        a: "Não. As ferramentas podem ajudar a preparar melhor seu conteúdo, mas o desempenho depende da qualidade do conteúdo, do público, da plataforma e de outros fatores.",
-      },
-      {
-        q: "O Clipnexo é gratuito?",
-        a: "Sim. Todas as ferramentas do Clipnexo são gratuitas e não exigem cadastro.",
-      },
+      { question: "O que é o Clipnexo?", answer: "O Clipnexo é uma plataforma de ferramentas online gratuitas para criadores de conteúdo: gere hashtags, legendas, bios, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook." },
+      { question: "O Clipnexo serve apenas para o TikTok?", answer: "Não. O Clipnexo inclui ferramentas para TikTok, YouTube, Instagram, Facebook e estudantes: hashtags, legendas, títulos, roteiros, resumos e mais." },
+      { question: "Preciso instalar um aplicativo?", answer: "Não. As ferramentas do Clipnexo funcionam no navegador, tanto no celular quanto no computador." },
+      { question: "Posso usar o Clipnexo em vários idiomas?", answer: "Sim. O Clipnexo está disponível em português, inglês e espanhol." },
+      { question: "As ferramentas garantem mais visualizações?", answer: "Não. As ferramentas podem ajudar a preparar melhor seu conteúdo, mas o desempenho depende da qualidade do conteúdo, do público, da plataforma e de outros fatores." },
+      { question: "O Clipnexo é gratuito?", answer: "Sim. Todas as ferramentas do Clipnexo são gratuitas e não exigem cadastro." },
     ],
-    ctaFinalTitle: "Comece com uma ferramenta gratuita",
-    ctaFinalText: "Escolha uma ferramenta do Clipnexo e crie conteúdo para suas redes em segundos.",
-    ctaFinalPrimary: "Ver ferramentas",
-    ctaFinalSecondary: "Explorar ferramentas de TikTok",
+    finalCtaTitle: "Comece com uma ferramenta gratuita",
+    finalCtaText: "Escolha uma ferramenta do Clipnexo e crie conteúdo para suas redes em segundos.",
+    finalCtaPrimary: "Ver ferramentas",
+    finalCtaSecondary: "Explorar ferramentas de TikTok",
   },
 };
 
@@ -549,11 +374,10 @@ export default async function Home({ params }: Props) {
   const t = pageContent[currentLang];
   const popularTools = t.popularTools;
   const clusters = t.clusters;
-  const faqs = t.faqs;
   const blogEntries = getFilteredBlogPosts(currentLang, 3);
+  const readMoreLabel = { es: "Leer guía", en: "Read guide", pt: "Ler guia" }[currentLang];
 
   const toolsUrl = getToolRoute("tools", currentLang);
-  const blogUrl = `/${currentLang}/blog`;
   const tiktokToolsUrl = getToolRoute("tiktokTools", currentLang);
   const soundsUrl = getToolRoute("soundsLibrary", currentLang);
   const soundsSpotlight = soundsSpotlightContent[currentLang] || soundsSpotlightContent.es;
@@ -561,41 +385,24 @@ export default async function Home({ params }: Props) {
   let popularSounds: Awaited<ReturnType<typeof getPopularSounds>> = [];
   let soundCategories: Awaited<ReturnType<typeof listCategories>> = [];
   try {
-    [popularSounds, soundCategories] = await Promise.all([getPopularSounds(6), listCategories()]);
-  } catch {
+    [popularSounds, soundCategories] = await Promise.all([getPopularSounds(8), listCategories()]);
+  } catch (error) {
+    if (!(error instanceof SoundsDbNotConfiguredError)) throw error;
     // SOUNDS_DB not provisioned yet (e.g. during initial local dev) — hide the spotlight gracefully.
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
-
   return (
     <main className="home-page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
-      <section className="home-download-section" aria-labelledby="home-download-title">
+      <section className="home-hero-section" aria-labelledby="home-hero-title">
         <div className="home-hero">
-          <h1 id="home-download-title">{t.h1}</h1>
+          <h1 id="home-hero-title">{t.h1}</h1>
           <p className="home-hero-sub">{t.subtitle}</p>
           <div className="home-cta-actions">
-            <Link href={toolsUrl} className="home-hero-cta-primary">
-              {t.heroCtaPrimary}
+            <Link href={soundsUrl} className="home-hero-cta-primary">
+              {t.heroCtaSounds}
             </Link>
-            <Link href={blogUrl} className="home-hero-cta-secondary">
-              {t.heroCtaSecondary}
+            <Link href={toolsUrl} className="home-hero-cta-secondary">
+              {t.heroCtaPrimary}
             </Link>
           </div>
         </div>
@@ -604,11 +411,41 @@ export default async function Home({ params }: Props) {
       {/* SOUNDS SPOTLIGHT */}
       {popularSounds.length > 0 && (
         <SoundPlayerProvider>
-          <section className="home-section">
+          <section className="home-section home-sounds-section">
             <div className="home-section-header">
               <h2>{soundsSpotlight.title}</h2>
-              <p>{soundsSpotlight.desc}</p>
+              <Link href={soundsUrl} className="home-section-link">
+                {soundsSpotlight.cta}
+              </Link>
             </div>
+
+            <form action={soundsUrl} method="get" className="home-sounds-search">
+              <input
+                type="search"
+                name="q"
+                placeholder={soundsSpotlight.searchPlaceholder}
+                className="home-sounds-search-input"
+                aria-label={soundsSpotlight.searchPlaceholder}
+              />
+              <button type="submit" className="home-sounds-search-btn">
+                {soundsSpotlight.searchCta}
+              </button>
+            </form>
+
+            {soundCategories.length > 0 && (
+              <div className="home-sounds-categories">
+                {soundCategories.slice(0, 6).map((category) => (
+                  <Link
+                    key={category.id}
+                    href={`${soundsUrl}?categoria=${category.id}`}
+                    className="home-sounds-category-chip"
+                  >
+                    {getCategoryName(category, currentLang)}
+                  </Link>
+                ))}
+              </div>
+            )}
+
             <div className="sounds-grid">
               {popularSounds.map((sound) => {
                 const category = soundCategories.find((c) => c.id === sound.category_id);
@@ -631,11 +468,6 @@ export default async function Home({ params }: Props) {
                 );
               })}
             </div>
-            <div className="home-cta-actions" style={{ marginTop: 24 }}>
-              <Link href={soundsUrl} className="home-hero-cta-primary">
-                {soundsSpotlight.cta}
-              </Link>
-            </div>
           </section>
         </SoundPlayerProvider>
       )}
@@ -644,7 +476,6 @@ export default async function Home({ params }: Props) {
       <section className="home-section home-popular-section">
         <div className="home-section-header">
           <h2>{t.popularTitle}</h2>
-          <p>{t.popularDesc}</p>
         </div>
         <div className="home-tools-grid">
           {popularTools.map((tool) => (
@@ -655,7 +486,7 @@ export default async function Home({ params }: Props) {
             >
               <HomeToolIcon routeKey={tool.routeKey} />
               <h3>{tool.label}</h3>
-              <p>{tool.desc}</p>
+              <p>{tool.description}</p>
             </Link>
           ))}
         </div>
@@ -665,13 +496,12 @@ export default async function Home({ params }: Props) {
       <section className="home-section">
         <div className="home-section-header">
           <h2>{t.clustersTitle}</h2>
-          <p>{t.clustersDesc}</p>
         </div>
         <div className="home-clusters-grid">
           {clusters.map((cluster) => (
             <div key={cluster.title} className="home-cluster-card">
               <h3>{cluster.title}</h3>
-              <p>{cluster.desc}</p>
+              <p>{cluster.description}</p>
               <div className="home-cluster-links">
                 {cluster.links.map((link) => (
                   <Link
@@ -694,9 +524,9 @@ export default async function Home({ params }: Props) {
           <h2>{t.howTitle}</h2>
         </div>
         <div className="home-steps">
-          {t.steps.map((step, i) => (
-            <div key={i} className="home-step">
-              <div className="home-step-number">{i + 1}</div>
+          {t.steps.map((step, index) => (
+            <div key={step.title} className="home-step">
+              <div className="home-step-number">{index + 1}</div>
               <h3>{step.title}</h3>
               <p>{step.text}</p>
             </div>
@@ -706,14 +536,14 @@ export default async function Home({ params }: Props) {
 
       {/* DIFFERENTIATION */}
       <section className="home-section">
-        <div className="home-section-header">
+        <div className="home-section-header home-section-header-stacked">
           <h2>{t.diffTitle}</h2>
           <p>{t.diffText}</p>
         </div>
         <div className="home-diff-grid">
-          {t.diffPoints.map((point, i) => (
-            <div key={i} className="home-diff-item">
-              <span className="home-diff-check">✓</span>
+          {t.diffPoints.map((point) => (
+            <div key={point} className="home-diff-item">
+              <span className="home-diff-check" aria-hidden="true">✓</span>
               <span>{point}</span>
             </div>
           ))}
@@ -723,9 +553,9 @@ export default async function Home({ params }: Props) {
       {/* BLOG */}
       {blogEntries.length > 0 && (
         <section className="home-section">
-          <div className="home-section-header">
+          <div className="home-section-header home-section-header-stacked">
             <h2>{t.blogTitle}</h2>
-            <p>{t.blogDesc}</p>
+            <p>{t.blogDescription}</p>
           </div>
           <div className="home-blog-grid">
             {blogEntries.map((post) => (
@@ -735,6 +565,7 @@ export default async function Home({ params }: Props) {
                 </span>
                 <h3>{post.content[currentLang]?.title || ""}</h3>
                 <p>{post.content[currentLang]?.excerpt || ""}</p>
+                <span className="home-blog-readmore">{readMoreLabel} →</span>
               </Link>
             ))}
           </div>
@@ -747,28 +578,29 @@ export default async function Home({ params }: Props) {
           <h2>{t.faqTitle}</h2>
         </div>
         <div className="home-faq-list">
-          {faqs.map((faq, i) => (
-            <details key={i} className="home-faq-item">
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
+          {t.faqs.map((faq) => (
+            <details key={faq.question} className="home-faq-item">
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
             </details>
           ))}
         </div>
       </section>
 
-      {/* CTA FINAL */}
+      {/* FINAL CTA */}
       <section className="home-cta-section">
-        <h2>{t.ctaFinalTitle}</h2>
-        <p>{t.ctaFinalText}</p>
+        <h2>{t.finalCtaTitle}</h2>
+        <p>{t.finalCtaText}</p>
         <div className="home-cta-actions">
           <Link href={toolsUrl} className="home-hero-cta-primary">
-            {t.ctaFinalPrimary}
+            {t.finalCtaPrimary}
           </Link>
           <Link href={tiktokToolsUrl} className="home-hero-cta-secondary">
-            {t.ctaFinalSecondary}
+            {t.finalCtaSecondary}
           </Link>
         </div>
       </section>
+
     </main>
   );
 }

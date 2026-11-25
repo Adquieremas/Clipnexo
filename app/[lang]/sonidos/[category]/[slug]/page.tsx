@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { normalizeLang, getLocalizedRoute, type SupportedLang } from "@/lib/routes";
 import { buildSeoMetadata, getAbsoluteUrl } from "@/lib/seo";
+import { createMediaSeoTitle, fitSeoDescription } from "@/lib/media-seo";
 import { getCategory, getCategoryName, getSoundAudioUrl, getSoundById, listSounds } from "@/lib/sounds-db";
 import { SoundPlayerProvider } from "@/components/sounds/SoundPlayerProvider";
 import SoundCard from "@/components/sounds/SoundCard";
@@ -42,9 +43,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pt: `Ouça e baixe grátis "${sound.title}", um som de ${categoryLabel.toLowerCase()} para seus vídeos de TikTok, Reels e Shorts.`,
   };
 
-  return buildSeoMetadata({
-    title: `${sound.title} — ${categoryLabel}`,
-    description: descriptions[currentLang],
+  const title = createMediaSeoTitle(sound.title, currentLang, "sound");
+  const metadata = buildSeoMetadata({
+    title,
+    description: fitSeoDescription(descriptions[currentLang], currentLang),
     routeKey: "soundsLibrary",
     lang: currentLang,
     canonicalPath: soundPath(currentLang, sound.category_id, sound.id),
@@ -57,6 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "music.song",
     },
   });
+  return { ...metadata, title: { absolute: title } };
 }
 
 export default async function SoundDetailPage({ params }: Props) {

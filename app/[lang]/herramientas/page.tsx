@@ -375,7 +375,7 @@ export default async function ToolsPage({ params }: PageProps) {
         margin: "40px auto",
         padding: "24px",
         lineHeight: "1.75",
-        color: "#111",
+        color: "var(--text-primary)",
       }}
     >
       <section style={{ textAlign: "center", marginBottom: "52px" }}>
@@ -383,7 +383,7 @@ export default async function ToolsPage({ params }: PageProps) {
           style={{
             fontSize: "clamp(40px, 6vw, 64px)",
             fontWeight: 800,
-            color: "#111",
+            color: "var(--text-primary)",
             lineHeight: "1.05",
             margin: "0 0 16px",
           }}
@@ -393,7 +393,7 @@ export default async function ToolsPage({ params }: PageProps) {
 
         <p
           style={{
-            color: "#444",
+            color: "var(--text-primary)",
             margin: "0 auto",
             fontSize: "20px",
             maxWidth: "860px",
@@ -410,7 +410,7 @@ export default async function ToolsPage({ params }: PageProps) {
             fontSize: "28px",
             fontWeight: 700,
             marginBottom: "24px",
-            borderBottom: "2px solid #eaeaea",
+            borderBottom: "2px solid var(--border)",
             paddingBottom: "8px",
           }}
         >
@@ -430,14 +430,14 @@ export default async function ToolsPage({ params }: PageProps) {
               style={{
                 display: "block",
                 padding: "20px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "12px",
                 textDecoration: "none",
-                color: "#111",
+                color: "var(--text-primary)",
                 fontWeight: 600,
                 fontSize: "18px",
                 transition: "transform 0.2s, box-shadow 0.2s",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}
               className="tool-card-link"
             >
@@ -455,7 +455,7 @@ export default async function ToolsPage({ params }: PageProps) {
                 fontSize: "28px",
                 fontWeight: 700,
                 marginBottom: "24px",
-                borderBottom: "2px solid #eaeaea",
+                borderBottom: "2px solid var(--border)",
                 paddingBottom: "8px"
               }}
             >
@@ -473,14 +473,14 @@ export default async function ToolsPage({ params }: PageProps) {
                   style={{
                     display: "block",
                     padding: "20px",
-                    backgroundColor: "#f9f9f9",
+                    backgroundColor: "var(--surface)",
                     borderRadius: "12px",
                     textDecoration: "none",
-                    color: "#111",
+                    color: "var(--text-primary)",
                     fontWeight: 600,
                     fontSize: "18px",
                     transition: "transform 0.2s, box-shadow 0.2s",
-                    border: "1px solid #eee",
+                    border: "1px solid var(--border)",
                   }}
                   className="tool-card-link"
                 >
@@ -507,16 +507,16 @@ export default async function ToolsPage({ params }: PageProps) {
             <details
               key={i}
               style={{
-                background: "#f9f9f9",
+                background: "var(--surface)",
                 padding: "16px 20px",
                 borderRadius: "10px",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}
             >
-              <summary style={{ fontWeight: 600, cursor: "pointer", color: "#111", fontSize: "16px" }}>
+              <summary style={{ fontWeight: 600, cursor: "pointer", color: "var(--text-primary)", fontSize: "16px" }}>
                 {item.q}
               </summary>
-              <p style={{ marginTop: "12px", color: "#444", lineHeight: "1.7" }}>
+              <p style={{ marginTop: "12px", color: "var(--text-primary)", lineHeight: "1.7" }}>
                 {item.a}
               </p>
             </details>
@@ -528,7 +528,7 @@ export default async function ToolsPage({ params }: PageProps) {
         style={{
           marginBottom: "32px",
           padding: "40px 32px",
-          backgroundColor: "#f5f5ff",
+          backgroundColor: "var(--surface)",
           borderRadius: "16px",
           textAlign: "center",
         }}
@@ -537,7 +537,7 @@ export default async function ToolsPage({ params }: PageProps) {
           style={{
             fontSize: "28px",
             fontWeight: 700,
-            color: "#111",
+            color: "var(--text-primary)",
             margin: "0 0 12px",
           }}
         >
@@ -545,7 +545,7 @@ export default async function ToolsPage({ params }: PageProps) {
         </h2>
         <p
           style={{
-            color: "#444",
+            color: "var(--text-primary)",
             fontSize: "17px",
             marginBottom: "24px",
             lineHeight: "1.6",
@@ -559,8 +559,8 @@ export default async function ToolsPage({ params }: PageProps) {
             style={{
               display: "inline-block",
               padding: "14px 28px",
-              background: "linear-gradient(90deg, #6366f1, #ec4899)",
-              color: "white",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               borderRadius: "12px",
               textDecoration: "none",
               fontWeight: 700,
@@ -574,13 +574,13 @@ export default async function ToolsPage({ params }: PageProps) {
             style={{
               display: "inline-block",
               padding: "14px 28px",
-              background: "white",
-              color: "#4f46e5",
+              background: "var(--surface)",
+              color: "var(--text-primary)",
               borderRadius: "12px",
               textDecoration: "none",
               fontWeight: 700,
               fontSize: "16px",
-              border: "1px solid #c7d2fe",
+              border: "1px solid var(--border)",
             }}
           >
             {t.ctaButtons.secondary.label}
@@ -607,8 +607,8 @@ export default async function ToolsPage({ params }: PageProps) {
         __html: `
           .tool-card-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border-color: var(--accent);
           }
         `
       }} />

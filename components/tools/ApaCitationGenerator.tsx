@@ -243,7 +243,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
         {/* Source type */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.sourceTypeLabel}
           </label>
           <select
@@ -253,9 +253,9 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
-              backgroundColor: "white",
+              backgroundColor: "var(--surface)",
               cursor: "pointer",
               minHeight: "44px",
               boxSizing: "border-box",
@@ -272,7 +272,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
 
         {/* Author */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.authorLabel}
           </label>
           <input
@@ -284,19 +284,19 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
               minHeight: "44px",
               boxSizing: "border-box",
               width: "100%",
             }}
           />
-          <span style={{ fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{t.authorNote}</span>
+          <span style={{ fontSize: "11px", color: "#d4d8dd", marginTop: "2px" }}>{t.authorNote}</span>
         </div>
 
         {/* Year */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.yearLabel}
           </label>
           <input
@@ -308,7 +308,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
               minHeight: "44px",
               boxSizing: "border-box",
@@ -320,7 +320,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
 
         {/* Title */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.titleLabel}
           </label>
           <input
@@ -332,7 +332,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
               minHeight: "44px",
               boxSizing: "border-box",
@@ -343,7 +343,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
 
         {/* Source */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.sourceLabel}
           </label>
           <input
@@ -355,7 +355,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
               minHeight: "44px",
               boxSizing: "border-box",
@@ -366,7 +366,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
 
         {/* URL */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.urlLabel}
           </label>
           <input
@@ -378,7 +378,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
               minHeight: "44px",
               boxSizing: "border-box",
@@ -390,7 +390,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
         {/* Access date (only for webpage and video) */}
         {showAccessDate && (
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.accessDateLabel}
             </label>
             <input
@@ -402,7 +402,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
                 minHeight: "44px",
                 boxSizing: "border-box",
@@ -426,7 +426,7 @@ export default function ApaCitationGenerator({ lang }: Props) {
               background: canGenerate
                 ? "linear-gradient(90deg, #6366f1, #ec4899)"
                 : "#d1d5db",
-              color: "white",
+              color: "var(--text-primary)",
               borderRadius: "10px",
               border: "none",
               fontWeight: 700,
@@ -447,8 +447,8 @@ export default function ApaCitationGenerator({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: "#fef2f2",
-              color: "#991b1b",
+              backgroundColor: "#3d1414",
+              color: "#f6bbbb",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -461,21 +461,21 @@ export default function ApaCitationGenerator({ lang }: Props) {
         {citation && (
           <div style={{
             padding: "20px",
-            backgroundColor: "#f9f9f9",
+            backgroundColor: "var(--surface)",
             borderRadius: "12px",
-            border: "1px solid #eee",
+            border: "1px solid var(--border)",
           }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
               {t.resultTitle}
             </h3>
             <div style={{
               padding: "16px",
-              backgroundColor: "white",
+              backgroundColor: "var(--surface)",
               borderRadius: "8px",
-              border: "1px solid #e5e7eb",
+              border: "1px solid #474e5c",
               fontSize: "15px",
               lineHeight: "1.7",
-              color: "#111",
+              color: "var(--text-primary)",
               wordBreak: "break-all",
               marginBottom: "12px",
             }}>
@@ -491,10 +491,10 @@ export default function ApaCitationGenerator({ lang }: Props) {
           <div style={{
             padding: "12px 16px",
             borderRadius: "8px",
-            backgroundColor: "#f3f4f6",
-            border: "1px solid #e5e7eb",
+            backgroundColor: "#24272d",
+            border: "1px solid #474e5c",
             fontSize: "13px",
-            color: "#6b7280",
+            color: "#d5d7dc",
             lineHeight: "1.5",
           }}>
             {t.noCitation}
@@ -505,10 +505,10 @@ export default function ApaCitationGenerator({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#f0f7ff",
-          border: "1px solid #dbeafe",
+          backgroundColor: "#14273d",
+          border: "1px solid #214b82",
           fontSize: "13px",
-          color: "#1e40af",
+          color: "#bbc8f7",
           lineHeight: "1.5",
         }}>
           {t.citationIntro}
@@ -518,10 +518,10 @@ export default function ApaCitationGenerator({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fefce8",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#854d0e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.disclaimer}

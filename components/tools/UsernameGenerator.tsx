@@ -266,7 +266,7 @@ export default function UsernameGenerator({ lang }: Props) {
             style={{
               fontSize: "12px",
               fontWeight: 600,
-              color: "#374151",
+              color: "#d1d7e1",
               textTransform: "uppercase",
               letterSpacing: "0.5px",
             }}
@@ -284,7 +284,7 @@ export default function UsernameGenerator({ lang }: Props) {
               padding: "14px 16px",
               fontSize: "16px",
               borderRadius: "12px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               outline: "none",
               fontFamily: "inherit",
               lineHeight: "1.6",
@@ -300,7 +300,7 @@ export default function UsernameGenerator({ lang }: Props) {
             style={{
               fontSize: "12px",
               fontWeight: 600,
-              color: "#374151",
+              color: "#d1d7e1",
               textTransform: "uppercase",
               letterSpacing: "0.5px",
             }}
@@ -318,9 +318,9 @@ export default function UsernameGenerator({ lang }: Props) {
                   minHeight: "44px",
                   padding: "8px 14px",
                   borderRadius: "8px",
-                  border: style === key ? "2px solid #4f46e5" : "1px solid #d1d5db",
-                  backgroundColor: style === key ? "#eef2ff" : "#ffffff",
-                  color: style === key ? "#4f46e5" : "#374151",
+                  border: style === key ? "2px solid #262183" : "1px solid #48505c",
+                  backgroundColor: style === key ? "#121d3f" : "var(--surface)",
+                  color: style === key ? "#bebaf7" : "#a9b4c6",
                   fontWeight: 600,
                   fontSize: "13px",
                   cursor: "pointer",
@@ -342,8 +342,8 @@ export default function UsernameGenerator({ lang }: Props) {
               minHeight: "44px",
               flex: "1 0 auto",
               padding: "10px 24px",
-              background: "linear-gradient(135deg, #4f46e5, #ec4899)",
-              color: "#ffffff",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               borderRadius: "10px",
               border: "none",
               fontWeight: 800,
@@ -384,8 +384,8 @@ export default function UsernameGenerator({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: "#f0fdf4",
-              color: "#166534",
+              backgroundColor: "#143d21",
+              color: "#bef4d2",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -412,16 +412,16 @@ export default function UsernameGenerator({ lang }: Props) {
                   justifyContent: "space-between",
                   gap: "8px",
                   padding: "10px 14px",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "var(--surface)",
                   borderRadius: "10px",
-                  border: "1px solid #eee",
+                  border: "1px solid var(--border)",
                 }}
               >
                 <span
                   style={{
                     fontSize: "14px",
                     fontWeight: 600,
-                    color: "#111",
+                    color: "var(--text-primary)",
                     fontFamily: "monospace",
                     letterSpacing: "0.3px",
                   }}
@@ -437,9 +437,9 @@ export default function UsernameGenerator({ lang }: Props) {
                     minWidth: "60px",
                     padding: "4px 12px",
                     borderRadius: "6px",
-                    border: "1px solid #d1d5db",
-                    backgroundColor: copiedIdx === idx ? "#f0fdf4" : "#ffffff",
-                    color: copiedIdx === idx ? "#15803d" : "#374151",
+                    border: "1px solid #48505c",
+                    backgroundColor: copiedIdx === idx ? "#123f20" : "var(--surface)",
+                    color: copiedIdx === idx ? "#82edaa" : "#a9b4c6",
                     fontSize: "12px",
                     fontWeight: 600,
                     cursor: "pointer",
@@ -458,10 +458,10 @@ export default function UsernameGenerator({ lang }: Props) {
           style={{
             padding: "12px 16px",
             borderRadius: "8px",
-            backgroundColor: "#fffbeb",
-            border: "1px solid #fde68a",
+            backgroundColor: "var(--surface)",
+            border: "1px solid var(--border)",
             fontSize: "13px",
-            color: "#92400e",
+            color: "var(--text-secondary)",
             lineHeight: "1.5",
           }}
         >

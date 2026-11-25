@@ -99,11 +99,11 @@ export default function YouTubeViewRatioCalculator({ lang }: Props) {
       <div
         style={{
           marginTop: 24,
-          background: "linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899)",
+          background: "var(--accent)",
           borderRadius: 18,
           padding: 32,
           textAlign: "center",
-          color: "#ffffff",
+          color: "var(--text-primary)",
           boxShadow: "0 12px 28px rgba(79, 70, 229, 0.25)",
         }}
       >
@@ -192,7 +192,7 @@ export default function YouTubeViewRatioCalculator({ lang }: Props) {
             style={{
               width: `${fillPercent}%`,
               height: "100%",
-              background: "#ffffff",
+              background: "var(--surface)",
               borderRadius: 999,
               transition: "width 0.3s ease",
               position: "relative",

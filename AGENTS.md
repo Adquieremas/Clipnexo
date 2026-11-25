@@ -25,7 +25,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - `lib/tools-extra-content.ts` with SEO content for 6 student tools (wordCounter, caseConverter, outlineGenerator, assignmentTitleGenerator, introductionGenerator, conclusionGenerator) × 3 languages.
 - General tools page (`app/[lang]/herramientas/page.tsx`) updated with student cluster section and tool links.
 - Footer platform links updated to include student tools in `lib/footer-content.ts`.
-- Sitemap (`app/sitemap.ts`) includes student cluster route with priority 0.85 / changeFrequency weekly.
+- Sitemap (`lib/sitemap-data.ts` + `app/sitemap*.xml/route.ts`) includes student cluster route with priority 0.85 / changeFrequency weekly.
 - `public/llms.txt` updated with `## Student tools` section (6 tools × 3 languages) and student cluster in tool clusters.
 - 6 interactive tool components created in `components/tools/`: `WordCounter.tsx`, `CaseConverter.tsx`, `OutlineGenerator.tsx`, `AssignmentTitleGenerator.tsx`, `IntroductionGenerator.tsx`, `ConclusionGenerator.tsx`.
 - 6 tool page files created under `app/[lang]/`: `contador-palabras-caracteres`, `convertidor-mayusculas-minusculas`, `generador-indice-trabajos`, `generador-titulos-trabajos`, `generador-introducciones`, `generador-conclusiones`.
@@ -78,7 +78,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - `lib/routes.ts`: RouteKey type, localizedRoutes, indexableRouteKeys.
 - `middleware.ts`: INTERNAL_ROUTE_SEGMENTS and canonical→internal rewrite.
 - `app/[lang]/herramientas/page.tsx`: Updated hero, popular tools, FAQ, CTA, student cluster section.
-- `app/sitemap.ts`: Cluster routes priority 0.85.
+- `lib/sitemap-data.ts`: Sitemap data/serialization; cluster routes priority 0.85; pages/blog/sounds XML.
 - `public/llms.txt`: Student tools section and student cluster in tool clusters.
 - `next.config.ts`: PWA runtimeCaching config, security headers.
 - `tsconfig.json`: target updated to ES2022.

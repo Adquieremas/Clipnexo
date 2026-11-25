@@ -105,7 +105,7 @@ export default function YouTubeMoneyCalculator({ lang }: Props) {
               width: "100%",
               height: 8,
               borderRadius: 999,
-              accentColor: "#4f46e5",
+              accentColor: "#262183",
               cursor: "pointer",
             }}
           />
@@ -113,7 +113,7 @@ export default function YouTubeMoneyCalculator({ lang }: Props) {
             style={{
               fontSize: 14,
               fontWeight: 700,
-              color: "#4f46e5",
+              color: "#bdb9f9",
               marginTop: 4,
             }}
           >
@@ -125,11 +125,11 @@ export default function YouTubeMoneyCalculator({ lang }: Props) {
       <div
         style={{
           marginTop: 24,
-          background: "linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899)",
+          background: "var(--accent)",
           borderRadius: 18,
           padding: 32,
           textAlign: "center",
-          color: "#ffffff",
+          color: "var(--text-primary)",
           boxShadow: "0 12px 28px rgba(79, 70, 229, 0.25)",
         }}
       >

@@ -337,7 +337,7 @@ export default function TextCorrector({ lang }: Props) {
             padding: "20px",
             fontSize: "16px",
             borderRadius: "12px",
-            border: "2px solid #e5e7eb",
+            border: "2px solid #474e5c",
             outline: "none",
             transition: "border-color 0.2s",
             fontFamily: "inherit",
@@ -361,8 +361,8 @@ export default function TextCorrector({ lang }: Props) {
               flex: "1 0 auto",
               maxWidth: "200px",
               padding: "10px 24px",
-              background: "linear-gradient(90deg, #6366f1, #ec4899)",
-              color: "white",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               borderRadius: "10px",
               border: "none",
               fontWeight: 700,
@@ -383,8 +383,8 @@ export default function TextCorrector({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: feedback.includes(t.copied) || feedback.includes(t.fixApplied) ? "#f0fdf4" : "#fef2f2",
-              color: feedback.includes(t.copied) || feedback.includes(t.fixApplied) ? "#166534" : "#991b1b",
+              backgroundColor: feedback.includes(t.copied) || feedback.includes(t.fixApplied) ? "#123f20" : "#3f1212",
+              color: feedback.includes(t.copied) || feedback.includes(t.fixApplied) ? "#87e8ac" : "#ec8383",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -397,18 +397,18 @@ export default function TextCorrector({ lang }: Props) {
         {issues.length > 0 && (
           <div style={{
             padding: "20px",
-            backgroundColor: "#f9f9f9",
+            backgroundColor: "var(--surface)",
             borderRadius: "12px",
-            border: "1px solid #eee",
+            border: "1px solid var(--border)",
           }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
               {t.findingsTitle} ({totalIssues})
             </h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {issues.map((issue, idx) => (
                 <div key={idx} style={{
                   padding: "12px 16px",
-                  backgroundColor: "white",
+                  backgroundColor: "var(--surface)",
                   borderRadius: "8px",
                   border: `2px solid ${getIssueColor(issue.type)}20`,
                   fontSize: "14px",
@@ -421,12 +421,12 @@ export default function TextCorrector({ lang }: Props) {
                       borderRadius: "50%",
                       backgroundColor: getIssueColor(issue.type),
                     }} />
-                    <strong style={{ color: "#111" }}>{issue.message}</strong>
-                    <span style={{ color: "#6b7280", fontSize: "13px" }}>
+                    <strong style={{ color: "var(--text-primary)" }}>{issue.message}</strong>
+                    <span style={{ color: "#d5d7dc", fontSize: "13px" }}>
                       ({issue.positions.length})
                     </span>
                   </div>
-                  <div style={{ fontSize: "12px", color: "#6b7280", paddingLeft: "18px" }}>
+                  <div style={{ fontSize: "12px", color: "#d5d7dc", paddingLeft: "18px" }}>
                     {issue.positions.slice(0, 5).map((pos, i) => (
                       <span key={i}>{i > 0 ? ", " : ""}{t.atPosition} {pos}</span>
                     ))}
@@ -444,8 +444,8 @@ export default function TextCorrector({ lang }: Props) {
                 style={{
                   minHeight: "44px",
                   padding: "10px 24px",
-                  background: "linear-gradient(90deg, #10b981, #6366f1)",
-                  color: "white",
+                  background: "var(--accent)",
+                  color: "var(--text-primary)",
                   borderRadius: "10px",
                   border: "none",
                   fontWeight: 700,
@@ -464,10 +464,10 @@ export default function TextCorrector({ lang }: Props) {
           <div style={{
             padding: "12px 16px",
             borderRadius: "8px",
-            backgroundColor: "#f0fdf4",
-            border: "1px solid #bbf7d0",
+            backgroundColor: "#143d21",
+            border: "1px solid #218243",
             fontSize: "14px",
-            color: "#166534",
+            color: "#bef4d2",
             fontWeight: 500,
           }}>
             {t.noIssues}
@@ -478,21 +478,21 @@ export default function TextCorrector({ lang }: Props) {
         {correctedText && (
           <div style={{
             padding: "20px",
-            backgroundColor: "#f9f9f9",
+            backgroundColor: "var(--surface)",
             borderRadius: "12px",
-            border: "1px solid #eee",
+            border: "1px solid var(--border)",
           }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
               {t.correctedText}
             </h3>
             <div style={{
               padding: "16px",
-              backgroundColor: "white",
+              backgroundColor: "var(--surface)",
               borderRadius: "8px",
-              border: "1px solid #e5e7eb",
+              border: "1px solid #474e5c",
               fontSize: "15px",
               lineHeight: "1.7",
-              color: "#111",
+              color: "var(--text-primary)",
               whiteSpace: "pre-wrap",
               marginBottom: "12px",
             }}>
@@ -501,7 +501,7 @@ export default function TextCorrector({ lang }: Props) {
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
               <button type="button" className="tool-button-secondary" onClick={handleCopyCorrected} style={{ minHeight: "44px", flex: "1 0 auto", maxWidth: "220px" }}>{t.copyCorrected}</button>
               {fixesApplied > 0 && (
-                <span style={{ fontSize: "13px", color: "#166534", fontWeight: 500 }}>
+                <span style={{ fontSize: "13px", color: "#bef4d2", fontWeight: 500 }}>
                   {fixesApplied} {t.correctionsMade.toLowerCase()}
                 </span>
               )}
@@ -518,28 +518,28 @@ export default function TextCorrector({ lang }: Props) {
           }}>
             <div style={{
               padding: "14px",
-              backgroundColor: "#fef2f2",
+              backgroundColor: "#3d1414",
               borderRadius: "10px",
               textAlign: "center",
-              border: "1px solid #fecaca",
+              border: "1px solid #822121",
             }}>
-              <span style={{ display: "block", fontSize: "11px", color: "#dc2626", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+              <span style={{ display: "block", fontSize: "11px", color: "#f7baba", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                 {t.issuesFound}
               </span>
-              <strong style={{ fontSize: "22px", color: "#991b1b" }}>{totalIssues}</strong>
+              <strong style={{ fontSize: "22px", color: "#f6bbbb" }}>{totalIssues}</strong>
             </div>
             {fixesApplied > 0 && (
               <div style={{
                 padding: "14px",
-                backgroundColor: "#f0fdf4",
+                backgroundColor: "#143d21",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #bbf7d0",
+                border: "1px solid #218243",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#16a34a", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "#b8f9d1", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {t.correctionsMade}
                 </span>
-                <strong style={{ fontSize: "22px", color: "#166534" }}>{fixesApplied}</strong>
+                <strong style={{ fontSize: "22px", color: "#bef4d2" }}>{fixesApplied}</strong>
               </div>
             )}
           </div>
@@ -549,10 +549,10 @@ export default function TextCorrector({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fefce8",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#854d0e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.disclaimer}
@@ -562,10 +562,10 @@ export default function TextCorrector({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fffbeb",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#92400e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.privacy}

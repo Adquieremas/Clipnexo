@@ -193,7 +193,7 @@ export default function TextToPdf({ lang }: Props) {
       <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
         {/* Title field */}
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
             {t.titleLabel}
           </label>
           <input
@@ -205,7 +205,7 @@ export default function TextToPdf({ lang }: Props) {
             style={{
               padding: "10px 14px",
               borderRadius: "8px",
-              border: "1px solid #d1d5db",
+              border: "1px solid #48505c",
               fontSize: "14px",
               minHeight: "44px",
               boxSizing: "border-box",
@@ -224,7 +224,7 @@ export default function TextToPdf({ lang }: Props) {
             padding: "20px",
             fontSize: "16px",
             borderRadius: "12px",
-            border: "2px solid #e5e7eb",
+            border: "2px solid #474e5c",
             outline: "none",
             transition: "border-color 0.2s",
             fontFamily: "Georgia, Times New Roman, serif",
@@ -240,7 +240,7 @@ export default function TextToPdf({ lang }: Props) {
         {/* Settings row */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "flex-end" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 140px", minWidth: "140px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.fontSizeLabel}
             </label>
             <select
@@ -250,9 +250,9 @@ export default function TextToPdf({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 boxSizing: "border-box",
@@ -266,7 +266,7 @@ export default function TextToPdf({ lang }: Props) {
             </select>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 140px", minWidth: "140px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.alignmentLabel}
             </label>
             <select
@@ -276,9 +276,9 @@ export default function TextToPdf({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 boxSizing: "border-box",
@@ -303,8 +303,8 @@ export default function TextToPdf({ lang }: Props) {
               flex: "1 0 auto",
               maxWidth: "200px",
               padding: "10px 24px",
-              background: "linear-gradient(90deg, #6366f1, #ec4899)",
-              color: "white",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               borderRadius: "10px",
               border: "none",
               fontWeight: 700,
@@ -325,8 +325,8 @@ export default function TextToPdf({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: "#fef2f2",
-              color: "#991b1b",
+              backgroundColor: "#3d1414",
+              color: "#f6bbbb",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -346,27 +346,27 @@ export default function TextToPdf({ lang }: Props) {
             }}>
               <div style={{
                 padding: "14px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {t.chars}
                 </span>
-                <strong style={{ fontSize: "22px", color: "#111" }}>{chars.toLocaleString()}</strong>
+                <strong style={{ fontSize: "22px", color: "var(--text-primary)" }}>{chars.toLocaleString()}</strong>
               </div>
               <div style={{
                 padding: "14px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {t.words}
                 </span>
-                <strong style={{ fontSize: "22px", color: "#111" }}>{words.toLocaleString()}</strong>
+                <strong style={{ fontSize: "22px", color: "var(--text-primary)" }}>{words.toLocaleString()}</strong>
               </div>
             </div>
           </>
@@ -376,10 +376,10 @@ export default function TextToPdf({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#f0f7ff",
-          border: "1px solid #dbeafe",
+          backgroundColor: "#14273d",
+          border: "1px solid #214b82",
           fontSize: "13px",
-          color: "#1e40af",
+          color: "#bbc8f7",
           lineHeight: "1.5",
         }}>
           {t.viewInNewTab}
@@ -389,10 +389,10 @@ export default function TextToPdf({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fefce8",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#854d0e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.legal}
@@ -402,10 +402,10 @@ export default function TextToPdf({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fffbeb",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#92400e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.privacy}

@@ -263,7 +263,7 @@ export default async function Page({ params }: PageProps) {
         margin: "32px auto 60px",
         padding: "20px",
         lineHeight: "1.7",
-        color: "#111",
+        color: "var(--text-primary)",
       }}
     >
       <section style={{ textAlign: "center", marginBottom: "42px" }}>
@@ -271,7 +271,7 @@ export default async function Page({ params }: PageProps) {
           style={{
             fontSize: "clamp(28px, 4vw, 42px)",
             fontWeight: 800,
-            color: "#111",
+            color: "var(--text-primary)",
             lineHeight: "1.1",
             margin: "0 0 14px",
           }}
@@ -281,7 +281,7 @@ export default async function Page({ params }: PageProps) {
 
         <p
           style={{
-            color: "#555",
+            color: "var(--text-primary)",
             margin: "0 auto",
             fontSize: "17px",
             maxWidth: "780px",
@@ -300,12 +300,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.introTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>
             {t.intro}
           </p>
         </section>
@@ -317,12 +317,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.missionTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>
             {t.missionText}
           </p>
         </section>
@@ -334,12 +334,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.whyTitle}
           </h2>
-          <ul style={{ paddingLeft: "24px", margin: 0, color: "#222" }}>
+          <ul style={{ paddingLeft: "24px", margin: 0, color: "var(--text-primary)" }}>
             {t.whyItems.map((item) => (
               <li key={item} style={{ marginBottom: "8px", fontSize: "16px", lineHeight: 1.7 }}>
                 {item}
@@ -355,12 +355,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.compatibilityTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>
             {t.compatibilityText}
           </p>
         </section>
@@ -372,12 +372,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.qualityTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>
             {t.qualityText}
           </p>
         </section>
@@ -389,12 +389,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.securityTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>
             {t.securityText}
           </p>
         </section>
@@ -406,7 +406,7 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 14px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.faqTitle}
@@ -419,12 +419,12 @@ export default async function Page({ params }: PageProps) {
                   lineHeight: 1.35,
                   fontWeight: 700,
                   margin: "0 0 6px",
-                  color: "#111",
+                  color: "var(--text-primary)",
                 }}
               >
                 {item.q}
               </h3>
-              <p style={{ fontSize: "15px", lineHeight: 1.7, color: "#555", margin: 0 }}>
+              <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text-primary)", margin: 0 }}>
                 {item.a}
               </p>
             </div>
@@ -438,12 +438,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.toolsTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.7, color: "#444", margin: "0 0 14px" }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.7, color: "var(--text-primary)", margin: "0 0 14px" }}>
             {t.toolsIntro}
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
@@ -463,12 +463,12 @@ export default async function Page({ params }: PageProps) {
               lineHeight: 1.2,
               fontWeight: 800,
               margin: "0 0 10px",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
           >
             {t.closingTitle}
           </h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#444", margin: 0 }}>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>
             {t.closingText}
           </p>
         </section>

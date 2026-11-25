@@ -98,6 +98,8 @@ export const navigation: Record<string, NavLangContent> = {
       label: "Recursos",
       links: [
         { label: "Blog", routeKey: "blog" },
+        { label: "Emojis gratis", routeKey: "emojiLibrary" },
+        { label: "Memes gratis", routeKey: "memesLibrary" },
         { label: "Herramientas populares", routeKey: "tools" },
         { label: "Guías para creadores", routeKey: "blog" },
       ],
@@ -187,6 +189,8 @@ export const navigation: Record<string, NavLangContent> = {
       label: "Resources",
       links: [
         { label: "Blog", routeKey: "blog" },
+        { label: "Free emojis", routeKey: "emojiLibrary" },
+        { label: "Free memes", routeKey: "memesLibrary" },
         { label: "Popular tools", routeKey: "tools" },
         { label: "Creator guides", routeKey: "blog" },
       ],
@@ -276,6 +280,8 @@ export const navigation: Record<string, NavLangContent> = {
       label: "Recursos",
       links: [
         { label: "Blog", routeKey: "blog" },
+        { label: "Emojis grátis", routeKey: "emojiLibrary" },
+        { label: "Memes grátis", routeKey: "memesLibrary" },
         { label: "Ferramentas populares", routeKey: "tools" },
         { label: "Guias para criadores", routeKey: "blog" },
       ],

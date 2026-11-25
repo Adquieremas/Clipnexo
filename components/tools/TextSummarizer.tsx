@@ -361,7 +361,7 @@ export default function TextSummarizer({ lang }: Props) {
             padding: "20px",
             fontSize: "16px",
             borderRadius: "12px",
-            border: "2px solid #e5e7eb",
+            border: "2px solid #474e5c",
             outline: "none",
             transition: "border-color 0.2s",
             fontFamily: "inherit",
@@ -382,7 +382,7 @@ export default function TextSummarizer({ lang }: Props) {
           alignItems: "flex-end",
         }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 140px", minWidth: "140px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.maxCharsLabel}
             </label>
             <input
@@ -395,7 +395,7 @@ export default function TextSummarizer({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
                 minHeight: "44px",
                 boxSizing: "border-box",
@@ -404,7 +404,7 @@ export default function TextSummarizer({ lang }: Props) {
             />
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 140px", minWidth: "140px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.summaryTypeLabel}
             </label>
             <select
@@ -414,9 +414,9 @@ export default function TextSummarizer({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 boxSizing: "border-box",
@@ -430,7 +430,7 @@ export default function TextSummarizer({ lang }: Props) {
             </select>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 1 140px", minWidth: "140px" }}>
-            <label style={{ fontSize: "12px", fontWeight: 600, color: "#374151", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <label style={{ fontSize: "12px", fontWeight: 600, color: "#d1d7e1", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               {t.toneLabel}
             </label>
             <select
@@ -440,9 +440,9 @@ export default function TextSummarizer({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
                 boxSizing: "border-box",
@@ -473,8 +473,8 @@ export default function TextSummarizer({ lang }: Props) {
               flex: "1 0 auto",
               maxWidth: "200px",
               padding: "10px 24px",
-              background: "linear-gradient(90deg, #6366f1, #ec4899)",
-              color: "white",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               borderRadius: "10px",
               border: "none",
               fontWeight: 700,
@@ -495,8 +495,8 @@ export default function TextSummarizer({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: feedback.includes(t.copied) || feedback.includes(t.statsCopied) ? "#f0fdf4" : "#fef2f2",
-              color: feedback.includes(t.copied) || feedback.includes(t.statsCopied) ? "#166534" : "#991b1b",
+              backgroundColor: feedback.includes(t.copied) || feedback.includes(t.statsCopied) ? "#123f20" : "#3f1212",
+              color: feedback.includes(t.copied) || feedback.includes(t.statsCopied) ? "#87e8ac" : "#ec8383",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -509,21 +509,21 @@ export default function TextSummarizer({ lang }: Props) {
         {summary && (
           <div style={{
             padding: "20px",
-            backgroundColor: "#f9f9f9",
+            backgroundColor: "var(--surface)",
             borderRadius: "12px",
-            border: "1px solid #eee",
+            border: "1px solid var(--border)",
           }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
               {t.resultTitle}
             </h3>
             <div style={{
               padding: "16px",
-              backgroundColor: "white",
+              backgroundColor: "var(--surface)",
               borderRadius: "8px",
-              border: "1px solid #e5e7eb",
+              border: "1px solid #474e5c",
               fontSize: "15px",
               lineHeight: "1.7",
-              color: "#111",
+              color: "var(--text-primary)",
               whiteSpace: "pre-wrap",
               marginBottom: "12px",
             }}>
@@ -547,15 +547,15 @@ export default function TextSummarizer({ lang }: Props) {
             {statCards.map((s, i) => (
               <div key={i} style={{
                 padding: "14px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "var(--surface)",
                 borderRadius: "10px",
                 textAlign: "center",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}>
-                <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+                <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                   {s.label}
                 </span>
-                <strong style={{ fontSize: "20px", color: "#111" }}>{s.value}</strong>
+                <strong style={{ fontSize: "20px", color: "var(--text-primary)" }}>{s.value}</strong>
               </div>
             ))}
           </div>
@@ -565,10 +565,10 @@ export default function TextSummarizer({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fffbeb",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#92400e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.privacy}

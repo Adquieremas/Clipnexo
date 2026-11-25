@@ -2,14 +2,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { getLocalizedRoute, normalizeLang } from "@/lib/routes";
 import { footerContent } from "@/lib/footer-content";
+import { soundFooterCategories } from "@/lib/sounds-content";
 
 type Props = {
   lang: string;
 };
 
+const soundsColumnTitle: Record<string, string> = {
+  es: "Sonidos",
+  en: "Sounds",
+  pt: "Sons",
+};
+
 export default function Footer({ lang }: Props) {
   const currentLang = normalizeLang(lang);
   const content = footerContent[currentLang] || footerContent.es;
+  const soundsUrl = getLocalizedRoute("soundsLibrary", currentLang);
 
   return (
     <footer className="footer">
@@ -28,11 +36,29 @@ export default function Footer({ lang }: Props) {
             <p className="footer-brand-desc">{content.brandDescription}</p>
           </div>
 
+          <div className="footer-col">
+            <h4 className="footer-col-title">{soundsColumnTitle[currentLang] || soundsColumnTitle.es}</h4>
+            <nav className="footer-links" aria-label={soundsColumnTitle[currentLang] || soundsColumnTitle.es}>
+              <Link href={soundsUrl} className="footer-link">
+                {content.columns[0]?.links[0]?.label}
+              </Link>
+              {soundFooterCategories.map((category) => (
+                <Link
+                  key={category.id}
+                  href={`${soundsUrl}?categoria=${category.id}`}
+                  className="footer-link"
+                >
+                  {category[currentLang]}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
           {content.columns.map((col) => (
             <div className="footer-col" key={col.title}>
               <h4 className="footer-col-title">{col.title}</h4>
               <nav className="footer-links" aria-label={col.title}>
-                {col.links.map((link) => (
+                {col.links.filter((link) => link.routeKey !== "soundsLibrary").map((link) => (
                   <Link
                     key={link.label}
                     href={getLocalizedRoute(link.routeKey, currentLang)}

@@ -314,7 +314,7 @@ export default function WordCounter({ lang }: Props) {
             padding: "20px",
             fontSize: "16px",
             borderRadius: "12px",
-            border: "2px solid #e5e7eb",
+            border: "2px solid #474e5c",
             outline: "none",
             transition: "border-color 0.2s",
             fontFamily: "inherit",
@@ -349,8 +349,8 @@ export default function WordCounter({ lang }: Props) {
             style={{
               padding: "10px 16px",
               borderRadius: "8px",
-              backgroundColor: feedback.includes("No") || feedback.includes("no") || feedback.includes("Não") ? "#fef2f2" : "#f0fdf4",
-              color: feedback.includes("No") || feedback.includes("no") || feedback.includes("Não") ? "#991b1b" : "#166534",
+              backgroundColor: feedback.includes("No") || feedback.includes("no") || feedback.includes("Não") ? "#3f1212" : "#123f20",
+              color: feedback.includes("No") || feedback.includes("no") || feedback.includes("Não") ? "#ec8383" : "#87e8ac",
               fontSize: "14px",
               fontWeight: 500,
             }}
@@ -368,15 +368,15 @@ export default function WordCounter({ lang }: Props) {
           {statCards.map((s, i) => (
             <div key={i} style={{
               padding: "16px 12px",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "var(--surface)",
               borderRadius: "10px",
               textAlign: "center",
-              border: "1px solid #eee",
+              border: "1px solid var(--border)",
             }}>
-              <span style={{ display: "block", fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+              <span style={{ display: "block", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
                 {s.label}
               </span>
-              <strong style={{ fontSize: "22px", color: "#111" }}>{s.value}</strong>
+              <strong style={{ fontSize: "22px", color: "var(--text-primary)" }}>{s.value}</strong>
             </div>
           ))}
         </div>
@@ -387,32 +387,32 @@ export default function WordCounter({ lang }: Props) {
           gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))",
           gap: "12px",
         }}>
-          <div style={{ padding: "14px", backgroundColor: "#f0f7ff", borderRadius: "10px", textAlign: "center", border: "1px solid #dbeafe" }}>
-            <span style={{ display: "block", fontSize: "11px", color: "#3b82f6", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+          <div style={{ padding: "14px", backgroundColor: "#14273d", borderRadius: "10px", textAlign: "center", border: "1px solid #214b82" }}>
+            <span style={{ display: "block", fontSize: "11px", color: "#b8d1f9", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
               {t.readingTime}
             </span>
-            <strong style={{ fontSize: "18px", color: "#1e40af" }}>{readingTime}</strong>
+            <strong style={{ fontSize: "18px", color: "#bbc8f7" }}>{readingTime}</strong>
           </div>
-          <div style={{ padding: "14px", backgroundColor: "#f0fdf4", borderRadius: "10px", textAlign: "center", border: "1px solid #bbf7d0" }}>
-            <span style={{ display: "block", fontSize: "11px", color: "#22c55e", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+          <div style={{ padding: "14px", backgroundColor: "#143d21", borderRadius: "10px", textAlign: "center", border: "1px solid #218243" }}>
+            <span style={{ display: "block", fontSize: "11px", color: "#bbf7d1", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
               {t.speakingTime}
             </span>
-            <strong style={{ fontSize: "18px", color: "#15803d" }}>{speakingTime}</strong>
+            <strong style={{ fontSize: "18px", color: "#bbf7d1" }}>{speakingTime}</strong>
           </div>
-          <div style={{ padding: "14px", backgroundColor: "#faf5ff", borderRadius: "10px", textAlign: "center", border: "1px solid #e9d5ff" }}>
-            <span style={{ display: "block", fontSize: "11px", color: "#a855f7", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+          <div style={{ padding: "14px", backgroundColor: "#29143d", borderRadius: "10px", textAlign: "center", border: "1px solid #4f2182" }}>
+            <span style={{ display: "block", fontSize: "11px", color: "#dab8f9", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
               {t.avgWordsPerSentence}
             </span>
-            <strong style={{ fontSize: "18px", color: "#7e22ce" }}>
+            <strong style={{ fontSize: "18px", color: "#dbbbf7" }}>
               {words === 0 ? "0" : avgWordsPerSentence.toFixed(1)}
             </strong>
           </div>
-          <div style={{ padding: "14px", backgroundColor: "#fff7ed", borderRadius: "10px", textAlign: "center", border: "1px solid #fed7aa" }}>
-            <span style={{ display: "block", fontSize: "11px", color: "#f97316", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
+          <div style={{ padding: "14px", backgroundColor: "var(--surface)", borderRadius: "10px", textAlign: "center", border: "1px solid var(--border)" }}>
+            <span style={{ display: "block", fontSize: "11px", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>
               {t.readability}
             </span>
-            <strong style={{ fontSize: "18px", color: "#9a3412" }}>{readabilityLabel}</strong>
-            <span style={{ display: "block", fontSize: "11px", color: "#666", marginTop: "4px" }}>
+            <strong style={{ fontSize: "18px", color: "var(--text-primary)" }}>{readabilityLabel}</strong>
+            <span style={{ display: "block", fontSize: "11px", color: "var(--text-secondary)", marginTop: "4px" }}>
               {t.readabilityNote}
             </span>
           </div>
@@ -421,11 +421,11 @@ export default function WordCounter({ lang }: Props) {
         {/* Custom limit checker */}
         <div style={{
           padding: "20px",
-          backgroundColor: "#f9f9f9",
+          backgroundColor: "var(--surface)",
           borderRadius: "12px",
-          border: "1px solid #eee",
+          border: "1px solid var(--border)",
         }}>
-          <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+          <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
             {t.checkLimit}
           </h3>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center", marginBottom: "12px" }}>
@@ -436,9 +436,9 @@ export default function WordCounter({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
-                backgroundColor: "white",
+                backgroundColor: "var(--surface)",
                 cursor: "pointer",
                 minHeight: "44px",
               }}
@@ -456,7 +456,7 @@ export default function WordCounter({ lang }: Props) {
               style={{
                 padding: "10px 14px",
                 borderRadius: "8px",
-                border: "1px solid #d1d5db",
+                border: "1px solid #48505c",
                 fontSize: "14px",
                 width: "160px",
                 minHeight: "44px",
@@ -470,7 +470,7 @@ export default function WordCounter({ lang }: Props) {
               <div style={{
                 width: "100%",
                 height: "10px",
-                backgroundColor: "#e5e7eb",
+                backgroundColor: "#24272d",
                 borderRadius: "5px",
                 overflow: "hidden",
                 marginBottom: "8px",
@@ -478,19 +478,19 @@ export default function WordCounter({ lang }: Props) {
                 <div style={{
                   width: `${limitPct}%`,
                   height: "100%",
-                  backgroundColor: limitOver ? "#ef4444" : "#6366f1",
+                  backgroundColor: limitOver ? "#3f1212" : "#12133f",
                   borderRadius: "5px",
                   transition: "width 0.2s",
                 }} />
               </div>
-              <div style={{ fontSize: "14px", color: limitOver ? "#dc2626" : "#111", fontWeight: 500 }}>
+              <div style={{ fontSize: "14px", color: limitOver ? "#f6bcbc" : "var(--text-primary)", fontWeight: 500 }}>
                 {limitUsed.toLocaleString()} / {limitNum.toLocaleString()} {limitType === "words" ? t.words.toLowerCase() : t.characters.toLowerCase()} {t.limitUsed}
                 {limitOver ? (
-                  <span style={{ color: "#dc2626", display: "block", marginTop: "4px" }}>
+                  <span style={{ color: "#f7baba", display: "block", marginTop: "4px" }}>
                     {t.limitExceeded} {limitExceeded.toLocaleString()} {limitType === "words" ? t.words.toLowerCase() : t.characters.toLowerCase()}.
                   </span>
                 ) : (
-                  <span style={{ color: "#4b5563", display: "block", marginTop: "4px" }}>
+                  <span style={{ color: "#d3d8df", display: "block", marginTop: "4px" }}>
                     {t.limitRemaining} {limitRemaining.toLocaleString()} {limitType === "words" ? t.words.toLowerCase() : t.characters.toLowerCase()}.
                   </span>
                 )}
@@ -502,33 +502,33 @@ export default function WordCounter({ lang }: Props) {
         {/* Most repeated words */}
         <div style={{
           padding: "20px",
-          backgroundColor: "#f9f9f9",
+          backgroundColor: "var(--surface)",
           borderRadius: "12px",
-          border: "1px solid #eee",
+          border: "1px solid var(--border)",
         }}>
-          <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111", margin: "0 0 12px" }}>
+          <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 12px" }}>
             {t.mostRepeatedWords}
           </h3>
           {topWords.length === 0 ? (
-            <p style={{ color: "#6b7280", fontSize: "14px", margin: 0 }}>{t.noWordsYet}</p>
+            <p style={{ color: "#d5d7dc", fontSize: "14px", margin: 0 }}>{t.noWordsYet}</p>
           ) : (
             <div style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                 <thead>
-                  <tr style={{ borderBottom: "2px solid #e5e7eb" }}>
-                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600 }}>#</th>
-                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#374151", fontWeight: 600 }}>{t.word}</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px", color: "#374151", fontWeight: 600 }}>{t.repetitions}</th>
-                    <th style={{ textAlign: "right", padding: "8px 12px", color: "#374151", fontWeight: 600 }}>{t.percentage}</th>
+                  <tr style={{ borderBottom: "2px solid #474e5c" }}>
+                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600 }}>#</th>
+                    <th style={{ textAlign: "left", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600 }}>{t.word}</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600 }}>{t.repetitions}</th>
+                    <th style={{ textAlign: "right", padding: "8px 12px", color: "#d1d7e1", fontWeight: 600 }}>{t.percentage}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {topWords.map((item, i) => (
-                    <tr key={item.word} style={{ borderBottom: "1px solid #f3f4f6" }}>
-                      <td style={{ padding: "8px 12px", color: "#9ca3af" }}>{i + 1}</td>
-                      <td style={{ padding: "8px 12px", fontWeight: 600, color: "#111" }}>{item.word}</td>
-                      <td style={{ padding: "8px 12px", textAlign: "right", color: "#374151" }}>{item.count}</td>
-                      <td style={{ padding: "8px 12px", textAlign: "right", color: "#374151" }}>{item.pct}%</td>
+                    <tr key={item.word} style={{ borderBottom: "1px solid #464e5d" }}>
+                      <td style={{ padding: "8px 12px", color: "#d4d8dd" }}>{i + 1}</td>
+                      <td style={{ padding: "8px 12px", fontWeight: 600, color: "var(--text-primary)" }}>{item.word}</td>
+                      <td style={{ padding: "8px 12px", textAlign: "right", color: "#d1d7e1" }}>{item.count}</td>
+                      <td style={{ padding: "8px 12px", textAlign: "right", color: "#d1d7e1" }}>{item.pct}%</td>
                     </tr>
                   ))}
                 </tbody>
@@ -541,10 +541,10 @@ export default function WordCounter({ lang }: Props) {
         <div style={{
           padding: "12px 16px",
           borderRadius: "8px",
-          backgroundColor: "#fffbeb",
-          border: "1px solid #fde68a",
+          backgroundColor: "var(--surface)",
+          border: "1px solid var(--border)",
           fontSize: "13px",
-          color: "#92400e",
+          color: "var(--text-secondary)",
           lineHeight: "1.5",
         }}>
           {t.privacy}

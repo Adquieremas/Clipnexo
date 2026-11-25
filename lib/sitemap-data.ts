@@ -8,7 +8,8 @@ import {
 } from "@/lib/routes";
 import { getAbsoluteUrl, getSeoLanguages } from "@/lib/seo";
 import { blogPosts } from "@/lib/blog-content";
-import { listSounds } from "@/lib/sounds-db";
+import { listSounds, SoundsDbNotConfiguredError } from "@/lib/sounds-db";
+import { MEMES } from "@/lib/memes-data";
 
 const defaultLastModified = new Date("2026-06-02T00:00:00.000Z");
 
@@ -203,6 +204,7 @@ export function getSitemapIndexXml(): string {
     `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-pages.xml"))}</loc></sitemap>`,
     `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-blog.xml"))}</loc></sitemap>`,
     `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-sounds.xml"))}</loc></sitemap>`,
+    `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-memes.xml"))}</loc></sitemap>`,
     "</sitemapindex>",
     "",
   ].join("\n");
@@ -219,8 +221,44 @@ export function getBlogSitemapXml(): string {
 export async function getSoundsSitemapXml(): Promise<string> {
   try {
     return serializeUrlSet(await getSoundsRoutes());
-  } catch {
-    // SOUNDS_DB not provisioned yet — serve an empty but valid sitemap.
-    return serializeUrlSet([]);
+  } catch (error) {
+    if (error instanceof SoundsDbNotConfiguredError) {
+      return serializeUrlSet([]);
+    }
+    throw error;
   }
+}
+
+function getMemesRoutes(): MetadataRoute.Sitemap {
+  return MEMES
+    .flatMap((meme) =>
+      (supportedLangs as SupportedLang[]).map((lang) => {
+        const alternates: Record<string, string> = {};
+        for (const currentLang of supportedLangs as SupportedLang[]) {
+          alternates[currentLang] = getAbsoluteUrl(
+            `${seoRoutes.memesLibrary[currentLang]}/${meme.id}`
+          );
+        }
+        alternates["x-default"] = getAbsoluteUrl(`${seoRoutes.memesLibrary.es}/${meme.id}`);
+
+        return {
+          url: getAbsoluteUrl(`${seoRoutes.memesLibrary[lang]}/${meme.id}`),
+          lastModified: defaultLastModified,
+          changeFrequency: "monthly" as const,
+          priority: 0.6,
+          alternates: { languages: alternates },
+        };
+      })
+    )
+    .sort((a, b) => {
+      const languageDifference = getLanguageOrder(a.url) - getLanguageOrder(b.url);
+      if (languageDifference !== 0) {
+        return languageDifference;
+      }
+      return a.url < b.url ? -1 : a.url > b.url ? 1 : 0;
+    });
+}
+
+export function getMemesSitemapXml(): string {
+  return serializeUrlSet(getMemesRoutes());
 }

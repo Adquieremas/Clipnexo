@@ -87,7 +87,7 @@ export default function CaseConverter({ lang }: Props) {
             padding: "20px",
             fontSize: "18px",
             borderRadius: "12px",
-            border: "2px solid #eee",
+            border: "2px solid var(--border)",
             outline: "none",
             transition: "border-color 0.2s",
             fontFamily: "inherit",
@@ -113,10 +113,10 @@ export default function CaseConverter({ lang }: Props) {
               fontSize: "13px",
               fontWeight: 600,
               borderRadius: "8px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
+              border: "1px solid var(--border)",
+              backgroundColor: "var(--surface)",
               cursor: "pointer",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
             onClick={() => handleConvert((s) => s.toUpperCase())}
           >
@@ -131,10 +131,10 @@ export default function CaseConverter({ lang }: Props) {
               fontSize: "13px",
               fontWeight: 600,
               borderRadius: "8px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
+              border: "1px solid var(--border)",
+              backgroundColor: "var(--surface)",
               cursor: "pointer",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
             onClick={() => handleConvert((s) => s.toLowerCase())}
           >
@@ -149,10 +149,10 @@ export default function CaseConverter({ lang }: Props) {
               fontSize: "13px",
               fontWeight: 600,
               borderRadius: "8px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
+              border: "1px solid var(--border)",
+              backgroundColor: "var(--surface)",
               cursor: "pointer",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
             onClick={() => handleConvert(toTitleCase)}
           >
@@ -167,10 +167,10 @@ export default function CaseConverter({ lang }: Props) {
               fontSize: "13px",
               fontWeight: 600,
               borderRadius: "8px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
+              border: "1px solid var(--border)",
+              backgroundColor: "var(--surface)",
               cursor: "pointer",
-              color: "#111",
+              color: "var(--text-primary)",
             }}
             onClick={() => handleConvert(toSentenceCase)}
           >
@@ -182,23 +182,23 @@ export default function CaseConverter({ lang }: Props) {
           <div
             style={{
               padding: "20px",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "var(--surface)",
               borderRadius: "12px",
-              border: "1px solid #eee",
+              border: "1px solid var(--border)",
             }}
           >
             <span
               style={{
                 display: "block",
                 fontSize: "12px",
-                color: "#666",
+                color: "var(--text-primary)",
                 textTransform: "uppercase",
                 marginBottom: "8px",
               }}
             >
               {t.result}
             </span>
-            <p style={{ margin: 0, fontSize: "16px", color: "#111", lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
+            <p style={{ margin: 0, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
               {output}
             </p>
           </div>

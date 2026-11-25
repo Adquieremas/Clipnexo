@@ -106,7 +106,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
         margin: "40px auto",
         padding: "24px",
         lineHeight: "1.75",
-        color: "#111",
+        color: "var(--text-primary)",
       }}
     >
       <script
@@ -127,7 +127,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
           style={{
             fontSize: "clamp(40px, 6vw, 64px)",
             fontWeight: 800,
-            color: "#111",
+            color: "var(--text-primary)",
             lineHeight: "1.05",
             margin: "0 0 16px",
           }}
@@ -136,7 +136,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
         </h1>
         <p
           style={{
-            color: "#444",
+            color: "var(--text-primary)",
             margin: "0 auto",
             fontSize: "18px",
             maxWidth: "860px",
@@ -153,7 +153,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
             fontSize: "28px",
             fontWeight: 700,
             marginBottom: "24px",
-            borderBottom: "2px solid #eaeaea",
+            borderBottom: "2px solid var(--border)",
             paddingBottom: "8px",
           }}
         >
@@ -176,14 +176,14 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
                 style={{
                   display: "block",
                   padding: "20px",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "var(--surface)",
                   borderRadius: "12px",
                   textDecoration: "none",
-                  color: "#111",
+                  color: "var(--text-primary)",
                   fontWeight: 600,
                   fontSize: "16px",
                   transition: "transform 0.2s, box-shadow 0.2s",
-                  border: "1px solid #eee",
+                  border: "1px solid var(--border)",
                 }}
                 className="tool-card-link"
               >
@@ -207,7 +207,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
         <ol
           style={{
             paddingLeft: "20px",
-            color: "#444",
+            color: "var(--text-primary)",
             fontSize: "17px",
             lineHeight: "2",
           }}
@@ -222,7 +222,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
         style={{
           marginBottom: "48px",
           padding: "32px",
-          backgroundColor: "#f5f5ff",
+          backgroundColor: "#14143d",
           borderRadius: "16px",
           textAlign: "center",
         }}
@@ -231,7 +231,7 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
           style={{
             fontSize: "18px",
             fontWeight: 600,
-            color: "#111",
+            color: "var(--text-primary)",
             marginBottom: "16px",
           }}
         >
@@ -246,8 +246,8 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
           style={{
             display: "inline-block",
             padding: "14px 32px",
-            background: "linear-gradient(90deg, #6366f1, #ec4899)",
-            color: "white",
+            background: "var(--accent)",
+            color: "var(--text-primary)",
             borderRadius: "12px",
             textDecoration: "none",
             fontWeight: 700,
@@ -277,23 +277,23 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
             <details
               key={i}
               style={{
-                background: "#f9f9f9",
+                background: "var(--surface)",
                 padding: "16px 20px",
                 borderRadius: "10px",
-                border: "1px solid #eee",
+                border: "1px solid var(--border)",
               }}
             >
               <summary
                 style={{
                   fontWeight: 600,
                   cursor: "pointer",
-                  color: "#111",
+                  color: "var(--text-primary)",
                   fontSize: "16px",
                 }}
               >
                 {item.q}
               </summary>
-              <p style={{ marginTop: "12px", color: "#444", lineHeight: "1.7" }}>
+              <p style={{ marginTop: "12px", color: "var(--text-primary)", lineHeight: "1.7" }}>
                 {item.a}
               </p>
             </details>
@@ -306,8 +306,8 @@ export default function ClusterPage({ clusterKey, lang }: Props) {
           __html: `
             .tool-card-link:hover {
               transform: translateY(-2px);
-              box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-              border-color: #ddd;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+              border-color: var(--accent);
             }
           `,
         }}

@@ -123,7 +123,7 @@ export default function SocialCharacterCounter({ lang }: Props) {
             padding: "20px",
             fontSize: "18px",
             borderRadius: "12px",
-            border: "2px solid #eee",
+            border: "2px solid var(--border)",
             outline: "none",
             transition: "border-color 0.2s",
             fontFamily: "inherit"
@@ -143,16 +143,16 @@ export default function SocialCharacterCounter({ lang }: Props) {
              { label: t.emojis, value: stats.emojis },
              { label: t.lines, value: stats.lines },
            ].map((stat, idx) => (
-             <div key={idx} style={{ padding: "12px", backgroundColor: "#f9f9f9", borderRadius: "8px", textAlign: "center", border: "1px solid #eee" }}>
-                <span style={{ display: "block", fontSize: "12px", color: "#666", textTransform: "uppercase", marginBottom: "4px" }}>{stat.label}</span>
-                <strong style={{ fontSize: "20px", color: "#111" }}>{stat.value}</strong>
+             <div key={idx} style={{ padding: "12px", backgroundColor: "var(--surface)", borderRadius: "8px", textAlign: "center", border: "1px solid var(--border)" }}>
+                <span style={{ display: "block", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>{stat.label}</span>
+                <strong style={{ fontSize: "20px", color: "var(--text-primary)" }}>{stat.value}</strong>
              </div>
            ))}
         </div>
 
-        <div style={{ padding: "16px", backgroundColor: "#fffbeb", borderRadius: "12px", border: "1px solid #fef3c7" }}>
-           <strong style={{ color: "#92400e", fontSize: "14px" }}>{t.recommendation.replace("{platform}", platform)}</strong>
-	           <p style={{ margin: "4px 0 0", color: "#b45309", fontSize: "15px" }}>{t.limits[platform]}</p>
+        <div style={{ padding: "16px", backgroundColor: "var(--surface)", borderRadius: "12px", border: "1px solid var(--border)" }}>
+           <strong style={{ color: "var(--text-primary)", fontSize: "14px" }}>{t.recommendation.replace("{platform}", platform)}</strong>
+           <p style={{ margin: "4px 0 0", color: "var(--text-secondary)", fontSize: "15px" }}>{t.limits[platform]}</p>
         </div>
 
         <div className="tool-actions">

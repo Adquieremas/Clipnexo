@@ -91,8 +91,8 @@ export default function YouTubeTitleLengthChecker({ lang }: Props) {
       <div
         style={{
           marginTop: 24,
-          background: "#f9fafb",
-          border: "1px solid #e5e7eb",
+          background: "#222930",
+          border: "1px solid #474e5c",
           borderRadius: 16,
           padding: 24,
         }}
@@ -111,7 +111,7 @@ export default function YouTubeTitleLengthChecker({ lang }: Props) {
               style={{
                 fontSize: 12,
                 fontWeight: 700,
-                color: "#9ca3af",
+                color: "#d4d8dd",
                 textTransform: "uppercase",
                 letterSpacing: "0.05em",
                 marginBottom: 4,
@@ -123,12 +123,12 @@ export default function YouTubeTitleLengthChecker({ lang }: Props) {
               style={{
                 fontSize: 28,
                 fontWeight: 900,
-                color: "#111827",
+                color: "#c8d3e9",
                 lineHeight: 1,
               }}
             >
               {length}
-              <span style={{ color: "#d1d5db", fontWeight: 400, fontSize: 20 }}>
+              <span style={{ color: "#d3d8de", fontWeight: 400, fontSize: 20 }}>
                 {" "}/ 100
               </span>
             </div>
@@ -156,7 +156,7 @@ export default function YouTubeTitleLengthChecker({ lang }: Props) {
           style={{
             width: "100%",
             height: 10,
-            background: "#e5e7eb",
+            background: "#24272d",
             borderRadius: 999,
             position: "relative",
             overflow: "hidden",
@@ -195,14 +195,14 @@ export default function YouTubeTitleLengthChecker({ lang }: Props) {
             justifyContent: "space-between",
             marginTop: 6,
             fontSize: 11,
-            color: "#9ca3af",
+            color: "#d4d8dd",
           }}
         >
           <span>0</span>
-          <span style={{ color: "#10b981", fontWeight: 600, marginLeft: "28%" }}>
+          <span style={{ color: "#b8f9e4", fontWeight: 600, marginLeft: "28%" }}>
             40
           </span>
-          <span style={{ color: "#10b981", fontWeight: 600, marginRight: "28%" }}>
+          <span style={{ color: "#b8f9e4", fontWeight: 600, marginRight: "28%" }}>
             60
           </span>
           <span>100</span>
@@ -214,7 +214,7 @@ export default function YouTubeTitleLengthChecker({ lang }: Props) {
             style={{
               margin: "12px 0 0",
               fontSize: 13,
-              color: "#9ca3af",
+              color: "#d4d8dd",
               lineHeight: 1.5,
             }}
           >

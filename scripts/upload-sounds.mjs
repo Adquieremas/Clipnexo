@@ -127,16 +127,14 @@ function parseWranglerJson(out) {
 }
 
 function queryD1(sql) {
-  const tmpDir = mkdtempSync(path.join(tmpdir(), "clipnexo-sounds-"));
-  const file = path.join(tmpDir, "query.sql");
-  writeFileSync(file, sql);
-  try {
-    const out = runD1(file);
-    const parsed = parseWranglerJson(out);
-    return parsed[0]?.results ?? [];
-  } finally {
-    rmSync(tmpDir, { recursive: true, force: true });
-  }
+  const target = isRemote ? "--remote" : "--local";
+  const out = execFileSync(
+    "npx",
+    ["wrangler", "d1", "execute", D1_DB_NAME, target, "--command", sql, "--json"],
+    { encoding: "utf-8", maxBuffer: 1024 * 1024 * 50 }
+  );
+  const parsed = parseWranglerJson(out);
+  return parsed[0]?.results ?? [];
 }
 
 function sqlEscape(value) {

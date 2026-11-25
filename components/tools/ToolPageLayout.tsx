@@ -16,6 +16,12 @@ type ToolPageLayoutProps = {
   children: ReactNode;
 };
 
+const breadcrumbLabels: Record<SupportedLang, { home: string; tools: string }> = {
+  es: { home: "Inicio", tools: "Herramientas" },
+  en: { home: "Home", tools: "Tools" },
+  pt: { home: "Início", tools: "Ferramentas" },
+};
+
 export default function ToolPageLayout({
   content,
   lang,
@@ -24,7 +30,10 @@ export default function ToolPageLayout({
 }: ToolPageLayoutProps) {
   const relatedLinks = getMoreToolsLinks(lang, routeKey);
   const canonicalUrl = getAbsoluteUrl(getLocalizedRoute(routeKey, lang));
-  
+  const labels = breadcrumbLabels[lang];
+  const homeUrl = getAbsoluteUrl(getLocalizedRoute("home", lang));
+  const toolsUrl = getAbsoluteUrl(getLocalizedRoute("tools", lang));
+
   // Get dates if it's a tool key, otherwise use defaults
   const dates = getToolDates(routeKey as ToolKey);
 
@@ -63,6 +72,16 @@ export default function ToolPageLayout({
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: labels.home, item: homeUrl },
+      { "@type": "ListItem", position: 2, name: labels.tools, item: toolsUrl },
+      { "@type": "ListItem", position: 3, name: content.h1, item: canonicalUrl },
+    ],
+  };
+
   return (
     <main className="tool-page">
       <script
@@ -73,9 +92,24 @@ export default function ToolPageLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <section className="tool-hero">
         <div className="tool-hero-copy">
+          <nav className="blog-breadcrumbs tool-breadcrumbs" aria-label="Breadcrumb">
+            <Link href={getLocalizedRoute("home", lang)} className="blog-breadcrumb-link">
+              {labels.home}
+            </Link>
+            <span className="blog-breadcrumb-sep">/</span>
+            <Link href={getLocalizedRoute("tools", lang)} className="blog-breadcrumb-link">
+              {labels.tools}
+            </Link>
+            <span className="blog-breadcrumb-sep">/</span>
+            <span className="blog-breadcrumb-current">{content.h1}</span>
+          </nav>
           <h1>{content.h1}</h1>
           <p>{content.lead}</p>
         </div>
