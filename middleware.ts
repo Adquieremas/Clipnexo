@@ -9,10 +9,6 @@ import {
 const PUBLIC_FILE = /\.(.*)$/;
 
 const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
-  video: "/descargar-tiktok",
-  mp3: "/descargar-tiktok-mp3",
-  guide: "/como-descargar-videos-de-tiktok",
-  withoutWatermark: "/descargar-tiktok-sin-marca",
   tiktokBio: "/generador-bio-tiktok",
   tiktokIdeas: "/ideas-para-tiktok",
   tiktokHooks: "/ganchos-virales-tiktok",
@@ -101,15 +97,75 @@ function buildRedirectResponse(request: NextRequest, pathname: string) {
   return NextResponse.redirect(redirectUrl, 308);
 }
 
+// Permanently retired URLs (discontinued downloader feature). These return a
+// real 410 Gone instead of bouncing to the homepage, so search engines treat
+// them as intentionally removed rather than as a soft redirect loop.
+const RETIRED_SEGMENTS = new Set<string>([
+  "/descargar-tiktok",
+  "/descargar-tiktok-mp3",
+  "/descargar-tiktok-sin-marca",
+  "/como-descargar-videos-de-tiktok",
+  "/tiktok-video-downloader",
+  "/tiktok-to-mp3",
+  "/download-tiktok-without-watermark",
+  "/how-to-download-tiktok-videos",
+  "/baixar-videos-do-tiktok",
+  "/baixar-mp3-do-tiktok",
+  "/baixar-tiktok-sem-marca-dagua",
+  "/como-baixar-videos-do-tiktok",
+  "/descargar-instagram",
+]);
+
+function buildGoneResponse(lang: string) {
+  const copy: Record<string, { title: string; text: string; tools: string; blog: string }> = {
+    es: {
+      title: "Esta página ya no está disponible",
+      text: "La herramienta de descarga que buscabas fue retirada de Clipnexo. Explora nuestras herramientas gratuitas para creadores de contenido.",
+      tools: "Ver herramientas",
+      blog: "Ver blog",
+    },
+    en: {
+      title: "This page is no longer available",
+      text: "The download tool you're looking for was removed from Clipnexo. Explore our free tools for content creators.",
+      tools: "View tools",
+      blog: "View blog",
+    },
+    pt: {
+      title: "Esta página não está mais disponível",
+      text: "A ferramenta de download que você procurava foi removida do Clipnexo. Explore nossas ferramentas gratuitas para criadores de conteúdo.",
+      tools: "Ver ferramentas",
+      blog: "Ver blog",
+    },
+  };
+  const t = copy[lang] || copy.es;
+  const toolsPath = lang === "en" ? "/en/tools" : lang === "pt" ? "/pt/ferramentas" : "/es/herramientas";
+
+  const html = `<!doctype html>
+<html lang="${lang}">
+<head><meta charset="utf-8"><title>${t.title} | Clipnexo</title></head>
+<body style="font-family:system-ui,sans-serif;max-width:640px;margin:80px auto;padding:0 20px;text-align:center;color:#111">
+  <h1 style="font-size:28px;margin-bottom:12px">${t.title}</h1>
+  <p style="color:#555;font-size:16px;line-height:1.6">${t.text}</p>
+  <p style="margin-top:28px">
+    <a href="${toolsPath}" style="margin-right:16px">${t.tools}</a>
+    <a href="/${lang}/blog">${t.blog}</a>
+  </p>
+</body>
+</html>`;
+
+  return new NextResponse(html, {
+    status: 410,
+    headers: { "Content-Type": "text/html; charset=utf-8" },
+  });
+}
+
 const HOMEPAGE_MARKDOWN = `# Clipnexo
 
-Clipnexo helps you download TikTok videos, convert TikTok to MP3, and generate content for TikTok, YouTube, Instagram, Facebook, Reels and Shorts.
+Clipnexo is a free online platform of tools for content creators and video editors: generate hashtags, captions, bios, ideas, hooks and scripts for TikTok, YouTube, Instagram, Facebook, Reels and Shorts.
 
-- Descargar TikTok: https://clipnexo.com/es/descargar-tiktok
-- TikTok downloader: https://clipnexo.com/en/tiktok-video-downloader
-- Baixar TikTok: https://clipnexo.com/pt/baixar-videos-do-tiktok
+- Tools: https://clipnexo.com/es/herramientas
+- Blog: https://clipnexo.com/es/blog
 
-More tools: https://clipnexo.com/es/herramientas
 Full documentation: https://clipnexo.com/llms.txt
 `;
 
@@ -170,10 +226,19 @@ export function middleware(request: NextRequest) {
     return buildRedirectResponse(request, correctedPath);
   }
 
+  if (segments.length > 1) {
+    const subPath = `/${segments.slice(1).join("/")}`;
+    if (RETIRED_SEGMENTS.has(subPath)) {
+      return buildGoneResponse(lang);
+    }
+  }
+
   if (segments.length === 1) {
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-lang", lang);
     const response = NextResponse.next({
       request: {
-        headers: new Headers(request.headers),
+        headers: requestHeaders,
       },
     });
 
@@ -201,6 +266,7 @@ export function middleware(request: NextRequest) {
 
       const requestHeaders = new Headers(request.headers);
       requestHeaders.set("x-is-rewrite", "true");
+      requestHeaders.set("x-lang", lang);
 
       const response = NextResponse.rewrite(rewriteUrl, {
         request: {
@@ -212,9 +278,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  const finalRequestHeaders = new Headers(request.headers);
+  finalRequestHeaders.set("x-lang", lang);
   const response = NextResponse.next({
     request: {
-      headers: new Headers(request.headers),
+      headers: finalRequestHeaders,
     },
   });
 

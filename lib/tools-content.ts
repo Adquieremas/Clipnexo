@@ -946,9 +946,6 @@ export const toolsContent: Record<ToolKey, ToolConfig> = {
 
 const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: string }>> = {
   es: [
-    { routeKey: "video", label: "Descargar videos de TikTok" },
-    { routeKey: "mp3", label: "TikTok a MP3" },
-    { routeKey: "withoutWatermark", label: "TikTok sin marca de agua" },
     { routeKey: "tiktokHashtags", label: "Generador de hashtags para TikTok" },
     { routeKey: "tiktokCaptions", label: "Generador de captions para TikTok" },
     { routeKey: "tiktokHooks", label: "Ganchos virales para TikTok" },
@@ -967,9 +964,6 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
     { routeKey: "studentsTools", label: "Herramientas para estudiantes" },
   ],
   en: [
-    { routeKey: "video", label: "TikTok video downloader" },
-    { routeKey: "mp3", label: "TikTok to MP3" },
-    { routeKey: "withoutWatermark", label: "Download TikTok without watermark" },
     { routeKey: "tiktokHashtags", label: "TikTok Hashtag Generator" },
     { routeKey: "tiktokCaptions", label: "TikTok Caption Generator" },
     { routeKey: "tiktokHooks", label: "TikTok Hook Generator" },
@@ -988,9 +982,6 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
     { routeKey: "studentsTools", label: "Student Tools" },
   ],
   pt: [
-    { routeKey: "video", label: "Baixar vídeos do TikTok" },
-    { routeKey: "mp3", label: "TikTok para MP3" },
-    { routeKey: "withoutWatermark", label: "Baixar TikTok sem marca d'água" },
     { routeKey: "tiktokHashtags", label: "Gerador de hashtags para TikTok" },
     { routeKey: "tiktokCaptions", label: "Gerador de legendas para TikTok" },
     { routeKey: "tiktokHooks", label: "Ganchos virais para TikTok" },

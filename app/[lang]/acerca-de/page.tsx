@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { legalContent } from "@/lib/legal-content";
 import { buildSeoMetadata } from "@/lib/seo";
+import { getLocalizedRoute } from "@/lib/routes";
 
 type Lang = "es" | "en" | "pt";
 
@@ -43,20 +44,20 @@ const fallbackAbout: Record<Lang, AboutContent> = {
   es: {
     metaTitle: "Acerca de Clipnexo y cómo funciona",
     metaDescription:
-      "Conoce qué es Clipnexo, cómo funciona y por qué es la herramienta más rápida para descargar videos de TikTok y convertir audio a MP3 de alta calidad hoy mismo.",
+      "Conoce qué es Clipnexo, cómo funciona y por qué es una plataforma de herramientas gratuitas para creadores de contenido y editores de video.",
     title: "Acerca de Clipnexo",
     lead:
-      "Clipnexo es una herramienta online que te permite descargar videos y audios de TikTok sin marca de agua de forma rápida, segura y gratuita desde celular o PC.",
+      "Clipnexo es una plataforma online de herramientas gratuitas para creadores de contenido: hashtags, captions, bios, guiones y títulos para TikTok, YouTube, Instagram y Facebook.",
     introTitle: "¿Qué es Clipnexo?",
     intro:
-      "Clipnexo es un descargador de TikTok pensado para usuarios que desean guardar videos en MP4 o extraer audio en MP3 sin necesidad de registro ni instalación de software. Funciona desde el navegador y ofrece una experiencia simple para quienes buscan rapidez, compatibilidad y facilidad de uso.",
+      "Clipnexo es una plataforma pensada para creadores de contenido y editores de video que necesitan generar hashtags, captions, bios, ideas, guiones y títulos sin registro ni instalación de software. Funciona desde el navegador y ofrece una experiencia simple para quienes buscan rapidez, compatibilidad y facilidad de uso.",
     missionTitle: "Nuestra misión",
     missionText:
-      "Nuestra misión es ofrecer una herramienta confiable, rápida y accesible para descargar contenido de TikTok sin complicaciones, manteniendo la privacidad del usuario y una experiencia estable en múltiples dispositivos.",
+      "Nuestra misión es ofrecer herramientas confiables, rápidas y accesibles para preparar contenido en redes sociales sin complicaciones, manteniendo la privacidad del usuario y una experiencia estable en múltiples dispositivos.",
     whyTitle: "¿Por qué usar Clipnexo?",
     whyItems: [
-      "Descarga videos de TikTok sin marca de agua en pocos pasos.",
-      "Convierte contenido de TikTok a MP3 de manera rápida y online.",
+      "Genera hashtags, captions y bios para TikTok, Instagram y Facebook en segundos.",
+      "Crea guiones y títulos para videos cortos de manera rápida y online.",
       "No requiere registro, instalación ni programas adicionales.",
       "Es compatible con Android, iPhone, tablet y PC.",
       "Está optimizado para ofrecer velocidad y facilidad de uso.",
@@ -66,18 +67,18 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       "Clipnexo se adapta a pantallas móviles y de escritorio, y funciona en navegadores modernos para que puedas usarlo en casa, en la oficina o mientras te desplazas.",
     qualityTitle: "Calidad y rendimiento",
     qualityText:
-      "Clipnexo utiliza tecnología moderna de procesamiento para mantener una experiencia ágil y estable al descargar videos y convertir audio desde TikTok.",
+      "Clipnexo utiliza tecnología moderna para mantener una experiencia ágil y estable al generar hashtags, captions, guiones y títulos para tus redes sociales.",
     securityTitle: "Uso online sin instalar apps",
     securityText:
       "Clipnexo funciona directamente en tu navegador, sin necesidad de instalar aplicaciones pesadas, lo que simplifica el proceso y ayuda a proteger la privacidad del usuario.",
     toolsTitle: "Más herramientas de Clipnexo",
     toolsIntro:
-      "Además de la página informativa, puedes usar nuestras herramientas para descargar video o convertir contenido de TikTok a MP3 de forma rápida y sencilla.",
+      "Además de esta página informativa, puedes usar nuestras herramientas para TikTok, YouTube, Instagram, Facebook y estudiantes de forma rápida y sencilla.",
     faqTitle: "Preguntas frecuentes sobre Clipnexo",
     faqs: [
       {
         q: "¿Qué hace Clipnexo?",
-        a: "Clipnexo permite descargar videos de TikTok sin marca de agua y convertir contenido a MP3 desde el navegador.",
+        a: "Clipnexo permite generar hashtags, captions, bios, guiones y títulos para TikTok, YouTube, Instagram y Facebook desde el navegador.",
       },
       {
         q: "¿Necesito instalar una app para usar Clipnexo?",
@@ -89,30 +90,30 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       },
       {
         q: "¿Clipnexo es gratis?",
-        a: "Sí. La herramienta puede usarse gratis para descargar videos de TikTok y convertir contenido a MP3.",
+        a: "Sí. Todas las herramientas de Clipnexo son gratuitas y no requieren registro.",
       },
     ],
-    closingTitle: "Clipnexo: una solución práctica para TikTok",
+    closingTitle: "Clipnexo: una plataforma práctica para creadores",
     closingText:
-      "Si buscas una forma simple de descargar videos de TikTok o convertirlos a MP3, Clipnexo es una opción pensada para ofrecer rapidez, compatibilidad y facilidad de uso en una sola experiencia.",
+      "Si buscas una forma simple de preparar contenido para tus redes sociales, Clipnexo es una opción pensada para ofrecer rapidez, compatibilidad y facilidad de uso en una sola experiencia.",
   },
   en: {
-    metaTitle: "About Clipnexo Free Online | TikTok Downloader",
+    metaTitle: "About Clipnexo and How It Works",
     metaDescription:
-      "Learn what Clipnexo is, how it works, and why it is the fastest tool for downloading TikTok videos and converting audio to MP3 for all users for free in 2026.",
+      "Learn what Clipnexo is, how it works, and why it is a platform of free tools for content creators and video editors.",
     title: "About Clipnexo",
     lead:
-      "Clipnexo is an online tool that helps you download TikTok videos and audio without watermark quickly, safely, and for free from mobile or PC.",
+      "Clipnexo is an online platform of free tools for content creators: hashtags, captions, bios, scripts and titles for TikTok, YouTube, Instagram and Facebook.",
     introTitle: "What is Clipnexo?",
     intro:
-      "Clipnexo is a TikTok downloader built for users who want to save videos in MP4 or extract audio in MP3 without registration or software installation. It works directly in the browser and offers a simple experience focused on speed, compatibility, and ease of use.",
+      "Clipnexo is a platform built for content creators and video editors who want to generate hashtags, captions, bios, ideas, scripts and titles without registration or software installation. It works directly in the browser and offers a simple experience focused on speed, compatibility, and ease of use.",
     missionTitle: "Our mission",
     missionText:
-      "Our mission is to provide a reliable, fast, and accessible tool for downloading TikTok content without complications, while preserving user privacy and a stable experience across multiple devices.",
+      "Our mission is to provide reliable, fast, and accessible tools for preparing social media content without complications, while preserving user privacy and a stable experience across multiple devices.",
     whyTitle: "Why use Clipnexo?",
     whyItems: [
-      "Download TikTok videos without watermark in just a few steps.",
-      "Convert TikTok content to MP3 quickly and online.",
+      "Generate hashtags, captions and bios for TikTok, Instagram and Facebook in seconds.",
+      "Create scripts and titles for short videos quickly and online.",
       "No registration, installation, or extra software required.",
       "Compatible with Android, iPhone, tablet, and PC.",
       "Optimized for speed and ease of use.",
@@ -122,18 +123,18 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       "Clipnexo adapts to mobile and desktop screens and works in modern browsers so you can use it at home, at work, or on the go.",
     qualityTitle: "Quality and performance",
     qualityText:
-      "Clipnexo uses modern processing technology to keep the experience fast and stable when downloading videos and converting audio from TikTok.",
+      "Clipnexo uses modern technology to keep the experience fast and stable when generating hashtags, captions, scripts and titles for your social media.",
     securityTitle: "Online use without installing apps",
     securityText:
       "Clipnexo works directly in your browser without requiring heavy apps, which simplifies the process and helps protect user privacy.",
     toolsTitle: "More Clipnexo tools",
     toolsIntro:
-      "Besides this information page, you can use our tools to download video or convert TikTok content to MP3 quickly and easily.",
+      "Besides this information page, you can use our tools for TikTok, YouTube, Instagram, Facebook and students quickly and easily.",
     faqTitle: "Frequently asked questions about Clipnexo",
     faqs: [
       {
         q: "What does Clipnexo do?",
-        a: "Clipnexo lets you download TikTok videos without watermark and convert content to MP3 directly from the browser.",
+        a: "Clipnexo lets you generate hashtags, captions, bios, scripts and titles for TikTok, YouTube, Instagram and Facebook directly from the browser.",
       },
       {
         q: "Do I need to install an app to use Clipnexo?",
@@ -145,30 +146,30 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       },
       {
         q: "Is Clipnexo free?",
-        a: "Yes. You can use the tool for free to download TikTok videos and convert content to MP3.",
+        a: "Yes. All Clipnexo tools are free and require no sign-up.",
       },
     ],
-    closingTitle: "Clipnexo: a practical solution for TikTok",
+    closingTitle: "Clipnexo: a practical platform for creators",
     closingText:
-      "If you need a simple way to download TikTok videos or convert them to MP3, Clipnexo is designed to offer speed, compatibility, and ease of use in one experience.",
+      "If you need a simple way to prepare content for your social media, Clipnexo is designed to offer speed, compatibility, and ease of use in one experience.",
   },
   pt: {
-    metaTitle: "Sobre o Clipnexo Grátis | Downloader de TikTok",
+    metaTitle: "Sobre o Clipnexo e como funciona",
     metaDescription:
-      "Saiba o que é o Clipnexo, como funciona e por que é a ferramenta mais rápida para baixar vídeos do TikTok e converter áudio para MP3 de alta qualidade agora.",
+      "Saiba o que é o Clipnexo, como funciona e por que é uma plataforma de ferramentas gratuitas para criadores de conteúdo e editores de vídeo.",
     title: "Sobre o Clipnexo",
     lead:
-      "Clipnexo é uma ferramenta online que permite baixar vídeos e áudio do TikTok sem marca d’água de forma rápida, segura e gratuita no celular ou PC.",
+      "Clipnexo é uma plataforma online de ferramentas gratuitas para criadores de conteúdo: hashtags, legendas, bios, roteiros e títulos para TikTok, YouTube, Instagram e Facebook.",
     introTitle: "O que é o Clipnexo?",
     intro:
-      "Clipnexo é um downloader de TikTok criado para usuários que desejam salvar vídeos em MP4 ou extrair áudio em MP3 sem registro nem instalação de software. Funciona diretamente no navegador e oferece uma experiência simples com foco em velocidade, compatibilidade e facilidade de uso.",
+      "Clipnexo é uma plataforma criada para criadores de conteúdo e editores de vídeo que desejam gerar hashtags, legendas, bios, ideias, roteiros e títulos sem registro nem instalação de software. Funciona diretamente no navegador e oferece uma experiência simples com foco em velocidade, compatibilidade e facilidade de uso.",
     missionTitle: "Nossa missão",
     missionText:
-      "Nossa missão é oferecer uma ferramenta confiável, rápida e acessível para baixar conteúdo do TikTok sem complicações, mantendo a privacidade do usuário e uma experiência estável em vários dispositivos.",
+      "Nossa missão é oferecer ferramentas confiáveis, rápidas e acessíveis para preparar conteúdo nas redes sociais sem complicações, mantendo a privacidade do usuário e uma experiência estável em vários dispositivos.",
     whyTitle: "Por que usar o Clipnexo?",
     whyItems: [
-      "Baixe vídeos do TikTok sem marca d’água em poucos passos.",
-      "Converta conteúdo do TikTok para MP3 de forma rápida e online.",
+      "Gere hashtags, legendas e bios para TikTok, Instagram e Facebook em segundos.",
+      "Crie roteiros e títulos para vídeos curtos de forma rápida e online.",
       "Não exige registro, instalação ou programas extras.",
       "Compatível com Android, iPhone, tablet e PC.",
       "Otimizado para velocidade e facilidade de uso.",
@@ -178,18 +179,18 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       "O Clipnexo se adapta a telas móveis e desktop e funciona em navegadores modernos para que você possa usá-lo em casa, no trabalho ou em movimento.",
     qualityTitle: "Qualidade e desempenho",
     qualityText:
-      "O Clipnexo usa tecnologia moderna de processamento para manter a experiência rápida e estável ao baixar vídeos e converter áudio do TikTok.",
+      "O Clipnexo usa tecnologia moderna para manter a experiência rápida e estável ao gerar hashtags, legendas, roteiros e títulos para suas redes sociais.",
     securityTitle: "Uso online sem instalar aplicativos",
     securityText:
       "O Clipnexo funciona diretamente no navegador, sem necessidade de instalar aplicativos pesados, o que simplifica o processo e ajuda a proteger a privacidade do usuário.",
     toolsTitle: "Mais ferramentas do Clipnexo",
     toolsIntro:
-      "Além desta página informativa, você pode usar nossas ferramentas para baixar vídeo ou converter conteúdo do TikTok para MP3 de forma rápida e simples.",
+      "Além desta página informativa, você pode usar nossas ferramentas para TikTok, YouTube, Instagram, Facebook e estudantes de forma rápida e simples.",
     faqTitle: "Perguntas frequentes sobre o Clipnexo",
     faqs: [
       {
         q: "O que o Clipnexo faz?",
-        a: "O Clipnexo permite baixar vídeos do TikTok sem marca d’água e converter conteúdo para MP3 diretamente no navegador.",
+        a: "O Clipnexo permite gerar hashtags, legendas, bios, roteiros e títulos para TikTok, YouTube, Instagram e Facebook diretamente no navegador.",
       },
       {
         q: "Preciso instalar um aplicativo para usar o Clipnexo?",
@@ -201,12 +202,12 @@ const fallbackAbout: Record<Lang, AboutContent> = {
       },
       {
         q: "O Clipnexo é grátis?",
-        a: "Sim. Você pode usar a ferramenta gratuitamente para baixar vídeos do TikTok e converter conteúdo para MP3.",
+        a: "Sim. Todas as ferramentas do Clipnexo são gratuitas e não exigem cadastro.",
       },
     ],
-    closingTitle: "Clipnexo: uma solução prática para TikTok",
+    closingTitle: "Clipnexo: uma plataforma prática para criadores",
     closingText:
-      "Se você procura uma maneira simples de baixar vídeos do TikTok ou convertê-los para MP3, o Clipnexo foi pensado para oferecer velocidade, compatibilidade e facilidade de uso em uma única experiência.",
+      "Se você procura uma maneira simples de preparar conteúdo para suas redes sociais, o Clipnexo foi pensado para oferecer velocidade, compatibilidade e facilidade de uso em uma única experiência.",
   },
 };
 
@@ -232,18 +233,24 @@ export default async function Page({ params }: PageProps) {
   const currentLang = normalizeLang(lang);
   const t = (legalContent as LegalContentWithAbout).about?.[currentLang] ?? fallbackAbout[currentLang];
 
-  const toolLinks: Record<Lang, { labelVideo: string; labelMp3: string }> = {
+  const toolLinks: Record<Lang, { labelTiktok: string; labelTools: string; hrefTiktok: string; hrefTools: string }> = {
     es: {
-      labelVideo: "Descargar videos de TikTok",
-      labelMp3: "Convertir TikTok a MP3",
+      labelTiktok: "Herramientas para TikTok",
+      labelTools: "Todas las herramientas",
+      hrefTiktok: getLocalizedRoute("tiktokTools", "es"),
+      hrefTools: getLocalizedRoute("tools", "es"),
     },
     en: {
-      labelVideo: "Download TikTok videos",
-      labelMp3: "Convert TikTok to MP3",
+      labelTiktok: "TikTok tools",
+      labelTools: "All tools",
+      hrefTiktok: getLocalizedRoute("tiktokTools", "en"),
+      hrefTools: getLocalizedRoute("tools", "en"),
     },
     pt: {
-      labelVideo: "Baixar vídeos do TikTok",
-      labelMp3: "Converter TikTok para MP3",
+      labelTiktok: "Ferramentas de TikTok",
+      labelTools: "Todas as ferramentas",
+      hrefTiktok: getLocalizedRoute("tiktokTools", "pt"),
+      hrefTools: getLocalizedRoute("tools", "pt"),
     },
   };
 
@@ -441,10 +448,10 @@ export default async function Page({ params }: PageProps) {
           </p>
           <ul style={{ paddingLeft: "24px", margin: 0 }}>
             <li style={{ marginBottom: "8px", fontSize: "16px", lineHeight: 1.7 }}>
-              <a href={`/${currentLang}/descargar-tiktok`}>{links.labelVideo}</a>
+              <a href={links.hrefTiktok}>{links.labelTiktok}</a>
             </li>
             <li style={{ marginBottom: "8px", fontSize: "16px", lineHeight: 1.7 }}>
-              <a href={`/${currentLang}/descargar-tiktok-mp3`}>{links.labelMp3}</a>
+              <a href={links.hrefTools}>{links.labelTools}</a>
             </li>
           </ul>
         </section>

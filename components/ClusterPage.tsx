@@ -8,10 +8,6 @@ type Props = {
 };
 
 const toolLabelMap: Record<string, Record<SupportedLang, string>> = {
-  video: { es: "Descargar videos de TikTok", en: "Download TikTok videos", pt: "Baixar vídeos do TikTok" },
-  mp3: { es: "Descargar TikTok a MP3", en: "TikTok to MP3", pt: "TikTok para MP3" },
-  withoutWatermark: { es: "Descargar TikTok sin marca de agua", en: "Download TikTok without watermark", pt: "Baixar TikTok sem marca d'água" },
-  guide: { es: "Guía para descargar videos de TikTok", en: "How to download TikTok videos", pt: "Como baixar vídeos do TikTok" },
   tiktokBio: { es: "Generador de bio para TikTok", en: "TikTok bio generator", pt: "Gerador de bio para TikTok" },
   tiktokIdeas: { es: "Ideas para TikTok", en: "TikTok video ideas", pt: "Ideias para TikTok" },
   tiktokHooks: { es: "Ganchos virales para TikTok", en: "TikTok hook generator", pt: "Ganchos virais para TikTok" },

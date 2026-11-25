@@ -24,7 +24,7 @@ type NavbarProps = {
   lang: string;
 };
 
-type DesktopDropdownKey = "download" | "tools" | "resources" | "language";
+type DesktopDropdownKey = "tools" | "resources" | "language";
 type ToolMenuKind = "tiktok" | "instagram" | "youtube" | "utilities";
 
 function ToolMenuIcon({ kind }: { kind: ToolMenuKind }) {
@@ -347,56 +347,6 @@ export default function Navbar({ lang }: NavbarProps) {
 
         <nav ref={desktopNavRef} className="nav-desktop" aria-label="Main navigation">
           <div
-            data-dropdown="download"
-            className={`nav-dropdown${openDropdown === "download" ? " nav-dropdown-open" : ""}`}
-            onMouseEnter={() => openDesktopDropdown("download")}
-            onMouseLeave={scheduleDropdownClose}
-            onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                scheduleDropdownClose();
-              }
-            }}
-          >
-            <button
-              ref={(node) => {
-                dropdownButtonRefs.current.download = node || undefined;
-              }}
-              type="button"
-              className="nav-btn"
-              aria-haspopup="menu"
-              aria-expanded={openDropdown === "download"}
-              aria-controls="nav-download-menu"
-              onClick={() => openDesktopDropdown("download")}
-              onKeyDown={(event) => handleDropdownButtonKeyDown(event, "download")}
-            >
-              {nav.download.label}
-              <svg className="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <div
-              id="nav-download-menu"
-              className="nav-dropdown-menu"
-              role="menu"
-              aria-label={nav.download.label}
-              onMouseEnter={cancelDropdownClose}
-              onKeyDown={(event) => handleDropdownMenuKeyDown(event, "download")}
-            >
-              {nav.download.links.map((link) => (
-                <Link
-                  key={link.label}
-                  href={resolveHref(link.routeKey)}
-                  className="nav-dropdown-link"
-                  role="menuitem"
-                  onClick={closeDesktopDropdown}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div
             data-dropdown="tools"
             className={`nav-dropdown nav-tools-dropdown${openDropdown === "tools" ? " nav-dropdown-open" : ""}`}
             onMouseEnter={() => openDesktopDropdown("tools")}
@@ -676,42 +626,6 @@ export default function Navbar({ lang }: NavbarProps) {
           </div>
 
           <nav className="mobile-drawer-body">
-            <div className="mobile-accordion">
-              <button
-                type="button"
-                className="mobile-accordion-btn"
-                onClick={() => toggleAccordion("download")}
-                aria-expanded={accordions.download || false}
-                aria-controls="mobile-download-menu"
-              >
-                <span className="mobile-accordion-btn-label">{nav.download.label}</span>
-                <svg
-                  className={`mobile-accordion-chevron${accordions.download ? " open" : ""}`}
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              {accordions.download && (
-                <div id="mobile-download-menu" className="mobile-accordion-content">
-                  {nav.download.links.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={resolveHref(link.routeKey)}
-                      className="mobile-link"
-                      onClick={closeMobile}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
             <div className="mobile-accordion">
               <button
                 type="button"

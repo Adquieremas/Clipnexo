@@ -73,15 +73,15 @@ export const blogPosts: BlogPost[] = [
       pt: "melhor-baixador-tiktok-sem-marca-dagua",
     },
     relatedPostKeys: ["clipnexo-vs-snaptik", "clipnexo-vs-ssstik", "como-descargar-tiktok-sin-marca"],
-    relatedToolRouteKeys: ["video", "mp3", "withoutWatermark"],
+    relatedToolRouteKeys: ["tiktokHashtags", "tiktokCaptions", "tiktokIdeas"],
     content: {
       es: {
         title: "Mejor descargador TikTok sin marca de agua online",
         h1: "Mejor descargador TikTok sin marca de agua online",
         description:
-          "Compara opciones para descargar videos de TikTok sin marca de agua y descubre cuándo usar Clipnexo u otras herramientas online.",
+          "Compara las mejores opciones para descargar videos de TikTok sin marca de agua en 2026.",
         excerpt:
-          "Comparativa honesta de descargadores de TikTok sin marca de agua. Analizamos Clipnexo, SnapTik, SSSTik, SaveTik, TTDownloader y TikVid.",
+          "Comparativa honesta de descargadores de TikTok sin marca de agua: SnapTik, SSSTik, SaveTik, TTDownloader y TikVid.",
         sections: [
           {
             type: "p",
@@ -115,7 +115,6 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Herramienta", "Descarga sin marca", "MP3", "Desde navegador", "Herramientas extra"],
               rows: [
-                ["Clipnexo", "Sí", "Sí", "Sí", "Generadores, calculadoras y más"],
                 ["SnapTik", "Sí", "Sí", "Sí", "Solo descarga"],
                 ["SSSTik", "Sí", "Sí", "Sí", "Solo descarga"],
                 ["SaveTik", "Sí", "Sí", "Sí", "Solo descarga"],
@@ -126,23 +125,23 @@ export const blogPosts: BlogPost[] = [
           },
           {
             type: "h2",
-            text: "Clipnexo: más que un descargador",
+            text: "Clipnexo: herramientas para después de descargar",
           },
           {
             type: "p",
-            text: "Clipnexo no solo permite descargar videos de TikTok sin marca de agua y convertir a MP3. También incluye herramientas para creadores de contenido: generadores de hashtags, captions, ideas para videos, guiones, y calculadoras para YouTube, Instagram y Facebook. Esto puede ser útil si además de descargar contenido, buscas producir y optimizar tus publicaciones.",
+            text: "Clipnexo ya no ofrece descarga de video, pero sigue siendo una plataforma útil para creadores de contenido: generadores de hashtags, captions, ideas para videos, guiones, y calculadoras para YouTube, Instagram y Facebook. Es un buen complemento una vez que ya tienes el video descargado.",
           },
           {
             type: "p",
-            text: "Otra ventaja es que todas las herramientas funcionan directamente en el navegador, sin necesidad de instalar nada. La experiencia está diseñada para ser rápida y funcionar tanto en móvil como en escritorio.",
+            text: "Todas las herramientas de Clipnexo funcionan directamente en el navegador, sin necesidad de instalar nada, y son compatibles con móvil y escritorio.",
           },
           {
             type: "cta-tools",
             text: "Prueba las herramientas de Clipnexo:",
             links: [
-              { label: "Descargar video de TikTok", routeKey: "video" },
-              { label: "TikTok a MP3", routeKey: "mp3" },
-              { label: "Descargar sin marca de agua", routeKey: "withoutWatermark" },
+              { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+              { label: "Captions para TikTok", routeKey: "tiktokCaptions" },
+              { label: "Ideas para TikTok", routeKey: "tiktokIdeas" },
             ],
           },
           {
@@ -195,21 +194,21 @@ export const blogPosts: BlogPost[] = [
         ],
         faqTitle: "Preguntas frecuentes",
         faq: [
-          { q: "¿Cuál es el mejor descargador de TikTok sin marca de agua?", a: "Depende de lo que necesites. Si solo buscas descargar, SnapTik o SSSTik pueden ser opciones prácticas. Si además quieres herramientas para crear contenido, Clipnexo puede ser más útil." },
+          { q: "¿Cuál es el mejor descargador de TikTok sin marca de agua?", a: "Depende de lo que necesites. SnapTik o SSSTik son opciones prácticas para descargar. Si además creas contenido y necesitas hashtags, captions o guiones, Clipnexo puede ser más útil." },
           { q: "¿Es seguro usar descargadores de TikTok online?", a: "La mayoría de herramientas conocidas usan conexiones seguras. Siempre verifica que la URL comience con HTTPS y evita sitios con publicidad engañosa." },
           { q: "¿Necesito instalar algo para descargar?", a: "No. Los descargadores online funcionan directamente desde el navegador, tanto en móvil como en PC." },
           { q: "¿Puedo descargar cualquier video de TikTok?", a: "Depende de la configuración de privacidad del video. Los videos públicos generalmente se pueden descargar. Los videos privados no." },
-          { q: "¿Los descargadores guardan mis datos?", a: "Cada herramienta tiene su propia política. En Clipnexo, el procesamiento se hace en el servidor solo para obtener el video y no se almacena información personal." },
-          { q: "¿Puedo descargar TikTok a MP3?", a: "Sí, varias herramientas permiten convertir TikTok a MP3, incluyendo Clipnexo, SnapTik, SSSTik y SaveTik." },
+          { q: "¿Los descargadores guardan mis datos?", a: "Cada herramienta tiene su propia política de privacidad. Revisa los términos de cada una antes de usarla." },
+          { q: "¿Puedo descargar TikTok a MP3?", a: "Sí, varias herramientas permiten convertir TikTok a MP3, incluyendo SnapTik, SSSTik y SaveTik." },
         ],
       },
       en: {
         title: "Best TikTok downloader without watermark online",
         h1: "Best TikTok downloader without watermark online",
         description:
-          "Compare online options to download TikTok videos without watermark and learn when to use Clipnexo or similar tools.",
+          "Compare the best options to download TikTok videos without watermark in 2026.",
         excerpt:
-          "Honest comparison of TikTok downloaders without watermark. We analyze Clipnexo, SnapTik, SSSTik, SaveTik, TTDownloader and TikVid.",
+          "Honest comparison of TikTok downloaders without watermark: SnapTik, SSSTik, SaveTik, TTDownloader and TikVid.",
         sections: [
           {
             type: "p",
@@ -243,7 +242,6 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Tool", "No watermark", "MP3", "Browser-based", "Extra tools"],
               rows: [
-                ["Clipnexo", "Yes", "Yes", "Yes", "Generators, calculators and more"],
                 ["SnapTik", "Yes", "Yes", "Yes", "Download only"],
                 ["SSSTik", "Yes", "Yes", "Yes", "Download only"],
                 ["SaveTik", "Yes", "Yes", "Yes", "Download only"],
@@ -254,23 +252,23 @@ export const blogPosts: BlogPost[] = [
           },
           {
             type: "h2",
-            text: "Clipnexo: more than a downloader",
+            text: "Clipnexo: tools for after you download",
           },
           {
             type: "p",
-            text: "Clipnexo not only lets you download TikTok videos without watermark and convert to MP3. It also includes creator tools: hashtag generators, caption generators, video idea generators, scripts, and calculators for YouTube, Instagram and Facebook. This can be useful if you want to produce and optimize your content in addition to downloading.",
+            text: "Clipnexo no longer offers video downloading, but it's still a useful platform for content creators: hashtag generators, caption generators, video idea generators, scripts, and calculators for YouTube, Instagram and Facebook. A good complement once you already have the video downloaded.",
           },
           {
             type: "p",
-            text: "All tools work directly in your browser with no installation needed. The experience is fast and works on both mobile and desktop.",
+            text: "All Clipnexo tools work directly in your browser with no installation needed, and are compatible with mobile and desktop.",
           },
           {
             type: "cta-tools",
             text: "Try Clipnexo tools:",
             links: [
-              { label: "Download TikTok video", routeKey: "video" },
-              { label: "TikTok to MP3", routeKey: "mp3" },
-              { label: "Download without watermark", routeKey: "withoutWatermark" },
+              { label: "TikTok hashtags", routeKey: "tiktokHashtags" },
+              { label: "TikTok captions", routeKey: "tiktokCaptions" },
+              { label: "TikTok ideas", routeKey: "tiktokIdeas" },
             ],
           },
           {
@@ -323,21 +321,21 @@ export const blogPosts: BlogPost[] = [
         ],
         faqTitle: "Frequently asked questions",
         faq: [
-          { q: "What is the best TikTok downloader without watermark?", a: "It depends on your needs. If you only want to download, SnapTik or SSSTik are practical options. If you also want content creation tools, Clipnexo may be more useful." },
+          { q: "What is the best TikTok downloader without watermark?", a: "It depends on your needs. SnapTik or SSSTik are practical options for downloading. If you also create content and need hashtags, captions or scripts, Clipnexo may be more useful." },
           { q: "Is it safe to use online TikTok downloaders?", a: "Most well-known tools use secure connections. Always check that the URL starts with HTTPS and avoid sites with misleading ads." },
           { q: "Do I need to install anything to download?", a: "No. Online downloaders work directly from your browser, on both mobile and desktop." },
           { q: "Can I download any TikTok video?", a: "It depends on the video's privacy settings. Public videos can generally be downloaded. Private videos cannot." },
-          { q: "Do downloaders save my data?", a: "Each tool has its own policy. On Clipnexo, processing happens on the server only to fetch the video and no personal data is stored." },
-          { q: "Can I download TikTok to MP3?", a: "Yes, several tools support TikTok to MP3 conversion, including Clipnexo, SnapTik, SSSTik and SaveTik." },
+          { q: "Do downloaders save my data?", a: "Each tool has its own privacy policy. Check each one's terms before using it." },
+          { q: "Can I download TikTok to MP3?", a: "Yes, several tools support TikTok to MP3 conversion, including SnapTik, SSSTik and SaveTik." },
         ],
       },
       pt: {
         title: "Melhor baixador TikTok sem marca d'água online",
         h1: "Melhor baixador TikTok sem marca d'água online",
         description:
-          "Compare opções para baixar vídeos do TikTok sem marca d'água e veja quando usar Clipnexo ou ferramentas similares.",
+          "Compare as melhores opções para baixar vídeos do TikTok sem marca d'água em 2026.",
         excerpt:
-          "Comparativo honesto de baixadores de TikTok sem marca d'água. Analisamos Clipnexo, SnapTik, SSSTik, SaveTik, TTDownloader e TikVid.",
+          "Comparativo honesto de baixadores de TikTok sem marca d'água: SnapTik, SSSTik, SaveTik, TTDownloader e TikVid.",
         sections: [
           {
             type: "p",
@@ -371,7 +369,6 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Ferramenta", "Sem marca", "MP3", "Pelo navegador", "Ferramentas extras"],
               rows: [
-                ["Clipnexo", "Sim", "Sim", "Sim", "Geradores, calculadoras e mais"],
                 ["SnapTik", "Sim", "Sim", "Sim", "Apenas download"],
                 ["SSSTik", "Sim", "Sim", "Sim", "Apenas download"],
                 ["SaveTik", "Sim", "Sim", "Sim", "Apenas download"],
@@ -382,23 +379,23 @@ export const blogPosts: BlogPost[] = [
           },
           {
             type: "h2",
-            text: "Clipnexo: mais que um baixador",
+            text: "Clipnexo: ferramentas para depois de baixar",
           },
           {
             type: "p",
-            text: "Clipnexo não apenas permite baixar vídeos do TikTok sem marca d'água e converter para MP3. Também inclui ferramentas para criadores de conteúdo: geradores de hashtags, legendas, ideias para vídeos, roteiros e calculadoras para YouTube, Instagram e Facebook. Isso pode ser útil se além de baixar conteúdo, você busca produzir e otimizar suas publicações.",
+            text: "O Clipnexo não oferece mais download de vídeo, mas continua sendo uma plataforma útil para criadores de conteúdo: geradores de hashtags, legendas, ideias para vídeos, roteiros e calculadoras para YouTube, Instagram e Facebook. Um bom complemento depois que você já baixou o vídeo.",
           },
           {
             type: "p",
-            text: "Todas as ferramentas funcionam diretamente no navegador, sem necessidade de instalar nada. A experiência é rápida e funciona tanto no celular quanto no desktop.",
+            text: "Todas as ferramentas do Clipnexo funcionam diretamente no navegador, sem necessidade de instalar nada, e são compatíveis com celular e desktop.",
           },
           {
             type: "cta-tools",
             text: "Experimente as ferramentas do Clipnexo:",
             links: [
-              { label: "Baixar vídeo do TikTok", routeKey: "video" },
-              { label: "TikTok para MP3", routeKey: "mp3" },
-              { label: "Baixar sem marca d'água", routeKey: "withoutWatermark" },
+              { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+              { label: "Legendas para TikTok", routeKey: "tiktokCaptions" },
+              { label: "Ideias para TikTok", routeKey: "tiktokIdeas" },
             ],
           },
           {
@@ -451,12 +448,12 @@ export const blogPosts: BlogPost[] = [
         ],
         faqTitle: "Perguntas frequentes",
         faq: [
-          { q: "Qual é o melhor baixador de TikTok sem marca d'água?", a: "Depende do que você precisa. Se só quer baixar, SnapTik ou SSSTik são opções práticas. Se também quer ferramentas para criar conteúdo, Clipnexo pode ser mais útil." },
+          { q: "Qual é o melhor baixador de TikTok sem marca d'água?", a: "Depende do que você precisa. SnapTik ou SSSTik são opções práticas para baixar. Se também cria conteúdo e precisa de hashtags, legendas ou roteiros, o Clipnexo pode ser mais útil." },
           { q: "É seguro usar baixadores de TikTok online?", a: "A maioria das ferramentas conhecidas usa conexões seguras. Sempre verifique se a URL começa com HTTPS e evite sites com anúncios enganosos." },
           { q: "Preciso instalar algo para baixar?", a: "Não. Os baixadores online funcionam diretamente do navegador, tanto no celular quanto no PC." },
           { q: "Posso baixar qualquer vídeo do TikTok?", a: "Depende da configuração de privacidade do vídeo. Vídeos públicos geralmente podem ser baixados. Vídeos privados não." },
-          { q: "Os baixadores salvam meus dados?", a: "Cada ferramenta tem sua própria política. No Clipnexo, o processamento é feito no servidor apenas para obter o vídeo e nenhum dado pessoal é armazenado." },
-          { q: "Posso baixar TikTok para MP3?", a: "Sim, várias ferramentas permitem converter TikTok para MP3, incluindo Clipnexo, SnapTik, SSSTik e SaveTik." },
+          { q: "Os baixadores salvam meus dados?", a: "Cada ferramenta tem sua própria política de privacidade. Verifique os termos de cada uma antes de usar." },
+          { q: "Posso baixar TikTok para MP3?", a: "Sim, várias ferramentas permitem converter TikTok para MP3, incluindo SnapTik, SSSTik e SaveTik." },
         ],
       },
     },
@@ -475,7 +472,7 @@ export const blogPosts: BlogPost[] = [
       pt: "clipnexo-vs-snaptik",
     },
     relatedPostKeys: ["best-tiktok-downloader", "clipnexo-vs-ssstik", "como-descargar-tiktok-sin-marca"],
-    relatedToolRouteKeys: ["video", "withoutWatermark", "tools"],
+    relatedToolRouteKeys: ["tiktokHashtags", "tiktokIdeas", "tools"],
     content: {
       es: {
         title: "Clipnexo vs SnapTik: diferencias y usos",
@@ -485,9 +482,9 @@ export const blogPosts: BlogPost[] = [
         excerpt:
           "Comparativa detallada entre Clipnexo y SnapTik. Analizamos diferencias, ventajas, límites y en qué casos conviene usar cada uno.",
         sections: [
-          { type: "p", text: "SnapTik es uno de los descargadores de TikTok más conocidos. Clipnexo, además de descargar, ofrece herramientas para creadores. En este artículo comparamos ambos para que puedas decidir cuál se ajusta mejor a lo que buscas." },
+          { type: "p", text: "SnapTik es uno de los descargadores de TikTok más conocidos. Clipnexo, en cambio, es una plataforma de herramientas para creadores de contenido. En este artículo comparamos ambos para que puedas decidir cuál se ajusta mejor a lo que buscas." },
           { type: "h2", text: "¿Qué es Clipnexo?" },
-          { type: "p", text: "Clipnexo es una plataforma de herramientas gratuitas para creadores de contenido. Incluye descargador de TikTok sin marca de agua, conversor a MP3, y decenas de herramientas para generar hashtags, captions, ideas, guiones y calcular métricas para TikTok, YouTube, Instagram y Facebook." },
+          { type: "p", text: "Clipnexo es una plataforma de herramientas gratuitas para creadores de contenido, con decenas de herramientas para generar hashtags, captions, ideas, guiones y calcular métricas para TikTok, YouTube, Instagram y Facebook." },
           { type: "h2", text: "¿Qué es SnapTik?" },
           { type: "p", text: "SnapTik es un descargador de TikTok online. Su función principal es permitir la descarga de videos de TikTok sin marca de agua y la conversión a MP3. Es rápido, sencillo y no requiere registro." },
           { type: "h2", text: "Diferencias principales" },
@@ -496,8 +493,8 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Característica", "Clipnexo", "SnapTik"],
               rows: [
-                ["Descarga sin marca", "Sí", "Sí"],
-                ["Conversión a MP3", "Sí", "Sí"],
+                ["Descarga de video", "No", "Sí"],
+                ["Conversión a MP3", "No", "Sí"],
                 ["Herramientas para TikTok", "Sí (6 herramientas)", "No"],
                 ["Herramientas para YouTube", "Sí (15 herramientas)", "No"],
                 ["Herramientas para Instagram", "Sí (4 herramientas)", "No"],
@@ -522,17 +519,17 @@ export const blogPosts: BlogPost[] = [
           },
           { type: "cta-tools", text: "Explora las herramientas de Clipnexo:", links: [
             { label: "Todas las herramientas", routeKey: "tools" },
-            { label: "Descargar video de TikTok", routeKey: "video" },
-            { label: "Descargar sin marca de agua", routeKey: "withoutWatermark" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Ideas para TikTok", routeKey: "tiktokIdeas" },
           ]},
           { type: "h2", text: "Preguntas frecuentes" },
         ],
         faqTitle: "Preguntas frecuentes",
         faq: [
           { q: "¿Clipnexo o SnapTik, cuál es mejor?", a: "Ninguno es objetivamente mejor. SnapTik es más rápido para descargas simples. Clipnexo ofrece más herramientas si también creas contenido." },
-          { q: "¿Clipnexo tiene límite de descargas?", a: "Clipnexo no impone un límite fijo de descargas, pero la disponibilidad depende del estado del servicio de TikTok." },
+          { q: "¿Clipnexo tiene límite de uso?", a: "No, todas las herramientas de Clipnexo son gratuitas y sin límite de uso." },
           { q: "¿SnapTik funciona en todos los países?", a: "SnapTik está disponible en la mayoría de países, pero puede tener restricciones en algunos." },
-          { q: "¿Ambos son gratuitos?", a: "Sí, tanto Clipnexo como SnapTik ofrecen descarga gratuita de videos de TikTok." },
+          { q: "¿Ambos son gratuitos?", a: "Sí, SnapTik ofrece descarga gratuita de videos de TikTok y Clipnexo ofrece sus herramientas para creadores sin costo." },
         ],
       },
       en: {
@@ -541,9 +538,9 @@ export const blogPosts: BlogPost[] = [
         description: "Compare Clipnexo and SnapTik for TikTok downloads. Review differences, advantages, limits and practical use cases.",
         excerpt: "Detailed comparison between Clipnexo and SnapTik. Differences, advantages, limits and when to use each one.",
         sections: [
-          { type: "p", text: "SnapTik is one of the most well-known TikTok downloaders. Clipnexo, in addition to downloading, offers tools for content creators. This article compares both so you can decide which one fits your needs." },
+          { type: "p", text: "SnapTik is one of the most well-known TikTok downloaders. Clipnexo, on the other hand, is a platform of tools for content creators. This article compares both so you can decide which one fits your needs." },
           { type: "h2", text: "What is Clipnexo?" },
-          { type: "p", text: "Clipnexo is a free tool platform for content creators. It includes a TikTok downloader without watermark, MP3 converter, and dozens of tools to generate hashtags, captions, ideas, scripts and calculate metrics for TikTok, YouTube, Instagram and Facebook." },
+          { type: "p", text: "Clipnexo is a free tool platform for content creators, with dozens of tools to generate hashtags, captions, ideas, scripts and calculate metrics for TikTok, YouTube, Instagram and Facebook." },
           { type: "h2", text: "What is SnapTik?" },
           { type: "p", text: "SnapTik is an online TikTok downloader. Its main function is to allow downloading TikTok videos without watermark and MP3 conversion. It's fast, simple and requires no registration." },
           { type: "h2", text: "Main differences" },
@@ -552,8 +549,8 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Feature", "Clipnexo", "SnapTik"],
               rows: [
-                ["No watermark download", "Yes", "Yes"],
-                ["MP3 conversion", "Yes", "Yes"],
+                ["Video download", "No", "Yes"],
+                ["MP3 conversion", "No", "Yes"],
                 ["TikTok tools", "Yes (6 tools)", "No"],
                 ["YouTube tools", "Yes (15 tools)", "No"],
                 ["Instagram tools", "Yes (4 tools)", "No"],
@@ -578,17 +575,17 @@ export const blogPosts: BlogPost[] = [
           },
           { type: "cta-tools", text: "Explore Clipnexo tools:", links: [
             { label: "All tools", routeKey: "tools" },
-            { label: "Download TikTok video", routeKey: "video" },
-            { label: "Download without watermark", routeKey: "withoutWatermark" },
+            { label: "TikTok hashtags", routeKey: "tiktokHashtags" },
+            { label: "TikTok ideas", routeKey: "tiktokIdeas" },
           ]},
           { type: "h2", text: "Frequently asked questions" },
         ],
         faqTitle: "Frequently asked questions",
         faq: [
           { q: "Clipnexo or SnapTik, which is better?", a: "Neither is objectively better. SnapTik is faster for simple downloads. Clipnexo offers more tools if you also create content." },
-          { q: "Does Clipnexo have download limits?", a: "Clipnexo does not impose a fixed limit, but availability depends on TikTok's service status." },
+          { q: "Does Clipnexo have usage limits?", a: "No, all Clipnexo tools are free with no usage limits." },
           { q: "Does SnapTik work in all countries?", a: "SnapTik is available in most countries but may have restrictions in some." },
-          { q: "Are both free?", a: "Yes, both Clipnexo and SnapTik offer free TikTok video downloads." },
+          { q: "Are both free?", a: "Yes, SnapTik offers free TikTok video downloads and Clipnexo offers its creator tools at no cost." },
         ],
       },
       pt: {
@@ -597,9 +594,9 @@ export const blogPosts: BlogPost[] = [
         description: "Compare Clipnexo e SnapTik para baixar vídeos do TikTok. Veja diferenças, vantagens, limites e casos de uso.",
         excerpt: "Comparação detalhada entre Clipnexo e SnapTik. Diferenças, vantagens, limites e quando usar cada um.",
         sections: [
-          { type: "p", text: "SnapTik é um dos baixadores de TikTok mais conhecidos. Clipnexo, além de baixar, oferece ferramentas para criadores de conteúdo. Este artigo compara ambos para você decidir qual se encaixa melhor no que procura." },
+          { type: "p", text: "SnapTik é um dos baixadores de TikTok mais conhecidos. O Clipnexo, por sua vez, é uma plataforma de ferramentas para criadores de conteúdo. Este artigo compara ambos para você decidir qual se encaixa melhor no que procura." },
           { type: "h2", text: "O que é Clipnexo?" },
-          { type: "p", text: "Clipnexo é uma plataforma de ferramentas gratuitas para criadores de conteúdo. Inclui baixador de TikTok sem marca d'água, conversor para MP3 e dezenas de ferramentas para gerar hashtags, legendas, ideias, roteiros e calcular métricas para TikTok, YouTube, Instagram e Facebook." },
+          { type: "p", text: "Clipnexo é uma plataforma de ferramentas gratuitas para criadores de conteúdo, com dezenas de ferramentas para gerar hashtags, legendas, ideias, roteiros e calcular métricas para TikTok, YouTube, Instagram e Facebook." },
           { type: "h2", text: "O que é SnapTik?" },
           { type: "p", text: "SnapTik é um baixador de TikTok online. Sua função principal é permitir o download de vídeos do TikTok sem marca d'água e a conversão para MP3. É rápido, simples e não requer cadastro." },
           { type: "h2", text: "Diferenças principais" },
@@ -608,8 +605,8 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Característica", "Clipnexo", "SnapTik"],
               rows: [
-                ["Download sem marca", "Sim", "Sim"],
-                ["Conversão para MP3", "Sim", "Sim"],
+                ["Download de vídeo", "Não", "Sim"],
+                ["Conversão para MP3", "Não", "Sim"],
                 ["Ferramentas para TikTok", "Sim (6 ferramentas)", "Não"],
                 ["Ferramentas para YouTube", "Sim (15 ferramentas)", "Não"],
                 ["Ferramentas para Instagram", "Sim (4 ferramentas)", "Não"],
@@ -633,17 +630,17 @@ export const blogPosts: BlogPost[] = [
           },
           { type: "cta-tools", text: "Explore as ferramentas do Clipnexo:", links: [
             { label: "Todas as ferramentas", routeKey: "tools" },
-            { label: "Baixar vídeo do TikTok", routeKey: "video" },
-            { label: "Baixar sem marca d'água", routeKey: "withoutWatermark" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Ideias para TikTok", routeKey: "tiktokIdeas" },
           ]},
           { type: "h2", text: "Perguntas frequentes" },
         ],
         faqTitle: "Perguntas frequentes",
         faq: [
           { q: "Clipnexo ou SnapTik, qual é melhor?", a: "Nenhum é objetivamente melhor. SnapTik é mais rápido para downloads simples. Clipnexo oferece mais ferramentas se você também cria conteúdo." },
-          { q: "Clipnexo tem limite de downloads?", a: "Clipnexo não impõe um limite fixo, mas a disponibilidade depende do estado do serviço do TikTok." },
+          { q: "Clipnexo tem limite de uso?", a: "Não, todas as ferramentas do Clipnexo são gratuitas e sem limite de uso." },
           { q: "SnapTik funciona em todos os países?", a: "SnapTik está disponível na maioria dos países, mas pode ter restrições em alguns." },
-          { q: "Ambos são gratuitos?", a: "Sim, tanto Clipnexo quanto SnapTik oferecem download gratuito de vídeos do TikTok." },
+          { q: "Ambos são gratuitos?", a: "Sim, o SnapTik oferece download gratuito de vídeos do TikTok e o Clipnexo oferece suas ferramentas para criadores sem custo." },
         ],
       },
     },
@@ -662,7 +659,7 @@ export const blogPosts: BlogPost[] = [
       pt: "clipnexo-vs-ssstik",
     },
     relatedPostKeys: ["best-tiktok-downloader", "clipnexo-vs-snaptik", "como-descargar-tiktok-sin-marca"],
-    relatedToolRouteKeys: ["video", "withoutWatermark", "mp3"],
+    relatedToolRouteKeys: ["tiktokHashtags", "tiktokIdeas", "tiktokBio"],
     content: {
       es: {
         title: "Clipnexo vs SSSTik: comparativa para TikTok",
@@ -670,9 +667,9 @@ export const blogPosts: BlogPost[] = [
         description: "Compara Clipnexo y SSSTik para descargar videos de TikTok. Revisa funciones, facilidad de uso y puntos a considerar.",
         excerpt: "Comparativa detallada entre Clipnexo y SSSTik. Funciones, facilidad de uso y aspectos clave a considerar.",
         sections: [
-          { type: "p", text: "SSSTik es otro de los descargadores populares de TikTok. En esta comparativa analizamos sus diferencias con Clipnexo para que puedas elegir según lo que necesites." },
+          { type: "p", text: "SSSTik es otro de los descargadores populares de TikTok. Clipnexo, en cambio, es una plataforma de herramientas para creadores. En esta comparativa analizamos sus diferencias para que puedas elegir según lo que necesites." },
           { type: "h2", text: "¿Qué ofrece Clipnexo?" },
-          { type: "p", text: "Clipnexo combina descarga de TikTok sin marca de agua con un conjunto de herramientas para creadores: generadores de hashtags, captions, ideas, guiones y calculadoras para varias redes sociales." },
+          { type: "p", text: "Clipnexo ofrece un conjunto de herramientas gratuitas para creadores: generadores de hashtags, captions, ideas, guiones y calculadoras para varias redes sociales." },
           { type: "h2", text: "¿Qué ofrece SSSTik?" },
           { type: "p", text: "SSSTik se enfoca en la descarga de videos de TikTok sin marca de agua y la conversión a MP3. Su punto fuerte es la simplicidad: pegas el enlace y obtienes el video en segundos." },
           { type: "h2", text: "Comparativa" },
@@ -681,8 +678,8 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Característica", "Clipnexo", "SSSTik"],
               rows: [
-                ["Descarga sin marca", "Sí", "Sí"],
-                ["MP3", "Sí", "Sí"],
+                ["Descarga sin marca", "No", "Sí"],
+                ["MP3", "No", "Sí"],
                 ["Herramientas para TikTok", "Sí", "No"],
                 ["Herramientas para YouTube", "Sí", "No"],
                 ["Herramientas para Instagram", "Sí", "No"],
@@ -702,16 +699,16 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "cta-tools", text: "Herramientas relacionadas:", links: [
-            { label: "Descargar video de TikTok", routeKey: "video" },
-            { label: "Descargar sin marca de agua", routeKey: "withoutWatermark" },
-            { label: "TikTok a MP3", routeKey: "mp3" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Ideas para TikTok", routeKey: "tiktokIdeas" },
+            { label: "Bio para TikTok", routeKey: "tiktokBio" },
           ]},
           { type: "h2", text: "Preguntas frecuentes" },
         ],
         faqTitle: "Preguntas frecuentes",
         faq: [
           { q: "¿SSSTik es mejor que Clipnexo?", a: "Depende de lo que necesites. SSSTik es más directo para descargar. Clipnexo ofrece más herramientas si creas contenido." },
-          { q: "¿Clipnexo tiene conversor a MP3?", a: "Sí, Clipnexo permite convertir videos de TikTok a MP3." },
+          { q: "¿Clipnexo tiene conversor a MP3?", a: "No, Clipnexo dejó de ofrecer descarga y conversión de video. Se enfoca en herramientas para creadores de contenido." },
           { q: "¿SSSTik funciona en celular?", a: "Sí, SSSTik funciona desde el navegador en cualquier dispositivo." },
           { q: "¿Ambas herramientas son gratuitas?", a: "Sí, tanto Clipnexo como SSSTik ofrecen sus servicios de forma gratuita." },
         ],
@@ -722,9 +719,9 @@ export const blogPosts: BlogPost[] = [
         description: "Compare Clipnexo and SSSTik for TikTok video downloads. Review features, ease of use and key points to consider.",
         excerpt: "Detailed comparison between Clipnexo and SSSTik. Features, ease of use and key aspects to consider.",
         sections: [
-          { type: "p", text: "SSSTik is another popular TikTok downloader. This comparison analyzes differences with Clipnexo so you can choose based on your needs." },
+          { type: "p", text: "SSSTik is another popular TikTok downloader. Clipnexo, on the other hand, is a platform of tools for creators. This comparison analyzes their differences so you can choose based on your needs." },
           { type: "h2", text: "What does Clipnexo offer?" },
-          { type: "p", text: "Clipnexo combines TikTok downloading without watermark with a set of creator tools: hashtag generators, caption generators, ideas, scripts and calculators for various social networks." },
+          { type: "p", text: "Clipnexo offers a set of free creator tools: hashtag generators, caption generators, ideas, scripts and calculators for various social networks." },
           { type: "h2", text: "What does SSSTik offer?" },
           { type: "p", text: "SSSTik focuses on downloading TikTok videos without watermark and MP3 conversion. Its strength is simplicity: paste the link and get the video in seconds." },
           { type: "h2", text: "Comparison" },
@@ -733,8 +730,8 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Feature", "Clipnexo", "SSSTik"],
               rows: [
-                ["No watermark download", "Yes", "Yes"],
-                ["MP3", "Yes", "Yes"],
+                ["No watermark download", "No", "Yes"],
+                ["MP3", "No", "Yes"],
                 ["TikTok tools", "Yes", "No"],
                 ["YouTube tools", "Yes", "No"],
                 ["Instagram tools", "Yes", "No"],
@@ -754,16 +751,16 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "cta-tools", text: "Related tools:", links: [
-            { label: "Download TikTok video", routeKey: "video" },
-            { label: "Download without watermark", routeKey: "withoutWatermark" },
-            { label: "TikTok to MP3", routeKey: "mp3" },
+            { label: "TikTok hashtags", routeKey: "tiktokHashtags" },
+            { label: "TikTok ideas", routeKey: "tiktokIdeas" },
+            { label: "TikTok bio generator", routeKey: "tiktokBio" },
           ]},
           { type: "h2", text: "Frequently asked questions" },
         ],
         faqTitle: "Frequently asked questions",
         faq: [
           { q: "Is SSSTik better than Clipnexo?", a: "It depends. SSSTik is more direct for downloading. Clipnexo offers more tools if you create content." },
-          { q: "Does Clipnexo have MP3 conversion?", a: "Yes, Clipnexo supports TikTok to MP3 conversion." },
+          { q: "Does Clipnexo have MP3 conversion?", a: "No, Clipnexo no longer offers video download or conversion. It focuses on tools for content creators." },
           { q: "Does SSSTik work on mobile?", a: "Yes, SSSTik works from the browser on any device." },
           { q: "Are both tools free?", a: "Yes, both Clipnexo and SSSTik offer their services for free." },
         ],
@@ -774,9 +771,9 @@ export const blogPosts: BlogPost[] = [
         description: "Compare Clipnexo e SSSTik para baixar vídeos do TikTok. Veja funções, facilidade de uso e pontos importantes.",
         excerpt: "Comparação detalhada entre Clipnexo e SSSTik. Funções, facilidade de uso e aspectos importantes.",
         sections: [
-          { type: "p", text: "SSSTik é outro baixador popular de TikTok. Esta comparação analisa as diferenças com Clipnexo para você escolher com base no que precisa." },
+          { type: "p", text: "SSSTik é outro baixador popular de TikTok. O Clipnexo, por sua vez, é uma plataforma de ferramentas para criadores. Esta comparação analisa as diferenças para você escolher com base no que precisa." },
           { type: "h2", text: "O que o Clipnexo oferece?" },
-          { type: "p", text: "Clipnexo combina download de TikTok sem marca d'água com um conjunto de ferramentas para criadores: geradores de hashtags, legendas, ideias, roteiros e calculadoras para várias redes sociais." },
+          { type: "p", text: "Clipnexo oferece um conjunto de ferramentas gratuitas para criadores: geradores de hashtags, legendas, ideias, roteiros e calculadoras para várias redes sociais." },
           { type: "h2", text: "O que o SSSTik oferece?" },
           { type: "p", text: "SSSTik foca no download de vídeos do TikTok sem marca d'água e conversão para MP3. Seu ponto forte é a simplicidade: cole o link e obtenha o vídeo em segundos." },
           { type: "h2", text: "Comparativo" },
@@ -785,8 +782,8 @@ export const blogPosts: BlogPost[] = [
             table: {
               headers: ["Característica", "Clipnexo", "SSSTik"],
               rows: [
-                ["Download sem marca", "Sim", "Sim"],
-                ["MP3", "Sim", "Sim"],
+                ["Download sem marca", "Não", "Sim"],
+                ["MP3", "Não", "Sim"],
                 ["Ferramentas para TikTok", "Sim", "Não"],
                 ["Ferramentas para YouTube", "Sim", "Não"],
                 ["Ferramentas para Instagram", "Sim", "Não"],
@@ -805,16 +802,16 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "cta-tools", text: "Ferramentas relacionadas:", links: [
-            { label: "Baixar vídeo do TikTok", routeKey: "video" },
-            { label: "Baixar sem marca d'água", routeKey: "withoutWatermark" },
-            { label: "TikTok para MP3", routeKey: "mp3" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Ideias para TikTok", routeKey: "tiktokIdeas" },
+            { label: "Bio para TikTok", routeKey: "tiktokBio" },
           ]},
           { type: "h2", text: "Perguntas frequentes" },
         ],
         faqTitle: "Perguntas frequentes",
         faq: [
           { q: "SSSTik é melhor que Clipnexo?", a: "Depende. SSSTik é mais direto para baixar. Clipnexo oferece mais ferramentas se você cria conteúdo." },
-          { q: "Clipnexo tem conversor para MP3?", a: "Sim, Clipnexo permite converter vídeos do TikTok para MP3." },
+          { q: "Clipnexo tem conversor para MP3?", a: "Não, o Clipnexo deixou de oferecer download e conversão de vídeo. O foco agora são ferramentas para criadores de conteúdo." },
           { q: "SSSTik funciona no celular?", a: "Sim, SSSTik funciona pelo navegador em qualquer dispositivo." },
           { q: "Ambas as ferramentas são gratuitas?", a: "Sim, tanto Clipnexo quanto SSSTik oferecem seus serviços gratuitamente." },
         ],
@@ -835,7 +832,7 @@ export const blogPosts: BlogPost[] = [
       pt: "como-baixar-tiktok-sem-marca-dagua",
     },
     relatedPostKeys: ["best-tiktok-downloader", "tiktok-to-mp3", "herramientas-creadores"],
-    relatedToolRouteKeys: ["withoutWatermark", "video", "guide"],
+    relatedToolRouteKeys: ["tiktokHashtags", "tiktokIdeas", "tiktokTools"],
     content: {
       es: {
         title: "Cómo descargar TikTok sin marca de agua",
@@ -854,19 +851,8 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "note", text: "Importante: descargar videos de TikTok debe hacerse respetando los derechos de autor. No descargues contenido que no te pertenece sin autorización del creador." },
-          { type: "h2", text: "Método 1: Usar Clipnexo" },
-          { type: "p", text: "Clipnexo te permite descargar videos de TikTok sin marca de agua directamente desde el navegador:" },
-          {
-            type: "ol",
-            items: [
-              "Abre TikTok y busca el video que quieres descargar.",
-              "Toca el botón Compartir y selecciona Copiar enlace.",
-              "Ve a Clipnexo y pega el enlace en el campo de descarga.",
-              "Haz clic en Descargar y espera unos segundos.",
-              "Guarda el video en tu dispositivo.",
-            ],
-          },
-          { type: "h2", text: "Método 2: Usar otros descargadores online" },
+          { type: "p", text: "Nota: Clipnexo ya no ofrece descarga de video, pero sigue siendo útil para preparar tu contenido con hashtags, captions, ideas y guiones una vez que tengas el video." },
+          { type: "h2", text: "Método: Usar otros descargadores online" },
           { type: "p", text: "Herramientas como SnapTik, SSSTik o SaveTik siguen un proceso similar: pegar el enlace y descargar. La diferencia principal está en la velocidad, la interfaz y las funciones adicionales que ofrecen." },
           { type: "h2", text: "¿Qué necesitas?" },
           {
@@ -878,9 +864,9 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "cta-tools", text: "Prueba estas herramientas:", links: [
-            { label: "Descargar sin marca de agua", routeKey: "withoutWatermark" },
-            { label: "Descargar video de TikTok", routeKey: "video" },
-            { label: "Guía completa", routeKey: "guide" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Ideas para TikTok", routeKey: "tiktokIdeas" },
+            { label: "Herramientas de TikTok", routeKey: "tiktokTools" },
           ]},
           { type: "h2", text: "Preguntas frecuentes" },
         ],
@@ -888,7 +874,7 @@ export const blogPosts: BlogPost[] = [
         faq: [
           { q: "¿Es legal descargar videos de TikTok sin marca de agua?", a: "Depende del uso. Si descargas tu propio contenido o tienes permiso del creador, no hay problema. Descargar contenido protegido sin autorización puede infringir derechos de autor." },
           { q: "¿Puedo descargar videos de TikTok en mi celular?", a: "Sí, los descargadores online funcionan en cualquier dispositivo con navegador." },
-          { q: "¿Necesito crear una cuenta para descargar?", a: "No, herramientas como Clipnexo no requieren registro." },
+          { q: "¿Necesito crear una cuenta para descargar?", a: "No, los descargadores online mencionados no requieren registro." },
           { q: "¿Pierde calidad el video al descargarlo?", a: "No, los descargadores mantienen la calidad original del video." },
           { q: "¿Puedo descargar videos privados?", a: "No. Solo los videos públicos pueden descargarse." },
         ],
@@ -910,19 +896,8 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "note", text: "Important: downloading TikTok videos must respect copyright. Do not download content that does not belong to you without the creator's authorization." },
-          { type: "h2", text: "Method 1: Using Clipnexo" },
-          { type: "p", text: "Clipnexo lets you download TikTok videos without watermark directly from your browser:" },
-          {
-            type: "ol",
-            items: [
-              "Open TikTok and find the video you want to download.",
-              "Tap Share and select Copy link.",
-              "Go to Clipnexo and paste the link in the download field.",
-              "Click Download and wait a few seconds.",
-              "Save the video to your device.",
-            ],
-          },
-          { type: "h2", text: "Method 2: Using other online downloaders" },
+          { type: "p", text: "Note: Clipnexo no longer offers video downloading, but it's still useful for preparing your content with hashtags, captions, ideas and scripts once you have the video." },
+          { type: "h2", text: "Method: Using other online downloaders" },
           { type: "p", text: "Tools like SnapTik, SSSTik or SaveTik follow a similar process: paste the link and download. The main difference is speed, interface and additional features." },
           { type: "h2", text: "What do you need?" },
           {
@@ -934,9 +909,9 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "cta-tools", text: "Try these tools:", links: [
-            { label: "Download without watermark", routeKey: "withoutWatermark" },
-            { label: "Download TikTok video", routeKey: "video" },
-            { label: "Complete guide", routeKey: "guide" },
+            { label: "TikTok hashtags", routeKey: "tiktokHashtags" },
+            { label: "TikTok ideas", routeKey: "tiktokIdeas" },
+            { label: "TikTok tools", routeKey: "tiktokTools" },
           ]},
           { type: "h2", text: "Frequently asked questions" },
         ],
@@ -944,7 +919,7 @@ export const blogPosts: BlogPost[] = [
         faq: [
           { q: "Is it legal to download TikTok videos without watermark?", a: "It depends on the use. If you download your own content or have permission from the creator, it is fine. Downloading protected content without authorization may infringe copyright." },
           { q: "Can I download TikTok videos on my phone?", a: "Yes, online downloaders work on any device with a browser." },
-          { q: "Do I need to create an account to download?", a: "No, tools like Clipnexo do not require registration." },
+          { q: "Do I need to create an account to download?", a: "No, the online downloaders mentioned do not require registration." },
           { q: "Does the video lose quality when downloaded?", a: "No, downloaders maintain the original video quality." },
           { q: "Can I download private videos?", a: "No. Only public videos can be downloaded." },
         ],
@@ -966,19 +941,8 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "note", text: "Importante: baixar vídeos do TikTok deve respeitar os direitos autorais. Não baixe conteúdo que não lhe pertence sem autorização do criador." },
-          { type: "h2", text: "Método 1: Usar Clipnexo" },
-          { type: "p", text: "Clipnexo permite baixar vídeos do TikTok sem marca d'água diretamente do navegador:" },
-          {
-            type: "ol",
-            items: [
-              "Abra o TikTok e encontre o vídeo que deseja baixar.",
-              "Toque em Compartilhar e selecione Copiar link.",
-              "Vá para Clipnexo e cole o link no campo de download.",
-              "Clique em Baixar e aguarde alguns segundos.",
-              "Salve o vídeo no seu dispositivo.",
-            ],
-          },
-          { type: "h2", text: "Método 2: Usar outros baixadores online" },
+          { type: "p", text: "Nota: o Clipnexo não oferece mais download de vídeo, mas continua útil para preparar seu conteúdo com hashtags, legendas, ideias e roteiros depois de obter o vídeo." },
+          { type: "h2", text: "Método: Usar outros baixadores online" },
           { type: "p", text: "Ferramentas como SnapTik, SSSTik ou SaveTik seguem um processo similar: colar o link e baixar. A diferença principal está na velocidade, interface e funções adicionais." },
           { type: "h2", text: "O que você precisa?" },
           {
@@ -990,9 +954,9 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "cta-tools", text: "Experimente estas ferramentas:", links: [
-            { label: "Baixar sem marca d'água", routeKey: "withoutWatermark" },
-            { label: "Baixar vídeo do TikTok", routeKey: "video" },
-            { label: "Guia completo", routeKey: "guide" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Ideias para TikTok", routeKey: "tiktokIdeas" },
+            { label: "Ferramentas de TikTok", routeKey: "tiktokTools" },
           ]},
           { type: "h2", text: "Perguntas frequentes" },
         ],
@@ -1000,7 +964,7 @@ export const blogPosts: BlogPost[] = [
         faq: [
           { q: "É legal baixar vídeos do TikTok sem marca d'água?", a: "Depende do uso. Se você baixa seu próprio conteúdo ou tem permissão do criador, não há problema. Baixar conteúdo protegido sem autorização pode infringir direitos autorais." },
           { q: "Posso baixar vídeos do TikTok no celular?", a: "Sim, os baixadores online funcionam em qualquer dispositivo com navegador." },
-          { q: "Preciso criar uma conta para baixar?", a: "Não, ferramentas como Clipnexo não exigem cadastro." },
+          { q: "Preciso criar uma conta para baixar?", a: "Não, essas ferramentas não exigem cadastro." },
           { q: "O vídeo perde qualidade ao baixar?", a: "Não, os baixadores mantêm a qualidade original do vídeo." },
           { q: "Posso baixar vídeos privados?", a: "Não. Apenas vídeos públicos podem ser baixados." },
         ],
@@ -1021,7 +985,7 @@ export const blogPosts: BlogPost[] = [
       pt: "tiktok-para-mp3-extrair-audio",
     },
     relatedPostKeys: ["como-descargar-tiktok-sin-marca", "best-tiktok-downloader", "herramientas-creadores"],
-    relatedToolRouteKeys: ["mp3", "video", "tiktokHashtags"],
+    relatedToolRouteKeys: ["tiktokHashtags", "tiktokCaptions", "tiktokHooks"],
     content: {
       es: {
         title: "TikTok a MP3: cómo extraer audio de un video",
@@ -1040,24 +1004,15 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "note", text: "Aviso: el audio de TikTok puede estar protegido por derechos de autor. Asegúrate de tener permiso antes de usar el audio extraído en tus propios proyectos." },
-          { type: "h2", text: "Cómo convertir TikTok a MP3 con Clipnexo" },
-          {
-            type: "ol",
-            items: [
-              "Abre TikTok y copia el enlace del video.",
-              "Ve a Clipnexo y pega el enlace en el conversor de MP3.",
-              "Selecciona la opción de descarga de audio.",
-              "Espera a que se procese y descarga el archivo MP3.",
-            ],
-          },
-          { type: "h2", text: "Otras herramientas para convertir TikTok a MP3" },
-          { type: "p", text: "SnapTik, SSSTik y SaveTik también ofrecen conversión a MP3. El proceso es similar en todas: pegas el enlace y seleccionas el formato de audio. La calidad del MP3 puede variar ligeramente entre herramientas." },
+          { type: "p", text: "Nota: Clipnexo ya no ofrece conversión de TikTok a MP3. Sigue siendo útil para generar hashtags, captions y guiones una vez que tengas tu contenido listo." },
+          { type: "h2", text: "Herramientas para convertir TikTok a MP3" },
+          { type: "p", text: "SnapTik, SSSTik y SaveTik ofrecen conversión a MP3. El proceso es similar en todas: pegas el enlace y seleccionas el formato de audio. La calidad del MP3 puede variar ligeramente entre herramientas." },
           { type: "h2", text: "¿Qué calidad de audio esperar?" },
           { type: "p", text: "La calidad del MP3 depende del audio original del video de TikTok. La mayoría de las herramientas mantienen una calidad aceptable para uso personal, pero no esperes calidad de estudio. Es útil para escuchar, inspirarte o usar como referencia." },
           { type: "cta-tools", text: "Convierte TikTok a MP3:", links: [
-            { label: "TikTok a MP3", routeKey: "mp3" },
-            { label: "Descargar video", routeKey: "video" },
-            { label: "Descargar sin marca", routeKey: "withoutWatermark" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Captions para TikTok", routeKey: "tiktokCaptions" },
+            { label: "Ganchos virales", routeKey: "tiktokHooks" },
           ]},
           { type: "h2", text: "Preguntas frecuentes" },
         ],
@@ -1066,7 +1021,7 @@ export const blogPosts: BlogPost[] = [
           { q: "¿Es legal convertir TikTok a MP3?", a: "Depende del uso. Para uso personal y con contenido propio o autorizado, no hay problema. No conviertas contenido protegido sin permiso." },
           { q: "¿Se puede convertir TikTok a MP3 en el celular?", a: "Sí, todas las herramientas mencionadas funcionan desde el navegador del móvil." },
           { q: "¿Pierde calidad el audio?", a: "La calidad es similar a la del audio original del video. No hay pérdida significativa en la conversión." },
-          { q: "¿Necesito una cuenta para convertir?", a: "No, herramientas como Clipnexo no requieren registro." },
+          { q: "¿Necesito una cuenta para convertir?", a: "No, las herramientas mencionadas no requieren registro." },
           { q: "¿Puedo convertir cualquier video de TikTok?", a: "Solo videos públicos. Los videos privados no están disponibles para descarga." },
         ],
       },
@@ -1087,24 +1042,15 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "note", text: "Notice: TikTok audio may be protected by copyright. Make sure you have permission before using extracted audio in your own projects." },
-          { type: "h2", text: "How to convert TikTok to MP3 with Clipnexo" },
-          {
-            type: "ol",
-            items: [
-              "Open TikTok and copy the video link.",
-              "Go to Clipnexo and paste the link in the MP3 converter.",
-              "Select the audio download option.",
-              "Wait for processing and download the MP3 file.",
-            ],
-          },
-          { type: "h2", text: "Other tools for TikTok to MP3 conversion" },
-          { type: "p", text: "SnapTik, SSSTik and SaveTik also offer MP3 conversion. The process is similar in all: paste the link and select the audio format. MP3 quality may vary slightly between tools." },
+          { type: "p", text: "Note: Clipnexo no longer offers TikTok to MP3 conversion. It's still useful for generating hashtags, captions and scripts once your content is ready." },
+          { type: "h2", text: "Tools for TikTok to MP3 conversion" },
+          { type: "p", text: "SnapTik, SSSTik and SaveTik offer MP3 conversion. The process is similar in all: paste the link and select the audio format. MP3 quality may vary slightly between tools." },
           { type: "h2", text: "What audio quality to expect?" },
           { type: "p", text: "MP3 quality depends on the original audio from the TikTok video. Most tools maintain acceptable quality for personal use, but do not expect studio quality. It is useful for listening, inspiration or reference." },
           { type: "cta-tools", text: "Convert TikTok to MP3:", links: [
-            { label: "TikTok to MP3", routeKey: "mp3" },
-            { label: "Download video", routeKey: "video" },
-            { label: "Download without watermark", routeKey: "withoutWatermark" },
+            { label: "TikTok hashtags", routeKey: "tiktokHashtags" },
+            { label: "TikTok captions", routeKey: "tiktokCaptions" },
+            { label: "TikTok hooks", routeKey: "tiktokHooks" },
           ]},
           { type: "h2", text: "Frequently asked questions" },
         ],
@@ -1113,7 +1059,7 @@ export const blogPosts: BlogPost[] = [
           { q: "Is it legal to convert TikTok to MP3?", a: "It depends on usage. For personal use with your own or authorized content, it is fine. Do not convert protected content without permission." },
           { q: "Can I convert TikTok to MP3 on mobile?", a: "Yes, all mentioned tools work from the mobile browser." },
           { q: "Does audio lose quality?", a: "Quality is similar to the original video audio. No significant loss during conversion." },
-          { q: "Do I need an account to convert?", a: "No, tools like Clipnexo do not require registration." },
+          { q: "Do I need an account to convert?", a: "No, the tools mentioned above do not require registration." },
           { q: "Can I convert any TikTok video?", a: "Only public videos. Private videos are not available for download." },
         ],
       },
@@ -1134,24 +1080,15 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "note", text: "Aviso: o áudio do TikTok pode estar protegido por direitos autorais. Certifique-se de ter permissão antes de usar o áudio extraído em seus próprios projetos." },
-          { type: "h2", text: "Como converter TikTok para MP3 com Clipnexo" },
-          {
-            type: "ol",
-            items: [
-              "Abra o TikTok e copie o link do vídeo.",
-              "Vá para Clipnexo e cole o link no conversor de MP3.",
-              "Selecione a opção de download de áudio.",
-              "Aguarde o processamento e baixe o arquivo MP3.",
-            ],
-          },
-          { type: "h2", text: "Outras ferramentas para converter TikTok para MP3" },
-          { type: "p", text: "SnapTik, SSSTik e SaveTik também oferecem conversão para MP3. O processo é similar em todas: cole o link e selecione o formato de áudio. A qualidade do MP3 pode variar ligeiramente entre ferramentas." },
+          { type: "p", text: "Nota: o Clipnexo não oferece mais conversão de TikTok para MP3. Continua útil para gerar hashtags, legendas e roteiros depois que seu conteúdo estiver pronto." },
+          { type: "h2", text: "Ferramentas para converter TikTok para MP3" },
+          { type: "p", text: "SnapTik, SSSTik e SaveTik oferecem conversão para MP3. O processo é similar em todas: cole o link e selecione o formato de áudio. A qualidade do MP3 pode variar ligeiramente entre ferramentas." },
           { type: "h2", text: "Qual qualidade de áudio esperar?" },
           { type: "p", text: "A qualidade do MP3 depende do áudio original do vídeo do TikTok. A maioria das ferramentas mantém uma qualidade aceitável para uso pessoal, mas não espere qualidade de estúdio. É útil para ouvir, se inspirar ou usar como referência." },
           { type: "cta-tools", text: "Converta TikTok para MP3:", links: [
-            { label: "TikTok para MP3", routeKey: "mp3" },
-            { label: "Baixar vídeo", routeKey: "video" },
-            { label: "Baixar sem marca", routeKey: "withoutWatermark" },
+            { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+            { label: "Legendas para TikTok", routeKey: "tiktokCaptions" },
+            { label: "Ganchos virais", routeKey: "tiktokHooks" },
           ]},
           { type: "h2", text: "Perguntas frequentes" },
         ],
@@ -1160,7 +1097,7 @@ export const blogPosts: BlogPost[] = [
           { q: "É legal converter TikTok para MP3?", a: "Depende do uso. Para uso pessoal com conteúdo próprio ou autorizado, não há problema. Não converta conteúdo protegido sem permissão." },
           { q: "Pode converter TikTok para MP3 no celular?", a: "Sim, todas as ferramentas mencionadas funcionam pelo navegador do celular." },
           { q: "O áudio perde qualidade?", a: "A qualidade é similar à do áudio original do vídeo. Não há perda significativa na conversão." },
-          { q: "Preciso de uma conta para converter?", a: "Não, ferramentas como Clipnexo não exigem cadastro." },
+          { q: "Preciso de uma conta para converter?", a: "Não, as ferramentas mencionadas não exigem cadastro." },
           { q: "Posso converter qualquer vídeo do TikTok?", a: "Apenas vídeos públicos. Vídeos privados não estão disponíveis para download." },
         ],
       },
@@ -1807,13 +1744,8 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-const backlog: BlogSlugKey[] = [
-  "snaptik-vs-ssstik",
-  "savetik-vs-snaptik",
-  "tiktok-downloader-online-riesgos",
-  "descargar-tiktok-iphone",
-  "descargar-tiktok-android",
-  "guardar-videos-tiktok-uso-personal",
+// Editorial backlog: future blog post slugs planned for the content-creator positioning.
+export const blogBacklog: BlogSlugKey[] = [
   "crear-guiones-videos-cortos",
   "generar-ideas-reels",
   "escribir-titulos-youtube",
@@ -1824,7 +1756,6 @@ const backlog: BlogSlugKey[] = [
   "contador-caracteres-redes-sociales",
   "herramientas-creador-principiante",
   "tiktok-reels-shorts-donde-publicar",
-  "errores-descargar-redes-sociales",
 ];
 
 export function getBlogPostBySlug(slug: string, lang: string): BlogPost | undefined {

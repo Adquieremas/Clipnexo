@@ -24,14 +24,14 @@ export const footerContent: Record<string, FooterLangContent> = {
   es: {
     brandName: "Clipnexo",
     brandDescription:
-      "Herramientas gratuitas para descargar videos, crear textos, generar hashtags y preparar contenido para redes sociales.",
+      "Herramientas gratuitas para crear textos, generar hashtags y preparar contenido para redes sociales.",
     columns: [
       {
         title: "Herramientas principales",
         links: [
-          { label: "Descargar video de TikTok", routeKey: "video" },
-          { label: "TikTok a MP3", routeKey: "mp3" },
-          { label: "TikTok sin marca de agua", routeKey: "withoutWatermark" },
+          { label: "Hashtags para TikTok", routeKey: "tiktokHashtags" },
+          { label: "Captions para Instagram", routeKey: "instagramCaptionGenerator" },
+          { label: "Títulos de YouTube", routeKey: "youtubeTitleGenerator" },
           { label: "Todas las herramientas", routeKey: "tools" },
         ],
       },
@@ -75,14 +75,14 @@ export const footerContent: Record<string, FooterLangContent> = {
   en: {
     brandName: "Clipnexo",
     brandDescription:
-      "Free tools to download videos, create texts, generate hashtags and prepare content for social media.",
+      "Free tools to create texts, generate hashtags and prepare content for social media.",
     columns: [
       {
         title: "Main tools",
         links: [
-          { label: "TikTok video downloader", routeKey: "video" },
-          { label: "TikTok to MP3", routeKey: "mp3" },
-          { label: "TikTok without watermark", routeKey: "withoutWatermark" },
+          { label: "TikTok hashtag generator", routeKey: "tiktokHashtags" },
+          { label: "Instagram captions", routeKey: "instagramCaptionGenerator" },
+          { label: "YouTube title generator", routeKey: "youtubeTitleGenerator" },
           { label: "All tools", routeKey: "tools" },
         ],
       },
@@ -126,14 +126,14 @@ export const footerContent: Record<string, FooterLangContent> = {
   pt: {
     brandName: "Clipnexo",
     brandDescription:
-      "Ferramentas gratuitas para baixar vídeos, criar textos, gerar hashtags e preparar conteúdo para redes sociais.",
+      "Ferramentas gratuitas para criar textos, gerar hashtags e preparar conteúdo para redes sociais.",
     columns: [
       {
         title: "Ferramentas principais",
         links: [
-          { label: "Baixar vídeo do TikTok", routeKey: "video" },
-          { label: "TikTok para MP3", routeKey: "mp3" },
-          { label: "TikTok sem marca d'água", routeKey: "withoutWatermark" },
+          { label: "Gerador de hashtags para TikTok", routeKey: "tiktokHashtags" },
+          { label: "Legendas para Instagram", routeKey: "instagramCaptionGenerator" },
+          { label: "Gerador de títulos do YouTube", routeKey: "youtubeTitleGenerator" },
           { label: "Todas as ferramentas", routeKey: "tools" },
         ],
       },

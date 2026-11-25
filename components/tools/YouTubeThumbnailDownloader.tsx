@@ -99,6 +99,7 @@ export default function YouTubeThumbnailDownloader({ lang }: Props) {
               <span className="font-bold text-gray-700 mb-2 uppercase tracking-wide">
                 {t.quality.max}
               </span>
+              {/* eslint-disable-next-line @next/next/no-img-element -- external, variable-size YouTube thumbnail preview, not an LCP element */}
               <img
                 src={"https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"}
                 alt="Thumbnail maxres"
@@ -117,6 +118,7 @@ export default function YouTubeThumbnailDownloader({ lang }: Props) {
               <span className="font-bold text-gray-700 mb-2 uppercase tracking-wide">
                 {t.quality.high}
               </span>
+              {/* eslint-disable-next-line @next/next/no-img-element -- external, variable-size YouTube thumbnail preview, not an LCP element */}
               <img
                 src={"https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"}
                 alt="Thumbnail hq"

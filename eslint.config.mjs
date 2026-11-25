@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     ".open-next/**",
     ".wrangler/**",
+    // Generated PWA service worker + vendored workbox runtime (next-pwa build output)
+    "public/sw.js",
+    "public/workbox-*.js",
   ]),
 ]);
 

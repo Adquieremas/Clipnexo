@@ -1,6 +1,4 @@
-
-
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -8,5 +6,5 @@ type Props = {
 
 export default async function UnknownRootPage({ params }: Props) {
   await params;
-  redirect("/es?invalid=1");
+  notFound();
 }

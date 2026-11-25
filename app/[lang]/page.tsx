@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import DownloaderBox from "@/components/DownloaderBox";
 import { normalizeLang, getLocalizedRoute, type RouteKey } from "@/lib/routes";
 import { buildSeoMetadata } from "@/lib/seo";
 import { blogPosts, type BlogPost } from "@/lib/blog-content";
 
 type Props = {
   params: Promise<{ lang: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 type ClusterItem = {
@@ -21,7 +19,8 @@ type PageContent = {
   metaDescription: string;
   h1: string;
   subtitle: string;
-  downloadTitle: string;
+  heroCtaPrimary: string;
+  heroCtaSecondary: string;
   popularTitle: string;
   popularDesc: string;
   popularTools: { label: string; desc: string; routeKey: HomeToolRoute }[];
@@ -44,15 +43,15 @@ type PageContent = {
 };
 
 const titles: Record<string, string> = {
-  es: "Clipnexo: descargar TikTok y crear contenido",
-  en: "Clipnexo: download TikTok and create content",
-  pt: "Clipnexo: baixar TikTok e criar conteúdo social",
+  es: "Clipnexo: herramientas gratuitas para creadores de contenido",
+  en: "Clipnexo: free tools for content creators",
+  pt: "Clipnexo: ferramentas gratuitas para criadores de conteúdo",
 };
 
 const descriptions: Record<string, string> = {
-  es: "Usa Clipnexo para descargar videos de TikTok, convertir audio y crear hashtags, captions, guiones, títulos y textos para redes sociales.",
-  en: "Use Clipnexo to download TikTok videos, convert audio and create hashtags, captions, scripts, titles and texts for social media.",
-  pt: "Use o Clipnexo para baixar vídeos do TikTok, converter áudio e criar hashtags, legendas, roteiros, títulos e textos para redes sociais.",
+  es: "Usa Clipnexo para crear hashtags, captions, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
+  en: "Use Clipnexo to create hashtags, captions, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook, right from your browser.",
+  pt: "Use o Clipnexo para criar hashtags, legendas, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
 };
 
 function getToolRoute(key: RouteKey, lang: string): string {
@@ -83,13 +82,12 @@ function getCategoryLabel(categoryKey: string, lang: string): string {
 }
 
 const homeToolIconPaths = {
-  video: "M5 4.5h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2ZM12 8v8m-3-3 3 3 3-3",
-  mp3: "M3 10v4m4-7v10m5-13v16m5-13v10m4-7v4",
   tiktokHashtags: "M9 4 6 20m12-16-3 16M4 9h17M3 15h17",
   instagramCaptionGenerator: "M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3v-3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6",
   youtubeTitleGenerator: "M4 6h16M4 6v3m16-3v3m-8-3v12m-3 0h6",
   shortVideoScriptGenerator: "M5 6h14v14H5zM4 6l15-3m-9 10h4m-4 3h7",
   socialMediaCharacterCounter: "M3 8h18v8H3zm4 0v3m5-3v4m5-4v3",
+  youtubeThumbnailDownloader: "M3 6h18v12H3zM3 6l9 6 9-6",
 } satisfies Partial<Record<RouteKey, string>>;
 
 type HomeToolRoute = keyof typeof homeToolIconPaths;
@@ -107,22 +105,22 @@ function HomeToolIcon({ routeKey }: { routeKey: HomeToolRoute }) {
 
 const pageContent: Record<string, PageContent> = {
   es: {
-    metaTitle: "Clipnexo: descarga y crea contenido",
+    metaTitle: "Clipnexo: herramientas gratuitas para creadores",
     metaDescription:
-      "Usa Clipnexo para descargar videos de TikTok, convertir audio y crear hashtags, captions, guiones, títulos y textos para redes sociales.",
-    h1: "Descarga videos de TikTok",
+      "Usa Clipnexo para crear hashtags, captions, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
+    h1: "Herramientas gratuitas para creadores de contenido",
     subtitle:
-      "Pega el enlace para guardar el video o el audio.",
-    downloadTitle: "",
+      "Genera hashtags, captions, guiones, títulos y más para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
+    heroCtaPrimary: "Ver herramientas",
+    heroCtaSecondary: "Ver blog",
     popularTitle: "Herramientas populares de Clipnexo",
     popularDesc:
       "Accede rápido a las herramientas más usadas para TikTok, YouTube, Instagram y redes sociales.",
     popularTools: [
-      { label: "Descargar videos de TikTok", desc: "Sin marca de agua en HD", routeKey: "video" },
-      { label: "TikTok a MP3", desc: "Convierte video a audio", routeKey: "mp3" },
       { label: "Hashtags para TikTok", desc: "Etiquetas para más alcance", routeKey: "tiktokHashtags" },
       { label: "Captions para Instagram", desc: "Descripciones atractivas", routeKey: "instagramCaptionGenerator" },
       { label: "Títulos de YouTube", desc: "Títulos para más clics", routeKey: "youtubeTitleGenerator" },
+      { label: "Miniaturas de YouTube", desc: "Descarga miniaturas en calidad", routeKey: "youtubeThumbnailDownloader" },
       { label: "Guiones para videos cortos", desc: "Estructura para TikTok, Reels y Shorts", routeKey: "shortVideoScriptGenerator" },
       { label: "Contador de caracteres", desc: "Mide textos para redes", routeKey: "socialMediaCharacterCounter" },
     ],
@@ -131,10 +129,8 @@ const pageContent: Record<string, PageContent> = {
     clusters: [
       {
         title: "TikTok",
-        desc: "Descarga videos, convierte audio, crea hashtags, captions, bios, ideas y ganchos para TikTok.",
+        desc: "Crea hashtags, captions, bios, ideas y ganchos para TikTok.",
         links: [
-          { label: "Descargar videos", routeKey: "video" as RouteKey },
-          { label: "TikTok a MP3", routeKey: "mp3" as RouteKey },
           { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
           { label: "Captions", routeKey: "tiktokCaptions" as RouteKey },
           { label: "Ideas", routeKey: "tiktokIdeas" as RouteKey },
@@ -193,16 +189,16 @@ const pageContent: Record<string, PageContent> = {
     ],
     howTitle: "Cómo funciona Clipnexo",
     steps: [
-      { title: "Elige una herramienta", text: "Selecciona si quieres descargar, generar textos, crear hashtags, preparar guiones o analizar contenido." },
-      { title: "Pega un enlace o escribe tu idea", text: "Puedes pegar un enlace de TikTok o escribir un tema para generar resultados rápidos." },
-      { title: "Copia o descarga el resultado", text: "Obtén el contenido listo para usar desde tu navegador." },
+      { title: "Elige una herramienta", text: "Selecciona si quieres generar textos, crear hashtags, preparar guiones o analizar contenido." },
+      { title: "Escribe tu idea o tema", text: "Describe tu tema o pega tu texto para generar resultados rápidos." },
+      { title: "Copia el resultado", text: "Obtén el contenido listo para usar desde tu navegador." },
     ],
-    diffTitle: "Más que un descargador de TikTok",
+    diffTitle: "Más que generadores sueltos",
     diffText:
-      "Clipnexo reúne herramientas para descargar videos, convertir audio y crear contenido para diferentes plataformas. Puedes usarlo para trabajar ideas, textos, hashtags, guiones y recursos para tus redes.",
+      "Clipnexo reúne herramientas para crear contenido en un solo lugar. Puedes usarlo para trabajar ideas, textos, hashtags, guiones y recursos para tus redes.",
     diffPoints: [
       "Herramientas gratuitas desde el navegador.",
-      "Enfoque en creadores de contenido.",
+      "Enfoque en creadores de contenido y editores de video.",
       "Compatible con móvil y escritorio.",
       "Herramientas organizadas por plataforma.",
       "Contenido y rutas disponibles en español, inglés y portugués.",
@@ -213,11 +209,11 @@ const pageContent: Record<string, PageContent> = {
     faqs: [
       {
         q: "¿Qué es Clipnexo?",
-        a: "Clipnexo es una plataforma de herramientas online para descargar videos de TikTok y crear contenido para redes sociales como TikTok, YouTube, Instagram y Facebook.",
+        a: "Clipnexo es una plataforma de herramientas online gratuitas para creadores de contenido: genera hashtags, captions, bios, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook.",
       },
       {
         q: "¿Clipnexo solo sirve para TikTok?",
-        a: "No. Además del descargador de TikTok, Clipnexo incluye herramientas para generar hashtags, captions, títulos, guiones, textos para redes y recursos para YouTube.",
+        a: "No. Clipnexo incluye herramientas para TikTok, YouTube, Instagram, Facebook y estudiantes: hashtags, captions, títulos, guiones, resúmenes y más.",
       },
       {
         q: "¿Necesito instalar una aplicación?",
@@ -229,35 +225,35 @@ const pageContent: Record<string, PageContent> = {
       },
       {
         q: "¿Las herramientas garantizan más visitas?",
-        a: "No. Las herramientas pueden ayudarte a preparar mejor tu contenido, pero el rendimiento depende de la calidad del video, la audiencia, la plataforma y otros factores.",
+        a: "No. Las herramientas pueden ayudarte a preparar mejor tu contenido, pero el rendimiento depende de la calidad del contenido, la audiencia, la plataforma y otros factores.",
       },
       {
-        q: "¿Puedo usar los videos descargados libremente?",
-        a: "Debes respetar los derechos de autor y las condiciones de cada plataforma. Usa el contenido descargado de forma responsable y con permiso cuando corresponda.",
+        q: "¿Es gratis usar Clipnexo?",
+        a: "Sí. Todas las herramientas de Clipnexo son gratuitas y no requieren registro.",
       },
     ],
     ctaFinalTitle: "Empieza con una herramienta gratuita",
-    ctaFinalText: "Elige una herramienta de Clipnexo y crea, descarga o prepara contenido para tus redes en segundos.",
+    ctaFinalText: "Elige una herramienta de Clipnexo y crea contenido para tus redes en segundos.",
     ctaFinalPrimary: "Ver herramientas",
-    ctaFinalSecondary: "Descargar video de TikTok",
+    ctaFinalSecondary: "Explorar herramientas de TikTok",
   },
   en: {
-    metaTitle: "Clipnexo: download and create content",
+    metaTitle: "Clipnexo: free tools for creators",
     metaDescription:
-      "Use Clipnexo to download TikTok videos, convert audio and create hashtags, captions, scripts, titles and texts for social media.",
-    h1: "Download TikTok videos",
+      "Use Clipnexo to create hashtags, captions, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook, right from your browser.",
+    h1: "Free tools for content creators",
     subtitle:
-      "Paste a link to save the video or audio.",
-    downloadTitle: "",
+      "Generate hashtags, captions, scripts, titles and more for TikTok, YouTube, Instagram and Facebook, right from your browser.",
+    heroCtaPrimary: "View tools",
+    heroCtaSecondary: "View blog",
     popularTitle: "Popular Clipnexo tools",
     popularDesc:
       "Quick access to the most used tools for TikTok, YouTube, Instagram and social media.",
     popularTools: [
-      { label: "Download TikTok videos", desc: "No watermark in HD", routeKey: "video" },
-      { label: "TikTok to MP3", desc: "Convert video to audio", routeKey: "mp3" },
       { label: "TikTok hashtags", desc: "Tags for more reach", routeKey: "tiktokHashtags" },
       { label: "Instagram captions", desc: "Engaging descriptions", routeKey: "instagramCaptionGenerator" },
       { label: "YouTube titles", desc: "Titles for more clicks", routeKey: "youtubeTitleGenerator" },
+      { label: "YouTube thumbnails", desc: "Save high-quality thumbnails", routeKey: "youtubeThumbnailDownloader" },
       { label: "Short video scripts", desc: "Structure for TikTok, Reels & Shorts", routeKey: "shortVideoScriptGenerator" },
       { label: "Character counter", desc: "Measure social text", routeKey: "socialMediaCharacterCounter" },
     ],
@@ -266,10 +262,8 @@ const pageContent: Record<string, PageContent> = {
     clusters: [
       {
         title: "TikTok",
-        desc: "Download videos, convert audio, create hashtags, captions, bios, ideas and hooks for TikTok.",
+        desc: "Create hashtags, captions, bios, ideas and hooks for TikTok.",
         links: [
-          { label: "Download videos", routeKey: "video" as RouteKey },
-          { label: "TikTok to MP3", routeKey: "mp3" as RouteKey },
           { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
           { label: "Captions", routeKey: "tiktokCaptions" as RouteKey },
           { label: "Ideas", routeKey: "tiktokIdeas" as RouteKey },
@@ -328,16 +322,16 @@ const pageContent: Record<string, PageContent> = {
     ],
     howTitle: "How Clipnexo works",
     steps: [
-      { title: "Choose a tool", text: "Select whether you want to download, generate text, create hashtags, prepare scripts or analyze content." },
-      { title: "Paste a link or write your idea", text: "You can paste a TikTok link or type a topic to get quick results." },
-      { title: "Copy or download the result", text: "Get the content ready to use from your browser." },
+      { title: "Choose a tool", text: "Select whether you want to generate text, create hashtags, prepare scripts or analyze content." },
+      { title: "Write your idea or topic", text: "Describe your topic or paste your text to get quick results." },
+      { title: "Copy the result", text: "Get the content ready to use from your browser." },
     ],
-    diffTitle: "More than a TikTok downloader",
+    diffTitle: "More than standalone generators",
     diffText:
-      "Clipnexo brings together tools to download videos, convert audio and create content for different platforms. Use it to work on ideas, texts, hashtags, scripts and resources for your social media.",
+      "Clipnexo brings together tools to create content in one place. Use it to work on ideas, texts, hashtags, scripts and resources for your social media.",
     diffPoints: [
       "Free tools from your browser.",
-      "Focus on content creators.",
+      "Focus on content creators and video editors.",
       "Compatible with mobile and desktop.",
       "Tools organized by platform.",
       "Content and routes available in English, Spanish and Portuguese.",
@@ -348,11 +342,11 @@ const pageContent: Record<string, PageContent> = {
     faqs: [
       {
         q: "What is Clipnexo?",
-        a: "Clipnexo is a platform of online tools to download TikTok videos and create content for social networks like TikTok, YouTube, Instagram and Facebook.",
+        a: "Clipnexo is a platform of free online tools for content creators: generate hashtags, captions, bios, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook.",
       },
       {
         q: "Does Clipnexo only work for TikTok?",
-        a: "No. Besides the TikTok downloader, Clipnexo includes tools to generate hashtags, captions, titles, scripts, social media texts and YouTube resources.",
+        a: "No. Clipnexo includes tools for TikTok, YouTube, Instagram, Facebook and students: hashtags, captions, titles, scripts, summaries and more.",
       },
       {
         q: "Do I need to install an app?",
@@ -364,35 +358,35 @@ const pageContent: Record<string, PageContent> = {
       },
       {
         q: "Do the tools guarantee more views?",
-        a: "No. The tools can help you prepare better content, but performance depends on video quality, audience, platform and other factors.",
+        a: "No. The tools can help you prepare better content, but performance depends on content quality, audience, platform and other factors.",
       },
       {
-        q: "Can I freely use downloaded videos?",
-        a: "You must respect copyright and each platform's terms. Use downloaded content responsibly and with permission when applicable.",
+        q: "Is Clipnexo free to use?",
+        a: "Yes. All Clipnexo tools are free and require no sign-up.",
       },
     ],
     ctaFinalTitle: "Start with a free tool",
-    ctaFinalText: "Choose a Clipnexo tool and create, download or prepare content for your social media in seconds.",
+    ctaFinalText: "Choose a Clipnexo tool and create content for your social media in seconds.",
     ctaFinalPrimary: "View tools",
-    ctaFinalSecondary: "Download TikTok video",
+    ctaFinalSecondary: "Explore TikTok tools",
   },
   pt: {
-    metaTitle: "Clipnexo: baixar TikTok e criar conteúdo social",
+    metaTitle: "Clipnexo: ferramentas gratuitas para criadores",
     metaDescription:
-      "Use o Clipnexo para baixar vídeos do TikTok, converter áudio e criar hashtags, legendas, roteiros, títulos e textos para redes sociais.",
-    h1: "Baixe vídeos do TikTok",
+      "Use o Clipnexo para criar hashtags, legendas, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
+    h1: "Ferramentas gratuitas para criadores de conteúdo",
     subtitle:
-      "Cole o link para salvar o vídeo ou o áudio.",
-    downloadTitle: "",
+      "Gere hashtags, legendas, roteiros, títulos e mais para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
+    heroCtaPrimary: "Ver ferramentas",
+    heroCtaSecondary: "Ver blog",
     popularTitle: "Ferramentas populares do Clipnexo",
     popularDesc:
       "Acesso rápido às ferramentas mais usadas para TikTok, YouTube, Instagram e redes sociais.",
     popularTools: [
-      { label: "Baixar vídeos do TikTok", desc: "Sem marca d'água em HD", routeKey: "video" },
-      { label: "TikTok para MP3", desc: "Converta vídeo em áudio", routeKey: "mp3" },
       { label: "Hashtags para TikTok", desc: "Etiquetas para mais alcance", routeKey: "tiktokHashtags" },
       { label: "Legendas para Instagram", desc: "Descrições atrativas", routeKey: "instagramCaptionGenerator" },
       { label: "Títulos do YouTube", desc: "Títulos para mais cliques", routeKey: "youtubeTitleGenerator" },
+      { label: "Miniaturas do YouTube", desc: "Salve miniaturas em qualidade", routeKey: "youtubeThumbnailDownloader" },
       { label: "Roteiros para vídeos curtos", desc: "Estrutura para Reels, TikTok e Shorts", routeKey: "shortVideoScriptGenerator" },
       { label: "Contador de caracteres", desc: "Meça textos para redes", routeKey: "socialMediaCharacterCounter" },
     ],
@@ -401,10 +395,8 @@ const pageContent: Record<string, PageContent> = {
     clusters: [
       {
         title: "TikTok",
-        desc: "Baixe vídeos, converta áudio, crie hashtags, legendas, bios, ideias e ganchos para o TikTok.",
+        desc: "Crie hashtags, legendas, bios, ideias e ganchos para o TikTok.",
         links: [
-          { label: "Baixar vídeos", routeKey: "video" as RouteKey },
-          { label: "TikTok para MP3", routeKey: "mp3" as RouteKey },
           { label: "Hashtags", routeKey: "tiktokHashtags" as RouteKey },
           { label: "Legendas", routeKey: "tiktokCaptions" as RouteKey },
           { label: "Ideias", routeKey: "tiktokIdeas" as RouteKey },
@@ -463,16 +455,16 @@ const pageContent: Record<string, PageContent> = {
     ],
     howTitle: "Como o Clipnexo funciona",
     steps: [
-      { title: "Escolha uma ferramenta", text: "Selecione se deseja baixar, gerar textos, criar hashtags, preparar roteiros ou analisar conteúdo." },
-      { title: "Cole um link ou escreva sua ideia", text: "Você pode colar um link do TikTok ou digitar um tema para obter resultados rápidos." },
-      { title: "Copie ou baixe o resultado", text: "Obtenha o conteúdo pronto para usar diretamente do seu navegador." },
+      { title: "Escolha uma ferramenta", text: "Selecione se deseja gerar textos, criar hashtags, preparar roteiros ou analisar conteúdo." },
+      { title: "Escreva sua ideia ou tema", text: "Descreva seu tema ou cole seu texto para obter resultados rápidos." },
+      { title: "Copie o resultado", text: "Obtenha o conteúdo pronto para usar diretamente do seu navegador." },
     ],
-    diffTitle: "Mais que um baixador do TikTok",
+    diffTitle: "Mais que geradores soltos",
     diffText:
-      "O Clipnexo reúne ferramentas para baixar vídeos, converter áudio e criar conteúdo para diferentes plataformas. Use para trabalhar ideias, textos, hashtags, roteiros e recursos para suas redes.",
+      "O Clipnexo reúne ferramentas para criar conteúdo em um só lugar. Use para trabalhar ideias, textos, hashtags, roteiros e recursos para suas redes.",
     diffPoints: [
       "Ferramentas gratuitas do navegador.",
-      "Foco em criadores de conteúdo.",
+      "Foco em criadores de conteúdo e editores de vídeo.",
       "Compatível com celular e computador.",
       "Ferramentas organizadas por plataforma.",
       "Conteúdo e rotas disponíveis em português, inglês e espanhol.",
@@ -483,11 +475,11 @@ const pageContent: Record<string, PageContent> = {
     faqs: [
       {
         q: "O que é o Clipnexo?",
-        a: "O Clipnexo é uma plataforma de ferramentas online para baixar vídeos do TikTok e criar conteúdo para redes sociais como TikTok, YouTube, Instagram e Facebook.",
+        a: "O Clipnexo é uma plataforma de ferramentas online gratuitas para criadores de conteúdo: gere hashtags, legendas, bios, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook.",
       },
       {
         q: "O Clipnexo serve apenas para o TikTok?",
-        a: "Não. Além do baixador do TikTok, o Clipnexo inclui ferramentas para gerar hashtags, legendas, títulos, roteiros, textos para redes e recursos para YouTube.",
+        a: "Não. O Clipnexo inclui ferramentas para TikTok, YouTube, Instagram, Facebook e estudantes: hashtags, legendas, títulos, roteiros, resumos e mais.",
       },
       {
         q: "Preciso instalar um aplicativo?",
@@ -499,17 +491,17 @@ const pageContent: Record<string, PageContent> = {
       },
       {
         q: "As ferramentas garantem mais visualizações?",
-        a: "Não. As ferramentas podem ajudar a preparar melhor seu conteúdo, mas o desempenho depende da qualidade do vídeo, do público, da plataforma e de outros fatores.",
+        a: "Não. As ferramentas podem ajudar a preparar melhor seu conteúdo, mas o desempenho depende da qualidade do conteúdo, do público, da plataforma e de outros fatores.",
       },
       {
-        q: "Posso usar os vídeos baixados livremente?",
-        a: "Você deve respeitar os direitos autorais e as condições de cada plataforma. Use o conteúdo baixado de forma responsável e com permissão quando necessário.",
+        q: "O Clipnexo é gratuito?",
+        a: "Sim. Todas as ferramentas do Clipnexo são gratuitas e não exigem cadastro.",
       },
     ],
     ctaFinalTitle: "Comece com uma ferramenta gratuita",
-    ctaFinalText: "Escolha uma ferramenta do Clipnexo e crie, baixe ou prepare conteúdo para suas redes em segundos.",
+    ctaFinalText: "Escolha uma ferramenta do Clipnexo e crie conteúdo para suas redes em segundos.",
     ctaFinalPrimary: "Ver ferramentas",
-    ctaFinalSecondary: "Baixar vídeo do TikTok",
+    ctaFinalSecondary: "Explorar ferramentas de TikTok",
   },
 };
 
@@ -525,25 +517,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Home({ params, searchParams }: Props) {
+export default async function Home({ params }: Props) {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
-  const resolvedSearchParams = await searchParams;
-
-  const initialUrl =
-    typeof resolvedSearchParams.url === "string" ? resolvedSearchParams.url : "";
-  const shared =
-    typeof resolvedSearchParams.shared === "string"
-      ? resolvedSearchParams.shared === "1"
-      : false;
-  const shareError =
-    typeof resolvedSearchParams.share_error === "string"
-      ? resolvedSearchParams.share_error === "1"
-      : false;
-  const invalidPath =
-    typeof resolvedSearchParams.invalid === "string"
-      ? resolvedSearchParams.invalid === "1"
-      : false;
 
   const t = pageContent[currentLang];
   const popularTools = t.popularTools;
@@ -552,6 +528,8 @@ export default async function Home({ params, searchParams }: Props) {
   const blogEntries = getFilteredBlogPosts(currentLang, 3);
 
   const toolsUrl = getToolRoute("tools", currentLang);
+  const blogUrl = `/${currentLang}/blog`;
+  const tiktokToolsUrl = getToolRoute("tiktokTools", currentLang);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -577,17 +555,14 @@ export default async function Home({ params, searchParams }: Props) {
         <div className="home-hero">
           <h1 id="home-download-title">{t.h1}</h1>
           <p className="home-hero-sub">{t.subtitle}</p>
-        </div>
-        <div className="home-download-card">
-          <DownloaderBox
-            lang={currentLang}
-            type="video"
-            variant="home"
-            initialUrl={initialUrl}
-            shared={shared}
-            shareError={shareError}
-            invalidPath={invalidPath}
-          />
+          <div className="home-cta-actions">
+            <Link href={toolsUrl} className="home-hero-cta-primary">
+              {t.heroCtaPrimary}
+            </Link>
+            <Link href={blogUrl} className="home-hero-cta-secondary">
+              {t.heroCtaSecondary}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -715,7 +690,7 @@ export default async function Home({ params, searchParams }: Props) {
           <Link href={toolsUrl} className="home-hero-cta-primary">
             {t.ctaFinalPrimary}
           </Link>
-          <Link href={getToolRoute("video", currentLang)} className="home-hero-cta-secondary">
+          <Link href={tiktokToolsUrl} className="home-hero-cta-secondary">
             {t.ctaFinalSecondary}
           </Link>
         </div>

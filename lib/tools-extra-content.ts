@@ -1,5 +1,4 @@
 import type { ToolConfig, ToolKey } from "@/lib/tools-content";
-import type { SupportedLang } from "@/lib/routes";
 
 export const extraToolsContent: Partial<Record<ToolKey, ToolConfig>> = {
   socialMediaTextGenerator: {

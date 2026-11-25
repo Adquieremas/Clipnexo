@@ -15,10 +15,6 @@ function getPriority(routeKey: RouteKey): number {
   switch (routeKey) {
     case "home":
       return 1.0;
-    case "video":
-    case "mp3":
-    case "withoutWatermark":
-      return 0.95;
     case "tools":
       return 0.9;
     case "tiktokTools":

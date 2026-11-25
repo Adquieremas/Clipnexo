@@ -4,9 +4,9 @@ export async function GET() {
   const catalog = {
     linkset: [
       {
-        anchor: "https://clipnexo.com/api/download",
-        "service-desc": "https://clipnexo.com/api/download",
-        "service-doc": "https://clipnexo.com/es/descargar-tiktok",
+        anchor: "https://clipnexo.com",
+        "service-desc": "https://clipnexo.com/llms.txt",
+        "service-doc": "https://clipnexo.com/es/herramientas",
         status: "https://clipnexo.com",
       },
     ],

@@ -69,10 +69,6 @@ export default function YouTubeViewRatioCalculator({ lang }: Props) {
   const statusIdx = hasData ? getStatus(ratio) : -1;
   const statusLabels = [t.status.low, t.status.neutral, t.status.good, t.status.high];
 
-  const statusColors = ["#f59e0b", "#3b82f6", "#10b981", "#8b5cf6"];
-  const barColors = ["#f59e0b", "#3b82f6", "#10b981", "#8b5cf6"];
-  const barColor = hasData ? barColors[statusIdx] : "#e5e7eb";
-  const statusColor = hasData ? statusColors[statusIdx] : "#9ca3af";
   const fillPercent = Math.min((ratio / 50) * 100, 100);
 
   return (

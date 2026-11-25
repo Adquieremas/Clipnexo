@@ -56,9 +56,9 @@ export default async function BlogIndexPage({ params }: PageProps) {
   const regularPosts = posts.filter((p) => !p.featured);
 
   const navLabels = {
-    es: { tools: "Herramientas", video: "Descargar TikTok", blog: "Blog" },
-    en: { tools: "Tools", video: "Download TikTok", blog: "Blog" },
-    pt: { tools: "Ferramentas", video: "Baixar TikTok", blog: "Blog" },
+    es: { tools: "Herramientas", video: "Herramientas de TikTok", blog: "Blog" },
+    en: { tools: "Tools", video: "TikTok tools", blog: "Blog" },
+    pt: { tools: "Ferramentas", video: "Ferramentas de TikTok", blog: "Blog" },
   };
   const t = navLabels[currentLang] ?? navLabels.es;
 
@@ -83,7 +83,7 @@ export default async function BlogIndexPage({ params }: PageProps) {
           <Link href={getLocalizedRoute("tools", currentLang)} className="blog-cta-primary">
             {t.tools}
           </Link>
-          <Link href={getLocalizedRoute("video", currentLang)} className="blog-cta-secondary">
+          <Link href={getLocalizedRoute("tiktokTools", currentLang)} className="blog-cta-secondary">
             {t.video}
           </Link>
         </div>
@@ -146,22 +146,19 @@ export default async function BlogIndexPage({ params }: PageProps) {
               : "Explore as ferramentas do Clipnexo"}
         </h2>
         <div className="blog-interlinks-grid">
-          <Link href={getLocalizedRoute("video", currentLang)} className="blog-interlink">
+          <Link href={getLocalizedRoute("tiktokIdeas", currentLang)} className="blog-interlink">
             {currentLang === "es"
-              ? "Descargar video de TikTok"
+              ? "Ideas para TikTok"
               : currentLang === "en"
-                ? "Download TikTok video"
-                : "Baixar vídeo do TikTok"}
+                ? "TikTok video ideas"
+                : "Ideias para TikTok"}
           </Link>
-          <Link href={getLocalizedRoute("mp3", currentLang)} className="blog-interlink">
-            TikTok a MP3
-          </Link>
-          <Link href={getLocalizedRoute("withoutWatermark", currentLang)} className="blog-interlink">
+          <Link href={getLocalizedRoute("tiktokBio", currentLang)} className="blog-interlink">
             {currentLang === "es"
-              ? "Sin marca de agua"
+              ? "Bio para TikTok"
               : currentLang === "en"
-                ? "Without watermark"
-                : "Sem marca d'água"}
+                ? "TikTok bio generator"
+                : "Bio para TikTok"}
           </Link>
           <Link href={getLocalizedRoute("tools", currentLang)} className="blog-interlink">
             {currentLang === "es"

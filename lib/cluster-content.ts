@@ -17,9 +17,9 @@ const clusters: Record<string, Record<SupportedLang, ClusterContent>> = {
   tiktok: {
     es: {
       metaTitle: "Herramientas para TikTok gratis | Clipnexo",
-      metaDescription: "Explora herramientas gratis para TikTok: descarga videos, convierte a MP3, genera hashtags, captions, bios, ideas y ganchos virales online.",
+      metaDescription: "Explora herramientas gratis para TikTok: genera hashtags, captions, bios, ideas y ganchos virales online.",
       h1: "Herramientas para TikTok gratis",
-      intro: "Descubre todas las herramientas de Clipnexo para TikTok. Descarga videos sin marca de agua, conviértelos a MP3, genera hashtags, captions, bios, ideas de contenido y ganchos virales. Todo gratis y sin instalar nada.",
+      intro: "Descubre todas las herramientas de Clipnexo para TikTok. Genera hashtags, captions, bios, ideas de contenido y ganchos virales. Todo gratis y sin instalar nada.",
       howToTitle: "Cómo usar las herramientas de TikTok",
       howToSteps: [
         "Elige la herramienta que necesitas de la lista.",
@@ -28,19 +28,17 @@ const clusters: Record<string, Record<SupportedLang, ClusterContent>> = {
       ],
       recommendedTitle: "Herramientas recomendadas para TikTok",
       faq: [
-        { q: "¿Qué herramientas para TikTok ofrece Clipnexo?", a: "Clipnexo ofrece descarga de videos, conversión a MP3, generador de hashtags, captions, bios, ideas y ganchos virales, todo gratis y online." },
+        { q: "¿Qué herramientas para TikTok ofrece Clipnexo?", a: "Clipnexo ofrece generador de hashtags, captions, bios, ideas y ganchos virales, todo gratis y online." },
         { q: "¿Necesito registrarme para usar las herramientas?", a: "No, todas las herramientas son gratuitas y no requieren registro ni inicio de sesión." },
-        { q: "¿Puedo descargar videos de TikTok sin marca de agua?", a: "Sí, con nuestra herramienta de descarga puedes obtener videos de TikTok sin marca de agua en alta calidad." },
-        { q: "¿Cómo convierto un video de TikTok a MP3?", a: "Usa nuestra herramienta TikTok a MP3: pega el enlace del video y obtén el audio extraído al instante." },
         { q: "¿Las herramientas funcionan en dispositivos móviles?", a: "Sí, todas las herramientas son compatibles con Android, iPhone y cualquier navegador moderno." },
         { q: "¿Puedo generar hashtags para mis videos de TikTok?", a: "Sí, nuestro generador de hashtags crea etiquetas relevantes para aumentar el alcance de tus publicaciones." },
       ],
     },
     en: {
       metaTitle: "Free TikTok Tools Online | Clipnexo",
-      metaDescription: "Explore free TikTok tools: download videos, convert to MP3, generate hashtags, captions, bios, video ideas and viral hooks online.",
+      metaDescription: "Explore free TikTok tools: generate hashtags, captions, bios, video ideas and viral hooks online.",
       h1: "Free TikTok Tools",
-      intro: "Discover all Clipnexo tools for TikTok. Download videos without watermark, convert to MP3, generate hashtags, captions, bios, content ideas and viral hooks. All free with no installation required.",
+      intro: "Discover all Clipnexo tools for TikTok. Generate hashtags, captions, bios, content ideas and viral hooks. All free with no installation required.",
       howToTitle: "How to use TikTok tools",
       howToSteps: [
         "Choose the tool you need from the list.",
@@ -49,19 +47,17 @@ const clusters: Record<string, Record<SupportedLang, ClusterContent>> = {
       ],
       recommendedTitle: "Recommended TikTok tools",
       faq: [
-        { q: "What TikTok tools does Clipnexo offer?", a: "Clipnexo offers video download, MP3 conversion, hashtag generator, captions, bios, ideas and viral hooks, all free and online." },
+        { q: "What TikTok tools does Clipnexo offer?", a: "Clipnexo offers hashtag generator, captions, bios, ideas and viral hooks, all free and online." },
         { q: "Do I need to sign up to use the tools?", a: "No, all tools are free and require no registration or login." },
-        { q: "Can I download TikTok videos without watermark?", a: "Yes, our downloader tool lets you get TikTok videos without watermark in high quality." },
-        { q: "How do I convert a TikTok video to MP3?", a: "Use our TikTok to MP3 tool: paste the video link and get the extracted audio instantly." },
         { q: "Do the tools work on mobile devices?", a: "Yes, all tools work on Android, iPhone and any modern browser." },
         { q: "Can I generate hashtags for my TikTok videos?", a: "Yes, our hashtag generator creates relevant tags to boost your post reach." },
       ],
     },
     pt: {
       metaTitle: "Ferramentas para TikTok grátis | Clipnexo",
-      metaDescription: "Explore ferramentas grátis para TikTok: baixe vídeos, converta para MP3, gere hashtags, legendas, bios, ideias e ganchos virais online.",
+      metaDescription: "Explore ferramentas grátis para TikTok: gere hashtags, legendas, bios, ideias e ganchos virais online.",
       h1: "Ferramentas para TikTok grátis",
-      intro: "Descubra todas as ferramentas do Clipnexo para TikTok. Baixe vídeos sem marca d'água, converta para MP3, gere hashtags, legendas, bios, ideias de conteúdo e ganchos virais. Tudo grátis sem instalar nada.",
+      intro: "Descubra todas as ferramentas do Clipnexo para TikTok. Gere hashtags, legendas, bios, ideias de conteúdo e ganchos virais. Tudo grátis sem instalar nada.",
       howToTitle: "Como usar as ferramentas do TikTok",
       howToSteps: [
         "Escolha a ferramenta que você precisa da lista.",
@@ -70,10 +66,8 @@ const clusters: Record<string, Record<SupportedLang, ClusterContent>> = {
       ],
       recommendedTitle: "Ferramentas recomendadas para TikTok",
       faq: [
-        { q: "Quais ferramentas para TikTok o Clipnexo oferece?", a: "O Clipnexo oferece download de vídeos, conversão para MP3, gerador de hashtags, legendas, bios, ideias e ganchos virais, tudo grátis e online." },
+        { q: "Quais ferramentas para TikTok o Clipnexo oferece?", a: "O Clipnexo oferece gerador de hashtags, legendas, bios, ideias e ganchos virais, tudo grátis e online." },
         { q: "Preciso me registrar para usar as ferramentas?", a: "Não, todas as ferramentas são gratuitas e não exigem registro ou login." },
-        { q: "Posso baixar vídeos do TikTok sem marca d'água?", a: "Sim, com nossa ferramenta de download você obtém vídeos do TikTok sem marca d'água em alta qualidade." },
-        { q: "Como converter um vídeo do TikTok para MP3?", a: "Use nossa ferramenta TikTok para MP3: cole o link do vídeo e obtenha o áudio extraído instantaneamente." },
         { q: "As ferramentas funcionam em dispositivos móveis?", a: "Sim, todas as ferramentas funcionam no Android, iPhone e qualquer navegador moderno." },
         { q: "Posso gerar hashtags para meus vídeos do TikTok?", a: "Sim, nosso gerador de hashtags cria etiquetas relevantes para aumentar o alcance das suas publicações." },
       ],
@@ -458,7 +452,6 @@ const clusters: Record<string, Record<SupportedLang, ClusterContent>> = {
 
 const clusterToolKeys: Record<ClusterKey, string[]> = {
   tiktok: [
-    "video", "mp3", "withoutWatermark", "guide",
     "tiktokBio", "tiktokIdeas", "tiktokHooks", "tiktokCaptions", "tiktokHashtags",
     "shortVideoTitleHashtag",
   ],

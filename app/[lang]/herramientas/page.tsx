@@ -3,8 +3,6 @@ import Link from "next/link";
 import { getLocalizedRoute, normalizeLang, type RouteKey } from "@/lib/routes";
 import { buildSeoMetadata } from "@/lib/seo";
 
-type Lang = "es" | "en" | "pt";
-
 type PageProps = {
   params: Promise<{
     lang: string;
@@ -16,7 +14,7 @@ const pageContent = {
     metaTitle: "Todas las herramientas de Clipnexo gratis",
     metaDescription: "Descubre nuestra colección completa de herramientas gratuitas para TikTok, YouTube y redes sociales. Optimiza tu contenido digital de forma fácil hoy mismo.",
     h1: "Herramientas gratuitas para creadores",
-    lead: "Explora herramientas online para descargar videos, crear textos, generar hashtags, preparar captions y optimizar contenido para redes sociales.",
+    lead: "Explora herramientas online para crear textos, generar hashtags, preparar captions y optimizar contenido para redes sociales.",
     popularTitle: "Herramientas populares",
     clusters: {
       tiktok: "Herramientas para TikTok",
@@ -28,9 +26,6 @@ const pageContent = {
       students: "Estudiantes",
     },
     tools: {
-      video: "Descargar videos de TikTok",
-      mp3: "Descargar audio de TikTok (MP3)",
-      withoutWatermark: "Descargar TikTok sin marca",
       tiktokBio: "Generador de bio para TikTok",
       tiktokIdeas: "Ideas para videos TikTok",
       tiktokHooks: "Ganchos virales TikTok",
@@ -90,9 +85,9 @@ const pageContent = {
       { q: "¿Las herramientas funcionan para cualquier red social?", a: "Sí, están diseñadas para TikTok, YouTube, Instagram, Facebook, Reels, Shorts y más." },
     ],
     ctaTitle: "Empieza con una herramienta gratuita",
-    ctaSubtitle: "Descarga videos, genera contenido y optimiza tus redes sociales al instante.",
+    ctaSubtitle: "Genera contenido y optimiza tus redes sociales al instante.",
     ctaButtons: {
-      primary: { label: "Descargar video", routeKey: "video" },
+      primary: { label: "Herramientas para TikTok", routeKey: "tiktokTools" },
       secondary: { label: "Ver herramientas populares", routeKey: "tools" },
     }
   },
@@ -100,7 +95,7 @@ const pageContent = {
     metaTitle: "All Clipnexo Tools - Optimize Your Social Media",
     metaDescription: "Discover our complete collection of free tools for TikTok, YouTube, Instagram and Facebook. Optimize your content and social media presence fast right now.",
     h1: "Free tools for creators",
-    lead: "Explore online tools to download videos, create texts, generate hashtags, prepare captions and optimize social media content.",
+    lead: "Explore online tools to create texts, generate hashtags, prepare captions and optimize social media content.",
     popularTitle: "Popular tools",
     clusters: {
       tiktok: "TikTok Tools",
@@ -112,9 +107,6 @@ const pageContent = {
       students: "Students",
     },
     tools: {
-      video: "Download TikTok videos",
-      mp3: "Download TikTok audio (MP3)",
-      withoutWatermark: "Download TikTok without watermark",
       tiktokBio: "TikTok Bio Generator",
       tiktokIdeas: "TikTok Video Ideas",
       tiktokHooks: "TikTok Viral Hooks",
@@ -174,9 +166,9 @@ const pageContent = {
       { q: "Do the tools work for any social network?", a: "Yes, they are designed for TikTok, YouTube, Instagram, Facebook, Reels, Shorts and more." },
     ],
     ctaTitle: "Start with a free tool",
-    ctaSubtitle: "Download videos, generate content and optimize your social media instantly.",
+    ctaSubtitle: "Generate content and optimize your social media instantly.",
     ctaButtons: {
-      primary: { label: "Download video", routeKey: "video" },
+      primary: { label: "TikTok tools", routeKey: "tiktokTools" },
       secondary: { label: "View popular tools", routeKey: "tools" },
     }
   },
@@ -184,7 +176,7 @@ const pageContent = {
     metaTitle: "Todas as ferramentas do Clipnexo - Otimize suas",
     metaDescription: "Descubra nossa coleção completa de ferramentas gratuitas para TikTok, YouTube, Instagram e Facebook no Clipnexo. Otimize seu conteúdo digital hoje mesmo.",
     h1: "Ferramentas gratuitas para criadores",
-    lead: "Explore ferramentas online para baixar vídeos, criar textos, gerar hashtags, preparar legendas e otimizar conteúdo para redes sociais.",
+    lead: "Explore ferramentas online para criar textos, gerar hashtags, preparar legendas e otimizar conteúdo para redes sociais.",
     popularTitle: "Ferramentas populares",
     clusters: {
       tiktok: "Ferramentas para TikTok",
@@ -196,9 +188,6 @@ const pageContent = {
       students: "Estudantes",
     },
     tools: {
-      video: "Baixar vídeos do TikTok",
-      mp3: "Baixar áudio do TikTok (MP3)",
-      withoutWatermark: "Baixar TikTok sem marca d'água",
       tiktokBio: "Gerador de bio para TikTok",
       tiktokIdeas: "Ideias para vídeos TikTok",
       tiktokHooks: "Ganchos virais TikTok",
@@ -258,9 +247,9 @@ const pageContent = {
       { q: "As ferramentas funcionam para qualquer rede social?", a: "Sim, são projetadas para TikTok, YouTube, Instagram, Facebook, Reels, Shorts e muito mais." },
     ],
     ctaTitle: "Comece com uma ferramenta gratuita",
-    ctaSubtitle: "Baixe vídeos, gere conteúdo e otimize suas redes sociais instantaneamente.",
+    ctaSubtitle: "Gere conteúdo e otimize suas redes sociais instantaneamente.",
     ctaButtons: {
-      primary: { label: "Baixar vídeo", routeKey: "video" },
+      primary: { label: "Ferramentas de TikTok", routeKey: "tiktokTools" },
       secondary: { label: "Ver ferramentas populares", routeKey: "tools" },
     }
   }
@@ -285,8 +274,6 @@ export default async function ToolsPage({ params }: PageProps) {
   const t = pageContent[currentLang];
 
   const popularTools = [
-    { key: "video", name: t.tools.video },
-    { key: "mp3", name: t.tools.mp3 },
     { key: "tiktokHashtags", name: t.tools.tiktokHashtags },
     { key: "instagramCaptionGenerator", name: t.tools.instagramCaptionGenerator },
     { key: "youtubeTitleGenerator", name: t.tools.youtubeTitleGenerator },
@@ -297,9 +284,6 @@ export default async function ToolsPage({ params }: PageProps) {
     {
       title: t.clusters.tiktok,
       items: [
-        { key: "video", name: t.tools.video },
-        { key: "mp3", name: t.tools.mp3 },
-        { key: "withoutWatermark", name: t.tools.withoutWatermark },
         { key: "tiktokBio", name: t.tools.tiktokBio },
         { key: "tiktokIdeas", name: t.tools.tiktokIdeas },
         { key: "tiktokHooks", name: t.tools.tiktokHooks },

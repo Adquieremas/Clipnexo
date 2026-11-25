@@ -23,7 +23,6 @@ type NavMegaMenu = {
 };
 
 export type NavLangContent = {
-  download: NavDropdown;
   tools: NavMegaMenu;
   resources: NavDropdown;
   blog: string;
@@ -38,15 +37,6 @@ export type NavLangContent = {
 
 export const navigation: Record<string, NavLangContent> = {
   es: {
-    download: {
-      label: "Descargar",
-      links: [
-        { label: "Descargar video de TikTok", routeKey: "video" },
-        { label: "TikTok a MP3", routeKey: "mp3" },
-        { label: "TikTok sin marca de agua", routeKey: "withoutWatermark" },
-        { label: "Cómo descargar videos de TikTok", routeKey: "guide" },
-      ],
-    },
     tools: {
       label: "Herramientas",
       columns: [
@@ -108,7 +98,6 @@ export const navigation: Record<string, NavLangContent> = {
       links: [
         { label: "Blog", routeKey: "blog" },
         { label: "Herramientas populares", routeKey: "tools" },
-        { label: "Guías para TikTok", routeKey: "guide" },
         { label: "Guías para creadores", routeKey: "blog" },
       ],
     },
@@ -133,18 +122,9 @@ export const navigation: Record<string, NavLangContent> = {
       { label: "Guías para creadores", routeKey: "blog" },
       { label: "Crear textos para redes sociales", routeKey: "socialMediaTextGenerator" },
     ],
-    mobileCtaPrimary: { label: "Descargar video", routeKey: "video" },
+    mobileCtaPrimary: { label: "Explorar herramientas de TikTok", routeKey: "tiktokTools" },
   },
   en: {
-    download: {
-      label: "Download",
-      links: [
-        { label: "TikTok video downloader", routeKey: "video" },
-        { label: "TikTok to MP3", routeKey: "mp3" },
-        { label: "TikTok without watermark", routeKey: "withoutWatermark" },
-        { label: "How to download TikTok videos", routeKey: "guide" },
-      ],
-    },
     tools: {
       label: "Tools",
       columns: [
@@ -206,7 +186,6 @@ export const navigation: Record<string, NavLangContent> = {
       links: [
         { label: "Blog", routeKey: "blog" },
         { label: "Popular tools", routeKey: "tools" },
-        { label: "TikTok guides", routeKey: "guide" },
         { label: "Creator guides", routeKey: "blog" },
       ],
     },
@@ -231,18 +210,9 @@ export const navigation: Record<string, NavLangContent> = {
       { label: "Creator guides", routeKey: "blog" },
       { label: "Social media text generator", routeKey: "socialMediaTextGenerator" },
     ],
-    mobileCtaPrimary: { label: "Download video", routeKey: "video" },
+    mobileCtaPrimary: { label: "Explore TikTok tools", routeKey: "tiktokTools" },
   },
   pt: {
-    download: {
-      label: "Baixar",
-      links: [
-        { label: "Baixar vídeo do TikTok", routeKey: "video" },
-        { label: "TikTok para MP3", routeKey: "mp3" },
-        { label: "TikTok sem marca d'água", routeKey: "withoutWatermark" },
-        { label: "Como baixar vídeos do TikTok", routeKey: "guide" },
-      ],
-    },
     tools: {
       label: "Ferramentas",
       columns: [
@@ -304,7 +274,6 @@ export const navigation: Record<string, NavLangContent> = {
       links: [
         { label: "Blog", routeKey: "blog" },
         { label: "Ferramentas populares", routeKey: "tools" },
-        { label: "Guias para TikTok", routeKey: "guide" },
         { label: "Guias para criadores", routeKey: "blog" },
       ],
     },
@@ -329,6 +298,6 @@ export const navigation: Record<string, NavLangContent> = {
       { label: "Guias para criadores", routeKey: "blog" },
       { label: "Gerador de textos para redes sociais", routeKey: "socialMediaTextGenerator" },
     ],
-    mobileCtaPrimary: { label: "Baixar vídeo", routeKey: "video" },
+    mobileCtaPrimary: { label: "Explorar ferramentas de TikTok", routeKey: "tiktokTools" },
   },
 };

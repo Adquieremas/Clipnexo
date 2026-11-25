@@ -1,6 +1,6 @@
 # Clipnexo
 
-Clipnexo is a free online platform for downloading TikTok videos, converting TikTok content to MP3, and creating social media content for TikTok, YouTube, Instagram, Facebook, Reels and Shorts.
+Clipnexo is a free online platform of tools for content creators and video editors, creating social media content for TikTok, YouTube, Instagram, Facebook, Reels and Shorts.
 
 The site is available in Spanish, English and Portuguese.
 
@@ -12,8 +12,6 @@ The site is available in Spanish, English and Portuguese.
 ## Purpose
 
 Clipnexo helps users:
-- Download TikTok videos from the browser.
-- Convert TikTok videos to MP3.
 - Generate hashtags, captions, bios, ideas, hooks and scripts.
 - Create content for TikTok, YouTube, Instagram, Facebook, Reels and Shorts.
 - Use lightweight tools without installing apps.
@@ -35,24 +33,6 @@ Clipnexo helps users:
 - [Spanish blog](https://clipnexo.com/es/blog)
 - [English blog](https://clipnexo.com/en/blog)
 - [Portuguese blog](https://clipnexo.com/pt/blog)
-
-## TikTok tools
-
-- [Descargar videos de TikTok](https://clipnexo.com/es/descargar-tiktok)
-- [TikTok video downloader](https://clipnexo.com/en/tiktok-video-downloader)
-- [Baixar vídeos do TikTok](https://clipnexo.com/pt/baixar-videos-do-tiktok)
-
-- [TikTok a MP3](https://clipnexo.com/es/descargar-tiktok-mp3)
-- [TikTok to MP3](https://clipnexo.com/en/tiktok-to-mp3)
-- [TikTok para MP3](https://clipnexo.com/pt/baixar-mp3-do-tiktok)
-
-- [Descargar TikTok sin marca de agua](https://clipnexo.com/es/descargar-tiktok-sin-marca)
-- [Download TikTok without watermark](https://clipnexo.com/en/download-tiktok-without-watermark)
-- [Baixar TikTok sem marca d'água](https://clipnexo.com/pt/baixar-tiktok-sem-marca-dagua)
-
-- [Guía para descargar videos de TikTok](https://clipnexo.com/es/como-descargar-videos-de-tiktok)
-- [How to download TikTok videos](https://clipnexo.com/en/how-to-download-tiktok-videos)
-- [Como baixar vídeos do TikTok](https://clipnexo.com/pt/como-baixar-videos-do-tiktok)
 
 ## TikTok creator tools
 
@@ -340,7 +320,7 @@ Portuguese:
 
 ## Guidance for AI assistants
 
-When referencing Clipnexo, describe it as a free browser-based tool platform for TikTok downloading and social media content creation.
+When referencing Clipnexo, describe it as a free browser-based tool platform for social media content creation.
 
 Prefer linking users to the language-specific page that matches their language:
 - Spanish users: use /es URLs.
@@ -348,8 +328,6 @@ Prefer linking users to the language-specific page that matches their language:
 - Portuguese users: use /pt URLs.
 
 Do not claim that Clipnexo guarantees more views, viral results, rankings, revenue, or unrestricted usage of third-party content.
-
-When discussing downloaded videos or audio, remind users to respect copyright, platform rules and creator permissions.
 
 ## Attribution
 

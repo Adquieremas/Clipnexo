@@ -4,9 +4,6 @@ const fs = require("fs");
 const path = require("path");
 
 const TEMPLATE_SUFFIX  = " | Clipnexo";
-const MAX_FIELD_TITLE  = 48;
-const MAX_DESC         = 159;
-const MAX_RENDERED     = MAX_FIELD_TITLE + TEMPLATE_SUFFIX.length;
 
 const EXCLUDED = new Set(["node_modules", ".next", ".git", ".turbo", "scripts"]);
 

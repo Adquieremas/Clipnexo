@@ -106,9 +106,8 @@ function RelatedToolsSection({ post, lang }: { post: BlogPost; lang: string }) {
   if (!post.relatedToolRouteKeys?.length) return null;
 
   const toolLabels: Record<string, Record<string, string>> = {
-    video: { es: "Descargar TikTok", en: "Download TikTok", pt: "Baixar TikTok" },
-    mp3: { es: "TikTok a MP3", en: "TikTok to MP3", pt: "TikTok para MP3" },
-    withoutWatermark: { es: "Sin marca de agua", en: "Without watermark", pt: "Sem marca d'água" },
+    tiktokTools: { es: "Herramientas de TikTok", en: "TikTok tools", pt: "Ferramentas de TikTok" },
+    tools: { es: "Todas las herramientas", en: "All tools", pt: "Todas as ferramentas" },
     tiktokHashtags: { es: "Generador de hashtags", en: "Hashtag generator", pt: "Gerador de hashtags" },
     tiktokCaptions: { es: "Generador de captions", en: "Caption generator", pt: "Gerador de legendas" },
     tiktokHooks: { es: "Ganchos virales", en: "Hook generator", pt: "Ganchos virais" },

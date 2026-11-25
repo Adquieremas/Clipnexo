@@ -2,10 +2,6 @@ export type SupportedLang = "es" | "en" | "pt";
 
 export type RouteKey =
   | "home"
-  | "video"
-  | "mp3"
-  | "guide"
-  | "withoutWatermark"
   | "tiktokBio"
   | "tiktokIdeas"
   | "tiktokHooks"
@@ -80,26 +76,6 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     es: "/es",
     en: "/en",
     pt: "/pt",
-  },
-  video: {
-    es: "/es/descargar-tiktok",
-    en: "/en/tiktok-video-downloader",
-    pt: "/pt/baixar-videos-do-tiktok",
-  },
-  mp3: {
-    es: "/es/descargar-tiktok-mp3",
-    en: "/en/tiktok-to-mp3",
-    pt: "/pt/baixar-mp3-do-tiktok",
-  },
-  guide: {
-    es: "/es/como-descargar-videos-de-tiktok",
-    en: "/en/how-to-download-tiktok-videos",
-    pt: "/pt/como-baixar-videos-do-tiktok",
-  },
-  withoutWatermark: {
-    es: "/es/descargar-tiktok-sin-marca",
-    en: "/en/download-tiktok-without-watermark",
-    pt: "/pt/baixar-tiktok-sem-marca-dagua",
   },
   tiktokBio: {
     es: "/es/generador-bio-tiktok",
@@ -427,10 +403,6 @@ export const seoRoutes = localizedRoutes;
 
 export const indexableRouteKeys: readonly RouteKey[] = [
   "home",
-  "video",
-  "mp3",
-  "guide",
-  "withoutWatermark",
   "tiktokBio",
   "tiktokIdeas",
   "tiktokHooks",

@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { metadataBase } from "@/lib/seo";
 import { Inter } from "next/font/google";
-import WebMCP from "@/components/WebMCP";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
     default: "Clipnexo",
     template: "%s | Clipnexo",
   },
-  description: "Descarga videos de TikTok sin marca de agua con Clipnexo de forma gratuita. Nuestra herramienta online es rápida, segura y fácil de usar para todos hoy mismo.",
+  description: "Clipnexo ofrece herramientas gratuitas para creadores de contenido: hashtags, captions, guiones y títulos para TikTok, YouTube, Instagram y Facebook.",
   applicationName: "Clipnexo",
   manifest: "/manifest.webmanifest",
 };
@@ -35,7 +34,6 @@ export default function RootLayout({
     <html lang="es" className={inter.variable} suppressHydrationWarning>
       <body>
         {children}
-        <WebMCP />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-JQRSPZY9RT"
           strategy="lazyOnload"

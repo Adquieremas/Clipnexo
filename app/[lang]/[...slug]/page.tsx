@@ -1,5 +1,4 @@
-import { redirect } from "next/navigation";
-import { normalizeLang } from "@/lib/routes";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -9,8 +8,6 @@ type Props = {
 };
 
 export default async function UnknownLangPage({ params }: Props) {
-  const { lang } = await params;
-  const currentLang = normalizeLang(lang);
-
-  redirect(`/${currentLang}?invalid=1`);
+  await params;
+  notFound();
 }
