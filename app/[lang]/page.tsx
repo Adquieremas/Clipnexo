@@ -3,6 +3,31 @@ import Link from "next/link";
 import { normalizeLang, getLocalizedRoute, type RouteKey } from "@/lib/routes";
 import { buildSeoMetadata } from "@/lib/seo";
 import { blogPosts, type BlogPost } from "@/lib/blog-content";
+import { getCategoryName, getPopularSounds, getSoundAudioUrl, listCategories } from "@/lib/sounds-db";
+import { SoundPlayerProvider } from "@/components/sounds/SoundPlayerProvider";
+import SoundCard from "@/components/sounds/SoundCard";
+
+// Revalidate periodically so newly uploaded sounds appear in the spotlight
+// without requiring a redeploy.
+export const revalidate = 300;
+
+const soundsSpotlightContent: Record<string, { title: string; desc: string; cta: string }> = {
+  es: {
+    title: "Biblioteca de sonidos para tus videos",
+    desc: "Efectos de sonido, memes de audio y música lista para descargar y usar en TikTok, Reels y Shorts.",
+    cta: "Explorar biblioteca de sonidos",
+  },
+  en: {
+    title: "Sound library for your videos",
+    desc: "Sound effects, meme audio and music ready to download and use in TikTok, Reels and Shorts.",
+    cta: "Explore the sound library",
+  },
+  pt: {
+    title: "Biblioteca de sons para seus vídeos",
+    desc: "Efeitos sonoros, áudios de memes e música prontos para baixar e usar no TikTok, Reels e Shorts.",
+    cta: "Explorar biblioteca de sons",
+  },
+};
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -530,6 +555,16 @@ export default async function Home({ params }: Props) {
   const toolsUrl = getToolRoute("tools", currentLang);
   const blogUrl = `/${currentLang}/blog`;
   const tiktokToolsUrl = getToolRoute("tiktokTools", currentLang);
+  const soundsUrl = getToolRoute("soundsLibrary", currentLang);
+  const soundsSpotlight = soundsSpotlightContent[currentLang] || soundsSpotlightContent.es;
+
+  let popularSounds: Awaited<ReturnType<typeof getPopularSounds>> = [];
+  let soundCategories: Awaited<ReturnType<typeof listCategories>> = [];
+  try {
+    [popularSounds, soundCategories] = await Promise.all([getPopularSounds(6), listCategories()]);
+  } catch {
+    // SOUNDS_DB not provisioned yet (e.g. during initial local dev) — hide the spotlight gracefully.
+  }
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -565,6 +600,45 @@ export default async function Home({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* SOUNDS SPOTLIGHT */}
+      {popularSounds.length > 0 && (
+        <SoundPlayerProvider>
+          <section className="home-section">
+            <div className="home-section-header">
+              <h2>{soundsSpotlight.title}</h2>
+              <p>{soundsSpotlight.desc}</p>
+            </div>
+            <div className="sounds-grid">
+              {popularSounds.map((sound) => {
+                const category = soundCategories.find((c) => c.id === sound.category_id);
+                return (
+                  <SoundCard
+                    key={sound.id}
+                    sound={{
+                      id: sound.id,
+                      title: sound.title,
+                      categoryId: sound.category_id,
+                      categoryLabel: category ? getCategoryName(category, currentLang) : sound.category_id,
+                      audioUrl: getSoundAudioUrl(sound.r2_key),
+                      durationMs: sound.duration_ms,
+                      playCount: sound.play_count,
+                    }}
+                    lang={currentLang}
+                    pageUrl={`${soundsUrl}/${sound.category_id}/${sound.id}`}
+                    titleHref={`${soundsUrl}/${sound.category_id}/${sound.id}`}
+                  />
+                );
+              })}
+            </div>
+            <div className="home-cta-actions" style={{ marginTop: 24 }}>
+              <Link href={soundsUrl} className="home-hero-cta-primary">
+                {soundsSpotlight.cta}
+              </Link>
+            </div>
+          </section>
+        </SoundPlayerProvider>
+      )}
 
       {/* POPULAR TOOLS */}
       <section className="home-section home-popular-section">

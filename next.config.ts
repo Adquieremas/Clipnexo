@@ -55,6 +55,18 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // Sound embeds must be frameable from any third-party site.
+        // CSP's frame-ancestors takes precedence over X-Frame-Options in
+        // every modern browser, so this safely relaxes just this route.
+        source: "/embed/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors *;",
+          },
+        ],
+      },
     ];
   },
 };

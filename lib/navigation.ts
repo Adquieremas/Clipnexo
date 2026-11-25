@@ -25,6 +25,7 @@ type NavMegaMenu = {
 export type NavLangContent = {
   tools: NavMegaMenu;
   resources: NavDropdown;
+  sounds: string;
   blog: string;
   cta: string;
   language: string;
@@ -101,6 +102,7 @@ export const navigation: Record<string, NavLangContent> = {
         { label: "Guías para creadores", routeKey: "blog" },
       ],
     },
+    sounds: "Sonidos",
     blog: "Blog",
     cta: "Ver herramientas",
     language: "Idioma",
@@ -189,6 +191,7 @@ export const navigation: Record<string, NavLangContent> = {
         { label: "Creator guides", routeKey: "blog" },
       ],
     },
+    sounds: "Sounds",
     blog: "Blog",
     cta: "View tools",
     language: "Language",
@@ -277,6 +280,7 @@ export const navigation: Record<string, NavLangContent> = {
         { label: "Guias para criadores", routeKey: "blog" },
       ],
     },
+    sounds: "Sons",
     blog: "Blog",
     cta: "Ver ferramentas",
     language: "Idioma",

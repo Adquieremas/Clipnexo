@@ -10,6 +10,9 @@
     "seo:check": "node scripts/seo-check.js",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "indexnow:blog": "node scripts/submit-indexnow.mjs --blog",
+    "sounds:upload": "node --env-file=.env.local scripts/upload-sounds.mjs",
+    "sounds:upload:dry": "node --env-file=.env.local scripts/upload-sounds.mjs --dry-run",
+    "sounds:upload:remote": "node --env-file=.env.local scripts/upload-sounds.mjs --remote",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf-build": "opennextjs-cloudflare build",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
@@ -24,6 +27,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1176.0",
     "@opennextjs/cloudflare": "^1.20.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -31,6 +35,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "music-metadata": "^12.8.1",
     "playwright": "^1.61.1",
     "tailwindcss": "^4",
     "typescript": "^5",

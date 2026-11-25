@@ -147,6 +147,7 @@ export default function Navbar({ lang }: NavbarProps) {
 
   const toolsHref = getLocalizedRoute("tools", currentLang);
   const blogHref = `/${currentLang}/blog`;
+  const soundsHref = getLocalizedRoute("soundsLibrary", currentLang);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -501,6 +502,10 @@ export default function Navbar({ lang }: NavbarProps) {
             </div>
           </div>
 
+          <Link href={soundsHref} className="nav-link nav-link-highlight">
+            {nav.sounds}
+          </Link>
+
           <Link href={blogHref} className="nav-link">
             {nav.blog}
           </Link>
@@ -735,6 +740,10 @@ export default function Navbar({ lang }: NavbarProps) {
                 </div>
               )}
             </div>
+
+            <Link href={soundsHref} className="mobile-direct-link mobile-direct-link-highlight" onClick={closeMobile}>
+              {nav.sounds}
+            </Link>
 
             <Link href={blogHref} className="mobile-direct-link" onClick={closeMobile}>
               {nav.blog}

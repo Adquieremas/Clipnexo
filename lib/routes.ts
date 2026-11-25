@@ -15,6 +15,7 @@ export type RouteKey =
   | "terms"
   | "dmca"
   | "tools"
+  | "soundsLibrary"
   | "socialMediaTextGenerator"
   | "youtubeTagGenerator"
   | "youtubeTagExtractor"
@@ -141,6 +142,11 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     es: "/es/herramientas",
     en: "/en/tools",
     pt: "/pt/ferramentas",
+  },
+  soundsLibrary: {
+    es: "/es/sonidos",
+    en: "/en/sounds",
+    pt: "/pt/sons",
   },
   socialMediaTextGenerator: {
     es: "/es/crear-textos-redes-sociales",
@@ -410,6 +416,7 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "tiktokHashtags",
   "shortVideoTitleHashtag",
   "tools",
+  "soundsLibrary",
   "socialMediaTextGenerator",
   "youtubeTagGenerator",
   "youtubeTagExtractor",

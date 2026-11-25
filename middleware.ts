@@ -16,6 +16,7 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   tiktokHashtags: "/generador-hashtags-tiktok",
   shortVideoTitleHashtag: "/generador-titulos-hashtags-videos-cortos",
   tools: "/herramientas",
+  soundsLibrary: "/sonidos",
   socialMediaTextGenerator: "/crear-textos-redes-sociales",
   youtubeTagGenerator: "/generador-etiquetas-youtube",
   youtubeTagExtractor: "/extractor-etiquetas-youtube",
@@ -196,6 +197,7 @@ export function middleware(request: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/embed") ||
     pathname.startsWith("/.well-known") ||
     pathname === "/auth.md" ||
     PUBLIC_FILE.test(pathname)
@@ -276,6 +278,38 @@ export function middleware(request: NextRequest) {
       response.headers.set("x-lang", lang);
       return response;
     }
+  }
+
+  // Per-language sound detail pages (/es/sonidos/[slug], /en/sounds/[slug],
+  // /pt/sons/[slug]) share one internal folder (app/[lang]/sonidos/[slug]).
+  // The generic routeKey rewrite above only matches the hub's own exact
+  // path, so handle the extra slug segment explicitly here.
+  const soundsCanonicalPrefix = getLocalizedRoute("soundsLibrary", lang);
+  const soundsInternalPrefix = buildInternalPath("soundsLibrary", lang);
+
+  if (soundsCanonicalPrefix && normalizedPathname.startsWith(`${soundsCanonicalPrefix}/`)) {
+    if (soundsInternalPrefix && soundsInternalPrefix !== soundsCanonicalPrefix) {
+      const rest = normalizedPathname.slice(soundsCanonicalPrefix.length);
+      const rewriteUrl = request.nextUrl.clone();
+      rewriteUrl.pathname = `${soundsInternalPrefix}${rest}`;
+
+      const requestHeaders = new Headers(request.headers);
+      requestHeaders.set("x-is-rewrite", "true");
+      requestHeaders.set("x-lang", lang);
+
+      const response = NextResponse.rewrite(rewriteUrl, {
+        request: { headers: requestHeaders },
+      });
+      response.headers.set("x-lang", lang);
+      return response;
+    }
+  } else if (
+    soundsInternalPrefix &&
+    soundsInternalPrefix !== soundsCanonicalPrefix &&
+    normalizedPathname.startsWith(`${soundsInternalPrefix}/`)
+  ) {
+    const rest = normalizedPathname.slice(soundsInternalPrefix.length);
+    return buildRedirectResponse(request, `${soundsCanonicalPrefix}${rest}`);
   }
 
   const finalRequestHeaders = new Headers(request.headers);

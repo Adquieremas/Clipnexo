@@ -15,6 +15,10 @@ type BuildSeoMetadataOptions = {
   robots?: Metadata["robots"];
   openGraph?: Metadata["openGraph"];
   twitter?: Metadata["twitter"];
+  /** Override the canonical path when the page isn't the routeKey's own base path (e.g. a dynamic slug page). */
+  canonicalPath?: string;
+  /** Override the hreflang alternate paths, keyed by language, when they differ from the routeKey's base path. */
+  languagePaths?: { es: string; en: string; pt: string };
 };
 
 export const metadataBase = new URL(SITE_URL);
@@ -52,10 +56,20 @@ export function buildSeoMetadata({
   },
   openGraph,
   twitter,
+  canonicalPath,
+  languagePaths,
 }: BuildSeoMetadataOptions): Metadata {
   const currentLang = normalizeLang(lang);
-  const canonicalUrl = getAbsoluteUrl(getLocalizedRoute(routeKey, currentLang));
+  const canonicalUrl = getAbsoluteUrl(canonicalPath ?? getLocalizedRoute(routeKey, currentLang));
   const locale = currentLang === "es" ? "es_ES" : currentLang === "pt" ? "pt_BR" : "en_US";
+  const languages = languagePaths
+    ? {
+        es: getAbsoluteUrl(languagePaths.es),
+        en: getAbsoluteUrl(languagePaths.en),
+        pt: getAbsoluteUrl(languagePaths.pt),
+        "x-default": getAbsoluteUrl(languagePaths.es),
+      }
+    : getSeoLanguages(routeKey);
 
   return {
     metadataBase,
@@ -64,7 +78,7 @@ export function buildSeoMetadata({
     robots,
     alternates: {
       canonical: canonicalUrl,
-      languages: getSeoLanguages(routeKey),
+      languages,
     },
     openGraph: {
       title,

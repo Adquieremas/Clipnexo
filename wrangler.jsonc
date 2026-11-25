@@ -7,6 +7,9 @@
 		"nodejs_compat",
 		"global_fetch_strictly_public"
 	],
+	"vars": {
+		"NEXT_PUBLIC_MEDIA_URL": "https://media.clipnexo.com"
+	},
 	"assets": {
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
@@ -17,6 +20,14 @@
 			// see https://opennext.js.org/cloudflare/caching
 			"binding": "WORKER_SELF_REFERENCE",
 			"service": "clipnexo"
+		}
+	],
+	"d1_databases": [
+		{
+			// Sound library metadata (categories, sounds, stats).
+			"binding": "SOUNDS_DB",
+			"database_name": "clipnexo-sounds",
+			"database_id": "086a5923-a4ad-483d-8ad9-669e3175ef2e"
 		}
 	],
 	"r2_buckets": [
