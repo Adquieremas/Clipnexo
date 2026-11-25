@@ -7,6 +7,22 @@
 		"nodejs_compat",
 		"global_fetch_strictly_public"
 	],
+	"observability": {
+		"logs": {
+			"enabled": true,
+			"head_sampling_rate": 1,
+			"invocation_logs": true,
+			"persist": true
+		},
+		"traces": {
+			"enabled": false,
+			"head_sampling_rate": 1,
+			"persist": true
+		},
+		"issues": {
+			"enabled": false
+		}
+	},
 	"vars": {
 		"NEXT_PUBLIC_MEDIA_URL": "https://media.clipnexo.com"
 	},
