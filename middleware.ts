@@ -19,6 +19,8 @@ const INTERNAL_ROUTE_SEGMENTS: Partial<Record<RouteKey, string>> = {
   soundsLibrary: "/sonidos",
   emojiLibrary: "/emojis-gratis",
   memesLibrary: "/memes-gratis",
+  stickersLibrary: "/stickers-whatsapp",
+  soundStickerGenerator: "/generador-stickers-sonido-whatsapp",
   socialMediaTextGenerator: "/crear-textos-redes-sociales",
   youtubeTagGenerator: "/generador-etiquetas-youtube",
   youtubeTagExtractor: "/extractor-etiquetas-youtube",

@@ -80,6 +80,7 @@ export const navigation: Record<string, NavLangContent> = {
             { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },
             { label: "Guiones para videos cortos", routeKey: "shortVideoScriptGenerator" },
             { label: "Títulos y hashtags", routeKey: "shortVideoTitleHashtag" },
+            { label: "Stickers con sonido para WhatsApp", routeKey: "soundStickerGenerator" },
           ],
         },
         {
@@ -99,6 +100,7 @@ export const navigation: Record<string, NavLangContent> = {
       label: "Recursos",
       links: [
         { label: "Memes gratis", routeKey: "memesLibrary" },
+        { label: "Stickers para WhatsApp", routeKey: "stickersLibrary" },
         { label: "Emojis gratis", routeKey: "emojiLibrary" },
         { label: "Herramientas populares", routeKey: "tools" },
         { label: "Guías para creadores", routeKey: "blog" },
@@ -170,6 +172,7 @@ export const navigation: Record<string, NavLangContent> = {
             { label: "Character counter", routeKey: "socialMediaCharacterCounter" },
             { label: "Short video scripts", routeKey: "shortVideoScriptGenerator" },
             { label: "Title & hashtag generator", routeKey: "shortVideoTitleHashtag" },
+            { label: "WhatsApp sound sticker generator", routeKey: "soundStickerGenerator" },
           ],
         },
         {
@@ -189,6 +192,7 @@ export const navigation: Record<string, NavLangContent> = {
       label: "Resources",
       links: [
         { label: "Free memes", routeKey: "memesLibrary" },
+        { label: "WhatsApp stickers", routeKey: "stickersLibrary" },
         { label: "Free emojis", routeKey: "emojiLibrary" },
         { label: "Popular tools", routeKey: "tools" },
         { label: "Creator guides", routeKey: "blog" },
@@ -260,6 +264,7 @@ export const navigation: Record<string, NavLangContent> = {
             { label: "Contador de caracteres", routeKey: "socialMediaCharacterCounter" },
             { label: "Roteiros para vídeos curtos", routeKey: "shortVideoScriptGenerator" },
             { label: "Títulos e hashtags", routeKey: "shortVideoTitleHashtag" },
+            { label: "Gerador de figurinhas com som", routeKey: "soundStickerGenerator" },
           ],
         },
         {
@@ -279,6 +284,7 @@ export const navigation: Record<string, NavLangContent> = {
       label: "Recursos",
       links: [
         { label: "Memes grátis", routeKey: "memesLibrary" },
+        { label: "Figurinhas para WhatsApp", routeKey: "stickersLibrary" },
         { label: "Emojis grátis", routeKey: "emojiLibrary" },
         { label: "Ferramentas populares", routeKey: "tools" },
         { label: "Guias para criadores", routeKey: "blog" },

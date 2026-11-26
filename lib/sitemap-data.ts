@@ -10,6 +10,7 @@ import { getAbsoluteUrl, getSeoLanguages } from "@/lib/seo";
 import { blogPosts } from "@/lib/blog-content";
 import { listSounds, SoundsDbNotConfiguredError } from "@/lib/sounds-db";
 import { MEMES } from "@/lib/memes-data";
+import { STICKERS } from "@/lib/stickers-data";
 
 const defaultLastModified = new Date("2026-06-02T00:00:00.000Z");
 
@@ -205,6 +206,7 @@ export function getSitemapIndexXml(): string {
     `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-blog.xml"))}</loc></sitemap>`,
     `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-sounds.xml"))}</loc></sitemap>`,
     `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-memes.xml"))}</loc></sitemap>`,
+    `  <sitemap><loc>${escapeXml(getAbsoluteUrl("/sitemap-stickers.xml"))}</loc></sitemap>`,
     "</sitemapindex>",
     "",
   ].join("\n");
@@ -261,4 +263,38 @@ function getMemesRoutes(): MetadataRoute.Sitemap {
 
 export function getMemesSitemapXml(): string {
   return serializeUrlSet(getMemesRoutes());
+}
+
+function getStickersRoutes(): MetadataRoute.Sitemap {
+  return STICKERS
+    .flatMap((sticker) =>
+      (supportedLangs as SupportedLang[]).map((lang) => {
+        const alternates: Record<string, string> = {};
+        for (const currentLang of supportedLangs as SupportedLang[]) {
+          alternates[currentLang] = getAbsoluteUrl(
+            `${seoRoutes.stickersLibrary[currentLang]}/${sticker.id}`
+          );
+        }
+        alternates["x-default"] = getAbsoluteUrl(`${seoRoutes.stickersLibrary.es}/${sticker.id}`);
+
+        return {
+          url: getAbsoluteUrl(`${seoRoutes.stickersLibrary[lang]}/${sticker.id}`),
+          lastModified: defaultLastModified,
+          changeFrequency: "monthly" as const,
+          priority: 0.6,
+          alternates: { languages: alternates },
+        };
+      })
+    )
+    .sort((a, b) => {
+      const languageDifference = getLanguageOrder(a.url) - getLanguageOrder(b.url);
+      if (languageDifference !== 0) {
+        return languageDifference;
+      }
+      return a.url < b.url ? -1 : a.url > b.url ? 1 : 0;
+    });
+}
+
+export function getStickersSitemapXml(): string {
+  return serializeUrlSet(getStickersRoutes());
 }

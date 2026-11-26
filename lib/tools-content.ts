@@ -57,7 +57,8 @@ export type ToolKey =
   | "gradeAverageCalculator"
   | "studyScheduleGenerator"
   | "usernameGenerator"
-  | "contentCalendarGenerator";
+  | "contentCalendarGenerator"
+  | "soundStickerGenerator";
 
 export type ToolPageContent = {
   metaTitle: string;
@@ -140,6 +141,7 @@ export const toolKeys = [
   "studyScheduleGenerator",
   "usernameGenerator",
   "contentCalendarGenerator",
+  "soundStickerGenerator",
 ] as const satisfies readonly ToolKey[];
 
 const ogLocales: Record<SupportedLang, string> = {
@@ -962,6 +964,9 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
     { routeKey: "introductionGenerator", label: "Generador de introducciones" },
     { routeKey: "conclusionGenerator", label: "Generador de conclusiones" },
     { routeKey: "studentsTools", label: "Herramientas para estudiantes" },
+    { routeKey: "soundsLibrary", label: "Biblioteca de sonidos" },
+    { routeKey: "memesLibrary", label: "Memes gratis" },
+    { routeKey: "soundStickerGenerator", label: "Generador de stickers con sonido" },
   ],
   en: [
     { routeKey: "tiktokHashtags", label: "TikTok Hashtag Generator" },
@@ -980,6 +985,9 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
     { routeKey: "introductionGenerator", label: "Introduction Generator" },
     { routeKey: "conclusionGenerator", label: "Conclusion Generator" },
     { routeKey: "studentsTools", label: "Student Tools" },
+    { routeKey: "soundsLibrary", label: "Sound Library" },
+    { routeKey: "memesLibrary", label: "Free Memes" },
+    { routeKey: "soundStickerGenerator", label: "Sound Sticker Generator" },
   ],
   pt: [
     { routeKey: "tiktokHashtags", label: "Gerador de hashtags para TikTok" },
@@ -998,6 +1006,9 @@ const primaryLinks: Record<SupportedLang, Array<{ routeKey: RouteKey; label: str
     { routeKey: "introductionGenerator", label: "Gerador de introduções" },
     { routeKey: "conclusionGenerator", label: "Gerador de conclusões" },
     { routeKey: "studentsTools", label: "Ferramentas para estudantes" },
+    { routeKey: "soundsLibrary", label: "Biblioteca de sons" },
+    { routeKey: "memesLibrary", label: "Memes grátis" },
+    { routeKey: "soundStickerGenerator", label: "Gerador de figurinhas com som" },
   ],
 };
 

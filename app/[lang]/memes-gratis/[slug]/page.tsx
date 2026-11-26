@@ -6,6 +6,7 @@ import { getMemeCategoryLabel } from "@/lib/memes-categories";
 import { getAbsoluteUrl } from "@/lib/seo";
 import { createMediaSeoTitle, fitSeoDescription } from "@/lib/media-seo";
 import { getLocalizedRoute, normalizeLang, supportedLangs, type SupportedLang } from "@/lib/routes";
+import { WHATSAPP_CHANNEL_URL } from "@/lib/site";
 
 type PageProps = { params: Promise<{ lang: string; slug: string }> };
 
@@ -20,6 +21,9 @@ const UI = {
     allMemes: "Ver todos los memes",
     duration: "Duración",
     size: "Tamaño",
+    whatsappShare: "Compartir en WhatsApp",
+    whatsappChannel: "Síguenos en nuestro canal de WhatsApp",
+    whatsappShareText: (title: string, url: string) => `Mira este meme: "${title}" ${url}`,
   },
   en: {
     breadcrumbHome: "Home",
@@ -31,6 +35,9 @@ const UI = {
     allMemes: "View all memes",
     duration: "Duration",
     size: "Size",
+    whatsappShare: "Share on WhatsApp",
+    whatsappChannel: "Follow our WhatsApp channel",
+    whatsappShareText: (title: string, url: string) => `Check out this meme: "${title}" ${url}`,
   },
   pt: {
     breadcrumbHome: "Início",
@@ -42,6 +49,9 @@ const UI = {
     allMemes: "Ver todos os memes",
     duration: "Duração",
     size: "Tamanho",
+    whatsappShare: "Compartilhar no WhatsApp",
+    whatsappChannel: "Siga nosso canal do WhatsApp",
+    whatsappShareText: (title: string, url: string) => `Veja esse meme: "${title}" ${url}`,
   },
 } as const;
 
@@ -187,7 +197,36 @@ export default async function MemeDetailPage({ params }: PageProps) {
             >
               {t.allMemes}
             </Link>
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(t.whatsappShareText(meme.title, canonical))}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+                padding: "12px 18px", borderRadius: 10, border: "1px solid var(--border)",
+                background: "var(--surface-raised)", color: "#25D366",
+                fontWeight: 600, textDecoration: "none", fontSize: 14,
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.26 4.9L2 22l5.25-1.38a9.96 9.96 0 0 0 4.79 1.22h.01c5.52 0 10-4.48 10-10s-4.48-9.84-10.01-9.84Zm0 18.03h-.01c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.02 8.02 0 0 1-1.23-4.28c0-4.42 3.6-8.02 8.03-8.02 2.14 0 4.15.84 5.67 2.35a7.96 7.96 0 0 1 2.34 5.68c0 4.42-3.6 8.14-8.03 8.14Zm4.4-6.02c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28Z" />
+              </svg>
+              {t.whatsappShare}
+            </a>
           </div>
+          <a
+            href={WHATSAPP_CHANNEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8, marginTop: 14,
+              padding: "8px 14px", borderRadius: 999, border: "1px solid var(--border)",
+              background: "var(--surface-raised)", color: "#25D366", fontSize: 13, fontWeight: 700,
+              textDecoration: "none",
+            }}
+          >
+            {t.whatsappChannel}
+          </a>
         </div>
 
         <div

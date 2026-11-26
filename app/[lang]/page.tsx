@@ -23,8 +23,6 @@ type Props = {
 };
 
 type PageContent = {
-  metaTitle: string;
-  metaDescription: string;
   h1: string;
   subtitle: string;
   heroCtaPrimary: string;
@@ -41,15 +39,15 @@ type PageContent = {
 };
 
 const titles: Record<string, string> = {
-  es: "Clipnexo: herramientas gratuitas para creadores de contenido",
-  en: "Clipnexo: free tools for content creators",
-  pt: "Clipnexo: ferramentas gratuitas para criadores de conteúdo",
+  es: "Herramientas y sonidos gratis para creadores | Clipnexo",
+  en: "Free tools and sounds for content creators | Clipnexo",
+  pt: "Ferramentas e sons grátis para criadores | Clipnexo",
 };
 
 const descriptions: Record<string, string> = {
-  es: "Usa Clipnexo para crear hashtags, captions, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
-  en: "Use Clipnexo to create hashtags, captions, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook, right from your browser.",
-  pt: "Use o Clipnexo para criar hashtags, legendas, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
+  es: "Usa Clipnexo para crear hashtags, captions, guiones y textos para TikTok, YouTube e Instagram, además de sonidos, memes y stickers gratis para tus videos hoy.",
+  en: "Use Clipnexo to create hashtags, captions, scripts and texts for TikTok, YouTube and Instagram, plus free sounds, memes and stickers for your videos today.",
+  pt: "Use o Clipnexo para criar hashtags, legendas, roteiros e textos para TikTok, YouTube e Instagram, além de sons, memes e figurinhas grátis para vídeos hoje.",
 };
 
 function getToolRoute(key: Parameters<typeof getLocalizedRoute>[0], lang: string): string {
@@ -58,9 +56,6 @@ function getToolRoute(key: Parameters<typeof getLocalizedRoute>[0], lang: string
 
 const pageContent: Record<string, PageContent> = {
   es: {
-    metaTitle: "Clipnexo: herramientas gratuitas para creadores",
-    metaDescription:
-      "Usa Clipnexo para crear hashtags, captions, guiones, títulos y textos para TikTok, YouTube, Instagram y Facebook, directo desde tu navegador.",
     h1: "Herramientas y sonidos gratis para creadores",
     subtitle: "Hashtags, captions, guiones y una biblioteca de sonidos lista para usar.",
     heroCtaPrimary: "Ver herramientas",
@@ -76,9 +71,6 @@ const pageContent: Record<string, PageContent> = {
     emojisCount: `${EMOJIS.length} emojis para descargar`,
   },
   en: {
-    metaTitle: "Clipnexo: free tools for creators",
-    metaDescription:
-      "Use Clipnexo to create hashtags, captions, scripts, titles and texts for TikTok, YouTube, Instagram and Facebook, right from your browser.",
     h1: "Free tools and sounds for creators",
     subtitle: "Hashtags, captions, scripts and a ready-to-use sound library.",
     heroCtaPrimary: "View tools",
@@ -94,9 +86,6 @@ const pageContent: Record<string, PageContent> = {
     emojisCount: `${EMOJIS.length} emojis to download`,
   },
   pt: {
-    metaTitle: "Clipnexo: ferramentas gratuitas para criadores",
-    metaDescription:
-      "Use o Clipnexo para criar hashtags, legendas, roteiros, títulos e textos para TikTok, YouTube, Instagram e Facebook, direto do navegador.",
     h1: "Ferramentas e sons gratuitos para criadores",
     subtitle: "Hashtags, legendas, roteiros e uma biblioteca de sons pronta para usar.",
     heroCtaPrimary: "Ver ferramentas",
@@ -116,13 +105,16 @@ const pageContent: Record<string, PageContent> = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const currentLang = normalizeLang(lang);
+  const title = titles[currentLang as keyof typeof titles];
 
-  return buildSeoMetadata({
-    title: titles[currentLang as keyof typeof titles],
+  const metadata = buildSeoMetadata({
+    title,
     description: descriptions[currentLang as keyof typeof descriptions],
     routeKey: "home",
     lang: currentLang,
   });
+
+  return { ...metadata, title: { absolute: title } };
 }
 
 export default async function Home({ params }: Props) {

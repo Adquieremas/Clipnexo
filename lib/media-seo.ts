@@ -1,6 +1,6 @@
 import type { SupportedLang } from "@/lib/routes";
 
-type MediaKind = "sound" | "meme";
+type MediaKind = "sound" | "meme" | "sticker";
 
 const TITLE_PARTS: Record<MediaKind, Record<SupportedLang, { prefix: string; suffix: string; filler: string }>> = {
   sound: {
@@ -12,6 +12,11 @@ const TITLE_PARTS: Record<MediaKind, Record<SupportedLang, { prefix: string; suf
     es: { prefix: "Meme: ", suffix: " en video | Clipnexo", filler: "gratis para descargar" },
     en: { prefix: "Meme: ", suffix: " video | Clipnexo", filler: "free to download" },
     pt: { prefix: "Meme: ", suffix: " em vídeo | Clipnexo", filler: "grátis para baixar" },
+  },
+  sticker: {
+    es: { prefix: "Sticker: ", suffix: " para WhatsApp | Clipnexo", filler: "gratis para descargar" },
+    en: { prefix: "Sticker: ", suffix: " for WhatsApp | Clipnexo", filler: "free to download" },
+    pt: { prefix: "Figurinha: ", suffix: " para WhatsApp | Clipnexo", filler: "grátis para baixar" },
   },
 };
 

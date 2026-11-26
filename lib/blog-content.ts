@@ -710,9 +710,9 @@ export const blogPosts: BlogPost[] = [
     relatedToolRouteKeys: ["soundsLibrary", "memesLibrary", "emojiLibrary"],
     content: {
       es: {
-        title: "Nuevos recursos en Clipnexo: sonidos, memes y emojis gratis",
+        title: "Nuevos recursos: sonidos, memes y emojis",
         h1: "Nuevos recursos en Clipnexo: sonidos, memes y emojis gratis",
-        description: "Clipnexo suma tres bibliotecas gratuitas para creadores: sonidos para video, memes en video y emojis para descargar. Descubre cómo usarlas.",
+        description: "Clipnexo suma tres bibliotecas gratuitas: sonidos para video, memes en video y emojis para descargar. Descubre cómo usarlas y compartirlas en WhatsApp.",
         excerpt: "Clipnexo ahora incluye biblioteca de sonidos, memes en video y emojis gratis para descargar, además de sus generadores de texto.",
         sections: [
           { type: "p", text: "Además de los generadores de hashtags, captions y guiones, Clipnexo ahora incluye tres bibliotecas de recursos gratuitos pensadas para acelerar tu proceso de edición: sonidos, memes en video y emojis. Todo gratis, sin registro y listo para descargar." },
@@ -757,9 +757,9 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       en: {
-        title: "New resources on Clipnexo: free sounds, memes and emojis",
+        title: "New resources: sounds, memes and emojis",
         h1: "New resources on Clipnexo: free sounds, memes and emojis",
-        description: "Clipnexo adds three free libraries for creators: sound effects, video memes and downloadable emojis. Here's how to use them.",
+        description: "Clipnexo adds three free libraries for creators: sound effects, video memes and downloadable emojis. Discover how to use and share them on WhatsApp today.",
         excerpt: "Clipnexo now includes a sound library, video memes and free emojis to download, alongside its text generators.",
         sections: [
           { type: "p", text: "Beyond the hashtag, caption and script generators, Clipnexo now includes three free resource libraries built to speed up your editing workflow: sounds, video memes and emojis. All free, no sign-up required, ready to download." },
@@ -804,9 +804,9 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       pt: {
-        title: "Novos recursos no Clipnexo: sons, memes e emojis grátis",
+        title: "Novos recursos: sons, memes e emojis",
         h1: "Novos recursos no Clipnexo: sons, memes e emojis grátis",
-        description: "O Clipnexo adiciona três bibliotecas gratuitas para criadores: efeitos sonoros, memes em vídeo e emojis para baixar. Veja como usar.",
+        description: "O Clipnexo adiciona três bibliotecas gratuitas: efeitos sonoros, memes em vídeo e emojis para baixar. Veja como usar e compartilhar no WhatsApp.",
         excerpt: "O Clipnexo agora inclui biblioteca de sons, memes em vídeo e emojis grátis para baixar, além dos geradores de texto.",
         sections: [
           { type: "p", text: "Além dos geradores de hashtags, legendas e roteiros, o Clipnexo agora inclui três bibliotecas de recursos gratuitos pensadas para acelerar sua edição: sons, memes em vídeo e emojis. Tudo grátis, sem cadastro e pronto para baixar." },

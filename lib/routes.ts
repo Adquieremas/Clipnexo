@@ -18,6 +18,8 @@ export type RouteKey =
   | "soundsLibrary"
   | "emojiLibrary"
   | "memesLibrary"
+  | "stickersLibrary"
+  | "soundStickerGenerator"
   | "socialMediaTextGenerator"
   | "youtubeTagGenerator"
   | "youtubeTagExtractor"
@@ -159,6 +161,16 @@ export const localizedRoutes: Readonly<Record<RouteKey, Readonly<Record<Supporte
     es: "/es/memes-gratis",
     en: "/en/free-memes",
     pt: "/pt/memes-gratis",
+  },
+  stickersLibrary: {
+    es: "/es/stickers-whatsapp",
+    en: "/en/whatsapp-stickers",
+    pt: "/pt/figurinhas-whatsapp",
+  },
+  soundStickerGenerator: {
+    es: "/es/generador-stickers-sonido-whatsapp",
+    en: "/en/sound-sticker-generator-whatsapp",
+    pt: "/pt/gerador-figurinhas-som-whatsapp",
   },
   socialMediaTextGenerator: {
     es: "/es/crear-textos-redes-sociales",
@@ -431,6 +443,8 @@ export const indexableRouteKeys: readonly RouteKey[] = [
   "soundsLibrary",
   "emojiLibrary",
   "memesLibrary",
+  "stickersLibrary",
+  "soundStickerGenerator",
   "socialMediaTextGenerator",
   "youtubeTagGenerator",
   "youtubeTagExtractor",
