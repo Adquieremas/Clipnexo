@@ -73,18 +73,6 @@ export default function Footer({ lang }: Props) {
         </div>
       </div>
 
-      <div className="footer-cta-section">
-        <div className="footer-cta-card">
-          <p className="footer-cta-text">{content.ctaText}</p>
-          <Link href={getLocalizedRoute("tools", currentLang)} className="footer-cta-button">
-            {content.ctaButton}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 7H11M11 7L8 4M11 7L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
-        </div>
-      </div>
-
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
           <p className="footer-copy">{content.bottomLine}</p>

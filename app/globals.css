@@ -1948,7 +1948,7 @@ input::placeholder, textarea::placeholder {
 .home-page {
   max-width: 1150px;
   margin: 0 auto;
-  padding: clamp(30px, 5vw, 64px) 20px 80px;
+  padding: clamp(30px, 5vw, 64px) 20px 24px;
 }
 
 .home-hero {
@@ -2587,7 +2587,7 @@ input::placeholder, textarea::placeholder {
 .footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
-  margin-top: 56px;
+  margin-top: 24px;
 }
 
 .footer-inner {
