@@ -337,8 +337,8 @@ input::placeholder, textarea::placeholder {
 .nav-tool-option:hover,
 .nav-tool-option:focus-visible {
   color: var(--accent);
-  background: linear-gradient(110deg, rgba(245, 243, 255, 0.9), rgba(253, 242, 248, 0.58));
-  border-color: rgba(129, 102, 238, 0.13);
+  background: var(--accent-soft);
+  border-color: rgba(139, 92, 246, 0.25);
   transform: translateY(-1px);
   outline: none;
 }
@@ -558,7 +558,7 @@ input::placeholder, textarea::placeholder {
 .language-option:hover,
 .language-option:focus-visible {
   color: var(--accent);
-  background: linear-gradient(110deg, rgba(245, 243, 255, 0.96), rgba(253, 242, 248, 0.7));
+  background: var(--accent-soft);
 }
 
 .language-option-active {
@@ -727,6 +727,7 @@ input::placeholder, textarea::placeholder {
     border-radius: 16px;
     background: var(--surface);
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .mobile-accordion-btn {
@@ -828,10 +829,16 @@ input::placeholder, textarea::placeholder {
 
   .mobile-tool-option .nav-tool-option-name {
     font-size: 13px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
 
   .mobile-tool-option .nav-tool-option-desc {
     font-size: 11px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
 
   .mobile-tools-footer-link {
